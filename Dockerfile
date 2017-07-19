@@ -45,7 +45,7 @@ RUN cd /usr/local/src/ && \
     curl -LO http://nusmv.fbk.eu/distrib/NuSMV-${NUSMV_VERSION}-linux64.tar.gz && \
     tar -xvf NuSMV-${NUSMV_VERSION}-linux64.tar.gz && \
     rm NuSMV-${NUSMV_VERSION}-linux64.tar.gz && \
-    ln -s /usr/local/src/NuSMV-${NUSMV_VERSION}-Linux/bin/NuSMV /usr/bin/NuSMV
+    mv /usr/local/src/NuSMV-${NUSMV_VERSION}-Linux/bin/NuSMV /usr/bin/NuSMV
 
 ##
 ## NuSMV-ARCTL
@@ -79,4 +79,19 @@ RUN cd /usr/src \
     && curl -LO https://github.com/pauleve/pint/releases/download/${PINT_VERSION}/pint_${PINT_VERSION}_amd64.deb \
     && dpkg -i pint_${PINT_VERSION}_amd64.deb \
     && pip3 install -U pypint
+
+##
+## MaBoSS
+##
+ENV MABOSS_VERSION 2.0
+RUN cd /usr/src \
+    && curl -L https://maboss.curie.fr/pub/MaBoSS-env-${MABOSS_VERSION}.tgz | tar xz \
+    && cd MaBoSS-env-${MABOSS_VERSION}/engine/src && make install && cp ../pub/MaBoSS /usr/bin \
+    && make MAXNODES=1024 clean install \
+    && cp -v ../pub/MaBoSS_* /usr/bin/
+
+##
+## Cleanup
+##
+RUN rm -rf /usr/src/* /usr/local/src/*
 

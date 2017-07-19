@@ -1,15 +1,19 @@
 # colomoto-docker
 
-## Compile the docker image
-
-    $ docker build -t colomoto-docker .
-
 ## Run the docker image
 
-    $ docker run -it --rm -p 8888:8888 colomoto-docker
+Soon available:
+    $ docker pull colomoto/colomoto-docker
+
+    $ docker run -it --rm -p 8888:8888 colomoto/colomoto-docker
+
+## Compile the docker image
+
+    $ docker build -t colomoto/colomoto-docker .
 
 Then go to http://localhost:8888 for the jupyter notebook web interface.
 
 ## TODO
-[] multi-stage for Dockerfile splitting
+- [ ] create a docker colomoto namespace; push the image
+- [ ] multi-stage for Dockerfile splitting
 

@@ -44,7 +44,6 @@ rule all:
 	message: "\n##########\n# Final rule."
 	input:
 		expand("{outputDir}/{model}_stableStates.txt", outputDir=OUTDIR, model=ginsimModel),
-# 		"{outputDir}/{model}_stableStates.txt".format(outputDir=OUTDIR, model=ginsimModel),
 		"{outputDir}/NUSMV_report.txt".format(outputDir=OUTDIR)
 
 

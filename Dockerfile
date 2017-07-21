@@ -1,31 +1,32 @@
-FROM ubuntu:latest as builder
-WORKDIR /usr/local/src
-
-ENV COLOMOTO_DIST /opt/colomoto
-
-RUN mkdir -p ${COLOMOTO_DIST}/bin \
-    && apt-get update \
-    && apt-get install -y \
-            bison \
-            curl \
-            flex \
-            g++ \
-            gcc \
-            make
-
-### begin MaBoSS
-##
-ENV MABOSS_VERSION 2.0
-RUN curl -L https://maboss.curie.fr/pub/MaBoSS-env-${MABOSS_VERSION}.tgz | tar xz \
-    && cd MaBoSS-env-${MABOSS_VERSION}/engine/src \
-    && make install \
-    && make MAXNODES=128 install \
-    && make MAXNODES=256 install \
-    && mv ../pub/MaBoSS* ${COLOMOTO_DIST}/bin \
-    && cd ../.. \
-    && mkdir -p ${COLOMOTO_DIST}/MaBoSS \
-    && mv tools doc tutorial examples ${COLOMOTO_DIST}/MaBoSS/
-### end
+## TO BE RESTORED WHEN MULTI-STAGE SUPPORTED ON HUB.DOCKER.COM (ETA AUG)
+#FROM ubuntu:latest as builder
+#WORKDIR /usr/local/src
+#
+#ENV COLOMOTO_DIST /opt/colomoto
+#
+#RUN mkdir -p ${COLOMOTO_DIST}/bin \
+#    && apt-get update \
+#    && apt-get install -y \
+#            bison \
+#            curl \
+#            flex \
+#            g++ \
+#            gcc \
+#            make
+#
+#### begin MaBoSS
+###
+#ENV MABOSS_VERSION 2.0
+#RUN curl -L https://maboss.curie.fr/pub/MaBoSS-env-${MABOSS_VERSION}.tgz | tar xz \
+#    && cd MaBoSS-env-${MABOSS_VERSION}/engine/src \
+#    && make install \
+#    && make MAXNODES=128 install \
+#    && make MAXNODES=256 install \
+#    && mv ../pub/MaBoSS* ${COLOMOTO_DIST}/bin \
+#    && cd ../.. \
+#    && mkdir -p ${COLOMOTO_DIST}/MaBoSS \
+#    && mv tools doc tutorial examples ${COLOMOTO_DIST}/MaBoSS/
+#### end
 
 
 FROM ubuntu:latest
@@ -105,5 +106,27 @@ RUN apt-get install --no-install-recommends -y \
 ##
 ## Pull tools compiled by builder
 ##
-COPY --from=builder ${COLOMOTO_DIST} ${COLOMOTO_DIST}/
+#COPY --from=builder ${COLOMOTO_DIST} ${COLOMOTO_DIST}/
+ENV MABOSS_VERSION 2.0
+## TO BE REMOVED WHEN MULTI-STAGE SUPPORTED ON HUB.DOCKER.COM (ETA AUG)
+RUN mkdir -p ${COLOMOTO_DIST}/bin \
+    && apt-get install -y \
+            bison \
+            curl \
+            flex \
+            g++ \
+            gcc \
+            make \
+    && cd /usr/local/src \
+    && curl -L https://maboss.curie.fr/pub/MaBoSS-env-${MABOSS_VERSION}.tgz | tar xz \
+    && cd MaBoSS-env-${MABOSS_VERSION}/engine/src \
+    && make install \
+    && make MAXNODES=128 install \
+    && make MAXNODES=256 install \
+    && mv ../pub/MaBoSS* ${COLOMOTO_DIST}/bin \
+    && cd ../.. \
+    && mkdir -p ${COLOMOTO_DIST}/MaBoSS \
+    && mv tools doc tutorial examples ${COLOMOTO_DIST}/MaBoSS/ \
+    && apt-get clean && cd / && rm -rf /usr/local/src/*
+### end
 

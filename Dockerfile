@@ -67,28 +67,12 @@ RUN cd /usr/local/src/ \
     && rm -rf NuSMV-*
 ### end
 
-### begin NuSMVARCTL
+### begin NuSMV-ARCTL
 ##
-#RUN apt-get install -y \
-#    bison\
-#    flex \
-#    gcc \
-#    libexpat1-dev\
-#    make \
-#    unzip \
-#    && ln -s /usr/lib/gcc/x86_64-linux-gnu/4.8.4/cc1 /usr/bin/cc1plus
-#RUN cd /usr/local/src/ && \
-#    curl -LO http://lvl.info.ucl.ac.be/pmwiki/uploads/Tools/NuSMV-ARCTL-TLACE/NuSMV-TLACE-Dec2013.zip && \
-#    unzip NuSMV-TLACE-Dec2013.zip && \
-#    rm NuSMV-TLACE-Dec2013.zip && \
-#    cd NuSMV/cudd-2.3.0.1/ && \
-#    make && \
-#    cd ../nusmv && \
-#    ./configure && \
-#    make && \
-#    make install && \
-#    mv /usr/local/bin/NuSMV /usr/local/bin/NuSMVARCTL && \
-#    rm -rf /usr/local/src/*
+#ENV NUSMV_ARCTL_VERSION 2.2.2
+#RUN curl -L http://pedromonteiro.org/software/NuSMV-32bit-${NUSMV_ARCTL_VERSION}-ARCTL \
+#        -o /usr/local/bin/NuSMV-ARCTL \
+#    && chmod +x /usr/local/bin/NuSMV-ARCTL
 ### end
 
 
@@ -107,8 +91,9 @@ RUN \
 ### begin Pint
 ##
 ENV PINT_VERSION 2017-04-13
-RUN apt-get install -y \
+RUN apt-get install --no-install-recommends -y \
         libgmpxx4ldbl \
+        python \
         r-mathlib \
     && apt-get clean \
     && cd /usr/local/src/ \

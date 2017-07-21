@@ -70,10 +70,10 @@ RUN cd /usr/local/src/ \
 
 ### begin NuSMV-ARCTL
 ##
-#ENV NUSMV_ARCTL_VERSION 2.2.2
-#RUN curl -L http://pedromonteiro.org/software/NuSMV-32bit-${NUSMV_ARCTL_VERSION}-ARCTL \
-#        -o /usr/local/bin/NuSMV-ARCTL \
-#    && chmod +x /usr/local/bin/NuSMV-ARCTL
+ENV NUSMV_ARCTL_VERSION 2.2.2
+RUN curl -L http://pedromonteiro.org/software/NuSMV-32bit-${NUSMV_ARCTL_VERSION}-ARCTL-static \
+        -o /usr/local/bin/NuSMV-ARCTL \
+    && chmod +x /usr/local/bin/NuSMV-ARCTL
 ### end
 
 

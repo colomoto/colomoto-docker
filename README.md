@@ -12,7 +12,7 @@ Run the image:
 
 Then go to http://localhost:8888 for the jupyter notebook web interface.
 
-Alternatively you can use the script [colomoto-docker.py] to ease docker
+Alternatively you can use the script [colomoto-docker.py](./colomoto-docker.py) to ease docker
 invocation:
 
     $ python colomoto-docker.py

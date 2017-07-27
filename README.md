@@ -15,11 +15,15 @@ The image is automatically built on pushes. If you want to build it locally, use
 
 ## Run the docker image
 
-Run the image:
+Run the image using the 'docker run' command
 
     $ docker run -it --rm -p 8888:8888 colomoto/colomoto-docker
 
 Then go to http://localhost:8888 for the jupyter notebook web interface.
+
+NB: if you're running Docker Toolbox, you have to use the IP adress of the Docker default machine. This can be found using the following command:
+
+    $ docker-machine ip default
 
 Alternatively you can use the script [colomoto-docker.py](./colomoto-docker.py?raw=true) to ease docker
 invocation.

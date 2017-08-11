@@ -7,13 +7,13 @@ proc = None
 gw = None
 
 
-def GINsim(java_cmd="java", jar_path="git/ginsim-dev/target/GINsim-2.9.6-SNAPSHOT.jar"):
+def GINsim():
     "Launch in background a GINsim instance running the python gateway"
     close()
     
     global proc, gw
     # Start the gateway and read the selected dynamical port
-    proc = subprocess.Popen([java_cmd, "-jar", jar_path, "-py"], stdout=PIPE, stdin=PIPE)
+    proc = subprocess.Popen(["GINsim", "-py"], stdout=PIPE, stdin=PIPE)
     port = int(proc.stdout.readline().strip())
     
     # start the gateway and return the entry point (GINsim's ScriptLauncher)

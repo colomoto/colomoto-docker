@@ -77,6 +77,21 @@ RUN curl -L http://pedromonteiro.org/software/NuSMV-32bit-${NUSMV_ARCTL_VERSION}
 ### end
 
 
+### begin GINsim API
+##
+# Get file from GitHub
+# Copy into correct folder
+# Install Py4J
+RUN pip3 install py4j \
+	&& cd \
+	&& mkdir ginsim \
+	&& cd ginsim \
+	&& curl -LO https://github.com/colomoto/colomoto-docker/raw/master/api/ginsim/ginsim.py \
+	&& curl -LO https://github.com/colomoto/colomoto-docker/raw/master/api/ginsim/setup.py \
+	&& pip3 install .
+### end
+
+
 ### begin GINsim
 ##
 ENV GINSIM_VERSION 2.9.6

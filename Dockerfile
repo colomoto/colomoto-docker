@@ -79,9 +79,11 @@ RUN curl -L http://pedromonteiro.org/software/NuSMV-32bit-${NUSMV_ARCTL_VERSION}
 
 ### begin GINsim API
 ##
-# Get file from GitHub
-# Copy into correct folder
-# Install Py4J
+# - Install Py4J
+# - Get file from GitHub
+#   NB (Celine): A 'cleaner' way to download a folder instead of each file separately (yes, using svn...):
+#    svn export https://github.com/colomoto/colomoto-docker/trunk/api/ginsim
+# - Install file using pip
 RUN pip3 install py4j \
 	&& cd \
 	&& mkdir ginsim \

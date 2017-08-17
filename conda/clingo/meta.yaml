@@ -1,0 +1,28 @@
+package:
+  name: clingo
+  version: "5.2.1"
+
+#channels:
+#  - creditx
+
+source:
+  url: https://github.com/potassco/clingo/archive/v5.2.1.tar.gz
+# alternative: grab binary tarball directly
+#  url: https://github.com/potassco/clingo/releases/download/v5.2.1/clingo-5.2.1-linux-x86_64.tar.gz  # [linux64]
+#  url: https://github.com/potassco/clingo/releases/download/v5.2.1/clingo-5.2.1-macos-10.9.tar.gz    # [osx]
+#  url: https://github.com/potassco/clingo/releases/download/v5.2.1/clingo-5.2.1-win64.zip            # [win64]
+
+requirements:
+  build:
+    - cmake
+    - gcc-7
+    - flex
+    - bison
+  run:
+
+about:
+  home:  https://potassco.org/
+  license: MIT
+  license_file: LICENSE.md
+
+

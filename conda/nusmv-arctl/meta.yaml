@@ -1,0 +1,10 @@
+package:
+  name: nusmv-arctl
+  version: "2.2.2"
+
+source:
+  url: http://pedromonteiro.org/software/NuSMV-32bit-2.2.2-ARCTL-static
+
+about:
+  home: http://nusmv.fbk.eu
+

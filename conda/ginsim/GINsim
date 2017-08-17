@@ -1,0 +1,4 @@
+#!/bin/bash
+D=`dirname "$0"`
+D=`dirname "$D"`
+java -jar $D/opt/GINsim.jar "${@}"

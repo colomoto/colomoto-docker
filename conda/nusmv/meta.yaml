@@ -1,0 +1,10 @@
+package:
+  name: nusmv
+  version: "2.6.0"
+
+source:
+  url: http://nusmv.fbk.eu/distrib/NuSMV-2.6.0-linux64.tar.gz
+
+about:
+  home: http://nusmv.fbk.eu
+

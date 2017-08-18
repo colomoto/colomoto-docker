@@ -8,7 +8,7 @@
 # -- specification AF pY505LCK = 0  is true
 # Date: 20/07/2017
 
-
+from __future__ import print_function
 import sys, fileinput, re, getopt
 
 def main(argv):
@@ -21,11 +21,11 @@ def main(argv):
         opts, args = getopt.getopt(argv,"ho:",["outputfile="])
     except getopt.GetoptError as err:
         print(err)
-        print 'nusmv_report_all_tests.py -o <outputfile> <argument1, argument2>'
+        print('nusmv_report_all_tests.py -o <outputfile> <argument1, argument2>')
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print 'nusmv_report_all_tests.py -o <outputfile> <argument1, argument2>'
+            print('nusmv_report_all_tests.py -o <outputfile> <argument1, argument2>')
             sys.exit()
         elif opt in ("-o", "--outputfile"):
             outputFile = arg
@@ -52,7 +52,7 @@ def main(argv):
     
     # Write result in output file
     with open(outputFile, 'w') as fout:
-    	fout.write("File\tSpecification\tOutcome\n")
+        fout.write("File\tSpecification\tOutcome\n")
         for res in outcomes:
             fout.write("\t".join(res)+"\n")
     

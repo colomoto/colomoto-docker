@@ -12,6 +12,8 @@ requirements:
   run:
     - python >=3.6
     - openjdk
+    - clingo
+    - nusmv
     - py4j
 
 about:

@@ -1,0 +1,13 @@
+package:
+  name: mole
+  version: "14.04.28"
+
+
+source:
+  url: http://loicpauleve.name/mole-linux64.tgz
+
+
+about:
+  home: http://www.lsv.fr/~schwoon/tools/mole/
+  license: GPL
+

@@ -1,0 +1,13 @@
+package:
+  name: its
+  version: "rolling"
+
+
+source:
+  url: http://teamcity-systeme.lip6.fr/guestAuth/repository/download/bt54/.lastSuccessful/ITS_linux_64.tar.gz
+
+
+about:
+  home:  https://github.com/lip6/ITSTools
+  license: GPL
+

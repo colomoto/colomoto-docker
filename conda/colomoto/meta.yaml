@@ -1,0 +1,15 @@
+package:
+  name: colomoto
+  version: "0.1"
+
+
+requirements:
+  run:
+    - ginsim
+    - maboss
+    - notebook
+
+about:
+  home:  http://colomoto.org/
+
+

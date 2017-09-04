@@ -1,3 +1,0 @@
-
-cp bin/* "$PREFIX"/bin/
-

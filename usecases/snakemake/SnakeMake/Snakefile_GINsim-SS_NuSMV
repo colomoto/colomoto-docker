@@ -7,7 +7,7 @@
 """
 
 
-import os, os.path, time
+import os, os.path, time, subprocess
 
 #########################
 # Variables
@@ -20,7 +20,9 @@ OUTDIR = time.strftime("%Y%m%d%H%M%S_output")
 # Location of the Dockerfile. Not used if image is pulled from DockerHub.
 COLOMOTODF = os.path.join(BASEDIR, "Dockerfiles/all/")
 # Name of the Docker image
-COLOMOTOIMG = "colomoto/colomoto-docker"
+COLOMOTOIMG = "colomoto/colomoto-docker:latest"
+# Name of the created Docker container
+COLOMOTOCONT = "colomoto-container"
 
 # Tools
 GINSIM = "GINsim" # available in docker image
@@ -37,6 +39,34 @@ properties, = glob_wildcards(os.path.join(MODELDIR, "{property}_property.smv"))
 
 #########################
 # Rules 
+
+
+def clean_container():
+	# Check existence of a container named "colomoto-container"
+	output,_ = subprocess.Popen(["docker", "ps", "--all", "--quiet", "--filter", "name={container}".format(container=COLOMOTOCONT)], stdout=subprocess.PIPE).communicate()
+	# If an ID was returned, container exists
+	if len(output)>0 :
+		# Check whether container is running
+		output,_ = subprocess.Popen(["docker", "ps", "--all", "--quiet", "--filter", "name={container}".format(container=COLOMOTOCONT), "--filter", "status=running"], stdout=subprocess.PIPE).communicate()
+		# If container is running
+		if len(output)>0 :
+			# Stop container
+			print("Stopping Docker container.")
+			with open(os.devnull, 'w') as FNULL: # discard output made by Docker
+				subprocess.call(["docker", "stop", COLOMOTOCONT], stdout=FNULL)
+		# Container is not running (or was just stopped), delete it
+		print("Deleting Docker container.")
+		with open(os.devnull, 'w') as FNULL: # discard output made by Docker
+			subprocess.call(["docker", "rm", COLOMOTOCONT], stdout=FNULL)
+
+onstart:
+	clean_container()
+
+onsuccess:
+	clean_container()
+
+onerror:
+	clean_container()
 
 
 # This rule will be executed last. But to run it, it needs to create the input files beforehand.
@@ -60,7 +90,7 @@ rule all:
 # 	output:
 # 		"{outputDir}/CoLoMoTo_image_available".format(outputDir=OUTDIR)
 # 	shell:
-# 		"mkdir -p {OUTDIR} && docker build -t {COLOMOTOIMG} {input} && touch {output}"
+# 		"mkdir -p {OUTDIR} && docker build -t {COLOMOTOIMG} {input} && docker create --name={COLOMOTOCONT} -v {BASEDIR}:/home -ti {COLOMOTOIMG} && docker start {COLOMOTOCONT} && touch {output}"
 
 
 # Pull CoLoMoTo Docker image from DockerHub
@@ -71,7 +101,7 @@ rule pull_colomoto_image:
 	output:
 		"{outputDir}/CoLoMoTo_image_available".format(outputDir=OUTDIR)
 	shell:
-		"mkdir -p {OUTDIR} && docker pull {COLOMOTOIMG} && touch {output}"
+		"mkdir -p {OUTDIR} && docker pull {COLOMOTOIMG} && docker create --name={COLOMOTOCONT} -v {BASEDIR}:/home -ti {COLOMOTOIMG} && docker start {COLOMOTOCONT} && touch {output}"
 
 # Find stable states of a GINsim model
 # Input : GINsim model
@@ -87,7 +117,7 @@ rule ginsim_find_SS:
 	params:
 		outputDir = OUTDIR
 	shell:
-		"mkdir -p {OUTDIR} && docker run -v {BASEDIR}:/home -ti --rm {COLOMOTOIMG} {GINSIM} -s /home/{GINSIM_FIND_STABLE_STATES} /home/{input.model} > {output}"
+		"mkdir -p {OUTDIR} && docker exec {COLOMOTOCONT} {GINSIM} -s /home/{GINSIM_FIND_STABLE_STATES} /home/{input.model} > {output}"
 
 
 # Export a GINsim model as NuSMV format
@@ -104,7 +134,7 @@ rule ginsim_export_as_nusmv:
 	params:
 		outputDir = OUTDIR
 	shell:
-		"mkdir -p {OUTDIR} && docker run -v {BASEDIR}:/home -ti --rm {COLOMOTOIMG} {GINSIM} -s /home/{GINSIM_EXPORT_AS_NUSMV} /home/{input.model} /home/{output}"
+		"mkdir -p {OUTDIR} && docker exec {COLOMOTOCONT} {GINSIM} -s /home/{GINSIM_EXPORT_AS_NUSMV} /home/{input.model} /home/{output}"
 
 # Concatenate exported model with properties to be tested
 # Input : Model in SMV format; NuSMV properties
@@ -136,7 +166,7 @@ rule test_property:
 	params:
 		outputDir = OUTDIR
 	shell:
-		"mkdir -p {OUTDIR} && docker run -v {BASEDIR}:/home -ti --rm {COLOMOTOIMG} {NUSMV} /home/{input.model} > {output.result}"
+		"mkdir -p {OUTDIR} && docker exec {COLOMOTOCONT} {NUSMV} /home/{input.model} > {output.result}"
 
 # Create report
 rule report_nusmv:
@@ -147,4 +177,4 @@ rule report_nusmv:
 	output:
 		"{outputDir}/NUSMV_report.txt"
 	shell:
-		"mkdir -p {OUTDIR} && docker run -v {BASEDIR}:/home -ti --rm {COLOMOTOIMG} python /home/{NUSMV_REPORT} -o /home/{output} /home/{input}"
+		"mkdir -p {OUTDIR} && docker exec {COLOMOTOCONT} python /home/{NUSMV_REPORT} -o /home/{output} /home/{input}"

@@ -90,7 +90,7 @@ rule all:
 # 	output:
 # 		"{outputDir}/CoLoMoTo_image_available".format(outputDir=OUTDIR)
 # 	shell:
-# 		"mkdir -p {OUTDIR} && docker build -t {COLOMOTOIMG} {input} && docker create --name={COLOMOTOCONT} -v {BASEDIR}:/home -ti {COLOMOTOIMG} && docker start {COLOMOTOCONT} && touch {output}"
+# 		"mkdir -p {OUTDIR} && docker build -t {COLOMOTOIMG} {input} && docker run -d --name={COLOMOTOCONT} -v {BASEDIR}:/home -ti {COLOMOTOIMG} /bin/bash && touch {output}"
 
 
 # Pull CoLoMoTo Docker image from DockerHub
@@ -101,7 +101,7 @@ rule pull_colomoto_image:
 	output:
 		"{outputDir}/CoLoMoTo_image_available".format(outputDir=OUTDIR)
 	shell:
-		"mkdir -p {OUTDIR} && docker pull {COLOMOTOIMG} && docker create --name={COLOMOTOCONT} -v {BASEDIR}:/home -ti {COLOMOTOIMG} && docker start {COLOMOTOCONT} && touch {output}"
+		"mkdir -p {OUTDIR} && docker pull {COLOMOTOIMG} && docker run -d --name={COLOMOTOCONT} -v {BASEDIR}:/home -ti {COLOMOTOIMG} /bin/bash && touch {output}"
 
 # Find stable states of a GINsim model
 # Input : GINsim model

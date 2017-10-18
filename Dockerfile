@@ -6,7 +6,7 @@ ENTRYPOINT ["tini", "--"]
 CMD ["colomoto-nb", "--NotebookApp.token="]
 EXPOSE 8888
 
-RUN conda install -y -c conda-forge -c colomoto colomoto &&  conda clean -y --all
+RUN conda install -y -c colomoto -c conda-forge colomoto &&  conda clean -y --all
 
 
 RUN echo '#!/bin/bash' > /usr/bin/colomoto-nb \

@@ -21,3 +21,5 @@ RUN echo '#!/bin/bash' > /usr/bin/colomoto-nb && \
 
 RUN conda install -y -c colomoto -c conda-forge colomoto=0.2.2 &&  conda clean -y --all
 
+COPY tutorials /notebook/tutorials
+

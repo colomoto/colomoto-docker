@@ -14,6 +14,8 @@ parser.add_argument("-V", "--version", type=str, default="latest",
     help="Version of docker image")
 parser.add_argument("--port", default=8888, type=int,
     help="Local port")
+parser.add_argument("--image", default="colomoto/colomoto-docker",
+    help="Docker image")
 parser.add_argument("docker_options", nargs="*")
 args = parser.parse_args()
 
@@ -23,7 +25,7 @@ if args.bind:
     argv += ["--volume", "%s:%s" % (os.path.abspath(args.bind), args.workdir)]
 argv += ["-w", args.workdir]
 argv += args.docker_options
-argv += ["colomoto/colomoto-docker:%s" % args.version]
+argv += ["%s:%s" % (args.image, args.version)]
 if args.shell:
     argv += ["bash"]
 

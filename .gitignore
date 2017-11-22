@@ -1,3 +1,5 @@
 .snakemake
 *_output/
 .ipynb_checkpoints/
+.*.swp
+*.log

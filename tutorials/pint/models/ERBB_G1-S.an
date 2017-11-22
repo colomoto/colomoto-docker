@@ -1,0 +1,109 @@
+(**
+
+ERBB Receptor-Regulated G1/S Transition (20 components)
+
+Bibliography:
+* Sahin, O.; Frohlich, H.; Lobke, C.; Korf, U.; Burmester, S.; Majety, M.; Mattern, J.; Schupp, I.;
+  Chaouiya, C.; Thieffry, D.; Poustka, A.; Wiemann, S.; Beissbarth, T. & Arlt, D. Modeling ERBB
+  receptor-regulated G1/S transition to find novel targets for de novo trastuzumab resistance. BMC
+  Systems Biology, 2009, 3
+* Loïc Paulevé, Morgan Magnin, and Olivier Roux. Refining dynamics of gene regulatory networks in a
+  stochastic π-calculus framework. In Transactions on Computational Systems Biology XIII, volume 6575
+  of Lecture Notes in Comp Sci, pages 171-191. Springer, 2011
+  http://dx.doi.org/10.1007/978-3-642-19748-2_8
+
+**)
+
+"AKT1" [0,1]
+"CDK2" [0,1]
+"CDK4" [0,1]
+"CDK6" [0,1]
+"CycD1" [0,1]
+"CycE1" [0,1]
+"EGF" [0,1]
+"ERBB1" [0,1]
+"ERBB1_2" [0,1]
+"ERBB1_3" [0,1]
+"ERBB2" [0,1]
+"ERBB2_3" [0,1]
+"ERBB3" [0,1]
+"ERalpha" [0,1]
+"IGF1R" [0,1]
+"MEK1" [0,1]
+"MYC" [0,1]
+"p21" [0,1]
+"p27" [0,1]
+"pRB" [0,1]
+
+
+"AKT1" 0 -> 1 when "ERBB1"=1
+"AKT1" 0 -> 1 when "ERBB1_2"=1
+"AKT1" 0 -> 1 when "ERBB1_3"=1
+"AKT1" 0 -> 1 when "ERBB2_3"=1
+"AKT1" 0 -> 1 when "IGF1R"=1
+"AKT1" 1 -> 0 when "ERBB1"=0 and "ERBB1_2"=0 and "ERBB1_3"=0 and "ERBB2_3"=0 and "IGF1R"=0
+"CDK2" 0 -> 1 when "CycE1"=1 and "p21"=0 and "p27"=0
+"CDK2" 1 -> 0 when "CycE1"=0
+"CDK2" 1 -> 0 when "p21"=1
+"CDK2" 1 -> 0 when "p27"=1
+"CDK4" 0 -> 1 when "CycD1"=1 and "p21"=0 and "p27"=0
+"CDK4" 1 -> 0 when "CycD1"=0
+"CDK4" 1 -> 0 when "p21"=1
+"CDK4" 1 -> 0 when "p27"=1
+"CDK6" 0 -> 1 when "CycD1"=1
+"CDK6" 1 -> 0 when "CycD1"=0
+"CycD1" 0 -> 1 when "AKT1"=0 and "ERalpha"=1 and "MEK1"=1 and "MYC"=1
+"CycD1" 0 -> 1 when "AKT1"=1 and "ERalpha"=1 and "MYC"=1
+"CycD1" 1 -> 0 when "AKT1"=0 and "MEK1"=0
+"CycD1" 1 -> 0 when "ERalpha"=0
+"CycD1" 1 -> 0 when "MYC"=0
+"CycE1" 0 -> 1 when "MYC"=1
+"CycE1" 1 -> 0 when "MYC"=0
+"ERBB1" 0 -> 1 when "EGF"=1
+"ERBB1" 1 -> 0 when "EGF"=0
+"ERBB1_2" 0 -> 1 when "ERBB1"=1 and "ERBB2"=1
+"ERBB1_2" 1 -> 0 when "ERBB1"=0
+"ERBB1_2" 1 -> 0 when "ERBB2"=0
+"ERBB1_3" 0 -> 1 when "ERBB1"=1 and "ERBB3"=1
+"ERBB1_3" 1 -> 0 when "ERBB1"=0
+"ERBB1_3" 1 -> 0 when "ERBB3"=0
+"ERBB2" 0 -> 1 when "EGF"=1
+"ERBB2" 1 -> 0 when "EGF"=0
+"ERBB2_3" 0 -> 1 when "ERBB2"=1 and "ERBB3"=1
+"ERBB2_3" 1 -> 0 when "ERBB2"=0
+"ERBB2_3" 1 -> 0 when "ERBB3"=0
+"ERBB3" 0 -> 1 when "EGF"=1
+"ERBB3" 1 -> 0 when "EGF"=0
+"ERalpha" 0 -> 1 when "AKT1"=1
+"ERalpha" 0 -> 1 when "MEK1"=1
+"ERalpha" 1 -> 0 when "AKT1"=0 and "MEK1"=0
+"IGF1R" 0 -> 1 when "AKT1"=0 and "ERBB2_3"=0 and "ERalpha"=1
+"IGF1R" 0 -> 1 when "AKT1"=1 and "ERBB2_3"=0
+"IGF1R" 1 -> 0 when "AKT1"=0 and "ERalpha"=0
+"IGF1R" 1 -> 0 when "ERBB2_3"=1
+"MEK1" 0 -> 1 when "ERBB1"=1
+"MEK1" 0 -> 1 when "ERBB1_2"=1
+"MEK1" 0 -> 1 when "ERBB1_3"=1
+"MEK1" 0 -> 1 when "ERBB2_3"=1
+"MEK1" 0 -> 1 when "IGF1R"=1
+"MEK1" 1 -> 0 when "ERBB1"=0 and "ERBB1_2"=0 and "ERBB1_3"=0 and "ERBB2_3"=0 and "IGF1R"=0
+"MYC" 0 -> 1 when "AKT1"=1
+"MYC" 0 -> 1 when "ERalpha"=1
+"MYC" 0 -> 1 when "MEK1"=1
+"MYC" 1 -> 0 when "AKT1"=0 and "ERalpha"=0 and "MEK1"=0
+"p21" 0 -> 1 when "AKT1"=0 and "CDK4"=0 and "ERalpha"=1 and "MYC"=0
+"p21" 1 -> 0 when "AKT1"=1
+"p21" 1 -> 0 when "CDK4"=1
+"p21" 1 -> 0 when "ERalpha"=0
+"p21" 1 -> 0 when "MYC"=1
+"p27" 0 -> 1 when "AKT1"=0 and "CDK2"=0 and "CDK4"=0 and "ERalpha"=1 and "MYC"=0
+"p27" 1 -> 0 when "AKT1"=1
+"p27" 1 -> 0 when "CDK2"=1
+"p27" 1 -> 0 when "CDK4"=1
+"p27" 1 -> 0 when "ERalpha"=0
+"p27" 1 -> 0 when "MYC"=1
+"pRB" 0 -> 1 when "CDK4"=1 and "CDK6"=1
+"pRB" 1 -> 0 when "CDK4"=0
+"pRB" 1 -> 0 when "CDK6"=0
+
+initial_context "EGF"=1

@@ -19,7 +19,7 @@ RUN echo '#!/bin/bash' > /usr/bin/colomoto-nb && \
 
 ### Tiers 3: command with frequent update frequence (>=2-3/year)
 
-RUN conda install -y -c colomoto -c conda-forge colomoto=0.2.2 &&  conda clean -y --all
+RUN conda install -y -c bioconda -c colomoto -c conda-forge colomoto=0.2.2 &&  conda clean -y --all
 
 COPY tutorials /notebook/tutorials
 

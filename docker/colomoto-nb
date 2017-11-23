@@ -1,0 +1,2 @@
+#!/bin/bash
+jupyter-notebook --allow-root --no-browser --ip=* --port 8888 "${@}"

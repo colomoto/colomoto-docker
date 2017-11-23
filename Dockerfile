@@ -8,12 +8,12 @@ MAINTAINER CoLoMoTo Group <contact@colomoto.org>
 
 #### Tiers 1: commands with rare updates (<1/year)
 
-WORKDIR /notebook
-CMD ["colomoto-nb", "--NotebookApp.token="]
 EXPOSE 8888
-RUN echo '#!/bin/bash' > /usr/bin/colomoto-nb && \
-    echo 'jupyter-notebook --allow-root --no-browser --ip=* --port 8888 "${@}"' >>/usr/bin/colomoto-nb && \
-    chmod +x /usr/bin/colomoto-nb
+WORKDIR /notebook
+ENTRYPOINT ["colomoto-env"]
+COPY docker/colomoto-env /usr/bin/
+CMD ["colomoto-nb", "--NotebookApp.token="]
+COPY docker/colomoto-nb /usr/bin/
 
 ### Tiers 2: command with moderated update frequency (~1/year)
 

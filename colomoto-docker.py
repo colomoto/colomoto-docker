@@ -2,6 +2,9 @@
 
 from argparse import ArgumentParser
 import os
+from multiprocessing import Process
+import sys
+import webbrowser
 
 parser = ArgumentParser()
 parser.add_argument("--bind", default=None, type=str,
@@ -30,5 +33,24 @@ if args.shell:
     argv += ["bash"]
 
 print("# %s" % " ".join(argv))
+
+if not args.shell:
+    rpipe, wpipe = os.pipe()
+
+    def wait_and_run():
+        os.close(wpipe)
+        launched = False
+        while True:
+            line = os.read(rpipe, 1024)
+            os.write(sys.stdout.fileno(), line)
+            line = line.decode()
+            if not launched and "The Jupyter Notebook is running at:" in line:
+                launched = True
+                webbrowser.open("http://127.0.0.1:%s" % args.port)
+
+    p = Process(target=wait_and_run)
+    p.start()
+    os.close(rpipe)
+    os.dup2(wpipe, sys.stdout.fileno())
 
 os.execvp(argv[0], argv)

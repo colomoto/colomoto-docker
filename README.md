@@ -1,42 +1,44 @@
 # colomoto-docker
 
-## Get the docker image
+## Quick usage guide
 
-### Fetch the latest docker image from DockerHub
+You need [Docker](http://docker.com).
+First fetch the image with
 
-    $ docker pull colomoto/colomoto-docker
+    $ docker pull colomoto/colomoto-docker:TAG
 
-### Build the docker image locally
+where `TAG` is the version of the image, among [colomoto/colomoto-docker tags](https://hub.docker.com/r/colomoto/colomoto-docker/tags/).
+It can be omited when using `latest` version.
 
-The image is automatically built on pushes. If you want to build it locally, use the following command:
+The image can be ran using
 
-    $ docker build -t colomoto/colomoto-docker .
+    $ docker run -it --rm -p 8888:8888 colomoto/colomoto-docker:TAG
+
+then, open your browser and go to http://localhost:8888 for the Jupyter notebook web interface
+(note: when using Docker Toolbox, replace localhost with the result of
+`docker-machine ip default` command).
+
+Alternatively, you can use the script [colomoto-docker.py](./colomoto-docker.py?raw=true) to ease docker
+invocation:
+
+    $ wget -O colomoto-docker.py https://raw.githubusercontent.com/colomoto/colomoto-docker/colomoto-docker.py
+    $ python colomoto-docker -V TAG
+
+See `python colomoto-docker -h` for usage.
 
 
-## Run the docker image
+## Embedded softwares
 
-Run the image using the 'docker run' command
+Besides the [Jupyter notebook](http://jupyter.org), the docker image provides
+access to the following softwares:
 
-    $ docker run -it --rm -p 8888:8888 colomoto/colomoto-docker
+* [GINsim](http://ginsim.org)
+* [MaBoSS](https://maboss.curie.fr)
+* [NuSMV](http://nusmv.fbk.eu)
+* [Pint](http://loicpauleve.name/pint)
 
-Then go to http://localhost:8888 for the jupyter notebook web interface.
 
-NB: if you're running Docker Toolbox, you have to use the IP adress of the Docker default machine. This can be found using the following command:
+## Contribute
 
-    $ docker-machine ip default
-
-Alternatively you can use the script [colomoto-docker.py](./colomoto-docker.py?raw=true) to ease docker
-invocation.
-
-Script usage:
-
-    $ python colomoto-docker.py -h
-
-Run the image (access through port 8888):
-
-    $ python colomoto-docker.py
-
-Bind a local folder (eg to make a local notebook available in Jupyter):
-
-    $ python colomoto-docker.py --bind /full/path/to/local/folder
+Coming soon: instruction to add/update your software
 

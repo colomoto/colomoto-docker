@@ -3,7 +3,7 @@ MAINTAINER CoLoMoTo Group <contact@colomoto.org>
 
 ##
 # The commands should be ordered such that the less updated ones are at the
-# begnning and the most updated at the end of the file
+# beginning and the most updated at the end of the file
 ##
 
 #### Tiers 1: commands with rare updates (<1/year)
@@ -15,11 +15,14 @@ COPY docker/colomoto-env /usr/bin/
 CMD ["colomoto-nb", "--NotebookApp.token="]
 COPY docker/colomoto-nb /usr/bin/
 
-### Tiers 2: command with moderated update frequency (~1/year)
+# useful extra python libraries for notebooks
+RUN conda install -y -c conda-forge pandas && conda clean -y --all
 
-### Tiers 3: command with frequent update frequence (>=2-3/year)
+### Tiers 2: commands with moderated update frequency (~1/year)
 
-RUN conda install -y -c bioconda -c colomoto -c conda-forge colomoto=0.2.2 &&  conda clean -y --all
+### Tiers 3: commands with high update frequency (>=2-3/year)
+
+RUN conda install -y -c bioconda -c colomoto -c conda-forge colomoto=0.2.2 && conda clean -y --all
 
 COPY tutorials /notebook/tutorials
 

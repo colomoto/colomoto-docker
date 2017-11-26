@@ -42,6 +42,8 @@ if not args.shell:
         launched = False
         while True:
             line = os.read(rpipe, 1024)
+            if not line:
+                break
             os.write(sys.stdout.fileno(), line)
             line = line.decode()
             if not launched and "The Jupyter Notebook is running at:" in line:

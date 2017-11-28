@@ -1,5 +1,7 @@
 # colomoto-docker
 
+[![](https://images.microbadger.com/badges/image/colomoto/colomoto-docker:latest.svg)](http://microbadger.com/images/colomoto/colomoto-docker:latest "Get your own image badge on microbadger.com")
+
 ## Quick usage guide
 
 You need [Docker](http://docker.com).

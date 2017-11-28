@@ -1,15 +1,6 @@
 FROM colomoto/colomoto-docker-base
 MAINTAINER CoLoMoTo Group <contact@colomoto.org>
 
-EXPOSE 8888
-WORKDIR /notebook
-ENTRYPOINT ["/usr/bin/tini", "--", "colomoto-env"]
-CMD ["colomoto-nb", "--NotebookApp.token="]
-COPY docker/colomoto-env /usr/bin/
-COPY docker/colomoto-nb /usr/bin/
-
-#### Commands with rare updates (<1/year)
-
 ## NuSMV  - http://nusmv.fbk.eu/     https://github.com/colomoto/colomoto-conda
 ## Clingo - https://potassco.org/    https://github.com/colomoto/colomoto-conda
 ## MaBoSS - https://maboss.curie.fr  https://github.com/colomoto/colomoto-conda
@@ -19,7 +10,6 @@ RUN conda install --no-update-deps  -y \
         maboss=2.0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
-### Commands with high update frequency (>=2-3/year)
 
 ## GINsim - http://ginsim.org/             https://github.com/colomoto/colomoto-conda
 ## Pint - http://loicpauleve.name/pint     https://github.com/pauleve/pint

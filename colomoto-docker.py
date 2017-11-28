@@ -19,6 +19,8 @@ parser.add_argument("--port", default=8888, type=int,
     help="Local port")
 parser.add_argument("--image", default="colomoto/colomoto-docker",
     help="Docker image")
+parser.add_argument("--no-browser", default=False, action="store_true",
+    help="Do not start the browser")
 parser.add_argument("docker_options", nargs="*")
 args = parser.parse_args()
 
@@ -34,7 +36,7 @@ if args.shell:
 
 print("# %s" % " ".join(argv))
 
-if not args.shell:
+if not args.shell and not args.no_browser:
     rpipe, wpipe = os.pipe()
 
     def wait_and_run():

@@ -34,3 +34,6 @@ RUN conda install --no-update-deps -y \
 ## Tutorials for individual tools
 COPY tutorials /notebook/tutorials
 
+## Examples of workflows
+COPY usecases/*.ipynb /notebook/
+

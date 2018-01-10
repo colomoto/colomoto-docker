@@ -24,7 +24,7 @@ RUN conda install --no-update-deps -y \
 ## GINsim-python    - https://github.com/ginsim/ginsim-python       https://github.com/colomoto/colomoto-conda
 ## pyPint           - http://loicpauleve.name/pint                  https://github.com/pauleve/pint
 RUN conda install --no-update-deps -y \
-        colomoto_jupyter=0.4 \
+        colomoto_jupyter=0.4.1 \
         ginsim-python=0.2.90 \
         pymaboss=0.3.2 \
         pypint=1.3.93 \
@@ -33,4 +33,12 @@ RUN conda install --no-update-deps -y \
 
 ## Tutorials for individual tools
 COPY tutorials /notebook/tutorials
+
+ARG IMAGE_NAME
+ARG IMAGE_BUILD_DATE
+ARG SOURCE_COMMIT
+ENV DOCKER_IMAGE=$IMAGE_NAME \
+    DOCKER_BUILD_DATE=$IMAGE_BUILD_DATE \
+    DOCKER_SOURCE_COMMIT=$SOURCE_COMMIT
+
 

@@ -26,6 +26,7 @@ invocation:
     $ wget -O colomoto-docker.py https://raw.githubusercontent.com/colomoto/colomoto-docker/colomoto-docker.py
     $ python colomoto-docker -V TAG
 
+If `TAG` is `latest`, it will automatically fetch the latest available tag.
 See `python colomoto-docker -h` for usage.
 
 

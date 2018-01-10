@@ -36,9 +36,16 @@ COPY tutorials /notebook/tutorials
 
 ARG IMAGE_NAME
 ARG IMAGE_BUILD_DATE
+ARG BUILD_DATETIME
 ARG SOURCE_COMMIT
 ENV DOCKER_IMAGE=$IMAGE_NAME \
     DOCKER_BUILD_DATE=$IMAGE_BUILD_DATE \
     DOCKER_SOURCE_COMMIT=$SOURCE_COMMIT
+LABEL org.label-schema.build-date=$BUILD_DATETIME \
+    org.label-schema.name="The CoLoMoTo docker" \
+    org.label-schema.url="http://colomoto.org/" \
+    org.label-schema.vcs-ref=$SOURCE_COMMIT \
+    org.label-schema.vcs-url="https://github.com/colomoto/colomoto-docker" \
+    org.label-schema.schema-version="1.0"
 
 

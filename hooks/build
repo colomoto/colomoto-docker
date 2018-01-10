@@ -3,4 +3,5 @@ docker build \
     --build-arg IMAGE_NAME=$IMAGE_NAME \
     --build-arg SOURCE_COMMIT=$SOURCE_COMMIT \
     --build-arg IMAGE_BUILD_DATE=$(date -u +%F) \
+    --build-arg BUILD_DATETIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ") \
     -t $IMAGE_NAME .

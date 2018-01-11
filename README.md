@@ -41,6 +41,22 @@ access to the following softwares:
 * [Pint](http://loicpauleve.name/pint)
 
 
+## Tagging policy and re-executability considerations
+
+Docker images are timestamped with tags of the form YYYY-MM-DD after each tool addition or upgrade.
+
+In order to guarantee the re-executability of your notebook, we recommend to use these tagged images instead of the non-persistent `latest` tag.
+This can be achieved using the `colomoto-docker.py` script to launch the docker image:
+```
+python colomoto-docker.py -V latest
+```
+will fetch and run the most recent timestamped docker image (requires internet connectivity).
+
+If you want to run an image with a given timestamp `<TIMESTAMP>`, use
+```
+python colomoto-docker.py -V <TIMESTAMP>
+```
+
 ## Contribute
 
 Coming soon: instruction to add/update your software

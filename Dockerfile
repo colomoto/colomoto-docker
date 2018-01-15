@@ -24,9 +24,9 @@ RUN conda install --no-update-deps -y \
 ## GINsim-python    - https://github.com/ginsim/ginsim-python       https://github.com/colomoto/colomoto-conda
 ## pyPint           - http://loicpauleve.name/pint                  https://github.com/pauleve/pint
 RUN conda install --no-update-deps -y \
-        colomoto_jupyter=0.4.1 \
-        ginsim-python=0.2.90 \
-        pymaboss=0.3.2 \
+        colomoto_jupyter=0.4.2 \
+        ginsim-python=0.2.91 \
+        pymaboss=0.4 \
         pypint=1.3.93 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs \
     && pip install boolean.py       # extra dependencies

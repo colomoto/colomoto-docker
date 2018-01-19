@@ -25,7 +25,7 @@ RUN conda install --no-update-deps -y \
 ## pyPint           - http://loicpauleve.name/pint                  https://github.com/pauleve/pint
 RUN conda install --no-update-deps -y \
         colomoto_jupyter=0.4.2 \
-        ginsim-python=0.2.91 \
+        ginsim-python=0.2.92 \
         pymaboss=0.4 \
         pypint=1.3.93 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs \

@@ -34,6 +34,9 @@ RUN conda install --no-update-deps -y \
 ## Tutorials for individual tools
 COPY tutorials /notebook/tutorials
 
+COPY validate.sh /usr/local/bin/
+RUN validate.sh
+
 ARG IMAGE_NAME
 ARG IMAGE_BUILD_DATE
 ARG BUILD_DATETIME

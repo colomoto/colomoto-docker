@@ -41,7 +41,10 @@ USER user
 # Notebooks
 ##
 ## Tutorials for individual tools
-COPY --chown=user:user tutorials /notebook/tutorials
+#COPY --chown=user:user tutorials /notebook/tutorials
+COPY tutorials /notebook/tutorials
+
+RUN chown -R user:user /notebook
 
 
 ARG IMAGE_NAME

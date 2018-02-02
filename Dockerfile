@@ -1,6 +1,8 @@
 FROM colomoto/colomoto-docker-base
 MAINTAINER CoLoMoTo Group <contact@colomoto.org>
 
+USER root
+
 ## NuSMV  - http://nusmv.fbk.eu/     https://github.com/colomoto/colomoto-conda
 ## Clingo - https://potassco.org/    https://github.com/colomoto/colomoto-conda
 ## MaBoSS - https://maboss.curie.fr  https://github.com/colomoto/colomoto-conda
@@ -31,11 +33,16 @@ RUN conda install --no-update-deps -y \
     && conda clean -y --all && rm -rf /opt/conda/pkgs \
     && pip install boolean.py       # extra dependencies
 
-## Tutorials for individual tools
-COPY tutorials /notebook/tutorials
-
 COPY validate.sh /usr/local/bin/
-#RUN validate.sh
+
+USER user
+
+##
+# Notebooks
+##
+## Tutorials for individual tools
+COPY --chown=user:user tutorials /notebook/tutorials
+
 
 ARG IMAGE_NAME
 ARG IMAGE_BUILD_DATE
@@ -50,5 +57,4 @@ LABEL org.label-schema.build-date=$BUILD_DATETIME \
     org.label-schema.vcs-ref=$SOURCE_COMMIT \
     org.label-schema.vcs-url="https://github.com/colomoto/colomoto-docker" \
     org.label-schema.schema-version="1.0"
-
 

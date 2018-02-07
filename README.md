@@ -20,14 +20,14 @@ then, open your browser and go to http://localhost:8888 for the Jupyter notebook
 (note: when using Docker Toolbox, replace localhost with the result of
 `docker-machine ip default` command).
 
-Alternatively, you can use the script [colomoto-docker.py](./colomoto-docker.py?raw=true) to ease docker
+Alternatively, you can use the script [colomoto_docker.py](./colomoto_docker.py?raw=true) to ease docker
 invocation:
 
-    $ wget -O colomoto-docker.py https://raw.githubusercontent.com/colomoto/colomoto-docker/colomoto-docker.py
-    $ python colomoto-docker -V TAG
+    $ sudo pip install -U colomoto-docker
+    $ colomoto-docker -V TAG
 
-If `TAG` is `latest`, it will automatically fetch the latest available tag.
-See `python colomoto-docker -h` for usage.
+You can omit `-V TAG` to use the latest validated image.
+See `colomoto-docker -h` for usage.
 
 
 ## Embedded softwares
@@ -46,15 +46,15 @@ access to the following softwares:
 Docker images are timestamped with tags of the form YYYY-MM-DD after each tool addition or upgrade.
 
 In order to guarantee the re-executability of your notebook, we recommend to use these tagged images instead of the non-persistent `latest` tag.
-This can be achieved using the `colomoto-docker.py` script to launch the docker image:
+This can be achieved using the `colomoto_docker.py` script to launch the docker image:
 ```
-python colomoto-docker.py -V latest
+python colomoto_docker.py -V latest
 ```
 will fetch and run the most recent timestamped docker image (requires internet connectivity).
 
 If you want to run an image with a given timestamp `<TIMESTAMP>`, use
 ```
-python colomoto-docker.py -V <TIMESTAMP>
+python colomoto_docker.py -V <TIMESTAMP>
 ```
 
 ## Contribute

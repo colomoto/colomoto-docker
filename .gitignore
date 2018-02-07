@@ -4,3 +4,7 @@
 .*.swp
 *.log
 gen
+*.egg-info
+dist
+__pycache__
+*.pyc

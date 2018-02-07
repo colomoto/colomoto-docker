@@ -35,7 +35,6 @@ RUN conda install --no-update-deps -y \
 
 COPY validate.sh /usr/local/bin/
 
-USER user
 
 ##
 # Notebooks
@@ -44,9 +43,10 @@ USER user
 #COPY --chown=user:user tutorials /notebook/tutorials
 COPY tutorials /notebook/tutorials
 
+# hub.docker.org does not support COPY --chown yet
 RUN chown -R user:user /notebook
 
-
+USER user
 ARG IMAGE_NAME
 ARG IMAGE_BUILD_DATE
 ARG BUILD_DATETIME

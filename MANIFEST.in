@@ -1,0 +1,5 @@
+prune *
+exclude *
+exclude .*
+include colomoto_docker.py
+include setup.py

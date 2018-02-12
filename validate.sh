@@ -13,6 +13,7 @@ validate_nb() {
 test_nb=()
 test_nb+=("tutorials/Reproducibility - fixpoints.ipynb")
 test_nb+=("tutorials/Reproducibility - model checking.ipynb")
+test_nb+=("tutorials/CellCollective/CellCollective - Knowledge Base.ipynb")
 test_nb+=("tutorials/MaBoSS/Toy Example.ipynb")
 test_nb+=("tutorials/MaBoSS/Tutorial.ipynb")
 test_nb+=("tutorials/Pint/quick-tutorial.ipynb")

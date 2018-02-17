@@ -3,6 +3,7 @@
 from argparse import ArgumentParser
 import os
 from multiprocessing import Process
+import subprocess
 import sys
 import webbrowser
 
@@ -61,6 +62,11 @@ print("# %s" % " ".join(argv))
 if not args.shell and not args.no_browser:
     rpipe, wpipe = os.pipe()
 
+    container_ip = "127.0.0.1"
+    docker_machine = os.getenv("DOCKER_MACHINE_NAME")
+    if docker_machine:
+        container_ip = subprocess.check_output(["docker-machine", "ip", docker_machine])
+
     def wait_and_run():
         os.close(wpipe)
         launched = False
@@ -72,7 +78,7 @@ if not args.shell and not args.no_browser:
             line = line.decode()
             if not launched and "The Jupyter Notebook is running at:" in line:
                 launched = True
-                webbrowser.open("http://127.0.0.1:%s" % args.port)
+                webbrowser.open("http://{}:{}".format(container_ip, args.port))
 
     p = Process(target=wait_and_run)
     p.start()

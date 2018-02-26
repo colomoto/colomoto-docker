@@ -66,6 +66,7 @@ if not args.shell and not args.no_browser:
     docker_machine = os.getenv("DOCKER_MACHINE_NAME")
     if docker_machine:
         container_ip = subprocess.check_output(["docker-machine", "ip", docker_machine])
+        container_ip = container_ip.split("%")[0]
 
     def wait_and_run():
         os.close(wpipe)

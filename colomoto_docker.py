@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-from __future__ import print_function
-
 from argparse import ArgumentParser
 import os
 import platform
@@ -98,3 +96,6 @@ def main():
 
     else:
         os.execvp(argv[0], argv)
+
+if __name__ == "__main__":
+    main()

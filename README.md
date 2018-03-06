@@ -6,28 +6,53 @@
 ## Quick usage guide
 
 You need [Docker](http://docker.com).
+We support GNU/Linux, macOS, and Windows.
+
+### Using the colomoto-docker script
+
+You need [Python](http://python.org).
+
+The script can be installed and upgraded by executing the following command:
+
+    pip install -U colomoto-docker
+    
+The CoLoMoTo notebook can then be started by executing in a terminal (if using Docker Toolbox, in a Docker Terminal):
+
+    colomoto-docker
+
+The container can be stopped by pressing <kbd>Ctrl</kbd>+<kbd>C</kbd> keys.
+
+By default, the script will fetch the most recent [colomoto/colomoto-docker tag](https://hub.docker.com/r/colomoto/colomoto-docker/tags/). A specific tag can be specified using the `-V` option. For example:
+
+    colomoto-docker -V 2018-02-01
+
+**Warning**: by default, the files within the Docker container are isolated from the running host computer, therefore *files are deleted after stopping the container*.
+To have access to the files of your current directory you should use the `--bind` option:
+
+    colomoto-docker --bind .
+      
+See
+
+    colomoto-docker --help
+
+for other options.
+
+
+### Manual invocation
+
 First fetch the image with
 
-    $ docker pull colomoto/colomoto-docker:TAG
+    docker pull colomoto/colomoto-docker:TAG
 
 where `TAG` is the version of the image, among [colomoto/colomoto-docker tags](https://hub.docker.com/r/colomoto/colomoto-docker/tags/).
 
 The image can be ran using
 
-    $ docker run -it --rm -p 8888:8888 colomoto/colomoto-docker:TAG
+    docker run -it --rm -p 8888:8888 colomoto/colomoto-docker:TAG
 
 then, open your browser and go to http://localhost:8888 for the Jupyter notebook web interface
 (note: when using Docker Toolbox, replace localhost with the result of
 `docker-machine ip default` command).
-
-Alternatively, you can use the script [colomoto_docker.py](./colomoto_docker.py?raw=true) to ease docker
-invocation:
-
-    $ sudo pip install -U colomoto-docker
-    $ colomoto-docker -V TAG
-
-You can omit `-V TAG` to use the latest validated image.
-See `colomoto-docker -h` for usage.
 
 
 ## Embedded softwares
@@ -45,17 +70,7 @@ access to the following softwares:
 
 Docker images are timestamped with tags of the form YYYY-MM-DD after each tool addition or upgrade.
 
-In order to guarantee the re-executability of your notebook, we recommend to use these tagged images instead of the non-persistent `latest` tag.
-This can be achieved using the `colomoto_docker.py` script to launch the docker image:
-```
-python colomoto_docker.py -V latest
-```
-will fetch and run the most recent timestamped docker image (requires internet connectivity).
-
-If you want to run an image with a given timestamp `<TIMESTAMP>`, use
-```
-python colomoto_docker.py -V <TIMESTAMP>
-```
+In order to guarantee the re-executability of your notebook, we recommend to use these tagged images instead of the non-persistent `next` tag.
 
 ## Contribute
 

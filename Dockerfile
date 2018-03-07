@@ -8,6 +8,7 @@ USER root
 ## MaBoSS - https://maboss.curie.fr  https://github.com/colomoto/colomoto-conda
 RUN conda install --no-update-deps  -y \
         nusmv=2.6.0 \
+        nusmv-arctl=2.2.2 \
         clingo=5.2.2 \
         maboss=2.0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs

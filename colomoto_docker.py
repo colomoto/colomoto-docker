@@ -25,7 +25,7 @@ def main():
         help="Do not start the browser")
     parser.add_argument("--unsafe-ssl", default=False, action="store_true",
         help="Do not check for SSL certificates")
-    parser.add_argument("docker_options", nargs="*")
+    parser.add_argument("command", nargs="*")
     args = parser.parse_args()
 
     if args.version == "latest":
@@ -65,14 +65,15 @@ def main():
     if args.bind:
         argv += ["--volume", "%s:%s" % (os.path.abspath(args.bind), args.workdir)]
     argv += ["-w", args.workdir]
-    argv += args.docker_options
     argv += [image]
     if args.shell:
         argv += ["bash"]
+    elif args.command:
+        argv += args.command
 
     print("# %s" % " ".join(argv))
 
-    if not args.shell and not args.no_browser:
+    if not args.shell and not args.command and not args.no_browser:
 
         p = subprocess.Popen(argv, stdout=subprocess.PIPE)
 

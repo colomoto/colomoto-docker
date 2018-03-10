@@ -25,7 +25,17 @@ def main():
         help="Do not start the browser")
     parser.add_argument("--unsafe-ssl", default=False, action="store_true",
         help="Do not check for SSL certificates")
-    parser.add_argument("command", nargs="*")
+
+    group = parser.add_argument_group("docker run options")
+    group.add_argument("-e", "--env", metavar="list",
+        help="Set environment variables")
+    group.add_argument("--name",
+        help="Name of the container")
+    group.add_argument("-v", "--volume", metavar="list",
+        help="Bind mount a volume")
+    docker_run_opts = ["env", "name", "volume"]
+
+    parser.add_argument("command", nargs="*", help="Command to run instead of colomoto-nb")
     args = parser.parse_args()
 
     if args.version == "latest":
@@ -65,6 +75,9 @@ def main():
     if args.bind:
         argv += ["--volume", "%s:%s" % (os.path.abspath(args.bind), args.workdir)]
     argv += ["-w", args.workdir]
+    for opt in docker_run_opts:
+        if getattr(args, opt) is not None:
+            argv += ["--%s" % opt, getattr(args, opt)]
     argv += [image]
     if args.shell:
         argv += ["bash"]

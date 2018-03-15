@@ -1,4 +1,4 @@
-# colomoto-docker
+# The CoLoMoTo Docker
 
 [![](https://images.microbadger.com/badges/image/colomoto/colomoto-docker.svg)](http://microbadger.com/images/colomoto/colomoto-docker "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/colomoto/colomoto-docker.svg)](https://microbadger.com/images/colomoto/colomoto-docker "Get your own version badge on microbadger.com")
@@ -56,15 +56,19 @@ then, open your browser and go to http://localhost:8888 for the Jupyter notebook
 `docker-machine ip default` command).
 
 
-## Embedded softwares
+## Embedded software
 
 Besides the [Jupyter notebook](http://jupyter.org), the docker image provides
 access to the following softwares:
 
-* [GINsim](http://ginsim.org)
-* [MaBoSS](https://maboss.curie.fr)
-* [NuSMV](http://nusmv.fbk.eu)
-* [Pint](http://loicpauleve.name/pint)
+| Software tool | Homepage | Description | Jupyter interface |
+| --- | --- | --- | --- |
+| CellCollective | https://cellcollective.org | Model repository and knowledge base | Python module [`cellcollective`](https://github.com/colomoto/colomoto_jupyter) |
+| GINsim | http://ginsim.org | Boolean and multi-valued network modelling | Python module [`ginsim`](https://github.com/GINsim/GINsim-python) |
+| bioLQM | https://github.com/colomoto/bioLQM | Swiss-knife for qualitative models | Python module [`biolqm`](https://github.com/GINsim/GINsim-python) |
+| NuSMV | http://nusmv.fbk.eu | Symbolic model-checker | Python module [`nusmv`](https://github.com/colomoto/colomoto_jupyter)
+| Pint | https://loicpauleve.name/pint | Static analyzer for dynamics of Automata Networks | Python module [`pypint`](https://github.com/pauleve/pint)  |
+| MaBoSS | http://maboss.curie.fr | Markovian Boolean Stochastic Simulator | Python module [`maboss`](https://github.com/thenlevy/pyMaBoSS) |
 
 
 ## Tagging policy and re-executability considerations

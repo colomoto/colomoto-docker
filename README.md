@@ -74,5 +74,5 @@ In order to guarantee the re-executability of your notebook, we recommend to use
 
 ## Contribute
 
-Coming soon: instruction to add/update your software
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 

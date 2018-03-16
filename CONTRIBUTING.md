@@ -74,6 +74,7 @@ In order to upgrade an existing tool, the following steps must be performed:
 * [ ] update the conda package
 * [ ] update the related tutorial notebooks
 * [ ] modify the `Dockerfile` with the new version, build it locally, and validate it (see [Recipes](#Recipes))
+* [ ] build locally the Docker image and validate it
 * [ ] create a pull request with the `tool` label
 
 

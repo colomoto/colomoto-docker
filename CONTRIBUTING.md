@@ -65,7 +65,7 @@ It is now time to modify the files of the colomoto-docker repository:
 There are 3 `RUN` sections related to conda package installation, which depend on the expected frequency of version updates (the first section being the less frequently updated).
 * [ ] Add the demo notebook in the `tutorials` folder, in a subfolder named after your tool.
 * [ ] Include the notebook path in the `validate.sh` file.
-* [ ] Build locally the Docker image and validate it
+* [ ] Build locally the Docker image and validate it (see [Recipes](#Recipes))
 * [ ] Create a pull request with the `tool request` label
 
 
@@ -74,7 +74,7 @@ There are 3 `RUN` sections related to conda package installation, which depend o
 In order to upgrade an existing tool, the following steps must be performed:
 * [ ] Update the conda package
 * [ ] Update the related tutorial notebooks
-* [ ] Modify the `Dockerfile` with the new version, build it locally, and validate it (see [Recipes](#Recipes))
+* [ ] Modify the `Dockerfile` with the new conda package version
 * [ ] Build locally the Docker image and validate it
 * [ ] Create a pull request with the `tool` label
 

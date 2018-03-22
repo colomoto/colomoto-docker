@@ -13,10 +13,12 @@ We support GNU/Linux, macOS, and Windows.
 
 You need [Python](http://python.org).
 
-The script can be installed and upgraded by executing the following command:
+The script can be installed and upgraded by executing the following command
+(you may have to use `pip3` instead of `pip` depending on your configuration):
 
     pip install -U colomoto-docker
-    
+
+
 The CoLoMoTo notebook can then be started by executing in a terminal (if using Docker Toolbox, in a Docker Terminal):
 
     colomoto-docker

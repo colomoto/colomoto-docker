@@ -45,7 +45,7 @@ def main():
         except ImportError:
             from urllib2 import urlopen
 
-        if args.unsafe_ssl or platform.system() == "Windows":
+        if args.unsafe_ssl or platform.system() != "Linux":
             # disable SSL verification...
             import ssl
             ssl._create_default_https_context = ssl._create_unverified_context

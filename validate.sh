@@ -17,6 +17,7 @@ test_nb+=("tutorials/CellCollective/CellCollective - Knowledge Base.ipynb")
 test_nb+=("tutorials/GINsim/GINsim - visualization")
 test_nb+=("tutorials/MaBoSS/Toy Example.ipynb")
 test_nb+=("tutorials/MaBoSS/MaBoSS - Quick tutorial.ipynb")
+test_nb+=("tutorials/NuSMV/NuSMV with GINsim.ipynb")
 test_nb+=("tutorials/Pint/quick-tutorial.ipynb")
 test_nb+=("tutorials/Pint/demo.ipynb")
 

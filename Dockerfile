@@ -18,7 +18,7 @@ RUN conda install --no-update-deps  -y \
 ## Pint - http://loicpauleve.name/pint     https://github.com/pauleve/pint
 RUN conda install --no-update-deps -y \
         ginsim=2.9.7 \
-        pint=2017.12.19 \
+        pint=2018.03.22 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 
@@ -30,7 +30,7 @@ RUN conda install --no-update-deps -y \
         colomoto_jupyter=0.4.5 \
         ginsim-python=0.2.95 \
         pymaboss=0.5 \
-        pypint=1.4.0 \
+        pypint=1.4.1 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs \
     && pip install boolean.py       # extra dependencies
 

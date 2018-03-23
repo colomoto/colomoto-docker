@@ -27,7 +27,7 @@ RUN conda install --no-update-deps -y \
 ## GINsim-python    - https://github.com/ginsim/ginsim-python       https://github.com/colomoto/colomoto-conda
 ## pyPint           - http://loicpauleve.name/pint                  https://github.com/pauleve/pint
 RUN conda install --no-update-deps -y \
-        colomoto_jupyter=0.4.5 \
+        colomoto_jupyter=0.4.6 \
         ginsim-python=0.2.95 \
         pymaboss=0.5 \
         pypint=1.4.1 \

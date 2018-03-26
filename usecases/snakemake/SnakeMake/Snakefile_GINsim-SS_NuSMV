@@ -44,7 +44,8 @@ rule all:
 	input:
 		"{outputDir}/{modelName}_stableStates.txt".format(outputDir=OUTDIR, modelName=ginsimModel),
 		"{outputDir}/{modelName}_NuSMV_report.txt".format(outputDir=OUTDIR, modelName=ginsimModel)
-
+	shell:
+		"docker stop {COLOMOTOCONT}"
 
 # Pull CoLoMoTo Docker image from DockerHub
 # Output : A flag file indicating that the image is available
@@ -55,7 +56,7 @@ rule pull_colomoto_image:
 		"{outputDir}/CoLoMoTo_image_available".format(outputDir=OUTDIR)
 	shell:
 		"mkdir -p {OUTDIR} && "
-		"docker pull {COLOMOTOIMG} && docker run -d --name={COLOMOTOCONT} -v {BASEDIR}:/home -ti {COLOMOTOIMG} /bin/bash && "
+		"docker pull {COLOMOTOIMG} && docker run --rm -d --name={COLOMOTOCONT} -v {BASEDIR}:/home -ti {COLOMOTOIMG} /bin/bash && "
 		"touch {output}"
 
 

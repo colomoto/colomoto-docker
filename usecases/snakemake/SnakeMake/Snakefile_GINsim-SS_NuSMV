@@ -2,7 +2,7 @@
 # Author: CoLoMoTo
 # Affiliation: CoLoMoTo
 # Aim: Export a GINsim model into NuSMV-compatible format, and check a set of properties.
-# Date: 20/07/2017
+# Date: 26/03/2018
 # Run: snakemake --reason --snakefile ./SnakeMake/Snakefile_GINsim-SS_NuSMV
 """
 
@@ -14,83 +14,36 @@ import os, os.path, time, subprocess
 
 # Folders
 BASEDIR = os.getcwd()
-OUTDIR = time.strftime("%Y%m%d%H%M%S_output")
+TAG = time.strftime("%Y%m%d%H%M%S")
+OUTDIR = "%s_output" % (TAG)
 
 # Docker
-# Location of the Dockerfile. Not used if image is pulled from DockerHub.
-COLOMOTODF = os.path.join(BASEDIR, "Dockerfiles/all/")
 # Name of the Docker image
-COLOMOTOIMG = "colomoto/colomoto-docker:latest"
+COLOMOTOIMG = "colomoto/colomoto-docker:next"
 # Name of the created Docker container
-COLOMOTOCONT = "colomoto-container"
+COLOMOTOCONT = "colomoto-container-%s" % (TAG)
 
 # Tools
 GINSIM = "GINsim" # available in docker image
 GINSIM_EXPORT_AS_NUSMV = "Scripts/ginsim_export_as_NuSMV.py"
-GINSIM_FIND_STABLE_STATES = "Scripts/ginsim_find_stable_states.py"
 NUSMV = "NuSMV" # available in docker image
 NUSMV_REPORT = "Scripts/nusmv_report_all_tests.py"
 
 # I/O Files
 MODELDIR = "Models/2016_CellCycle_Traynard/"
-ginsimModel, = glob_wildcards(os.path.join(MODELDIR, "{modelName}.zginml"))
-properties, = glob_wildcards(os.path.join(MODELDIR, "{property}_property.smv"))
+ginsimModel = "Traynard_MultiLevel_MamCC_Apr2016"
 
 
 #########################
 # Rules 
 
 
-def clean_container():
-	# Check existence of a container named "colomoto-container"
-	output,_ = subprocess.Popen(["docker", "ps", "--all", "--quiet", "--filter", "name={container}".format(container=COLOMOTOCONT)], stdout=subprocess.PIPE).communicate()
-	# If an ID was returned, container exists
-	if len(output)>0 :
-		# Check whether container is running
-		output,_ = subprocess.Popen(["docker", "ps", "--all", "--quiet", "--filter", "name={container}".format(container=COLOMOTOCONT), "--filter", "status=running"], stdout=subprocess.PIPE).communicate()
-		# If container is running
-		if len(output)>0 :
-			# Stop container
-			print("Stopping Docker container.")
-			with open(os.devnull, 'w') as FNULL: # discard output made by Docker
-				subprocess.call(["docker", "stop", COLOMOTOCONT], stdout=FNULL)
-		# Container is not running (or was just stopped), delete it
-		print("Deleting Docker container.")
-		with open(os.devnull, 'w') as FNULL: # discard output made by Docker
-			subprocess.call(["docker", "rm", COLOMOTOCONT], stdout=FNULL)
-
-onstart:
-	clean_container()
-
-onsuccess:
-	clean_container()
-
-onerror:
-	clean_container()
-
-
 # This rule will be executed last. But to run it, it needs to create the input files beforehand.
 rule all:
 	message: "\n##########\n# Final rule."
 	input:
-		expand("{outputDir}/{model}_stableStates.txt", outputDir=OUTDIR, model=ginsimModel),
-		"{outputDir}/NUSMV_report.txt".format(outputDir=OUTDIR)
-
-
-## Build CoLoMoTo image from available Dockerfile
-## Input : Dockerfile for CoLoMoTo tools
-## If there is an error with the docker build (e.g. EOL-type errors for a recent 
-## Ubuntu version), try with option --no-cache 
-## Output : A flag file indicating that the image is available
-# rule build_colomoto_image:
-# 	message:
-# 		"\n##########\n# Build CoLoMoTo image"
-# 	input:
-# 		"{dockerfile}".format(dockerfile=COLOMOTODF)
-# 	output:
-# 		"{outputDir}/CoLoMoTo_image_available".format(outputDir=OUTDIR)
-# 	shell:
-# 		"mkdir -p {OUTDIR} && docker build -t {COLOMOTOIMG} {input} && docker run -d --name={COLOMOTOCONT} -v {BASEDIR}:/home -ti {COLOMOTOIMG} /bin/bash && touch {output}"
+		"{outputDir}/{modelName}_stableStates.txt".format(outputDir=OUTDIR, modelName=ginsimModel),
+		"{outputDir}/{modelName}_NuSMV_report.txt".format(outputDir=OUTDIR, modelName=ginsimModel)
 
 
 # Pull CoLoMoTo Docker image from DockerHub
@@ -101,7 +54,10 @@ rule pull_colomoto_image:
 	output:
 		"{outputDir}/CoLoMoTo_image_available".format(outputDir=OUTDIR)
 	shell:
-		"mkdir -p {OUTDIR} && docker pull {COLOMOTOIMG} && docker run -d --name={COLOMOTOCONT} -v {BASEDIR}:/home -ti {COLOMOTOIMG} /bin/bash && touch {output}"
+		"mkdir -p {OUTDIR} && "
+		"docker pull {COLOMOTOIMG} && docker run -d --name={COLOMOTOCONT} -v {BASEDIR}:/home -ti {COLOMOTOIMG} /bin/bash && "
+		"touch {output}"
+
 
 # Find stable states of a GINsim model
 # Input : GINsim model
@@ -110,14 +66,13 @@ rule ginsim_find_SS:
 	message:
 		"\n##########\n# Find Stable States of {input.model} using GINsim"
 	input:
-		docker_image = "{outputDir}/CoLoMoTo_image_available",
-		model = os.path.join(MODELDIR, "{modelName}.zginml")
+		docker_image = "{outputDir}/CoLoMoTo_image_available".format(outputDir=OUTDIR),
+		model = "{modelDir}/{modelName}.zginml".format(modelDir=MODELDIR, modelName=ginsimModel)
 	output:
-		"{outputDir}/{modelName}_stableStates.txt"
-	params:
-		outputDir = OUTDIR
+		"{outputDir}/{modelName}_stableStates.txt".format(outputDir=OUTDIR, modelName=ginsimModel)
 	shell:
-		"mkdir -p {OUTDIR} && docker exec {COLOMOTOCONT} {GINSIM} -s /home/{GINSIM_FIND_STABLE_STATES} /home/{input.model} > {output}"
+		"mkdir -p {OUTDIR} && "
+		"docker exec {COLOMOTOCONT} {GINSIM} -lm /home/{input.model} -r stable 1>>{output}"
 
 
 # Export a GINsim model as NuSMV format
@@ -127,30 +82,30 @@ rule ginsim_export_as_nusmv:
 	message:
 		"\n##########\n# Export {input.model} in NuSMV format as {output}"
 	input:
-		docker_image = "{outputDir}/CoLoMoTo_image_available",
-		model = os.path.join(MODELDIR, "{modelName}.zginml")
+		docker_image = "{outputDir}/CoLoMoTo_image_available".format(outputDir=OUTDIR),
+		model = "{modelDir}/{modelName}.zginml".format(modelDir=MODELDIR, modelName=ginsimModel)
 	output:
-		"{outputDir}/{modelName}_export.smv"
-	params:
-		outputDir = OUTDIR
+		"{outputDir}/{modelName}_NuSMV_export.smv".format(outputDir=OUTDIR, modelName=ginsimModel)
 	shell:
-		"mkdir -p {OUTDIR} && docker exec {COLOMOTOCONT} {GINSIM} -s /home/{GINSIM_EXPORT_AS_NUSMV} /home/{input.model} /home/{output}"
+		"mkdir -p {OUTDIR} && "
+		"docker exec {COLOMOTOCONT} python3 /home/{GINSIM_EXPORT_AS_NUSMV} /home/{input.model} /home/{output}"
 
 # Concatenate exported model with properties to be tested
 # Input : Model in SMV format; NuSMV properties
 # Output : Concatenated files
 rule concatenate_NuSMV_model_properties:
 	message:
-		"\n##########\n# Concatenate exported GINsim model {input.model} with properties to be tested {input.property} into {output.model}"
+		"\n##########\n# Concatenate exported GINsim model {input.model} with properties to be tested {input.property} into {output}"
 	input:
-		model = "{outputDir}/{modelName}_export.smv",
-		property = os.path.join(MODELDIR, "{property}_property.smv")
+		docker_image = "{outputDir}/CoLoMoTo_image_available".format(outputDir=OUTDIR),
+		model = "{outputDir}/{modelName}_NuSMV_export.smv".format(outputDir=OUTDIR, modelName=ginsimModel),
+		property = "{modelDir}/{modelName}_property.smv".format(modelDir=MODELDIR, modelName=ginsimModel)
 	output:
-		model = "{outputDir}/{modelName}__{property}_model.smv"
-	params:
-		outputDir = OUTDIR,
+		"{outputDir}/{modelName}_NuSMV_property.smv".format(outputDir=OUTDIR, modelName=ginsimModel)
 	shell:
-		"mkdir -p {OUTDIR} && cat {input.model} {input.property} > {output.model}"
+		"mkdir -p {OUTDIR} && "
+		"docker exec {COLOMOTOCONT} cat /home/{input.model} /home/{input.property} > {output}"
+
 
 # Test NuSMV properties
 # Input : model+properties to test; flag file indicating that the docker image is present
@@ -159,22 +114,22 @@ rule test_property:
 	message:
 		"\n##########\n# Run NuSMV"
 	input:
-		docker_image = "{outputDir}/CoLoMoTo_image_available",
-		model = "{outputDir}/{model}_model.smv"
+		docker_image = "{outputDir}/CoLoMoTo_image_available".format(outputDir=OUTDIR),
+		model = "{outputDir}/{modelName}_NuSMV_property.smv".format(outputDir=OUTDIR, modelName=ginsimModel)
 	output:
-		result = "{outputDir}/{model}_output.txt"
-	params:
-		outputDir = OUTDIR
+		"{outputDir}/{modelName}_NuSMV_output.txt".format(outputDir=OUTDIR, modelName=ginsimModel)
 	shell:
-		"mkdir -p {OUTDIR} && docker exec {COLOMOTOCONT} {NUSMV} /home/{input.model} > {output.result}"
+		"mkdir -p {OUTDIR} && "
+		"docker exec {COLOMOTOCONT} {NUSMV} /home/{input.model} > {output}"
 
 # Create report
 rule report_nusmv:
 	message:
 		"\n##########\n# Report NuSMV results"
 	input:
-		expand("{outputdir}/{model}__{property}_output.txt", outputdir=OUTDIR, model=ginsimModel, property=properties)
+		"{outputDir}/{modelName}_NuSMV_output.txt".format(outputDir=OUTDIR, modelName=ginsimModel)
 	output:
-		"{outputDir}/NUSMV_report.txt"
+		"{outputDir}/{modelName}_NuSMV_report.txt".format(outputDir=OUTDIR, modelName=ginsimModel)
 	shell:
-		"mkdir -p {OUTDIR} && docker exec {COLOMOTOCONT} python /home/{NUSMV_REPORT} -o /home/{output} /home/{input}"
+		"mkdir -p {OUTDIR} && "
+		"docker exec {COLOMOTOCONT} python3 /home/{NUSMV_REPORT} -o /home/{output} /home/{input}"

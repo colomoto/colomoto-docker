@@ -1,6 +1,6 @@
 # colomoto-docker: SnakeMake use cases
 
-### Use case 1 : stable states and model checking
+### Use case : stable states and model checking
 
 The first described use case corresponds to the following steps:
 * Find the stable states of a GINsim model,

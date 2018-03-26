@@ -19,7 +19,6 @@ test_nb+=("tutorials/MaBoSS/Toy Example.ipynb")
 test_nb+=("tutorials/MaBoSS/MaBoSS - Quick tutorial.ipynb")
 test_nb+=("tutorials/NuSMV/NuSMV with GINsim.ipynb")
 test_nb+=("tutorials/Pint/quick-tutorial.ipynb")
-test_nb+=("tutorials/Pint/demo.ipynb")
 test_nb+=("usecases/Usecase - Mutations enabling tumour invasion.ipynb")
 
 for nb in "${test_nb[@]}"; do

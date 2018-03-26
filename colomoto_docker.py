@@ -69,7 +69,7 @@ def main():
     image = "%s:%s" % (args.image, image_tag)
 
     if image_tag == "next" or not subprocess.check_output(["docker", "images", "-q", image]):
-        subprocess.run(["docker", "pull", image])
+        subprocess.check_call(["docker", "pull", image])
 
     argv = ["docker", "run", "-it", "--rm", "-p", "%s:8888" % args.port]
     if args.bind:

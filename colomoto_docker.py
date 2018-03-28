@@ -54,7 +54,8 @@ def main():
         url_api = "https://registry.hub.docker.com/v1/repositories/{}/tags".format(args.image)
         tags = []
         q = urlopen(url_api)
-        r = json.load(q)
+        data = q.read().decode("utf-8")
+        r = json.loads(data)
         q.close()
         tags = [t["name"] for t in r if len(t["name"])==10 and "-" in t["name"]]
         if not tags:

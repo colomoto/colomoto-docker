@@ -3,6 +3,7 @@
 [![](https://images.microbadger.com/badges/image/colomoto/colomoto-docker.svg)](http://microbadger.com/images/colomoto/colomoto-docker "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/colomoto/colomoto-docker.svg)](https://microbadger.com/images/colomoto/colomoto-docker "Get your own version badge on microbadger.com")
 [![PyPI version](https://badge.fury.io/py/colomoto-docker.svg)](https://badge.fury.io/py/colomoto-docker)
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/colomoto/colomoto-docker/2018-03-31)
 
 ## Quick usage guide
 
@@ -27,7 +28,7 @@ The container can be stopped by pressing <kbd>Ctrl</kbd>+<kbd>C</kbd> keys.
 
 By default, the script will fetch the most recent [colomoto/colomoto-docker tag](https://hub.docker.com/r/colomoto/colomoto-docker/tags/). A specific tag can be specified using the `-V` option. For example:
 
-    colomoto-docker -V 2018-02-01
+    colomoto-docker -V 2018-03-31
 
 **Warning**: by default, the files within the Docker container are isolated from the running host computer, therefore *files are deleted after stopping the container*.
 To have access to the files of your current directory you should use the `--bind` option:

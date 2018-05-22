@@ -80,7 +80,7 @@ def main():
         argv += ["--volume", "%s:%s" % (os.path.abspath(args.bind), args.workdir)]
     argv += ["-w", args.workdir]
 
-    if not args.shell:
+    if not args.shell and not args.command:
         container_ip = "127.0.0.1"
         docker_machine = os.getenv("DOCKER_MACHINE_NAME")
         if docker_machine:

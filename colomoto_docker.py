@@ -2,7 +2,9 @@
 
 from argparse import ArgumentParser
 import os
+from contextlib import closing
 import platform
+import socket
 import subprocess
 import sys
 import webbrowser
@@ -17,7 +19,7 @@ def main():
         help="Start interactive shell instead of notebook service")
     parser.add_argument("-V", "--version", type=str, default="latest",
         help="Version of docker image (latest to fetch the latest tag)")
-    parser.add_argument("--port", default=8888, type=int,
+    parser.add_argument("--port", default=0, type=int,
         help="Local port")
     parser.add_argument("--image", default="colomoto/colomoto-docker",
         help="Docker image")
@@ -72,10 +74,33 @@ def main():
     if image_tag == "next" or not subprocess.check_output(["docker", "images", "-q", image]):
         subprocess.check_call(["docker", "pull", image])
 
-    argv = ["docker", "run", "-it", "--rm", "-p", "%s:8888" % args.port]
+
+    argv = ["docker", "run", "-it", "--rm"]
     if args.bind:
         argv += ["--volume", "%s:%s" % (os.path.abspath(args.bind), args.workdir)]
     argv += ["-w", args.workdir]
+
+    if not args.shell:
+        container_ip = "127.0.0.1"
+        docker_machine = os.getenv("DOCKER_MACHINE_NAME")
+        if docker_machine:
+            container_ip = subprocess.check_output(["docker-machine", "ip", docker_machine])
+            container_ip = container_ip.decode().strip().split("%")[0]
+            port = args.port if args.port else 8888
+        elif args.port == 0:
+            # find next available
+            for port in range(8888, 65535):
+                with closing(socket.socket(socket.AF_INET, socket.SOCK_STREAM)) as s:
+                    try:
+                        s.bind((container_ip, port))
+                        break
+                    except:
+                        pass
+        else:
+            port = args.port
+
+        argv += ["-p", "%s:8888" % port]
+
     for opt in docker_run_opts:
         if getattr(args, opt) is not None:
             argv += ["--%s" % opt, getattr(args, opt)]
@@ -91,12 +116,6 @@ def main():
 
         p = subprocess.Popen(argv, stdout=subprocess.PIPE)
 
-        container_ip = "127.0.0.1"
-        docker_machine = os.getenv("DOCKER_MACHINE_NAME")
-        if docker_machine:
-            container_ip = subprocess.check_output(["docker-machine", "ip", docker_machine])
-            container_ip = container_ip.decode().strip().split("%")[0]
-
         launched = False
         while True:
             line = os.read(p.stdout.fileno(), 1024)
@@ -105,7 +124,7 @@ def main():
                 line = line.decode()
                 if not launched and "The Jupyter Notebook is running at:" in line:
                     launched = True
-                    webbrowser.open("http://{}:{}".format(container_ip, args.port))
+                    webbrowser.open("http://{}:{}".format(container_ip, port))
             elif p.poll() is not None:
                 break
 

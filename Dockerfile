@@ -4,12 +4,13 @@ MAINTAINER CoLoMoTo Group <contact@colomoto.org>
 USER root
 
 ## NuSMV  - http://nusmv.fbk.eu/     https://github.com/colomoto/colomoto-conda
-## Clingo - https://potassco.org/    https://github.com/colomoto/colomoto-conda
+## Clingo - https://potassco.org
 ## MaBoSS - https://maboss.curie.fr  https://github.com/colomoto/colomoto-conda
 RUN conda install --no-update-deps  -y \
+        -c potassco \
+        clingo=5.2.2 \
         nusmv=2.6.0 \
         nusmv-arctl=2.2.2 \
-        clingo=5.2.2 \
         maboss=2.0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 

@@ -1,3 +1,2 @@
-# The CoLoMoTo Docker and Interactive Notebook
 
 In construction...

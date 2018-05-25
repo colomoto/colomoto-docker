@@ -9,7 +9,23 @@
 .slide3 {
     background-color: $header-bg-color-secondary;
 }
-.slide1, .slide3 {
+.slide1,
+.slide1 .site-footer-credits,
+.slide1 h1,
+.slide1 h2,
+.slide1 h3,
+.slide1 h4,
+.slide1 h5,
+.slide1 h6,
+.slide3,
+.slide3 .site-footer-credits,
+.slide3 h1,
+.slide3 h2,
+.slide3 h3,
+.slide3 h4,
+.slide3 h5,
+.slide3 h6,
+{
     color: white;
 }
 .slide1 a, .slide3 a {

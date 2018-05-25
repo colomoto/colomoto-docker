@@ -1,0 +1,11 @@
+---
+---
+@import "{{ site.theme }}";
+.slide0, .slide2 {
+}
+.slide1 {
+    background-color: $header-bg-color;
+}
+.slide3 {
+    background-color: $header-bg-color-secondary;
+}

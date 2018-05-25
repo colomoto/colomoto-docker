@@ -32,11 +32,16 @@ for other options.
 
 ## Available software tools with Python API
 
-| Software tool | Homepage | Description | Jupyter interface |
-| --- | --- | --- | --- |
-| CellCollective | https://cellcollective.org | Model repository and knowledge base | Python module [`cellcollective`](https://github.com/colomoto/colomoto_jupyter) |
-| GINsim | http://ginsim.org | Boolean and multi-valued network modelling | Python module [`ginsim`](https://github.com/GINsim/GINsim-python) |
-| bioLQM | https://github.com/colomoto/bioLQM | Logical Qualitative Modelling toolkit | Python module [`biolqm`](https://github.com/GINsim/GINsim-python) |
-| NuSMV | http://nusmv.fbk.eu | Symbolic model-checker | Python module [`nusmv`](https://github.com/colomoto/colomoto_jupyter)
-| Pint | https://loicpauleve.name/pint | Static analyzer for dynamics of Automata Networks | Python module [`pypint`](https://github.com/pauleve/pint)  |
-| MaBoSS | http://maboss.curie.fr | Markovian Boolean Stochastic Simulator | Python module [`maboss`](https://github.com/thenlevy/pyMaBoSS) |
+* [bioLQM](https://github.com/colomoto/bioLQM) -- Logical Qualitative Modelling toolkit<br/>
+  Python module [`biolqm`](https://github.com/GINsim/GINsim-python)
+* [CellCollective](https://cellcollective.org) -- Model repository and knowledge base<br/>
+  Python module [`cellcollective`](https://github.com/colomoto/colomoto_jupyter)
+* [GINsim](http://ginsim.org) -- Boolean and multi-valued network modelling<br/>
+  Python module [`ginsim`](https://github.com/GINsim/GINsim-python) 
+* [MaBoSS](http://maboss.curie.fr) -- Markovian Boolean Stochastic Simulator<br/>
+  Python module [`maboss`](https://github.com/thenlevy/pyMaBoSS)
+* [NuSMV](http://nusmv.fbk.eu) -- Symbolic model-checker<br/>
+  Python module [`nusmv`](https://github.com/colomoto/colomoto_jupyter)
+* [Pint](https://loicpauleve.name/pint) -- Static analyzer for dynamics of Automata Networks<br/>
+  Python module [`pypint`](https://github.com/pauleve/pint)
+

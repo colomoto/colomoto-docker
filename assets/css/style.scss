@@ -5,6 +5,17 @@
 .project-tagline { opacity: 0.9; }
 .main-content p { text-align: justify; }
 
+.slide figure {
+    margin: 1em;
+    display: inline-block;
+    width: 33%;
+    vertical-align: top;
+    min-width: 320px;
+}
+.slide figcaption {
+    font-size: 95%;
+}
+
 .slide0, .slide2 {
 }
 .slide1 {

@@ -4,10 +4,10 @@
 ## Tutorials and use cases
 
 <figure>
-  <a href="https://nbviewer.jupyter.org/github/colomoto/colomoto-docker/tree/next/tutorials/">
+  <a href="https://nbviewer.jupyter.org/github/colomoto/colomoto-docker/tree/master/tutorials/">
   <img src="preview_tutorials.png" alt="">
   </a>
-  <figcaption><a href="https://nbviewer.jupyter.org/github/colomoto/colomoto-docker/tree/next/tutorials/">Short tutorials for individual tools</a></figcaption>
+  <figcaption><a href="https://nbviewer.jupyter.org/github/colomoto/colomoto-docker/tree/master/tutorials/">Short tutorials for individual tools</a></figcaption>
 </figure>
 <figure>
   <a href="https://nbviewer.jupyter.org/gist/pauleve/a86717b0ae8750440dd589f778db428f/Usecase%20-%20Mutations%20enabling%20tumour%20invasion.ipynb">

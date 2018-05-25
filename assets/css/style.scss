@@ -9,3 +9,9 @@
 .slide3 {
     background-color: $header-bg-color-secondary;
 }
+.slide1, .slide3 {
+    color: white;
+}
+.slide1 a, .slide3 a {
+    color: yellow;
+}

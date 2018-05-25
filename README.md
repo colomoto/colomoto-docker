@@ -1,2 +1,3 @@
-
-In construction...
+---
+layout: index
+---

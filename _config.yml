@@ -1,3 +1,11 @@
 theme: jekyll-theme-cayman
 title: The CoLoMoTo Interactive Notebook
 description: Accessible and Reproducible Computational Analyses for Qualitative Biological Networks
+collections:
+- index_slides
+defaults:
+- scope:
+    path: ""
+    type: index_slides
+  values:
+    layout: slide

@@ -30,7 +30,7 @@ RUN conda install --no-update-deps -y \
 RUN conda install --no-update-deps -y \
         colomoto_jupyter=0.4.6 \
         ginsim-python=0.3.0 \
-        pymaboss=0.6 \
+        pymaboss=0.6.1 \
         pypint=1.4.1 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs \
     && pip install boolean.py       # extra dependencies

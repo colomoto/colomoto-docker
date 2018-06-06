@@ -17,7 +17,7 @@ The container can be stopped by pressing <kbd>Ctrl</kbd>+<kbd>C</kbd> keys.
 
 By default, the script will fetch the most recent [colomoto/colomoto-docker tag](https://hub.docker.com/r/colomoto/colomoto-docker/tags/). A specific tag can be specified using the `-V` option. For example:
 
-    colomoto-docker -V 2018-03-31
+    colomoto-docker -V 2018-05-29
 
 **Warning**: by default, the files within the Docker container are isolated from the running host computer, therefore *files are deleted after stopping the container*.
 To have access to the files of your current directory you should use the `--bind` option:
@@ -39,7 +39,7 @@ for other options.
 * [GINsim](http://ginsim.org) -- Boolean and multi-valued network modelling<br/>
   Python module [`ginsim`](https://github.com/GINsim/GINsim-python) 
 * [MaBoSS](http://maboss.curie.fr) -- Markovian Boolean Stochastic Simulator<br/>
-  Python module [`maboss`](https://github.com/thenlevy/pyMaBoSS)
+  Python module [`maboss`](https://github.com/colomoto/pyMaBoSS)
 * [NuSMV](http://nusmv.fbk.eu) -- Symbolic model-checker<br/>
   Python module [`nusmv`](https://github.com/colomoto/colomoto_jupyter)
 * [Pint](https://loicpauleve.name/pint) -- Static analyzer for dynamics of Automata Networks<br/>

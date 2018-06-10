@@ -86,16 +86,20 @@ def main():
         if docker_machine:
             container_ip = subprocess.check_output(["docker-machine", "ip", docker_machine])
             container_ip = container_ip.decode().strip().split("%")[0]
-            port = args.port if args.port else 8888
-        elif args.port == 0:
+        if args.port == 0:
             # find next available
             for port in range(8888, 65535):
                 with closing(socket.socket(socket.AF_INET, socket.SOCK_STREAM)) as s:
-                    try:
-                        s.bind((container_ip, port))
-                        break
-                    except:
-                        pass
+                    dest_addr = (container_ip, port)
+                    if docker_machine:
+                        if s.connect_ex(dest_addr):
+                            break
+                    else:
+                        try:
+                            s.bind(dest_addr)
+                            break
+                        except:
+                            pass
         else:
             port = args.port
 

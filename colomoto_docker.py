@@ -91,15 +91,8 @@ def main():
             for port in range(8888, 65535):
                 with closing(socket.socket(socket.AF_INET, socket.SOCK_STREAM)) as s:
                     dest_addr = (container_ip, port)
-                    if docker_machine:
-                        if s.connect_ex(dest_addr):
-                            break
-                    else:
-                        try:
-                            s.bind(dest_addr)
-                            break
-                        except:
-                            pass
+                    if s.connect_ex(dest_addr):
+                        break
         else:
             port = args.port
 

@@ -16,7 +16,7 @@
   <figcaption>
   <a href="https://nbviewer.jupyter.org/gist/pauleve/a86717b0ae8750440dd589f778db428f/Usecase%20-%20Mutations%20enabling%20tumour%20invasion.ipynb"
   >Executable paper showing combination of GINsim, bioLQM, MaBoSS, and Pint</a>
-  (bioRxiv:<a href="https://doi.org/10.1101/319780">319780</a>)
+  (doi:<a href="https://doi.org/10.3389/fphys.2018.00787">10.3389/fphys.2018.00787</a>)
   </figcaption>
 </figure>
 

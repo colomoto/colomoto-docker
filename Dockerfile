@@ -8,7 +8,7 @@ USER root
 ## MaBoSS - https://maboss.curie.fr  https://github.com/colomoto/colomoto-conda
 RUN conda install --no-update-deps  -y \
         -c potassco \
-        clingo=5.2.2 \
+        clingo=5.3.0 \
         nusmv=2.6.0 \
         nusmv-arctl=2.2.2 \
         maboss=2.0 \
@@ -18,8 +18,8 @@ RUN conda install --no-update-deps  -y \
 ## GINsim - http://ginsim.org/             https://github.com/colomoto/colomoto-conda
 ## Pint - http://loicpauleve.name/pint     https://github.com/pauleve/pint
 RUN conda install --no-update-deps -y \
-        ginsim=3.0.0b=2 \
-        pint=2018.03.22 \
+        ginsim=3.0.0b=3 \
+        pint=2018.07.10 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 
@@ -29,10 +29,10 @@ RUN conda install --no-update-deps -y \
 ## pyPint           - http://loicpauleve.name/pint                  https://github.com/pauleve/pint
 RUN conda install --no-update-deps -y \
         boolean.py=3.5+git=0 \
-        colomoto_jupyter=0.4.6 \
-        ginsim-python=0.3.0 \
+        colomoto_jupyter=0.4.7 \
+        ginsim-python=0.3.1 \
         pymaboss=0.6.1 \
-        pypint=1.4.1 \
+        pypint=1.4.2 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 COPY validate.sh /usr/local/bin/

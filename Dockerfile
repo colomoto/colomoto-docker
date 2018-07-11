@@ -29,7 +29,7 @@ RUN conda install --no-update-deps -y \
 ## pyPint           - http://loicpauleve.name/pint                  https://github.com/pauleve/pint
 RUN conda install --no-update-deps -y \
         boolean.py=3.5+git=py_0 \
-        colomoto_jupyter=0.4.7 \
+        colomoto_jupyter=0.4.8 \
         ginsim-python=0.3.1 \
         pymaboss=0.6.1 \
         pypint=1.4.2 \

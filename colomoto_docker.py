@@ -13,6 +13,8 @@ def main():
     parser = ArgumentParser()
     parser.add_argument("--bind", default=None, type=str,
         help="Bind specified path to the docker working directory")
+    parser.add_argument("--no-selinux", default=False, action="store_true",
+        help="Disable SElinux for this container")
     parser.add_argument("-w", "--workdir", default="/notebook", type=str,
         help="Workdir within the docker image")
     parser.add_argument("--shell", default=False, action="store_true",
@@ -76,6 +78,8 @@ def main():
 
 
     argv = ["docker", "run", "-it", "--rm"]
+    if args.no_selinux:
+        argv += ["--security-opt", "label:disable"]
     if args.bind:
         argv += ["--volume", "%s:%s" % (os.path.abspath(args.bind), args.workdir)]
     argv += ["-w", args.workdir]

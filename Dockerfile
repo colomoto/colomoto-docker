@@ -9,6 +9,8 @@ USER root
 RUN conda install --no-update-deps  -y \
         -c potassco \
         clingo=5.3.0 \
+        boolsim=1.2 \
+        bns=1.3 \
         nusmv=2.6.0 \
         nusmv-arctl=2.2.2 \
         maboss=2.0 \
@@ -18,7 +20,7 @@ RUN conda install --no-update-deps  -y \
 ## GINsim - http://ginsim.org/             https://github.com/colomoto/colomoto-conda
 ## Pint - http://loicpauleve.name/pint     https://github.com/pauleve/pint
 RUN conda install --no-update-deps -y \
-        ginsim=3.0.0b=3 \
+        ginsim=3.0.0b=5 \
         pint=2018.07.10 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
@@ -30,8 +32,8 @@ RUN conda install --no-update-deps -y \
 RUN conda install --no-update-deps -y \
         boolean.py=3.5+git=py_0 \
         colomoto_jupyter=0.4.9 \
-        ginsim-python=0.3.1 \
-        pymaboss=0.6.1 \
+        ginsim-python=0.3.3 \
+        pymaboss=0.6.2 \
         pypint=1.4.2 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 

@@ -30,6 +30,8 @@ See
 
 for other options.
 
+Having issues? have a look at our [Troubleshooting](https://github.com/colomoto/colomoto-docker/blob/master/TROUBLESHOOTING.md) page, or [open an issue](https://github.com/colomoto/colomoto-docker/issues).
+
 ## Available software tools with Python API
 
 * [bioLQM](https://github.com/colomoto/bioLQM) -- Logical Qualitative Modelling toolkit<br/>

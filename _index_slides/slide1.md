@@ -37,13 +37,13 @@ Having issues? have a look at our [Troubleshooting](https://github.com/colomoto/
 * [bioLQM](https://github.com/colomoto/bioLQM) -- Logical Qualitative Modelling toolkit<br/>
   Python module [`biolqm`](https://github.com/GINsim/GINsim-python)
 * [CellCollective](https://cellcollective.org) -- Model repository and knowledge base<br/>
-  Python module [`cellcollective`](https://github.com/colomoto/colomoto_jupyter)
+  Python module [`cellcollective`](https://github.com/colomoto/colomoto-jupyter)
 * [GINsim](http://ginsim.org) -- Boolean and multi-valued network modelling<br/>
   Python module [`ginsim`](https://github.com/GINsim/GINsim-python) 
 * [MaBoSS](http://maboss.curie.fr) -- Markovian Boolean Stochastic Simulator<br/>
   Python module [`maboss`](https://github.com/colomoto/pyMaBoSS)
 * [NuSMV](http://nusmv.fbk.eu) -- Symbolic model-checker<br/>
-  Python module [`nusmv`](https://github.com/colomoto/colomoto_jupyter)
+  Python module [`nusmv`](https://github.com/colomoto/colomoto-jupyter)
 * [Pint](https://loicpauleve.name/pint) -- Static analyzer for dynamics of Automata Networks<br/>
   Python module [`pypint`](https://github.com/pauleve/pint)
 

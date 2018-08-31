@@ -31,11 +31,10 @@ def main():
         help="Do not check for SSL certificates")
 
     group = parser.add_argument_group("docker run options")
-    group.add_argument("-e", "--env", metavar="list",
+    group.add_argument("-e", "--env", action="append",
         help="Set environment variables")
-    group.add_argument("--name",
-        help="Name of the container")
-    group.add_argument("-v", "--volume", metavar="list",
+    group.add_argument("--name", help="Name of the container")
+    group.add_argument("-v", "--volume", action="append",
         help="Bind mount a volume")
     docker_run_opts = ["env", "name", "volume"]
 
@@ -104,7 +103,13 @@ def main():
 
     for opt in docker_run_opts:
         if getattr(args, opt) is not None:
-            argv += ["--%s" % opt, getattr(args, opt)]
+            val = getattr(args, opt)
+            if isinstance(val, list):
+                for v in val:
+                    argv += ["--%s"%opt, v]
+            else:
+                argv += ["--%s" % opt, val]
+
     argv += [image]
     if args.shell:
         argv += ["bash"]

@@ -101,6 +101,12 @@ def main():
 
         argv += ["-p", "%s:8888" % port]
 
+
+    # forward proxy configuration
+    for env in ["HTTP_PROXY", "HTTPS_PROXY", "FTP_PROXY", "NO_PROXY"]:
+        if env in os.environ:
+            argv += ["-e", env]
+
     for opt in docker_run_opts:
         if getattr(args, opt) is not None:
             val = getattr(args, opt)

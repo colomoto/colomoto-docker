@@ -67,6 +67,12 @@ def main():
         else:
             image_tag = max(tags)
             print("# ... using {}".format(image_tag))
+    elif args.version == "same":
+        output = subprocess.check_output(["docker", "images", "-f",
+                                    "reference=colomoto/colomoto-docker",
+                                    "--format", "{{.Tag}}"])
+        image_tag = output.decode().split("\n")[0]
+        print("# using tag {}".format(image_tag))
     else:
         image_tag = args.version
 

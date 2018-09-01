@@ -3,7 +3,7 @@
 from setuptools import setup
 
 setup(name="colomoto-docker",
-    version = "6.6",
+    version = "6.7",
     author = "Loïc Paulevé",
     author_email = "loic.pauleve@ens-cachan.org",
     url = "https://github.com/colomoto/colomoto-docker",

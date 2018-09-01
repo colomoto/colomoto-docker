@@ -15,9 +15,10 @@ We support GNU/Linux, macOS, and Windows.
 
 The container can be stopped by pressing <kbd>Ctrl</kbd>+<kbd>C</kbd> keys.
 
-By default, the script will fetch the most recent [colomoto/colomoto-docker tag](https://hub.docker.com/r/colomoto/colomoto-docker/tags/). A specific tag can be specified using the `-V` option. For example:
+By default, the script will fetch the most recent [colomoto/colomoto-docker tag](https://hub.docker.com/r/colomoto/colomoto-docker/tags/). A specific tag can be specified using the `-V` option; or use `-V same` to use the most recently fetched image. For example:
 
     colomoto-docker -V 2018-05-29
+    colomoto-docker -V same         # use the most recently downloaded image
 
 **Warning**: by default, the files within the Docker container are isolated from the running host computer, therefore *files are deleted after stopping the container*.
 To have access to the files of your current directory you should use the `--bind` option:

@@ -20,7 +20,8 @@ def main():
     parser.add_argument("--shell", default=False, action="store_true",
         help="Start interactive shell instead of notebook service")
     parser.add_argument("-V", "--version", type=str, default="latest",
-        help="Version of docker image (latest to fetch the latest tag)")
+        help="""Version of docker image ('latest' to fetch the latest tag;
+        'same' for most recently fetched image)""")
     parser.add_argument("--port", default=0, type=int,
         help="Local port")
     parser.add_argument("--image", default="colomoto/colomoto-docker",
@@ -40,6 +41,17 @@ def main():
 
     parser.add_argument("command", nargs="*", help="Command to run instead of colomoto-nb")
     args = parser.parse_args()
+
+    if args.version == "same":
+        output = subprocess.check_output(["docker", "images", "-f",
+                                    "reference=colomoto/colomoto-docker",
+                                    "--format", "{{.Tag}}"])
+        output = output.decode()
+        if not output:
+            args.version = "latest"
+        else:
+            image_tag = output.split("\n")[0]
+            print("# using tag {}".format(image_tag))
 
     if args.version == "latest":
         import json
@@ -67,12 +79,6 @@ def main():
         else:
             image_tag = max(tags)
             print("# ... using {}".format(image_tag))
-    elif args.version == "same":
-        output = subprocess.check_output(["docker", "images", "-f",
-                                    "reference=colomoto/colomoto-docker",
-                                    "--format", "{{.Tag}}"])
-        image_tag = output.decode().split("\n")[0]
-        print("# using tag {}".format(image_tag))
     else:
         image_tag = args.version
 

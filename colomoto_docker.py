@@ -30,6 +30,8 @@ def main():
         help="Do not start the browser")
     parser.add_argument("--unsafe-ssl", default=False, action="store_true",
         help="Do not check for SSL certificates")
+    parser.add_argument("--cleanup", default=False, action="store_true",
+        help="Cleanup old images")
 
     group = parser.add_argument_group("docker run options")
     group.add_argument("-e", "--env", action="append",
@@ -42,6 +44,8 @@ def main():
     parser.add_argument("command", nargs="*", help="Command to run instead of colomoto-nb")
     args = parser.parse_args()
 
+    image_tag = args.version
+
     if args.version == "same":
         output = subprocess.check_output(["docker", "images", "-f",
                                     "reference=colomoto/colomoto-docker",
@@ -51,7 +55,6 @@ def main():
             args.version = "latest"
         else:
             image_tag = output.split("\n")[0]
-            print("# using tag {}".format(image_tag))
 
     if args.version == "latest":
         import json
@@ -78,15 +81,32 @@ def main():
             image_tag = "latest"
         else:
             image_tag = max(tags)
-            print("# ... using {}".format(image_tag))
-    else:
-        image_tag = args.version
 
     image = "%s:%s" % (args.image, image_tag)
+    print("# using {}".format(image))
 
     if image_tag == "next" or not subprocess.check_output(["docker", "images", "-q", image]):
         subprocess.check_call(["docker", "pull", image])
 
+    if args.cleanup:
+        output = subprocess.check_output(["docker", "images", "-f",
+                                    "reference=colomoto/colomoto-docker",
+                                    "--format", "{{.Tag}} {{.ID}}"])
+        todel = []
+        for line in output.decode().split("\n"):
+            if not line:
+                continue
+            tag, iid = line.split()
+            if tag == image_tag:
+                continue
+            if tag == "<none>":
+                todel.append(iid)
+            else:
+                todel.append("{}:{}".format(args.image, tag))
+        if todel:
+            argv = ["docker", "rmi"] + todel
+            print("# {}".format(" ".join(argv)))
+            subprocess.call(argv)
 
     argv = ["docker", "run", "-it", "--rm"]
     if args.no_selinux:

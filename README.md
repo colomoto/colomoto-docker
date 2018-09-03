@@ -3,7 +3,7 @@
 [![](https://images.microbadger.com/badges/image/colomoto/colomoto-docker.svg)](http://microbadger.com/images/colomoto/colomoto-docker "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/colomoto/colomoto-docker.svg)](https://microbadger.com/images/colomoto/colomoto-docker "Get your own version badge on microbadger.com")
 [![PyPI version](https://badge.fury.io/py/colomoto-docker.svg)](https://badge.fury.io/py/colomoto-docker)
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/colomoto/colomoto-docker/2018-05-29)
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/colomoto/colomoto-docker/2018-08-17)
 
 ## Quick usage guide
 

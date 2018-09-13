@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+from __future__ import print_function
+
 from argparse import ArgumentParser
 import os
 from contextlib import closing
@@ -8,6 +10,55 @@ import socket
 import subprocess
 import sys
 import webbrowser
+
+on_linux = platform.system() == "Linux"
+
+def error(msg):
+    print(msg, file=sys.stderr)
+    sys.exit(1)
+
+def check_cmd(argv):
+    try:
+        subprocess.call(argv, stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL)
+        return True
+    except:
+        return False
+
+def check_sudo():
+    return check_cmd(["sudo", "true"])
+
+def docker_call():
+    direct_docker = ["docker"]
+    sudo_docker = ["sudo docker"]
+    if on_linux:
+        import grp
+        try:
+            docker_grp = grp.getgrnam("docker")
+            if docker_grp.gr_gid in os.getgroups():
+                return direct_docker
+        except KeyError:
+            raise
+        if not check_sudo():
+            error("""Error: 'sudo' is not installed and you are not in the 'docker' group.
+Either install sudo, or add your user to the docker group by doing
+   su -c "usermod -aG docker $USER" """)
+        return sudo_docker
+    return direct_docker
+
+def check_docker():
+    if not check_cmd(["docker", "version"]):
+        if not on_linx:
+            error("""Error: Docker not found.
+If you are using Docker Toolbox, make sure you are running 'colomoto-docker'
+within the 'Docker quickstart Terminal.""")
+        else:
+            error("Error: Docker not found.")
+    docker_argv = docker_call()
+    if subprocess.call(docker_argv + ["version"]):
+        error("Error: cannot connect to Docker. Make sure it is running.")
+    return docker_argv
+
 
 def main():
     parser = ArgumentParser()
@@ -56,6 +107,8 @@ def main():
         else:
             image_tag = output.split("\n")[0]
 
+    docker_argv = check_docker()
+
     if args.version == "latest":
         import json
         try:
@@ -63,7 +116,7 @@ def main():
         except ImportError:
             from urllib2 import urlopen
 
-        if args.unsafe_ssl or platform.system() != "Linux":
+        if args.unsafe_ssl or not on_linux:
             # disable SSL verification...
             import ssl
             ssl._create_default_https_context = ssl._create_unverified_context
@@ -86,10 +139,10 @@ def main():
     print("# using {}".format(image))
 
     if image_tag == "next" or not subprocess.check_output(["docker", "images", "-q", image]):
-        subprocess.check_call(["docker", "pull", image])
+        subprocess.check_call(docker_argv + ["pull", image])
 
     if args.cleanup:
-        output = subprocess.check_output(["docker", "images", "-f",
+        output = subprocess.check_output(docker_argv + ["images", "-f",
                                     "reference=colomoto/colomoto-docker",
                                     "--format", "{{.Tag}} {{.ID}}"])
         todel = []
@@ -104,11 +157,11 @@ def main():
             else:
                 todel.append("{}:{}".format(args.image, tag))
         if todel:
-            argv = ["docker", "rmi"] + todel
+            argv = docker_argv + ["rmi"] + todel
             print("# {}".format(" ".join(argv)))
             subprocess.call(argv)
 
-    argv = ["docker", "run", "-it", "--rm"]
+    argv = docker_argv + ["run", "-it", "--rm"]
     if args.no_selinux:
         argv += ["--security-opt", "label:disable"]
     if args.bind:

@@ -221,7 +221,15 @@ def main():
                 line = line.decode()
                 if not launched and "The Jupyter Notebook is running at:" in line:
                     launched = True
-                    webbrowser.open("http://{}:{}".format(container_ip, port))
+                    try:
+                        webbrowser.open("http://{}:{}".format(container_ip, port))
+                    except:
+                        print("""
+Please open your web-browser to the following address:
+
+    http://{}:{}
+
+""".format(container_ip, port))
             elif p.poll() is not None:
                 break
 

@@ -10,7 +10,7 @@ and reproduce analyses of **qualitative models of biological networks**.
 You need [Docker](http://docker.com) and [Python](http://python.org).
 We support GNU/Linux, macOS, and Windows.
 
-    pip install -U colomoto-docker   # only once; you may have to use pip3
+    sudo pip install -U colomoto-docker   # only once; you may have to use pip3
     colomoto-docker
 
 The container can be stopped by pressing <kbd>Ctrl</kbd>+<kbd>C</kbd> keys.

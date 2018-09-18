@@ -18,9 +18,10 @@ def error(msg):
     sys.exit(1)
 
 def check_cmd(argv):
+    DEVNULL = subprocess.DEVNULL if hasattr(subprocess, "DEVNULL") \
+                else open(os.devnull, 'w')
     try:
-        subprocess.call(argv, stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL)
+        subprocess.call(argv, stdout=DEVNULL, stderr=DEVNULL, close_fds=True)
         return True
     except:
         return False
@@ -48,10 +49,10 @@ Either install sudo, or add your user to the docker group by doing
 
 def check_docker():
     if not check_cmd(["docker", "version"]):
-        if not on_linx:
+        if not on_linux:
             error("""Error: Docker not found.
 If you are using Docker Toolbox, make sure you are running 'colomoto-docker'
-within the 'Docker quickstart Terminal.""")
+within the 'Docker quickstart Terminal'.""")
         else:
             error("Error: Docker not found.")
     docker_argv = docker_call()

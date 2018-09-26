@@ -31,7 +31,7 @@ def check_sudo():
 
 def docker_call():
     direct_docker = ["docker"]
-    sudo_docker = ["sudo docker"]
+    sudo_docker = ["sudo", "docker"]
     if on_linux:
         import grp
         try:

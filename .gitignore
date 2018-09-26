@@ -8,3 +8,5 @@ gen
 dist
 __pycache__
 *.pyc
+.local
+.ipython

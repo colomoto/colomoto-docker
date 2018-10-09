@@ -1,4 +1,4 @@
-FROM colomoto/colomoto-docker-base:v1.4
+FROM colomoto/colomoto-docker-base:R
 MAINTAINER CoLoMoTo Group <contact@colomoto.org>
 
 USER root

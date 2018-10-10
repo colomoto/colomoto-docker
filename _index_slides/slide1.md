@@ -35,7 +35,7 @@ Having issues? have a look at our [Troubleshooting](https://github.com/colomoto/
 
 ## Available software tools with Python API
 
-* [bioLQM](https://github.com/colomoto/bioLQM) -- Logical Qualitative Modelling toolkit<br/>
+* [bioLQM](http://colomoto.org/biolqm/) -- Logical Qualitative Modelling toolkit<br/>
   Python module [`biolqm`](https://github.com/GINsim/GINsim-python)
 * [CellCollective](https://cellcollective.org) -- Model repository and knowledge base<br/>
   Python module [`cellcollective`](https://github.com/colomoto/colomoto-jupyter)

@@ -20,7 +20,7 @@ RUN conda install --no-update-deps  -y \
 ## GINsim - http://ginsim.org/             https://github.com/colomoto/colomoto-conda
 ## Pint - http://loicpauleve.name/pint     https://github.com/pauleve/pint
 RUN conda install --no-update-deps -y \
-        ginsim=3.0.0b=5 \
+        ginsim=3.0.0b=6 \
         pint=2018.11.30 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 

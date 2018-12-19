@@ -21,7 +21,7 @@ RUN conda install --no-update-deps  -y \
 ## Pint - http://loicpauleve.name/pint     https://github.com/pauleve/pint
 RUN conda install --no-update-deps -y \
         ginsim=3.0.0b=6 \
-        pint=2018.11.30 \
+        pint=2018.11.30=1 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 

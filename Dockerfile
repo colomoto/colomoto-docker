@@ -11,6 +11,7 @@ RUN conda install --no-update-deps  -y \
         clingo=5.3.0 \
         boolsim=1.2 \
         bns=1.3 \
+        its=20180905 \
         nusmv=2.6.0 \
         nusmv-arctl=2.2.2 \
         maboss=2.0 \

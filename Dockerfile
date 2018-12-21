@@ -34,7 +34,7 @@ RUN conda install --no-update-deps -y \
         colomoto_jupyter=0.5.3 \
         ginsim-python=0.3.5 \
         pymaboss=0.6.5 \
-        pypint=1.5.0 \
+        pypint=1.5.1 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 COPY validate.sh /usr/local/bin/

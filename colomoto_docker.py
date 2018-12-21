@@ -6,12 +6,15 @@ from argparse import ArgumentParser
 import os
 from contextlib import closing
 import platform
+import re
 import socket
 import subprocess
 import sys
 import webbrowser
 
 on_linux = platform.system() == "Linux"
+
+pat_tag = re.compile(r"\d{4}-\d{2}-\d{2}")
 
 def error(msg):
     print(msg, file=sys.stderr)
@@ -129,7 +132,7 @@ def main():
         data = q.read().decode("utf-8")
         r = json.loads(data)
         q.close()
-        tags = [t["name"] for t in r if len(t["name"])==10 and "-" in t["name"]]
+        tags = [t["name"] for t in r if pat_tag.match(t["name"])]
         if not tags:
             print("# ... none found! use 'latest'")
             image_tag = "latest"
@@ -139,7 +142,7 @@ def main():
     image = "%s:%s" % (args.image, image_tag)
     print("# using {}".format(image))
 
-    if image_tag == "next" or not subprocess.check_output(["docker", "images", "-q", image]):
+    if image_tag.startswith("next") or not subprocess.check_output(["docker", "images", "-q", image]):
         subprocess.check_call(docker_argv + ["pull", image])
 
     if args.cleanup:

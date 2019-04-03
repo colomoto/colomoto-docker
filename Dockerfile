@@ -46,7 +46,8 @@ COPY validate.sh /usr/local/bin/
 ##
 ## Tutorials for individual tools
 #COPY --chown=user:user tutorials /notebook/tutorials
-COPY usecases/*.ipynb /notebook/usecases/
+#COPY usecases/*.ipynb /notebook/usecases/
+COPY usecases /notebook/usecases/
 COPY tutorials /notebook/tutorials
 
 # hub.docker.org does not support COPY --chown yet

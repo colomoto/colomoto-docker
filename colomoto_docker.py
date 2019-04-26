@@ -142,7 +142,7 @@ def main():
     image = "%s:%s" % (args.image, image_tag)
     print("# using {}".format(image))
 
-    if image_tag.startswith("next") or not subprocess.check_output(["docker", "images", "-q", image]):
+    if image_tag.startswith("next") or not subprocess.check_output(docker_argv + ["images", "-q", image]):
         subprocess.check_call(docker_argv + ["pull", image])
 
     if args.cleanup:

@@ -1,0 +1,5 @@
+death = Death;
+division = Division ;
+$TNF_induc u= $ProdTNF_NFkB*p[(NFkB,Death) = (1,0)];
+steps = 48;
+MaBoSS = MaBoSS

@@ -22,7 +22,7 @@ RUN conda install --no-update-deps  -y \
 ## Pint - http://loicpauleve.name/pint     https://github.com/pauleve/pint
 RUN conda install --no-update-deps -y \
         ginsim=3.0.0b=6 \
-        pint=2018.11.30=1 \
+        pint=2019.05.24=1 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 
@@ -35,7 +35,7 @@ RUN conda install --no-update-deps -y \
         colomoto_jupyter=0.5.3 \
         ginsim-python=0.3.5 \
         pymaboss=0.7.2 \
-        pypint=1.5.1 \
+        pypint=1.5.2 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 COPY validate.sh /usr/local/bin/

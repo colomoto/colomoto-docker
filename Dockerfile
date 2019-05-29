@@ -1,4 +1,4 @@
-FROM colomoto/colomoto-docker-base:v1.3.2
+FROM colomoto/colomoto-docker-base:v1.4
 MAINTAINER CoLoMoTo Group <contact@colomoto.org>
 
 USER root
@@ -7,8 +7,8 @@ USER root
 ## Clingo - https://potassco.org
 ## MaBoSS - https://maboss.curie.fr  https://github.com/colomoto/colomoto-conda
 RUN conda install --no-update-deps  -y \
-        -c potassco \
-        clingo=5.3.0 \
+        -c potassco/label/dev \
+        clingo=5.4.0 \
         boolsim=1.2 \
         bns=1.3 \
         its=20180905 \

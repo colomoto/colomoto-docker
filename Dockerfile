@@ -23,8 +23,8 @@ RUN conda install --no-update-deps  -y \
 RUN conda install --no-update-deps -y \
         ginsim=3.0.0b=6 \
         pint=2019.05.24=1 \
+        r-boolnet=2.1.5 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
-
 
 ## Python interfaces with Jupyter integration
 ## Colomoto-jupyter - https://github.com/colomoto/colomoto-jupyter  https://github.com/colomoto/colomoto-conda

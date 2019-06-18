@@ -3,39 +3,33 @@ MAINTAINER CoLoMoTo Group <contact@colomoto.org>
 
 USER root
 
-## NuSMV  - http://nusmv.fbk.eu/     https://github.com/colomoto/colomoto-conda
-## Clingo - https://potassco.org
-## MaBoSS - https://maboss.curie.fr  https://github.com/colomoto/colomoto-conda
+# IMPORTANT:
+# DO NOT UPDATE PACKAGE VERSIONS MANUALLY
+# USE python update-n-freeze.py
+
 RUN conda install --no-update-deps  -y \
         -c potassco/label/dev \
-        clingo=5.4.0 \
-        boolsim=1.2 \
-        bns=1.3 \
-        its=20180905 \
-        nusmv=2.6.0 \
-        nusmv-arctl=2.2.2 \
-        maboss=2.1 \
+        clingo=5.4.0=py37hf484d3e_8 \
+        boolsim=1.2=0 \
+        bns=1.3=0 \
+        its=20180905=0 \
+        nusmv=2.6.0=0 \
+        nusmv-arctl=2.2.2=0 \
+        maboss=2.1.0=0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
-
-## GINsim - http://ginsim.org/             https://github.com/colomoto/colomoto-conda
-## Pint - http://loicpauleve.name/pint     https://github.com/pauleve/pint
 RUN conda install --no-update-deps -y \
         ginsim=3.0.0b=6 \
         pint=2019.05.24=1 \
-        r-boolnet=2.1.5 \
+        r-boolnet=2.1.5=r351hcdcec82_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
-## Python interfaces with Jupyter integration
-## Colomoto-jupyter - https://github.com/colomoto/colomoto-jupyter  https://github.com/colomoto/colomoto-conda
-## GINsim-python    - https://github.com/ginsim/ginsim-python       https://github.com/colomoto/colomoto-conda
-## pyPint           - http://loicpauleve.name/pint                  https://github.com/pauleve/pint
 RUN conda install --no-update-deps -y \
         boolean.py=3.5+git=py_0 \
-        colomoto_jupyter=0.5.4 \
-        ginsim-python=0.3.6 \
-        pymaboss=0.7.2 \
-        pypint=1.5.2 \
+        colomoto_jupyter=0.5.4=py_0 \
+        ginsim-python=0.3.6=py_0 \
+        pymaboss=0.7.2=py_0 \
+        pypint=1.5.2=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 COPY validate.sh /usr/local/bin/

@@ -85,6 +85,8 @@ def main():
         help="Do not start the browser")
     parser.add_argument("--unsafe-ssl", default=False, action="store_true",
         help="Do not check for SSL certificates")
+    parser.add_argument("--no-update", default=False, action="store_true",
+        help="Do not check for image update")
     parser.add_argument("--cleanup", default=False, action="store_true",
         help="Cleanup old images")
 
@@ -142,7 +144,9 @@ def main():
     image = "%s:%s" % (args.image, image_tag)
     print("# using {}".format(image))
 
-    if image_tag.startswith("next") or not subprocess.check_output(docker_argv + ["images", "-q", image]):
+    if not args.no_update \
+        and (image_tag.startswith("next") \
+            or not subprocess.check_output(docker_argv + ["images", "-q", image])):
         subprocess.check_call(docker_argv + ["pull", image])
 
     if args.cleanup:

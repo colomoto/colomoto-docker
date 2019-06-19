@@ -22,6 +22,7 @@ test_nb+=("tutorials/MaBoSS/Predict mutations with Pint, refine with MaBoSS.ipyn
 test_nb+=("tutorials/Model creation and edition with minibn.ipynb")
 test_nb+=("tutorials/NuSMV/NuSMV with GINsim.ipynb")
 test_nb+=("tutorials/Pint/quick-tutorial.ipynb")
+test_nb+=("tutorials/R-BoolNet/Random BN generation, loading with biolqm or minibn.ipynb")
 test_nb+=("usecases/Usecase - Mutations enabling tumour invasion.ipynb")
 test_nb+=("usecases/Usecase - Balance of Th17 vs Treg cell populations.ipynb")
 

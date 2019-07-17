@@ -1,6 +1,6 @@
 {
 "pybuild": "py37",
-"channels": ["colomoto", "r", "bioconda", "conda-forge"],
+"channels": ["colomoto", "bioconda", "conda-forge"],
 "blacklist-dependencies": [],
 "blacklist-builds": ["^(py..)?mro"]
 }

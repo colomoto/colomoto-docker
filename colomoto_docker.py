@@ -74,7 +74,7 @@ def main():
         help="Workdir within the docker image")
     parser.add_argument("--shell", default=False, action="store_true",
         help="Start interactive shell instead of notebook service")
-    parser.add_argument("-V", "--version", type=str, default="latest",
+    parser.add_argument("-V", "--version", type=str, default="same",
         help="""Version of docker image ('latest' to fetch the latest tag;
         'same' for most recently fetched image)""")
     parser.add_argument("--port", default=0, type=int,

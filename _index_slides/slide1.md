@@ -47,4 +47,5 @@ Having issues? have a look at our [Troubleshooting](https://github.com/colomoto/
   Python module [`nusmv`](https://github.com/colomoto/colomoto-jupyter)
 * [Pint](https://loicpauleve.name/pint) -- Static analyzer for dynamics of Automata Networks<br/>
   Python module [`pypint`](https://github.com/pauleve/pint)
-
+* [R-BoolNet](https://cran.r-project.org/package=BoolNet) -- Analysis and reconstruction of Boolean networks dynamics<br/>
+  Generic RPY2 python interface

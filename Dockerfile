@@ -1,4 +1,4 @@
-FROM colomoto/colomoto-docker-base:v1.6.2
+FROM colomoto/colomoto-docker-base:v1.6.3
 MAINTAINER CoLoMoTo Group <contact@colomoto.org>
 
 USER root
@@ -8,8 +8,8 @@ USER root
 # USE python update-n-freeze.py
 
 RUN conda install --no-update-deps  -y \
-        -c potassco/label/dev \
-        clingo=5.4.0=py37hf484d3e_8 \
+        -c potassco \
+        clingo=5.4.0=py37lua53hf484d3e_0 \
         boolsim=1.2=0 \
         bns=1.3=0 \
         its=20180905=0 \
@@ -21,14 +21,14 @@ RUN conda install --no-update-deps  -y \
 RUN conda install --no-update-deps -y \
         ginsim=3.0.0b=6 \
         pint=2019.05.24=1 \
-        r-boolnet=2.1.5=r351hcdcec82_0 \
+        r-boolnet=2.1.5 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 RUN conda install --no-update-deps -y \
         boolean.py=3.5+git=py_0 \
         colomoto_jupyter=0.5.5=py_0 \
         ginsim-python=0.3.7=py_0 \
-        pymaboss=0.7.4=py_0 \
+        pymaboss=0.7.5=py_0 \
         pypint=1.5.2=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 

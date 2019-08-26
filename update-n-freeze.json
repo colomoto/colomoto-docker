@@ -2,5 +2,6 @@
 "pybuild": "py37",
 "channels": ["colomoto", "bioconda", "conda-forge"],
 "blacklist-dependencies": [],
+"skip-package-build": ["r-boolnet"],
 "blacklist-builds": ["^(py..)?mro"]
 }

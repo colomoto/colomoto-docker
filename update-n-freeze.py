@@ -64,7 +64,7 @@ def get_latest_version(pkg, channels, cfg):
                 for v in reversed(data["versions"]):
                     if pkg in cfg.get("skip-package-build"):
                         return v
-                    for b in reversed(data["builds"]):
+                    for b in reversed(sorted(data["builds"])):
                         if v in builds and b in builds[v]:
                             print("### found {}, {}".format(v, b))
                             return "{}={}".format(v, b)

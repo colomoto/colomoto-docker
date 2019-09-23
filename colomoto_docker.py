@@ -5,6 +5,7 @@ from __future__ import print_function
 from argparse import ArgumentParser
 import os
 from contextlib import closing
+from getpass import getuser
 import platform
 import re
 import socket
@@ -15,6 +16,9 @@ import webbrowser
 on_linux = platform.system() == "Linux"
 
 pat_tag = re.compile(r"\d{4}-\d{2}-\d{2}")
+
+persistent_volume = "colomoto-{}".format(getuser())
+persistent_dir = "persistent"
 
 def error(msg):
     print(msg, file=sys.stderr)
@@ -172,10 +176,14 @@ def main():
     argv = docker_argv + ["run", "-it", "--rm"]
     if args.no_selinux:
         argv += ["--security-opt", "label:disable"]
+
     if args.bind:
         argv += ["--volume", "%s:%s" % (os.path.abspath(args.bind), args.workdir)]
-    argv += ["-w", args.workdir]
+    else:
+        persistent_mount = "%s/%s" % (args.workdir, persistent_dir)
+        argv += ["--volume", "%s:%s" % (persistent_volume, persistent_mount)]
 
+    argv += ["-w", args.workdir]
     if not args.shell and not args.command:
         container_ip = "127.0.0.1"
         docker_machine = os.getenv("DOCKER_MACHINE_NAME")

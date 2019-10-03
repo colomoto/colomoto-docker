@@ -15,20 +15,20 @@ RUN conda install --no-update-deps  -y \
         its=20180905=0 \
         nusmv=2.6.0=0 \
         nusmv-arctl=2.2.2=0 \
-        maboss=2.1.0=0 \
+        maboss=2.2.2=h6bb024c_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 RUN conda install --no-update-deps -y \
-        ginsim=3.0.0b=7 \
+        ginsim=3.0.0b=8 \
         pint=2019.05.24=1 \
         r-boolnet=2.1.5 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 RUN conda install --no-update-deps -y \
         boolean.py=3.5+git=py_0 \
-        colomoto_jupyter=0.5.6=py_0 \
-        ginsim-python=0.3.7=py_0 \
-        pymaboss=0.7.5=py_0 \
+        colomoto_jupyter=0.5.7=py_0 \
+        ginsim-python=0.3.8=py_0 \
+        pymaboss=0.7.6=py_0 \
         pypint=1.5.2=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 

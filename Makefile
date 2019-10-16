@@ -1,4 +1,6 @@
 TAG=$(shell date +%F)
+V=next
+VALIDATE_ARGS=""
 
 all:
 
@@ -8,6 +10,9 @@ update:
 	git diff Dockerfile
 	git add Dockerfile
 	git commit -m "upgrade tools"
+
+validate:
+	colomoto-docker -V $(V) validate.sh $(VALIDATE_ARGS)
 
 next:
 	git push

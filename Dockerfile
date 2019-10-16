@@ -38,14 +38,8 @@ COPY validate.sh /usr/local/bin/
 ##
 # Notebooks
 ##
-## Tutorials for individual tools
-#COPY --chown=user:user tutorials /notebook/tutorials
-#COPY usecases/*.ipynb /notebook/usecases/
-COPY usecases /notebook/usecases/
-COPY tutorials /notebook/tutorials
-
-# hub.docker.org does not support COPY --chown yet
-RUN chown -R user:user /notebook
+COPY --chown=user:user tutorials /notebook/tutorials
+COPY --chown=user:user usecases/*.ipynb /notebook/usecases/
 
 USER user
 ARG IMAGE_NAME

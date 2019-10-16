@@ -1,20 +1,65 @@
 #!/bin/bash
 
-set -e
+do_cellcollective=true
+strict=true
+
+lopts="help"
+lopts="${lopts},allow-errors"
+lopts="${lopts},skip-cellcollective"
+
+usage() {
+        echo "
+Usage: $0 [opts]
+
+Options:
+    --allow-errors              allow errors during execution
+    --skip-cellcollective       skip CellCollective tests
+"
+}
+
+NB_OPTS=()
+
+argv="$(getopt --longoptions $lopts -- "${0}" "${@}")"
+if [ $? -ne 0 ]; then
+    usage
+    exit 1
+fi
+eval set -- $argv
+
+while [ -n "${1:-}" ]; do
+    case "${1:-}" in
+        --help)
+            usage
+            exit 1 ;;
+        --skip-cellcollective)
+            echo "WARNING: Skipping cellcollective tests"
+            NB_OPTS+=("--TagRemovePreprocessor.remove_cell_tags={'cellcollective'}")
+            do_cellcollective=false ;;
+        --allow-errors)
+            echo "WARNING: Strict mode disabled"
+            strict=false
+            NB_OPTS+=("--allow-errors") ;;
+    esac
+    shift
+done
+
+if $strict; then
+    set -e
+fi
 
 validate_nb() {
     _nb="$1"
-    _output="/tmp/tmp.OYN0z4DZco.colomoto-test.ipynb"
-    jupyter nbconvert --execute "${_nb}" --to notebook --output $_output \
-        --ExecutePreprocessor.timeout=300
-    rm -f $_output
+    jupyter nbconvert --execute "${_nb}" --stdout \
+        --ExecutePreprocessor.timeout=300 "${NB_OPTS}" >/dev/null
 }
 
 test_nb=()
 test_nb+=("tutorials/Reproducibility - fixpoints.ipynb")
 test_nb+=("tutorials/Reproducibility - model checking.ipynb")
 test_nb+=("tutorials/bioLQM/bioLQM_tutorial.ipynb")
-#test_nb+=("tutorials/CellCollective/CellCollective - Knowledge Base.ipynb")
+if $do_cellcollective; then
+    test_nb+=("tutorials/CellCollective/CellCollective - Knowledge Base.ipynb")
+fi
 test_nb+=("tutorials/GINsim/GINsim - visualization")
 test_nb+=("tutorials/MaBoSS/Toy Example.ipynb")
 test_nb+=("tutorials/MaBoSS/MaBoSS - Quick tutorial.ipynb")
@@ -26,10 +71,17 @@ test_nb+=("tutorials/R-BoolNet/Random BN generation, loading with biolqm or mini
 test_nb+=("usecases/Usecase - Mutations enabling tumour invasion.ipynb")
 test_nb+=("usecases/Usecase - Balance of Th17 vs Treg cell populations.ipynb")
 
+if [ -n "${DOCKER_IMAGE}" ]; then
+    echo
+    echo "Running within ${DOCKER_IMAGE} (commit ${DOCKER_SOURCE_COMMIT}) built on ${DOCKER_BUILD_DATE}"
+    echo
+fi
 for nb in "${test_nb[@]}"; do
     echo "======= Testing $nb"
     validate_nb "${nb}"
 done
 
-echo "*** SUCCESS ***"
+if $strict; then
+    echo "*** SUCCESS ***"
+fi
 

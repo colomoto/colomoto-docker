@@ -12,7 +12,7 @@ update:
 	git commit -m "upgrade tools"
 
 validate:
-	colomoto-docker -V $(V) validate.sh $(VALIDATE_ARGS)
+	colomoto-docker -V $(V) validate.sh -- $(VALIDATE_ARGS)
 
 next:
 	git push

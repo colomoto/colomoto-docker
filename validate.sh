@@ -17,7 +17,7 @@ Options:
 "
 }
 
-NB_OPTS=()
+NB_OPTS=("--ExecutePreprocessor.timeout=300")
 
 argv="$(getopt --longoptions $lopts -- "${0}" "${@}")"
 if [ $? -ne 0 ]; then
@@ -49,8 +49,7 @@ fi
 
 validate_nb() {
     _nb="$1"
-    jupyter nbconvert --execute "${_nb}" --stdout \
-        --ExecutePreprocessor.timeout=300 "${NB_OPTS}" >/dev/null
+    jupyter nbconvert --execute "${_nb}" --stdout "${NB_OPTS}" >/dev/null
 }
 
 test_nb=()

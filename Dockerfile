@@ -15,7 +15,7 @@ RUN conda install --no-update-deps  -y \
         its=20180905=0 \
         nusmv=2.6.0=0 \
         nusmv-arctl=2.2.2=0 \
-        maboss=2.2.2=h6bb024c_0 \
+        maboss=2.2.3=h6bb024c_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 RUN conda install --no-update-deps -y \

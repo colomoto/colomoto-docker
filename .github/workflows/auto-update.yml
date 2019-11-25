@@ -18,7 +18,7 @@ jobs:
     - name: Update'n freeze
       run: |
          python update-n-freeze.py
-         git diff Dockerfile && exit 0
+         git diff --quiet Dockerfile && exit 0
          git config --local user.email "action@github.com"
          git config --local user.name "GitHub Action"
          git add Dockerfile

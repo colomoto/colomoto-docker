@@ -21,13 +21,13 @@ jobs:
       - name: Check for changes
         run: |
           echo ::set-env name=HAS_CHANGES::$(git diff --quiet $LATEST_TAG.. Dockerfile || echo 1)
-          echo ::set-env name=IMAGE_NAME::${IMAGE_BASENAME}:${LATEST_TAG}
+          echo ::set-env name=IMAGE_NAME::${IMAGE_BASENAME}:${NEXT_TAG}
       - name: Docker image build
         if: env.HAS_CHANGES == 1
         run: sh hooks/build
-      - name: Docker image validation
-        if: env.HAS_CHANGES == 1
-        run: docker run --rm $IMAGE_NAME env validate.sh
+      #- name: Docker image validation
+      #  if: env.HAS_CHANGES == 1
+      #  run: docker run --rm $IMAGE_NAME env validate.sh
       - name: Login to docker hub
         if: env.HAS_CHANGES == 1
         uses: actions-hub/docker/login@master
@@ -41,9 +41,12 @@ jobs:
           args: push ${IMAGE_NAME}
       - name: Git tag
         if: env.HAS_CHANGES == 1
-        run: git tag $NEXT_TAG
-      - name: Push changes
-        if: env.HAS_CHANGES == 1
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git tag $NEXT_TAG
+          git tag
+          git push --tags https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git HEAD:master
+#      - name: Push changes
+#        if: env.HAS_CHANGES == 1
+#        uses: ad-m/github-push-action@master
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN }}

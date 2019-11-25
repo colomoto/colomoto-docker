@@ -2,7 +2,7 @@ name: Docker Image CI
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened, edited, labeled]
+    types: [opened, synchronize, reopened, unlabeled, labeled]
 
 jobs:
   validate:
@@ -21,7 +21,7 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      - name: Push $IMAGE_NAME
+      - name: Push image :next
         if: contains(github.event.pull_request.labels.*.name, 'autodocker')
         uses: actions-hub/docker@master
         with:

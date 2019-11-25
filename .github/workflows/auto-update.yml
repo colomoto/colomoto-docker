@@ -1,0 +1,25 @@
+name: auto-update
+
+on:
+  schedule:
+    - cron: "0 21 * * *"
+
+jobs:
+  update-tools:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - name: Run a one-line script
+      run: |
+         python update-n-freeze.py
+         git diff Dockerfile && exit 0
+         git config --local user.email "action@github.com"
+         git config --local user.name "GitHub Action"
+         git add Dockerfile
+         git commit -m "[auto] update tools"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}

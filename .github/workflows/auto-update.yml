@@ -9,9 +9,7 @@ on:
 
 jobs:
   update-tools:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@master
     - uses: actions/setup-python@v1

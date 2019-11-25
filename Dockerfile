@@ -5,7 +5,7 @@ USER root
 
 # IMPORTANT:
 # DO NOT UPDATE PACKAGE VERSIONS MANUALLY
-# USE python update-n-freeze.py
+# To include a new tool, specify its name only
 
 RUN conda install --no-update-deps  -y \
         -c potassco \

@@ -6,6 +6,7 @@ USER root
 # IMPORTANT:
 # DO NOT UPDATE PACKAGE VERSIONS MANUALLY
 # To include a new tool, specify its name only
+# The tools are updated daily
 
 RUN conda install --no-update-deps  -y \
         -c potassco \

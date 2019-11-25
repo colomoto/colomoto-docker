@@ -1,22 +1,16 @@
 name: Docker Image CI
 
-on:
-  push:
-    branches: next
+on: [pull_request]
 
 jobs:
-
-  build:
-
+  validate:
+    env:
+      IMAGE_NAME: colomoto/colomoto-docker:next
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v1
-    - name: Build the Docker image
-      env:
-        IMAGE_NAME: colomoto/colomoto-docker:next
+    - name: Docker image build
       run: sh hooks/build
-    - name: Validate
+    - name: Docker image validation
       run: docker run --rm colomoto/colomoto-docker:next validate.sh
-    - name: test
-      run: echo "OK"
+

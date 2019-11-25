@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test
-        run: echo "${{ contains(github.event.pull_request.labels.*.name, "autodocker") }}"
+        run: echo "${{ contains(github.event.pull_request.labels.*.name, 'autodocker') }}"
       #- uses: actions/checkout@v1
       #- name: Docker image build
       #  run: sh hooks/build

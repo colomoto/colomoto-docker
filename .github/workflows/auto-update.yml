@@ -1,9 +1,9 @@
 name: auto-update
 
 on:
-  push:
-    branches: 
-      - master
+#  push:
+#    branches: 
+#      - master
   schedule:
     - cron: "0 21 * * *"
 

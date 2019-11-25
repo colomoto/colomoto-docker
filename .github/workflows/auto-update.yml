@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+      with:
+        ref: master
     - uses: actions/setup-node@v1
       with:
         node-version: '10.x'
@@ -19,12 +21,12 @@ jobs:
     - name: Update tools
       run: python update-n-freeze.py
     - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: [auto] update tools
-          title: Automated update of tools
-          body: This is an auto-generated PR with tool updates.
-          branch: auto/tool-updates
-          branch-suffix: none
-
+      uses: peter-evans/create-pull-request@v1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: ":octocat: update tools"
+        title: Automated update of tools
+        body: This is an auto-generated PR with tool updates.
+        labels: bot-generated
+        branch: auto/tool-updates
+        branch-suffix: none

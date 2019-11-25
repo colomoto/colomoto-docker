@@ -4,8 +4,6 @@ name: Automatic release
 on:
   schedule:
     - cron: "30 23 * * *"
-  milestone:
-    types: [created, opened, edited]
 
 jobs:
   release:
@@ -25,9 +23,9 @@ jobs:
       - name: Docker image build
         if: env.HAS_CHANGES == 1
         run: sh hooks/build
-      #- name: Docker image validation
-      #  if: env.HAS_CHANGES == 1
-      #  run: docker run --rm $IMAGE_NAME env validate.sh
+      - name: Docker image validation
+        if: env.HAS_CHANGES == 1
+        run: docker run --rm $IMAGE_NAME env validate.sh
       - name: Login to docker hub
         if: env.HAS_CHANGES == 1
         uses: actions-hub/docker/login@master
@@ -45,8 +43,3 @@ jobs:
           git tag $NEXT_TAG
           git tag
           git push --tags https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git HEAD:master
-#      - name: Push changes
-#        if: env.HAS_CHANGES == 1
-#        uses: ad-m/github-push-action@master
-#        with:
-#          github_token: ${{ secrets.GITHUB_TOKEN }}

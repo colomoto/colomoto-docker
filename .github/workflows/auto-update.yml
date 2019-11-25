@@ -12,22 +12,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
     - uses: actions/setup-python@v1
-    - name: Update'n freeze
-      run: |
-         python update-n-freeze.py
-         git diff --quiet Dockerfile && exit 0
-         git config --local user.email "action@github.com"
-         git config --local user.name "GitHub Action"
-         git add Dockerfile
-         git commit -m "[auto] update tools"
-    - name: Push changes to master
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Push changes to next
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: next
+    - name: Update tools
+      run: python update-n-freeze.py
+    - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: [auto] update tools
+          title: Automated update of tools
+          body: This is an auto-generated PR with tool updates.
+          branch: auto/tool-updates
+          branch-suffix: none
 

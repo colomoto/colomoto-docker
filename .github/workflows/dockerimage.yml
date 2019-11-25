@@ -8,11 +8,11 @@ jobs:
   validate:
     env:
       IMAGE_NAME: colomoto/colomoto-docker:next
-      AUTODOCKER: contains(github.event.pull_request.labels.*.name, "autodocker")
+      #AUTODOCKER: contains(github.event.pull_request.labels.*.name, "autodocker")
     runs-on: ubuntu-latest
     steps:
       - name: Test
-        run: echo "$AUTODOCKER - ${{ contains(github.event.pull_request.labels.*.name, "autodocker") }}"
+        run: echo "${{ contains(github.event.pull_request.labels.*.name, "autodocker") }}"
       #- uses: actions/checkout@v1
       #- name: Docker image build
       #  run: sh hooks/build

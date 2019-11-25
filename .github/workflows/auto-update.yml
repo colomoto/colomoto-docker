@@ -1,9 +1,9 @@
 name: auto-update
 
 on:
-#  push:
-#    branches: 
-#      - master
+  push:
+    branches: 
+      - master
   schedule:
     - cron: "0 21 * * *"
 
@@ -28,5 +28,6 @@ jobs:
         title: Automated update of tools
         body: This is an auto-generated PR with tool updates.
         labels: autodocker
+        assignees: pauleve
         branch: auto/tool-updates
         branch-suffix: none

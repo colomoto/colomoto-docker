@@ -14,7 +14,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@master
-    - name: Run a one-line script
+    - uses: actions/setup-python@v1
+    - name: Update'n freeze
       run: |
          python update-n-freeze.py
          git diff Dockerfile && exit 0

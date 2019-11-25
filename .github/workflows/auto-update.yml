@@ -1,8 +1,9 @@
 name: auto-update
 
 on:
-  check_run:
-    types: [rerequested, requested_action]
+  push:
+    branches: 
+      - master
   schedule:
     - cron: "0 21 * * *"
 

@@ -8,9 +8,13 @@ jobs:
       IMAGE_NAME: colomoto/colomoto-docker:next
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: Docker image build
-      run: sh hooks/build
-    - name: Docker image validation
-      run: docker run --rm colomoto/colomoto-docker:next validate.sh
+      - name: Dump GitHub context
+          env:
+            GITHUB_CONTEXT: ${{ toJson(github) }}
+          run: echo "$GITHUB_CONTEXT"
+      #- uses: actions/checkout@v1
+      #- name: Docker image build
+      #  run: sh hooks/build
+      #- name: Docker image validation
+      #  run: docker run --rm $IMAGE_NAME env validate.sh
 

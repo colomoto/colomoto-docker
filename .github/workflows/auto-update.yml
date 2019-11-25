@@ -27,6 +27,6 @@ jobs:
         commit-message: ":octocat: update tools"
         title: Automated update of tools
         body: This is an auto-generated PR with tool updates.
-        labels: bot-generated
+        labels: autodocker
         branch: auto/tool-updates
         branch-suffix: none

@@ -1,0 +1,55 @@
+
+name: Automatic release
+
+on:
+  schedule:
+    - cron: "30 23 * * *"
+  milestone:
+    types: [created, opened]
+
+jobs:
+  release:
+    env:
+      IMAGE_BASENAME: colomoto/colomoto-docker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Tags
+        run: |
+          echo ::set-env name=LATEST_TAG::$(git tag|tail -n1)
+          echo ::set-env name=NEXT_TAG::$(date +%F)
+      - name: Check for changes
+        env:
+          LATEST_TAG: ${{ env.LATEST_TAG }}
+        run: echo ::set-env name=HAS_CHANGES::$(git diff --quiet $LATEST_TAG.. Dockerfile || echo 1)
+      - name: Docker image build
+        if: env.HAS_CHANGES == 1
+        env:
+          IMAGE_NAME: ${IMAGE_BASENAME}:${{ env.NEXT_TAG }}
+        run: sh hooks/build
+      - name: Docker image validation
+        if: env.HAS_CHANGES == 1
+        env:
+          IMAGE_NAME: ${IMAGE_BASENAME}:${{ env.NEXT_TAG }}
+        run: docker run --rm $IMAGE_NAME env validate.sh
+      - name: Login to docker hub
+        if: env.HAS_CHANGES == 1
+        uses: actions-hub/docker/login@master
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Push image release
+        if: env.HAS_CHANGES == 1
+        env:
+          IMAGE_NAME: ${IMAGE_BASENAME}:${{ env.NEXT_TAG }}
+        uses: actions-hub/docker@master
+        with:
+          args: push ${IMAGE_NAME}
+      - name: Git tag
+        if: env.HAS_CHANGES == 1
+        run: git tag ${{ env.NEXT_TAG }}
+      - name: Push changes
+        if: env.HAS_CHANGES == 1
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}

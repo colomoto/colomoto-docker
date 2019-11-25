@@ -23,7 +23,13 @@ jobs:
          git config --local user.name "GitHub Action"
          git add Dockerfile
          git commit -m "[auto] update tools"
-    - name: Push changes
+    - name: Push changes to master
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Push changes to next
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: next
+

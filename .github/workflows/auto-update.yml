@@ -2,10 +2,10 @@ name: auto-update
 
 on:
   push:
-    branches: 
+    branches:
       - master
   schedule:
-    - cron: "0 21 * * *"
+    - cron: "0 18 * * *"
 
 jobs:
   update-tools:

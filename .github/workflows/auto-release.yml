@@ -43,3 +43,19 @@ jobs:
           git tag $NEXT_TAG
           git tag
           git push --tags https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git HEAD:master
+
+      - uses: action/checkout@v1
+        with:
+            ref: mybinder
+        if: env.HAS_CHANGES == 1
+      - run: |
+          sed -i "s/^\(FROM .*:\).*$/\\1$NEXT_TAG" Dockerfile
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -a -m "follow release"
+        if: env.HAS_CHANGES == 1
+      - uses: ad-m/github-push-action@master
+        with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            branch: mybinder
+        if: env.HAS_CHANGES == 1

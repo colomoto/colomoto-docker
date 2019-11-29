@@ -1,9 +1,7 @@
 name: auto-update
 
 on:
-  push:
-    branches:
-      - master
+  repository_dispatch:
   schedule:
     - cron: "0 18 * * *"
 

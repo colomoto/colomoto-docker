@@ -44,7 +44,7 @@ jobs:
           git tag
           git push --tags https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git HEAD:master
 
-      - uses: action/checkout@v1
+      - uses: actions/checkout@v1
         with:
             ref: mybinder
         if: env.HAS_CHANGES == 1

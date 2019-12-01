@@ -42,7 +42,7 @@ jobs:
         run: |
           git tag $NEXT_TAG
           git tag
-          git push --tags https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git HEAD:master
+          git push --tags https://${GITHUB_ACTOR}:${{ secrets.PAT }}@github.com/${GITHUB_REPOSITORY}.git HEAD:master
 
       - uses: actions/checkout@v1
         with:

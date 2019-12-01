@@ -1,0 +1,60 @@
+{
+    "boolean.py": {
+        "description": "Python module for Boolean algebra",
+        "release_url": "https://github.com/bastikr/boolean.py/release/tag/v{}"
+    },
+    "clingo": {
+        "description": "Answer-Set Programming solver",
+        "release_url": "https://github.com/potassco/clingo/release/tag/v{}"
+    },
+    "colomoto_jupyter": {
+        "homepage": "https://github.com/colomoto/colomoto-jupyter",
+        "description": "CoLoMoTo generic Python module",
+        "release_url": "https://github.com/colomoto/colomoto-jupyter/release/tag/v{}"
+    },
+    "ginsim": {
+        "name": "GINsim",
+        "description": "Boolean and multi-valued network modelling",
+        "release_url": "http://ginsim.org/downloads"
+    },
+    "ginsim-python": {
+        "name": "GINsim-Python",
+        "description": "Python interface to GINsim and bioLQM",
+        "release_url": "https://github.com/GINsim/GINsim-python/release/tag/v{}"
+    },
+    "its": {
+        "name": "ITSTools",
+        "description": "Symbolic model-checker",
+        "release_url": "https://lip6.github.io/ITSTools-web/"
+    },
+    "maboss": {
+        "name": "MaBoSS",
+        "description": "Markovian Boolean Stochastic Simulator",
+        "release_url": "https://maboss.curie.fr/"
+    },
+    "nusmv": {
+        "name": "NuSMV",
+        "description": "Symbolic model-checker",
+        "release_url": "http://nusmv.fbk.eu/"
+    },
+    "pint": {
+        "name": "Pint",
+        "description": "Static analyzer for dynamics of Automata Networks",
+        "release_url": "https://github.com/pauleve/pint/releases/tag/{}"
+    },
+    "pymaboss": {
+        "name": "PyMaBoSS",
+        "description": "Python interface to MaBoSS",
+        "release_url": "https://github.com/colomoto/pyMaBoSS/release/tag/v{}"
+    },
+    "pypint": {
+        "name": "PyPint",
+        "description": "Python interface to Pint",
+        "release_url": "https://github.com/pauleve/pint/releases/tag/pypint-v{}"
+    },
+    "r-boolnet": {
+        "name": "R-BoolNet",
+        "description": "Analysis and reconstruction of Boolean networks dynamics",
+        "release_url": "https://cran.r-project.org/web/packages/BoolNet/index.html"
+    }
+}

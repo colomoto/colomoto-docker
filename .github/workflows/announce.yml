@@ -1,0 +1,21 @@
+name: Announce release
+
+on:
+  push:
+    tags:
+      - '*-*-*'
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-python@v1
+      - run: python hooks/release_changes.py > ${{ github.workflow }}-CHANGELOG.txt
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          body_path: ${{ github.workflow }}-CHANGELOG.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

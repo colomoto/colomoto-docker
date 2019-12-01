@@ -49,7 +49,7 @@ jobs:
             ref: mybinder
         if: env.HAS_CHANGES == 1
       - run: |
-          sed -i "s/^\(FROM .*:\).*$/\\1$NEXT_TAG" Dockerfile
+          sed -i "s/^\(FROM .*:\).*$/\\1$NEXT_TAG/" Dockerfile
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -a -m "follow release"

@@ -9,7 +9,7 @@
     },
     "colomoto_jupyter": {
         "homepage": "https://github.com/colomoto/colomoto-jupyter",
-        "description": "CoLoMoTo generic Python module",
+        "description": "CoLoMoTo Python module",
         "release_url": "https://github.com/colomoto/colomoto-jupyter/releases/tag/v{}"
     },
     "ginsim": {

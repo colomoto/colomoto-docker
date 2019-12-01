@@ -16,6 +16,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          body_path: ${{ github.workflow }}-CHANGELOG.txt
+            name: colomoto/colomoto-docker:${{ github.ref }}
+            body_path: ${{ github.workflow }}-CHANGELOG.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

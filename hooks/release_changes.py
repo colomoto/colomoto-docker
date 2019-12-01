@@ -45,7 +45,7 @@ colomoto-docker -V latest
 
 ## Packages
 
-|Package|Description|Version|
+| Package | Version | Description |
 | --- | --- | --- |""")
     for pkg, version in pkgs:
         if pkg not in cfg:
@@ -58,7 +58,7 @@ colomoto-docker -V latest
                 version=version,
                 release_url=release_url)
         desc = pkg_cfg.get("description","N/A")
-        print("| {name} | {description} | {version}|".format(
+        print("| {name} | {version} | {description} |".format(
             name=name,
             description=desc,
             version=version))

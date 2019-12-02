@@ -71,12 +71,7 @@ There are 3 `RUN` sections related to conda package installation, which depend o
 
 ## Upgrading an existing software tool
 
-In order to upgrade an existing tool, the following steps must be performed:
-* [ ] Update the conda package
-* [ ] Update the related tutorial notebooks
-* [ ] Modify the `Dockerfile` with the new conda package version
-* [ ] Build locally the Docker image and validate it
-* [ ] Create a pull request with the `tool` label
+Embedded tools are automatically upgraded following the conda package updates.
 
 
 ## Recipes

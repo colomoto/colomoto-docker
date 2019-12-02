@@ -40,6 +40,7 @@ if __name__ == "__main__":
     pkgs = get_pkgs(data, cfg)
     print("""Fetch and run the latest image with
 ```
+pip install -U colomoto-docker
 colomoto-docker -V latest
 ```
 

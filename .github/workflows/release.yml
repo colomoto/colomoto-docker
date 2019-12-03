@@ -1,0 +1,37 @@
+name: Announce release
+
+on:
+  push:
+    tags:
+      - '*-*-*'
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-python@v1
+      - run: python hooks/release_changes.py > ${{ github.workflow }}-CHANGELOG.txt
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+            name: colomoto/colomoto-docker:${{ github.ref }}
+            body_path: ${{ github.workflow }}-CHANGELOG.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  mybinder:
+      name: Update mybinder branch
+      runs-on: ubuntu-latest
+      env:
+          NEXT_TAG: ${{ github.ref }}
+      steps:
+      - uses: actions/checkout@v1
+        with:
+            ref: mybinder
+      - run: |
+          sed -i "s/^\(FROM .*:\).*$/\\1$NEXT_TAG/" Dockerfile
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -a -m "follow release $NEXT_TAG"
+          git push https://${GITHUB_ACTOR}:${{ secrets.PAT }}@github.com/${GITHUB_REPOSITORY}.git HEAD:mybinder

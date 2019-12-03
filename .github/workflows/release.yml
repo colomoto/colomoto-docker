@@ -34,4 +34,4 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -a -m "follow release $NEXT_TAG"
-          git push https://${GITHUB_ACTOR}:${{ secrets.PAT }}@github.com/${GITHUB_REPOSITORY}.git HEAD:mybinder
+          git push https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git HEAD:mybinder

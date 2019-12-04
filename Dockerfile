@@ -26,7 +26,7 @@ RUN conda install --no-update-deps -y \
 
 RUN conda install --no-update-deps -y \
         boolean.py=3.7=py_0 \
-        colomoto_jupyter=0.5.8=py_0 \
+        colomoto_jupyter=0.5.9=py_0 \
         ginsim-python=0.3.8=py_0 \
         pymaboss=0.7.8=py_0 \
         pypint=1.5.2=py_0 \

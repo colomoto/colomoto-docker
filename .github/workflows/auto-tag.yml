@@ -39,6 +39,8 @@ jobs:
           args: push ${IMAGE_NAME}
       - name: Git tag
         if: env.HAS_CHANGES == 1
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
         run: |
           git tag $NEXT_TAG
           git push --tags https://${GITHUB_ACTOR}:${{ secrets.PAT }}@github.com/${GITHUB_REPOSITORY}.git HEAD:master

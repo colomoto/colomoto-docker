@@ -23,9 +23,7 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
       with:
-        commit-message: ":octocat: update tools"
-        author-name: GitHub Action
-        author-email: action@github.com
+        commit-message: "[auto] update tools"
         title: Automated update of tools
         body: This is an auto-generated PR with tool updates.
         labels: autodocker, pkg-update

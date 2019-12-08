@@ -25,7 +25,7 @@ RUN conda install --no-update-deps -y \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 RUN conda install --no-update-deps -y \
-        boolean.py=3.7=py_0 \
+        conda-forge::boolean.py=3.7=py_0 \
         colomoto_jupyter=0.5.9=py_0 \
         ginsim-python=0.3.8=py_0 \
         pymaboss=0.7.8=py_0 \

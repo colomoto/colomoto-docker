@@ -82,15 +82,18 @@ def update_and_freeze(lines, cfg):
         if arg[0] == "-" or ignore_next or arg in ["nomkl"]:
             ret = arg
         else:
+            channels = custom_channels + cfg["channels"]
+            force_channel = None
             pkg = arg.split("=")[0]
+            if "::" in pkg:
+                force_channel, pkg = pkg.split("::")
+                channels = [force_channel]
             if pkg in cfg["override"]:
                 v = cfg["override"][pkg]
             else:
-                channels = custom_channels + cfg["channels"]
-                if pkg in cfg.get("force-channel", {}):
-                    channels = [cfg["force-channel"][pkg]]
-
                 v = get_latest_version(pkg, channels, cfg)
+            if force_channel:
+                pkg = "{}::{}".format(force_channel, pkg)
             ret = "%s=%s" % (pkg, v)
         if arg in ["-c"]:
             ignore_next = True

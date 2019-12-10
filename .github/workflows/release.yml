@@ -15,12 +15,12 @@ jobs:
       - uses: actions/setup-python@v1
       - run: python hooks/release_changes.py > ${{ github.workflow }}-CHANGELOG.txt
       - name: Release
-        uses: pauleve/action-gh-release@master
+        uses: pauleve/action-gh-release@v2
         with:
             name: colomoto/colomoto-docker:${{ env.GITHUB_TAG }}
             body_path: ${{ github.workflow }}-CHANGELOG.txt
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
   mybinder:
       name: Update mybinder branch
       runs-on: ubuntu-latest
@@ -30,8 +30,11 @@ jobs:
         with:
             ref: mybinder
       - run: |
-          echo $GITHUB_TAG
           sed -i "s/^\(FROM .*:\).*$/\\1$GITHUB_TAG/" Dockerfile
+          echo ::set-env name=HAS_CHANGES::$(git diff --quiet Dockerfile || echo 1)
+      - name: update mybinder
+        if: env.HAS_CHANGES == 1
+        run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -a -m "follow release $GITHUB_TAG"

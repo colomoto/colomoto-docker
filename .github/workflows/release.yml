@@ -15,7 +15,7 @@ jobs:
       - uses: actions/setup-python@v1
       - run: python hooks/release_changes.py > ${{ github.workflow }}-CHANGELOG.txt
       - name: Release
-        uses: softprops/action-gh-release@v1
+        uses: pauleve/action-gh-release@master
         with:
             name: colomoto/colomoto-docker:${{ env.GITHUB_TAG }}
             body_path: ${{ github.workflow }}-CHANGELOG.txt
@@ -34,5 +34,5 @@ jobs:
           sed -i "s/^\(FROM .*:\).*$/\\1$GITHUB_TAG/" Dockerfile
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git commit -a -m "follow release $NEXT_TAG"
+          git commit -a -m "follow release $GITHUB_TAG"
           git push https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git HEAD:mybinder

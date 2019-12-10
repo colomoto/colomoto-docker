@@ -13,14 +13,14 @@ jobs:
       - run: echo ::set-env name=GITHUB_TAG::$(echo $GITHUB_REF|cut -d/ -f3)
       - uses: actions/checkout@v1
       - uses: actions/setup-python@v1
-      - run: python hooks/release_changes.py > ${{ github.workflow }}-CHANGELOG.txt
+      - run: python hooks/release_changes.py > CHANGELOG.txt
       - name: Release
-        uses: pauleve/action-gh-release@v2
+        uses: softprops/action-gh-release@v1
         with:
             name: colomoto/colomoto-docker:${{ env.GITHUB_TAG }}
-            body_path: ${{ github.workflow }}-CHANGELOG.txt
+            body_path: CHANGELOG.txt
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   mybinder:
       name: Update mybinder branch
       runs-on: ubuntu-latest

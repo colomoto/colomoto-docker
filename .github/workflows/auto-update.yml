@@ -26,7 +26,7 @@ jobs:
         commit-message: "[auto] update tools"
         title: Automated update of tools
         body: This is an auto-generated PR with tool updates.
-        labels: autodocker, pkg-update
+        labels: pkg-update, autodocker
         assignees: pauleve
         branch: auto/tool-updates
         branch-suffix: none

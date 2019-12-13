@@ -1,8 +1,9 @@
 name: Docker Image CI
 
 on:
-  pull_request:
-    types: [synchronize, reopened, labeled]
+  push:
+    branches:
+      - auto/tool-updates
 
 jobs:
   validate:
@@ -16,13 +17,11 @@ jobs:
       - name: Docker image validation
         run: docker run --rm $IMAGE_NAME env validate.sh
       - name: Login to docker hub
-        if: contains(github.event.pull_request.labels.*.name, 'autodocker')
         uses: actions-hub/docker/login@master
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       - name: Push image :next
-        if: contains(github.event.pull_request.labels.*.name, 'autodocker')
         uses: actions-hub/docker@master
         with:
           args: push ${IMAGE_NAME}

@@ -25,9 +25,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAT }}
       with:
         commit-message: "[auto] update tools"
+        author-name: "github-actions[bot]"
+        author-email: "41898282+github-actions[bot]@users.noreply.github.com"
         title: Automated update of tools
         body: This is an auto-generated PR with tool updates.
-        labels: pkg-update, autodocker
+        labels: pkg-update, auto
         assignees: pauleve
         branch: auto/tool-updates
         branch-suffix: none

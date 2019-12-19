@@ -21,12 +21,10 @@ jobs:
       run: python update-n-freeze.py
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v1
-      env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
       with:
-        commit-message: "[auto] update tools"
         author-name: "github-actions[bot]"
         author-email: "41898282+github-actions[bot]@users.noreply.github.com"
+        commit-message: "update tools"
         title: Automated update of tools
         body: This is an auto-generated PR with tool updates.
         labels: pkg-update, auto

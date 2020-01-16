@@ -2,6 +2,9 @@ name: auto-update
 
 on:
   repository_dispatch:
+  push:
+    branches:
+      - for-next
   schedule:
     - cron: "0 18 * * *"
 
@@ -13,6 +16,8 @@ jobs:
       with:
         ref: master
         token: ${{ secrets.PAT }}
+    - name: follow for-next
+      run: git merge --ff-only for-next
     - uses: actions/setup-node@v1
       with:
         node-version: '10.x'
@@ -25,8 +30,7 @@ jobs:
         author-name: "github-actions[bot]"
         author-email: "41898282+github-actions[bot]@users.noreply.github.com"
         commit-message: "update tools"
-        title: Automated update of tools
-        body: This is an auto-generated PR with tool updates.
+        title: Next image
         labels: pkg-update, auto
         assignees: pauleve
         branch: auto/tool-updates

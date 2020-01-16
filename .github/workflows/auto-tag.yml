@@ -18,7 +18,7 @@ jobs:
           echo ::set-env name=NEXT_TAG::$(date +%F)
       - name: Check for changes
         run: |
-          echo ::set-env name=HAS_CHANGES::$(git diff --quiet $LATEST_TAG.. Dockerfile || echo 1)
+          echo ::set-env name=HAS_CHANGES::$(git diff --quiet $LATEST_TAG.. Dockerfile usecases tutotials || echo 1)
           echo ::set-env name=IMAGE_NAME::${IMAGE_BASENAME}:${NEXT_TAG}
       - name: Docker image build
         if: env.HAS_CHANGES == 1

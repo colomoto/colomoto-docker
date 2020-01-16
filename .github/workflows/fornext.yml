@@ -1,0 +1,15 @@
+on:
+    push:
+        branches:
+            - master
+jobs:
+    rebase-for-next:
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  ref: for-next
+            - name: rebase
+              run: |
+                  git fetch origin master
+                  git rebase master
+                  git push --force-with-lease

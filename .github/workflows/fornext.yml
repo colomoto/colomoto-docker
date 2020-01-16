@@ -1,9 +1,11 @@
+name: sync for-next
 on:
     push:
         branches:
             - master
 jobs:
     rebase-for-next:
+        runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
               with:

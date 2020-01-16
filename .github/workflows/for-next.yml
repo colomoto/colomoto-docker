@@ -11,6 +11,7 @@ jobs:
               with:
                   ref: for-next
                   fetch-depth: 0
+                  token: ${{ secrets.PAT }}
             - run: git fetch origin master
             - run: |
                 git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"

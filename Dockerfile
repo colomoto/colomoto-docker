@@ -19,15 +19,15 @@ RUN conda install --no-update-deps  -y \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 RUN conda install --no-update-deps -y \
-        ginsim=3.0.0b=8 \
+        ginsim=3.0.0b=9 \
         pint=2019.05.24=1 \
         r-boolnet=2.1.5 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 RUN conda install --no-update-deps -y \
         conda-forge::boolean.py=3.7=py_0 \
-        colomoto_jupyter=0.5.9=py_0 \
-        ginsim-python=0.3.8=py_0 \
+        colomoto_jupyter=0.5.10=py_0 \
+        ginsim-python=0.3.9=py_0 \
         pymaboss=0.7.9=py_0 \
         pypint=1.5.2=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs

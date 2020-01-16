@@ -37,4 +37,5 @@ jobs:
         assignees: pauleve
         branch: auto/tool-updates
         branch-suffix: none
+        base: master
         token: ${{ secrets.GITHUB_TOKEN }}

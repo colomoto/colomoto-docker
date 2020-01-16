@@ -10,8 +10,7 @@ jobs:
             - uses: actions/checkout@v2
               with:
                   ref: for-next
-            - name: rebase
-              run: |
-                  git fetch origin master
-                  git rebase master
-                  git push --force-with-lease
+                  fetch-depth: 0
+            - run: git fetch origin master
+            - run: git rebase origin/master
+            - run: git push -f

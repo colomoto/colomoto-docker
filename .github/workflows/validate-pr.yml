@@ -1,27 +1,30 @@
-name: Next Docker image
+name: PR Docker image
 
 on:
-  push:
-    branches:
-      - auto/next
+    pull_request:
 
 jobs:
   validate:
     env:
-      IMAGE_NAME: colomoto/colomoto-docker:next
+      IMAGE_NAME: colomoto/colomoto-docker:pr${{ github.event.pull_request.number }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+        if: github.base_ref == "for-next"
       - name: Docker image build
         run: sh hooks/build
+        if: github.base_ref == "for-next"
       - name: Docker image validation
         run: docker run --rm $IMAGE_NAME env validate.sh
+        if: github.base_ref == "for-next"
       - name: Login to docker hub
+        if: github.base_ref == "for-next"
         uses: actions-hub/docker/login@master
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       - name: Push image :next
+        if: github.base_ref == "for-next"
         uses: actions-hub/docker@master
         with:
           args: push ${IMAGE_NAME}

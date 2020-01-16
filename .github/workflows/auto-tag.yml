@@ -11,7 +11,10 @@ jobs:
       IMAGE_BASENAME: colomoto/colomoto-docker
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+        with:
+            ref: master
+            token: ${{ secrets.PAT }}
       - name: Tags
         run: |
           echo ::set-env name=LATEST_TAG::$(git tag|tail -n1)
@@ -39,9 +42,7 @@ jobs:
           args: push ${IMAGE_NAME}
       - name: Git tag
         if: env.HAS_CHANGES == 1
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
         run: |
           git tag $NEXT_TAG
-          git push --tags https://${GITHUB_ACTOR}:${{ secrets.PAT }}@github.com/${GITHUB_REPOSITORY}.git HEAD:master
+          git push --tags
 

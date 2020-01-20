@@ -17,12 +17,19 @@ jobs:
             token: ${{ secrets.PAT }}
       - name: Tags
         run: |
+          set -ex
+          git fetch --depth=1 origin +refs/tags/*:refs/tags/*
           echo ::set-env name=LATEST_TAG::$(git tag|tail -n1)
           echo ::set-env name=NEXT_TAG::$(date +%F)
+        shell: bash
       - name: Check for changes
         run: |
-          echo ::set-env name=HAS_CHANGES::$(git diff --quiet $LATEST_TAG.. Dockerfile usecases tutotials || echo 1)
+          set -x
+          [[ "$(git rev-parse HEAD)" == "$(git rev-parse $LATEST_TAG)" ]] && exit 0
+          git diff --quiet $LATEST_TAG.. Dockerfile && exit 0
+          echo ::set-env name=HAS_CHANGES::1
           echo ::set-env name=IMAGE_NAME::${IMAGE_BASENAME}:${NEXT_TAG}
+        shell: bash
       - name: Docker image build
         if: env.HAS_CHANGES == 1
         run: sh hooks/build

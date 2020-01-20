@@ -39,3 +39,10 @@ jobs:
         branch-suffix: none
         base: master
         token: ${{ secrets.GITHUB_TOKEN }}
+        body: |
+            Candidate next image with updated tool versions.
+
+            You can try it using
+            ```
+            colomoto-docker -V next
+            ```

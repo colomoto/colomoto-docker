@@ -208,11 +208,21 @@ def main():
         if env in os.environ:
             argv += ["-e", env]
 
+    def easy_volume(val):
+        orig, dest = val.split(":")
+        if dest[0] != "/":
+            dest = os.path.abspath(os.path.join(args.workdir, dest))
+        if orig[0] != "/" and os.path.isdir(orig):
+            orig = os.path.abspath(orig)
+        return "%s:%s" % (orig, dest)
+
     for opt in docker_run_opts:
         if getattr(args, opt) is not None:
             val = getattr(args, opt)
             if isinstance(val, list):
                 for v in val:
+                    if opt == "volume":
+                        v = easy_volume(v)
                     argv += ["--%s"%opt, v]
             else:
                 argv += ["--%s" % opt, val]

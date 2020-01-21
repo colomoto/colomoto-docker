@@ -1,6 +1,5 @@
 # The CoLoMoTo Docker
 
-[![](https://images.microbadger.com/badges/image/colomoto/colomoto-docker.svg)](http://microbadger.com/images/colomoto/colomoto-docker "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/colomoto/colomoto-docker.svg)](https://microbadger.com/images/colomoto/colomoto-docker "Get your own version badge on microbadger.com")
 [![PyPI version](https://badge.fury.io/py/colomoto-docker.svg)](https://badge.fury.io/py/colomoto-docker)
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/colomoto/colomoto-docker/mybinder)
@@ -26,15 +25,28 @@ The CoLoMoTo notebook can then be started by executing in a terminal (if using D
 
 The container can be stopped by pressing <kbd>Ctrl</kbd>+<kbd>C</kbd> keys.
 
-By default, the script will fetch the most recent [colomoto/colomoto-docker tag](https://hub.docker.com/r/colomoto/colomoto-docker/tags/). A specific tag can be specified using the `-V` option. For example:
+By default, the script uses the most recently fetched image; the first time, it fetches the most recent [colomoto/colomoto-docker tag](https://hub.docker.com/r/colomoto/colomoto-docker/tags/).
+A specific tag can be specified using the `-V` option. For example:
 
-    colomoto-docker -V 2018-05-29
+    colomoto-docker                 # uses the most recently fetched image
+    colomoto-docker -V latest       # fetches the latest published image
+    colomoto-docker -V 2018-05-29   # fetches a specific image
 
-**Warning**: by default, the files within the Docker container are isolated from the running host computer, therefore *files are deleted after stopping the container*.
-To have access to the files of your current directory you should use the `--bind` option:
+**Warning**: by default, the files within the Docker container are isolated from the running host computer, therefore *files are deleted after stopping the container*, except the files within the `persistent` directory.
+
+To have access to the files of your current directory you can use the `--bind` option:
 
     colomoto-docker --bind .
-      
+
+If you want to have the tutorial notebooks alongside your local files, you can
+do the following:
+
+    mkdir notebooks
+    colomoto-docker -v notebooks:local-notebooks
+
+in the Jupyter browser, you will see a `local-notebooks` directory which is
+bound to your `notebooks` directory.
+
 See
 
     colomoto-docker --help

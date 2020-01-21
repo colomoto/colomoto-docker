@@ -17,14 +17,25 @@ The container can be stopped by pressing <kbd>Ctrl</kbd>+<kbd>C</kbd> keys.
 
 By default, the script will fetch the most recent [colomoto/colomoto-docker tag](https://hub.docker.com/r/colomoto/colomoto-docker/tags?ordering=last_updated). A specific tag can be specified using the `-V` option; or use `-V same` to use the most recently fetched image. For example:
 
-    colomoto-docker -V 2018-05-29
-    colomoto-docker -V same         # use the most recently downloaded image
+    colomoto-docker                 # uses the most recently fetched image
+    colomoto-docker -V latest       # fetches the latest published image
+    colomoto-docker -V 2018-05-29   # fetches a specific image
 
-**Warning**: by default, the files within the Docker container are isolated from the running host computer, therefore *files are deleted after stopping the container*.
-To have access to the files of your current directory you should use the `--bind` option:
+**Warning**: by default, the files within the Docker container are isolated from the running host computer, therefore *files are deleted after stopping the container*, except the files within the `persistent` directory.
+
+To have access to the files of your current directory you can use the `--bind` option:
 
     colomoto-docker --bind .
-      
+
+If you want to have the tutorial notebooks alongside your local files, you can
+do the following:
+
+    mkdir notebooks
+    colomoto-docker -v notebooks:local-notebooks
+
+in the Jupyter browser, you will see a `local-notebooks` directory which is
+bound to your `notebooks` directory.
+
 See
 
     colomoto-docker --help

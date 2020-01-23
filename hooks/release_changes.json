@@ -30,7 +30,7 @@
     "maboss": {
         "name": "MaBoSS",
         "description": "Markovian Boolean Stochastic Simulator",
-        "release_url": "https://maboss.curie.fr/"
+        "release_url": "https://github.com/maboss-bkmc/MaBoSS-env-2.0/releases/tag/v{}"
     },
     "nusmv": {
         "name": "NuSMV",

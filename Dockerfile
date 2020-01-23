@@ -24,7 +24,7 @@ RUN conda install --no-update-deps  -y \
 # Tier 2: tools with regular updates (2-4/year)
 RUN conda install --no-update-deps -y \
         ginsim=3.0.0b=9 \
-        maboss=2.3.0=h6bb024c_0 \
+        maboss=2.3.1=h6bb024c_0 \
         pint=2019.05.24=1 \
         r-boolnet=2.1.5 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
@@ -32,9 +32,9 @@ RUN conda install --no-update-deps -y \
 # Tier 3: tools with frequent updates (>4/year)
 RUN conda install --no-update-deps -y \
         conda-forge::boolean.py=3.7=py_0 \
-        colomoto_jupyter=0.5.10=py_0 \
+        colomoto_jupyter=0.5.11=py_0 \
         ginsim-python=0.3.9=py_0 \
-        pymaboss=0.7.9=py_0 \
+        pymaboss=0.7.10=py_0 \
         pypint=1.5.2=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 

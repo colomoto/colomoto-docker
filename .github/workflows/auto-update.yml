@@ -35,7 +35,7 @@ jobs:
         assignees: pauleve
         branch: auto/next
         base: master
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.PAT }}
         body: |
             Candidate next image with updated tool versions.
 

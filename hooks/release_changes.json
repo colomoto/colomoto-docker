@@ -32,6 +32,11 @@
         "description": "Markovian Boolean Stochastic Simulator",
         "release_url": "https://github.com/maboss-bkmc/MaBoSS-env-2.0/releases/tag/v{}"
     },
+    "mpbn": {
+        "name": "mpbn",
+        "description": "Brief implementation of Most Permissive Boolean Networks",
+        "release_url": "https://github.com/pauleve/mpbn/releases/tag/v{}"
+    },
     "nusmv": {
         "name": "NuSMV",
         "description": "Symbolic model-checker",

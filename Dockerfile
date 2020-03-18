@@ -34,7 +34,7 @@ RUN conda install --no-update-deps -y \
         conda-forge::boolean.py=3.7=py_0 \
         colomoto_jupyter=0.6.1=py_0 \
         ginsim-python=0.4=py_0 \
-        mpbn=1.0=py_0 \
+        mpbn=1.1=py_0 \
         pymaboss=0.7.10=py_0 \
         pypint=1.5.2=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs

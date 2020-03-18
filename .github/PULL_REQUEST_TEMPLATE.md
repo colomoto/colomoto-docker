@@ -16,4 +16,5 @@ colomoto-docker -V pr<PULL REQUEST ID>
 - [X] The conda package is added in one of the 3 install section of `Dockerfile` **[REQUIRED]**
 - [X] There is at least one tutorial notebook in `tutorials/<tool>` folder **[REQUIRED]**
 - [X] Tutorial notebooks are referenced in `validate.sh` **[REQUIRED]**
+- [X] Tool is referenced in the `hooks/release_changes.json` **[REQUIRED]**
 - [ ] Tool is referenced in the README.md file

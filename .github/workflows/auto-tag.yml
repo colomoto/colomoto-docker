@@ -2,6 +2,8 @@
 name: Daily tagging
 
 on:
+  repository_dispatch:
+    types: release
   schedule:
     - cron: "45 23 * * *"
 
@@ -20,7 +22,7 @@ jobs:
           set -ex
           git fetch --depth=1 origin +refs/tags/*:refs/tags/*
           echo ::set-env name=LATEST_TAG::$(git tag|tail -n1)
-          echo ::set-env name=NEXT_TAG::$(date +%F)
+          echo ::set-env name=NEXT_TAG::$(git log -1 --format %cs)
         shell: bash
       - name: Check for changes
         run: |

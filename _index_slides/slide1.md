@@ -54,6 +54,8 @@ Having issues? have a look at our [Troubleshooting](https://github.com/colomoto/
   Python module [`ginsim`](https://github.com/GINsim/GINsim-python) 
 * [MaBoSS](http://maboss.curie.fr) -- Markovian Boolean Stochastic Simulator<br/>
   Python module [`maboss`](https://github.com/colomoto/pyMaBoSS)
+* [mpbn](https://github.com/pauleve/mpbn) -- Most Permissive Boolean Networks<br/>
+  Python module [`mpbn`](https://github.com/pauleve/mpbn)
 * [NuSMV](http://nusmv.fbk.eu) -- Symbolic model-checker<br/>
   Python module [`nusmv`](https://github.com/colomoto/colomoto-jupyter)
 * [Pint](https://loicpauleve.name/pint) -- Static analyzer for dynamics of Automata Networks<br/>

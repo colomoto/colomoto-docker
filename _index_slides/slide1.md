@@ -9,7 +9,7 @@ and reproduce analyses of **qualitative models of biological networks**.
 
 ### Without any installation
 
-Visit https://mybinder.org/v2/gh/colomoto/colomoto-docker/mybinder to launch the CoLoMoTo Notebook environment without any installation thanks to [Binder](https://mybinder.org) services.
+Visit [mybinder.org/v2/gh/colomoto/colomoto-docker/mybinder](https://mybinder.org/v2/gh/colomoto/colomoto-docker/mybinder) to launch the most recent CoLoMoTo Notebook environment without any installation thanks to [Binder](https://mybinder.org) services.
 
 Note that the computing resources are limited and the storage is not persistent.
 

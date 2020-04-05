@@ -7,6 +7,14 @@ and reproduce analyses of **qualitative models of biological networks**.
 
 ## Quick usage guide
 
+### Without any installation
+
+Visit https://mybinder.org/v2/gh/colomoto/colomoto-docker/mybinder to launch the CoLoMoTo Notebook environment without any installation thanks to [Binder](https://mybinder.org) services.
+
+Note that the computing resources are limited and the storage is not persistent.
+
+### With Python Helper Script
+
 You need [Docker](http://docker.com) and [Python](http://python.org).
 We support GNU/Linux, macOS, and Windows.
 
@@ -43,6 +51,23 @@ See
 for other options.
 
 Having issues? have a look at our [Troubleshooting](https://github.com/colomoto/colomoto-docker/blob/master/TROUBLESHOOTING.md) page, or [open an issue](https://github.com/colomoto/colomoto-docker/issues).
+
+### Python-less usage
+
+You need [Docker](http://docker.com).
+
+First, pick an image version among [colomoto/colomoto-docker tags](https://hub.docker.com/r/colomoto/colomoto-docker/tags?ordering=last_updated).
+Fetch the image with
+
+    docker pull colomoto/colomoto-docker:TAG
+
+The image can be ran using
+
+    docker run -it --rm -p 8888:8888 colomoto/colomoto-docker:TAG
+
+then, open your browser and go to http://localhost:8888 for the Jupyter notebook web interface
+(note: when using Docker Toolbox, replace localhost with the result of
+`docker-machine ip default` command).
 
 ## Available software tools with Python API
 

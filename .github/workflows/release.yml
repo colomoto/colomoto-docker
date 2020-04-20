@@ -11,14 +11,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo ::set-env name=GITHUB_TAG::$(echo $GITHUB_REF|cut -d/ -f3)
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: actions/setup-python@v1
+      - name: docker info
+        run: |
+            docker pull ${IMAGE_NAME}
+            docker run --rm ${IMAGE_NAME} apt list --installed > debian-installed-${TAG}.txt
+            docker run --rm ${IMAGE_NAME} conda env export > conda-environment-${TAG}-strict.yml
+            docker run --rm ${IMAGE_NAME} conda env export --from-history > conda-environment-${TAG}.yml
+        env:
+            IMAGE_NAME: colomoto/colomoto-docker:${{ env.GITHUB_TAG }}
+            TAG: ${{ env.GITHUB_TAG }}
       - run: python hooks/release_changes.py > CHANGELOG.txt
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
             name: colomoto/colomoto-docker:${{ env.GITHUB_TAG }}
             body_path: CHANGELOG.txt
+            files: |
+                debian-installed-${{ env.GITHUB_TAG }}
+                conda-environment-${{ env.GITHUB_TAG }}-strict.yml
+                conda-environment-${{ env.GITHUB_TAG }}.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   mybinder:

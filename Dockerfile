@@ -50,7 +50,9 @@ COPY --chown=user:user usecases/*.ipynb /notebook/usecases/
 
 USER user
 
-RUN mkdir /notebook/persistent && touch /notebook/persistent/.keep
+RUN mkdir -p /notebook/.local/lib/python3.7/site-packages && \
+    mkdir /notebook/persistent &&\
+    touch /notebook/persistent/.keep
 
 ARG IMAGE_NAME
 ARG IMAGE_BUILD_DATE

@@ -24,6 +24,9 @@ def error(msg):
     print(msg, file=sys.stderr)
     sys.exit(1)
 
+def info(msg):
+    print(msg, file=sys.stderr)
+
 def check_cmd(argv):
     DEVNULL = subprocess.DEVNULL if hasattr(subprocess, "DEVNULL") \
                 else open(os.devnull, 'w')
@@ -63,7 +66,7 @@ within the 'Docker quickstart Terminal'.""")
         else:
             error("Error: Docker not found.")
     docker_argv = docker_call()
-    if subprocess.call(docker_argv + ["version"]):
+    if subprocess.call(docker_argv + ["version"], stdout=2):
         error("Error: cannot connect to Docker. Make sure it is running.")
     return docker_argv
 
@@ -131,7 +134,7 @@ def main():
             import ssl
             ssl._create_default_https_context = ssl._create_unverified_context
 
-        print("# querying for latest tag of {}...".format(args.image))
+        info("# querying for latest tag of {}...".format(args.image))
         url_api = "https://registry.hub.docker.com/v1/repositories/{}/tags".format(args.image)
         tags = []
         q = urlopen(url_api)
@@ -140,13 +143,13 @@ def main():
         q.close()
         tags = [t["name"] for t in r if pat_tag.match(t["name"])]
         if not tags:
-            print("# ... none found! use 'latest'")
+            info("# ... none found! use 'latest'")
             image_tag = "latest"
         else:
             image_tag = max(tags)
 
     image = "%s:%s" % (args.image, image_tag)
-    print("# using {}".format(image))
+    info("# using {}".format(image))
 
     if not args.no_update \
         and (image_tag.startswith("next") \
@@ -170,7 +173,7 @@ def main():
                 todel.append("{}:{}".format(args.image, tag))
         if todel:
             argv = docker_argv + ["rmi"] + todel
-            print("# {}".format(" ".join(argv)))
+            info("# {}".format(" ".join(argv)))
             subprocess.call(argv)
 
     argv = docker_argv + ["run", "-it", "--rm"]
@@ -233,7 +236,7 @@ def main():
     elif args.command:
         argv += args.command
 
-    print("# %s" % " ".join(argv))
+    info("# %s" % " ".join(argv))
 
     if not args.shell and not args.command and not args.no_browser:
 
@@ -250,7 +253,7 @@ def main():
                     try:
                         webbrowser.open("http://{}:{}".format(container_ip, port))
                     except:
-                        print("""
+                        info("""
 Please open your web-browser to the following address:
 
     http://{}:{}

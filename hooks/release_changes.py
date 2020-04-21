@@ -35,7 +35,7 @@ if __name__ == "__main__":
     inpfile = "Dockerfile"
     cfgfile = __file__.replace(".py", ".json")
     TAG = os.getenv("TAG")
-    IMAGE_NAME = os.getenv("IMAGE_NAME")
+    IMAGE_NAME = os.getenv("IMAGE")
     with open(cfgfile) as fp:
         cfg = json.load(fp)
     with open(inpfile) as f:

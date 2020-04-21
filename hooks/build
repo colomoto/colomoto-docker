@@ -4,7 +4,8 @@ LATEST_TAG=$(curl -si https://github.com/colomoto/colomoto-docker/releases/lates
         grep '^location:'|cut -d/ -f8-|sed 's:\s::')
 IMAGE_CACHE=colomoto/colomoto-docker:$LATEST_TAG
 docker pull ${IMAGE_CACHE}
-docker build --cache-from=${IMAGE_CACHE} \
+docker pull ${IMAGE_NAME} || true
+docker build --cache-from=${IMAGE_CACHE},${IMAGE_NAME} \
     --build-arg IMAGE_NAME=$IMAGE_NAME \
     --build-arg SOURCE_COMMIT=${SOURCE_COMMIT:-$(git rev-parse HEAD)} \
     --build-arg IMAGE_BUILD_DATE=$(date -u +%F) \

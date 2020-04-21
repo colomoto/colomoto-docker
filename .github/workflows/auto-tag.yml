@@ -21,7 +21,7 @@ jobs:
         run: |
           set -ex
           git fetch --depth=1 origin +refs/tags/*:refs/tags/*
-          echo ::set-env name=LATEST_TAG::$(git tag|tail -n1)
+          echo ::set-env name=LATEST_TAG::$(git tag|grep -v mybinder|tail -n1)
           echo ::set-env name=NEXT_TAG::$(git log -1 --format=%cs)
         shell: bash
       - name: Check for changes

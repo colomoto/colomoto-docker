@@ -6,13 +6,13 @@ IMAGE_CACHE=colomoto/colomoto-docker:$LATEST_TAG
 docker pull ${IMAGE_CACHE}
 CACHE_FROM=${IMAGE_CACHE}
 # speed up non-automatic pull requests
-case ${IMAGE_NAME##*:} in
-    pr[0-9]*) if docker pull ${IMAGE_NAME}; then
-            CACHE_FROM="${CACHE_FROM},${IMAGE_NAME}"; fi;;
+case ${IMAGE##*:} in
+    pr[0-9]*) if docker pull ${IMAGE}; then
+            CACHE_FROM="${CACHE_FROM},${IMAGE}"; fi;;
 esac
 docker build --cache-from=${CACHE_FROM} \
-    --build-arg IMAGE_NAME=$IMAGE_NAME \
+    --build-arg IMAGE_NAME=$IMAGE\
     --build-arg SOURCE_COMMIT=${SOURCE_COMMIT:-$(git rev-parse HEAD)} \
     --build-arg IMAGE_BUILD_DATE=$(date -u +%F) \
     --build-arg BUILD_DATETIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ") \
-    -t $IMAGE_NAME .
+    -t $IMAGE .

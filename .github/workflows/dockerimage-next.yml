@@ -8,14 +8,14 @@ on:
 jobs:
   validate:
     env:
-      IMAGE_NAME: colomoto/colomoto-docker:next
+      IMAGE: colomoto/colomoto-docker:next
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Docker image build
         run: sh hooks/build
       - name: Docker image validation
-        run: docker run --rm $IMAGE_NAME env validate.sh
+        run: docker run --rm $IMAGE env validate.sh
       - name: Login to docker hub
         uses: actions-hub/docker/login@master
         env:
@@ -24,5 +24,5 @@ jobs:
       - name: Push image :next
         uses: actions-hub/docker@master
         with:
-          args: push ${IMAGE_NAME}
+          args: push ${IMAGE}
 

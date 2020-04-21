@@ -30,14 +30,14 @@ jobs:
           [[ "$(git rev-parse HEAD)" == "$(git rev-parse $LATEST_TAG)" ]] && exit 0
           git diff --quiet $LATEST_TAG.. Dockerfile && exit 0
           echo ::set-env name=HAS_CHANGES::1
-          echo ::set-env name=IMAGE_NAME::${IMAGE_BASENAME}:${NEXT_TAG}
+          echo ::set-env name=IMAGE::${IMAGE_BASENAME}:${NEXT_TAG}
         shell: bash
       - name: Docker image build
         if: env.HAS_CHANGES == 1
         run: sh hooks/build
       - name: Docker image validation
         if: env.HAS_CHANGES == 1
-        run: docker run --rm $IMAGE_NAME env validate.sh
+        run: docker run --rm $IMAGE env validate.sh
       - name: Login to docker hub
         if: env.HAS_CHANGES == 1
         uses: actions-hub/docker/login@master
@@ -48,7 +48,7 @@ jobs:
         if: env.HAS_CHANGES == 1
         uses: actions-hub/docker@master
         with:
-          args: push ${IMAGE_NAME}
+          args: push ${IMAGE}
       - name: Git tag
         if: env.HAS_CHANGES == 1
         run: |

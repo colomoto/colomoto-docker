@@ -1,5 +1,4 @@
-FROM colomoto/colomoto-docker-base:v1.6.4
-MAINTAINER CoLoMoTo Group <contact@colomoto.org>
+FROM colomoto/colomoto-docker-base:py37-openjdk8-20200421
 
 USER root
 

@@ -2,7 +2,7 @@
 
 from __future__ import print_function
 
-from argparse import ArgumentParser
+from argparse import ArgumentParser, REMAINDER
 import os
 from contextlib import closing
 from getpass import getuser
@@ -105,7 +105,7 @@ def main():
         help="Bind mount a volume")
     docker_run_opts = ["env", "name", "volume"]
 
-    parser.add_argument("command", nargs="*", help="Command to run instead of colomoto-nb")
+    parser.add_argument("command", nargs=REMAINDER, help="Command to run instead of colomoto-nb")
     args = parser.parse_args()
 
     image_tag = args.version

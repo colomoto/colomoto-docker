@@ -2,7 +2,7 @@ import json
 import os
 import re
 
-x = re.compile(r"^RUN\b((?:.+\\\n)*.+[^\\]$)", re.M)
+x = re.compile(r"^RUN\s+COLOMOTO_TOOLS=1\b((?:.+\\\n)*.+[^\\]$)", re.M)
 y = re.compile(r"(?<=conda\sinstall\b)([^&]+)", re.S|re.M)
 c = re.compile(r"-c\s([^\s]+)")
 w = re.compile(r"[^\\\s]+")

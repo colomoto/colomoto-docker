@@ -13,16 +13,16 @@ jobs:
       - run: echo ::set-env name=GITHUB_TAG::$(echo $GITHUB_REF|cut -d/ -f3)
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v1
-      - name: docker info
+      - name: release info
         run: |
             docker pull ${IMAGE_NAME}
             docker run --rm ${IMAGE_NAME} apt list --installed > debian-installed-${TAG}.txt
             docker run --rm ${IMAGE_NAME} conda env export > conda-environment-${TAG}-strict.yml
             docker run --rm ${IMAGE_NAME} conda env export --from-history > conda-environment-${TAG}.yml
+            python hooks/release_changes.py > CHANGELOG.txt
         env:
             IMAGE_NAME: colomoto/colomoto-docker:${{ env.GITHUB_TAG }}
             TAG: ${{ env.GITHUB_TAG }}
-      - run: python hooks/release_changes.py > CHANGELOG.txt
       - name: Release
         uses: softprops/action-gh-release@v1
         with:

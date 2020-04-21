@@ -1,4 +1,5 @@
 import json
+import os
 import re
 
 x = re.compile(r"^RUN\b((?:.+\\\n)*.+[^\\]$)", re.M)
@@ -33,15 +34,17 @@ def get_pkgs(lines, cfg):
 if __name__ == "__main__":
     inpfile = "Dockerfile"
     cfgfile = __file__.replace(".py", ".json")
+    TAG = os.getenv("TAG")
+    IMAGE_NAME = os.getenv("IMAGE_NAME")
     with open(cfgfile) as fp:
         cfg = json.load(fp)
     with open(inpfile) as f:
         data = f.read()
     pkgs = get_pkgs(data, cfg)
-    print("""Fetch and run the latest image with
+    print(f"""Fetch and run this image using
 ```
 pip install -U colomoto-docker
-colomoto-docker -V latest
+colomoto-docker -V {TAG}
 ```
 
 ## Packages

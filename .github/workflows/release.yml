@@ -41,7 +41,7 @@ jobs:
       - run: echo ::set-env name=GITHUB_TAG::$(echo $GITHUB_REF|cut -d/ -f3)
       - uses: actions/checkout@v2
         with:
-            ref: mybinder
+            ref: mybinder/latest
       - run: |
           sed -i "s/^\(FROM .*:\).*$/\\1$GITHUB_TAG/" Dockerfile
           echo ::set-env name=HAS_CHANGES::$(git diff --quiet Dockerfile || echo 1)
@@ -51,6 +51,6 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git commit -a -m "follow release $GITHUB_TAG"
-          git tag mybinder-${GITHUB_TAG}
           git push
-          git push --tags
+          git branch mybinder/$GITHUB_TAG
+          git push origin mybinder/$GITHUB_TAG

@@ -29,9 +29,9 @@ jobs:
             name: ${{ env.IMAGE }}
             body_path: CHANGELOG.txt
             files: |
-                debian-installed-${TAG}.txt
-                conda-environment-${TAG}-strict.yml
-                conda-environment-${TAG}.yml
+                debian-installed-${{ env.TAG }}.txt
+                conda-environment-${{ env.TAG }}-strict.yml
+                conda-environment-${{ env.TAG }}.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   mybinder:

@@ -61,13 +61,19 @@ def get_latest_version(pkg, channels, cfg):
                         builds[v] = set()
                     builds[v].add(b)
                 print(builds)
+                def build_index(b):
+                    b = b.split("_")
+                    b[-1] = int(b[-1])
+                    return b
                 for v in reversed(data["versions"]):
                     if pkg in cfg.get("skip-package-build"):
+                        print(f"### found {v} (build skipped)")
                         return v
-                    for b in reversed(sorted(data["builds"])):
-                        if v in builds and b in builds[v]:
-                            print("### found {}, {}".format(v, b))
-                            return "{}={}".format(v, b)
+                    if v not in builds:
+                        continue
+                    b = list(sorted(builds[v], key=build_index))[-1]
+                    print("### found {}, {}".format(v, b))
+                    return "{}={}".format(v, b)
         except HTTPError:
             continue
     raise ValueError

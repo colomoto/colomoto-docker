@@ -21,7 +21,7 @@ RUN apt-get update --fix-missing && \
         bzip2 \
         ca-certificates \
         wget \
-        libxrender1 libice6 libxext6 libsm6 \
+        openjdk-11-jre-headless \
         && \
     apt clean -y && \
     rm -rf /var/lib/apt/lists/*
@@ -49,9 +49,8 @@ RUN CONDA_VERSION="py37_4.8.2" && \
     conda config --add channels colomoto && \
     conda install --no-update-deps -y \
         -c colomoto/label/fake \
-        openjdk=8.0.144 \
+        openjdk \
         pyqt && \
-    rm /opt/conda/jre/src.zip && \
     conda clean -y --all && rm -rf /opt/conda/pkgs
 
 # notebook dependencies

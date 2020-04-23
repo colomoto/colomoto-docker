@@ -1,4 +1,4 @@
-FROM colomoto/colomoto-docker-base:py37-openjdk8-20200421
+FROM colomoto/colomoto-docker-base:openjdk11
 
 USER root
 

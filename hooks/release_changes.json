@@ -61,5 +61,10 @@
         "name": "R-BoolNet",
         "description": "Analysis and reconstruction of Boolean networks dynamics",
         "release_url": "https://cran.r-project.org/web/packages/BoolNet/index.html"
+    },
+    "casq": {
+        "name": "CaSQ",
+        "description": "Convert static interaction maps into executable models",
+        "release_url": "https://github.com/soli/casq"
     }
 }

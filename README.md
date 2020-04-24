@@ -27,7 +27,7 @@ The CoLoMoTo notebook can then be started by executing in a terminal (if using D
 
 The container can be stopped by pressing <kbd>Ctrl</kbd>+<kbd>C</kbd> keys.
 
-By default, the script uses the most recently fetched image; the first time, it fetches the most recent [colomoto/colomoto-docker tag](https://hub.docker.com/r/colomoto/colomoto-docker/tags/).
+By default, the script uses the most recently fetched image; the first time, it fetches the most recent [colomoto/colomoto-docker tag](https://github.com/colomoto/colomoto-docker/releases).
 A specific tag can be specified using the `-V` option. For example:
 
     colomoto-docker                 # uses the most recently fetched image
@@ -62,7 +62,7 @@ First fetch the image with
 
     docker pull colomoto/colomoto-docker:TAG
 
-where `TAG` is the version of the image, among [colomoto/colomoto-docker tags](https://hub.docker.com/r/colomoto/colomoto-docker/tags?ordering=last_updated).
+where `TAG` is the version of the image, among [colomoto/colomoto-docker tags](https://github.com/colomoto/colomoto-docker/releases).
 
 The image can be ran using
 

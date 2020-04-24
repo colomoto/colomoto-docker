@@ -88,6 +88,7 @@ access to the following softwares:
 | NuSMV | http://nusmv.fbk.eu | Symbolic model-checker | Python module [`nusmv`](https://github.com/colomoto/colomoto_jupyter)
 | Pint | https://loicpauleve.name/pint | Static analyzer for dynamics of Automata Networks | Python module [`pypint`](https://github.com/pauleve/pint)  |
 | R-BoolNet | https://cran.r-project.org/package=BoolNet | Analysis and reconstruction of Boolean networks dynamics | RPY2 python interface |
+| CaSQ | https://github.com/soli/casq | Convert static interaction maps into executable models | Python module [`casq`](https://github.com/soli/casq) |
 
 
 

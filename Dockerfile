@@ -3,9 +3,9 @@ FROM debian:buster-20200414-slim
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /opt/conda/bin:$PATH
 
-ARG USER=user
-ARG USER_UID=1000
-RUN useradd -u $USER_UID -m -d /notebook -s /bin/bash $USER
+ARG NB_USER=user
+ARG NB_UID=1000
+RUN useradd -u $NB_UID -m -d /notebook -s /bin/bash $NB_USER
 
 EXPOSE 8888
 WORKDIR /notebook
@@ -114,10 +114,10 @@ COPY bin/* /usr/bin/
 ##
 # Notebooks
 ##
-COPY --chown=$USER:$USER tutorials /notebook/tutorials
-COPY --chown=$USER:$USER usecases/*.ipynb /notebook/usecases/
+COPY --chown=$NB_USER:$NB_USER tutorials /notebook/tutorials
+COPY --chown=$NB_USER:$NB_USER usecases/*.ipynb /notebook/usecases/
 
-USER $USER
+USER $NB_USER
 
 RUN mkdir -p /notebook/.local/lib/python3.7/site-packages && \
     mkdir /notebook/persistent &&\

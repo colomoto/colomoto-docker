@@ -73,8 +73,6 @@ test_nb+=("tutorials/NuSMV/NuSMV with GINsim.ipynb")
 test_nb+=("tutorials/Pint/quick-tutorial.ipynb")
 test_nb+=("tutorials/R-BoolNet/Random BN generation, loading with biolqm or minibn.ipynb")
 test_nb+=("tutorials/CaSQ/CaSQ_from_CellDesigner_to_GINsim.ipynb")
-test_nb+=("usecases/Usecase - Mutations enabling tumour invasion.ipynb")
-test_nb+=("usecases/Usecase - Balance of Th17 vs Treg cell populations.ipynb")
 
 if [ -n "${DOCKER_IMAGE}" ]; then
     echo

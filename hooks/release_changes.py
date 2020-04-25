@@ -16,6 +16,8 @@ def get_pkgs(lines, cfg):
         if arg[0] == "-" or ignore_next or arg in ["nomkl"]:
             pass
         else:
+            if "::" in arg:
+                arg = arg.split("::")[1]
             pkg = arg.split("=")[:2]
             pkgs.append(tuple(pkg))
             ret = arg
@@ -51,7 +53,7 @@ colomoto-docker -V {TAG}
 
 | Package | Version | Description |
 | --- | --- | --- |""")
-    for pkg, version in pkgs:
+    for pkg, version in sorted(pkgs):
         if pkg not in cfg:
             continue
         pkg_cfg = cfg[pkg]

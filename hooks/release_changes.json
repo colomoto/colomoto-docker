@@ -1,8 +1,4 @@
 {
-    "boolean.py": {
-        "description": "Python module for Boolean algebra",
-        "release_url": "https://github.com/bastikr/boolean.py/releases/tag/v{}"
-    },
     "clingo": {
         "description": "Answer-Set Programming solver",
         "release_url": "https://github.com/potassco/clingo/releases/tag/v{}"

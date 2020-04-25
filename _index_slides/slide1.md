@@ -15,7 +15,7 @@ Note that the computing resources are limited and the storage is not persistent.
 
 ### With Python Helper Script
 
-You need [Docker](http://docker.com) and [Python](http://python.org).
+You need [Docker](https://docs.docker.com/get-docker/) and [Python](http://python.org).
 We support GNU/Linux, macOS, and Windows.
 
     sudo pip install -U colomoto-docker   # only once; you may have to use pip3
@@ -54,7 +54,7 @@ Having issues? have a look at our [Troubleshooting](https://github.com/colomoto/
 
 ### Python-less usage
 
-You need [Docker](http://docker.com).
+You need [Docker](https://docs.docker.com/get-docker/).
 
 First, pick an image version among [colomoto/colomoto-docker tags](https://github.com/colomoto/colomoto-docker/releases).
 Fetch the image with

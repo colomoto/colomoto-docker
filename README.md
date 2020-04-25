@@ -8,7 +8,7 @@
 
 ## Quick usage guide
 
-You need [Docker](http://docker.com).
+You need [Docker](https://docs.docker.com/get-docker/).
 We support GNU/Linux, macOS, and Windows.
 
 ### Using the colomoto-docker script

@@ -23,7 +23,7 @@ We support GNU/Linux, macOS, and Windows.
 
 The container can be stopped by pressing <kbd>Ctrl</kbd>+<kbd>C</kbd> keys.
 
-By default, the script will fetch the most recent [colomoto/colomoto-docker tag](https://hub.docker.com/r/colomoto/colomoto-docker/tags?ordering=last_updated). A specific tag can be specified using the `-V` option; or use `-V same` to use the most recently fetched image. For example:
+By default, the script will fetch the most recent [colomoto/colomoto-docker tag](https://github.com/colomoto/colomoto-docker/releases). A specific tag can be specified using the `-V` option; or use `-V same` to use the most recently fetched image. For example:
 
     colomoto-docker                 # uses the most recently fetched image
     colomoto-docker -V latest       # fetches the latest published image
@@ -56,7 +56,7 @@ Having issues? have a look at our [Troubleshooting](https://github.com/colomoto/
 
 You need [Docker](http://docker.com).
 
-First, pick an image version among [colomoto/colomoto-docker tags](https://hub.docker.com/r/colomoto/colomoto-docker/tags?ordering=last_updated).
+First, pick an image version among [colomoto/colomoto-docker tags](https://github.com/colomoto/colomoto-docker/releases).
 Fetch the image with
 
     docker pull colomoto/colomoto-docker:TAG

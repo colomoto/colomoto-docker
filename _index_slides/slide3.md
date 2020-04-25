@@ -12,7 +12,7 @@ RUN <insert installation instructions>
 
 USER user
 ```
-You may want to replace `next` with any other suitable [colomoto/colomoto-docker tag](https://hub.docker.com/r/colomoto/colomoto-docker/tags/). You should also consider using a [persistent tagging policy](https://github.com/colomoto/colomoto-docker#tagging-policy-and-re-executability-considerations). 
+You may want to replace `next` with any other suitable [colomoto/colomoto-docker tag](https://github.com/colomoto/colomoto-docker/releases). You should also consider using a [persistent tagging policy](https://github.com/colomoto/colomoto-docker#tagging-policy-and-re-executability-considerations). 
 
 The Dockerfile can be built using the command
 

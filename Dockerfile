@@ -80,7 +80,7 @@ RUN conda install --no-update-deps -y \
 # - insert it in alphabetic order of package name
 
 # Tier 1: tools with rare updates (0-1/year) and thin dependencies
-RUN COLOMOTO_TOOLS=1 conda install --no-update-deps  -y \
+RUN AUTO_UPDATE=1 conda install --no-update-deps  -y \
         boolsim=1.2=0 \
         bns=1.3=0 \
         potassco::clingo=5.4.0=py37lua53hf484d3e_0 \
@@ -90,7 +90,7 @@ RUN COLOMOTO_TOOLS=1 conda install --no-update-deps  -y \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 # Tier 2: tools with regular updates (2-4/year)
-RUN COLOMOTO_TOOLS=1 conda install --no-update-deps -y \
+RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         ginsim=3.0.0b=11 \
         maboss=2.3.1=h6bb024c_0 \
         pint=2019.05.24=1 \
@@ -98,7 +98,7 @@ RUN COLOMOTO_TOOLS=1 conda install --no-update-deps -y \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 # Tier 3: tools with frequent updates (>4/year)
-RUN COLOMOTO_TOOLS=1 conda install --no-update-deps -y \
+RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         conda-forge::boolean.py=3.7=py_0 \
         colomoto_jupyter=0.6.3=py_0 \
         ginsim-python=0.4.2=py_0 \

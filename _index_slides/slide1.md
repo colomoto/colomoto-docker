@@ -73,10 +73,12 @@ then, open your browser and go to http://localhost:8888 for the Jupyter notebook
 
 * [bioLQM](http://colomoto.org/biolqm/) -- Logical Qualitative Modelling toolkit<br/>
   Python module [`biolqm`](https://github.com/GINsim/GINsim-python)
+* [CaSQ](https://github.com/soli/casq) -- Convert static interaction maps into executable models<br/>
+  Python module [`casq`](https://github.com/soli/casq)
 * [CellCollective](https://cellcollective.org) -- Model repository and knowledge base<br/>
   Python module [`cellcollective`](https://github.com/colomoto/colomoto-jupyter)
 * [GINsim](http://ginsim.org) -- Boolean and multi-valued network modelling<br/>
-  Python module [`ginsim`](https://github.com/GINsim/GINsim-python) 
+  Python module [`ginsim`](https://github.com/GINsim/GINsim-python)
 * [MaBoSS](http://maboss.curie.fr) -- Markovian Boolean Stochastic Simulator<br/>
   Python module [`maboss`](https://github.com/colomoto/pyMaBoSS)
 * [mpbn](https://github.com/pauleve/mpbn) -- Most Permissive Boolean Networks<br/>

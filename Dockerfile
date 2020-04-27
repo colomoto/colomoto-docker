@@ -36,7 +36,7 @@ RUN conda install --no-update-deps -y \
         mpbn=1.2=py_0 \
         pymaboss=0.7.11=py_0 \
         pypint=1.6.0=py_0 \
-        casq=0.7.4=py_0 \
+        casq=0.7.4=py_1 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 COPY validate.sh /usr/local/bin/

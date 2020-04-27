@@ -97,15 +97,15 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         r-boolnet=2.1.5 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
-# Tier 3: tools with frequent updates (>4/year)
+# Tier 3: tools with frequent updates (>4/year) or lightweight and thin dependencies
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         conda-forge::boolean.py=3.7=py_0 \
+        casq=0.7.4=py_1 \
         colomoto_jupyter=0.6.3=py_0 \
         ginsim-python=0.4.2=py_0 \
         mpbn=1.2=py_0 \
         pymaboss=0.7.11=py_0 \
         pypint=1.6.0=py_0 \
-        casq=0.7.4=py_1 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 COPY validate.sh /usr/local/bin/

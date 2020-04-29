@@ -2,7 +2,7 @@ import json
 import os
 import re
 
-x = re.compile(r"^RUN\s+AUTO_UPDATE=1\b((?:.+\\\n)*.+[^\\]$)", re.M)
+x = re.compile(r"^RUN\b((?:.+\\\n)*.+[^\\]$)", re.M)
 y = re.compile(r"(?<=conda\sinstall\b)([^&]+)", re.S|re.M)
 c = re.compile(r"-c\s([^\s]+)")
 w = re.compile(r"[^\\\s]+")
@@ -16,6 +16,8 @@ def get_pkgs(lines, cfg):
         if arg[0] == "-" or ignore_next or arg in ["nomkl"]:
             pass
         else:
+            if "=" not in arg:
+                return
             if "::" in arg:
                 arg = arg.split("::")[1]
             pkg = arg.split("=")[:2]

@@ -34,6 +34,17 @@ jobs:
                 conda-environment-${{ env.TAG }}.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
+        with:
+            ref: history
+            clean: false
+      - name: update history
+        run: |
+            mkdir ${TAG}
+            mv debian-* conda-* ${TAG}/
+            git add ${TAG}
+            git commit -m "environment for ${TAG} image"
+            git push
   mybinder:
       name: Update mybinder branch
       runs-on: ubuntu-latest

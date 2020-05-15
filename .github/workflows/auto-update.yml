@@ -15,14 +15,11 @@ jobs:
     - uses: actions/checkout@v2
       with:
         ref: master
-        token: ${{ secrets.PAT }}
+        ssh-key: ${{ secrets.SSH_DEPLOY }}
     - name: follow for-next
       run: |
           git fetch origin for-next
           git merge --ff-only origin/for-next
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
     - uses: actions/setup-python@v1
     - name: Update tools
       run: python update-n-freeze.py
@@ -33,9 +30,9 @@ jobs:
         title: Next image
         labels: pkg-update, auto
         assignees: pauleve
+        reviewers: pauleve
         branch: auto/next
         base: master
-        token: ${{ secrets.PAT }}
         body: |
             Candidate next image with updated tool versions.
 

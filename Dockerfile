@@ -86,17 +86,17 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y \
         its=20180905=0 \
         nusmv=2.6.0=0 \
         nusmv-arctl=2.2.2=0 \
+        pint=2019.05.24=1 \
+        r-boolnet=2.1.5 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 # Tier 2: tools with regular updates (2-4/year)
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         ginsim=3.0.0b=12 \
         maboss=2.3.2=h6bb024c_0 \
-        pint=2019.05.24=1 \
-        r-boolnet=2.1.5 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
-# Tier 3: tools with frequent updates (>4/year) or lightweight and thin dependencies
+# Tier 3: tools with frequent updates (>4/year) or lightweight with thin dependencies
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         conda-forge::boolean.py=3.7=py_0 \
         casq=0.7.4=py_1 \

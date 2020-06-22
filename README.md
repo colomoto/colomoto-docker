@@ -81,6 +81,7 @@ access to the following softwares:
 | Software tool | Homepage | Description | Jupyter interface |
 | --- | --- | --- | --- |
 | bioLQM | http://colomoto.org/biolqm/ | Logical Qualitative Modelling toolkit | Python module [`biolqm`](https://github.com/GINsim/GINsim-python) |
+| CABEAN | https://satoss.uni.lu/software/CABEAN/ | A Software Tool for the Control of Asynchronous Boolean Networks | Python module [`cabean`](https://github.com/algorecell/cabean-python) |
 | CaSQ | https://github.com/soli/casq | Convert static interaction maps into executable models | Python module [`casq`](https://github.com/soli/casq) |
 | CellCollective | https://cellcollective.org | Model repository and knowledge base | Python module [`cellcollective`](https://github.com/colomoto/colomoto_jupyter) |
 | GINsim | http://ginsim.org | Boolean and multi-valued network modelling | Python module [`ginsim`](https://github.com/GINsim/GINsim-python) |

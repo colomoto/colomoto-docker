@@ -1,4 +1,14 @@
 {
+    "cabean": {
+        "name": "CABEAN",
+        "description": "A Software Tool for the Control of Asynchronous Boolean Networks",
+        "release_url": "https://satoss.uni.lu/software/CABEAN/"
+    },
+    "cabean-python": {
+        "name": "CABEAN-python",
+        "description": "Python interface to CABEAN",
+        "release_url": "https://github.com/algorecell/cabean-python"
+    },
     "clingo": {
         "description": "Answer-Set Programming solver",
         "release_url": "https://github.com/potassco/clingo/releases/tag/v{}"

@@ -115,6 +115,11 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         pypint=1.6.0=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
+RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
+        stablemotifs \
+        stablemotifs-python \
+    && conda clean -y --all && rm -rf /opt/conda/pkgs
+
 COPY validate.sh /usr/local/bin/
 COPY bin/* /usr/bin/
 

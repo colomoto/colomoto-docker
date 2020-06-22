@@ -93,6 +93,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y \
 
 # Tier 2: tools with regular updates (2-4/year)
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
+        cabean=1.0.0=0 \
         ginsim=3.0.0b=12 \
         maboss=2.3.4=h6bb024c_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
@@ -100,6 +101,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
 # Tier 3: tools with frequent updates (>4/year) or lightweight with thin dependencies
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         algorecell_types=0.90=py_0 \
+        cabean-python=0.90=py_0 \
         conda-forge::boolean.py=3.7=py_0 \
         casq=0.7.4=py_1 \
         colomoto_jupyter=0.6.4=py_0 \

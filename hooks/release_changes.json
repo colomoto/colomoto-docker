@@ -83,6 +83,16 @@
         "description": "Analysis and reconstruction of Boolean networks dynamics",
         "release_url": "https://cran.r-project.org/web/packages/BoolNet/index.html"
     },
+    "stablemotifs": {
+        "name": "StableMotifs",
+        "description": "Target-control of Boolean networks",
+        "release_url": "https://github.com/jgtz/StableMotifs"
+    },
+    "stablemotifs-python": {
+        "name": "StableMotifs-python",
+        "description": "Python interface to StableMotifs",
+        "release_url": "https://github.com/algorecell/StableMotifs-python/releases/tag/v{}"
+    },
     "casq": {
         "name": "CaSQ",
         "description": "Convert static interaction maps into executable models",

@@ -81,6 +81,7 @@ RUN conda install --no-update-deps -y \
 
 # Tier 1: tools with rare updates (0-1/year) and thin dependencies
 RUN AUTO_UPDATE=1 conda install --no-update-deps  -y \
+        potassco::asprin=3.1.1=py_0 \
         boolsim=1.2=0 \
         bns=1.3=0 \
         potassco::clingo=5.4.0=py37lua53hf484d3e_0 \
@@ -109,6 +110,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         colomoto_jupyter=0.6.4=py_0 \
         ginsim-python=0.4.2=py_0 \
         mpbn=1.2=py_0 \
+        pyactonet=0.90=py_0 \
         pymaboss=0.7.16=py_0 \
         pypint=1.6.0=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs

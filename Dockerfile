@@ -66,6 +66,7 @@ RUN conda install --no-update-deps -y \
         'pygraphviz>=1.5' \
         rpy2 \
         seaborn \
+        scikit-learn \
         && \
     conda clean -y --all && rm -rf /opt/conda/pkgs
 

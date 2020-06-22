@@ -99,6 +99,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
 
 # Tier 3: tools with frequent updates (>4/year) or lightweight with thin dependencies
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
+        algorecell_types=0.90=py_0 \
         conda-forge::boolean.py=3.7=py_0 \
         casq=0.7.4=py_1 \
         colomoto_jupyter=0.6.4=py_0 \

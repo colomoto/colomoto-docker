@@ -9,6 +9,16 @@
         "description": "Python interface to CABEAN",
         "release_url": "https://github.com/algorecell/cabean-python"
     },
+    "caspo": {
+        "name": "Caspo",
+        "description": "Reasoning on the response of logical signaling networks with Answer Set Programming",
+        "release_url": "https://github.com/bioasp/caspo/releases/tag/v{}"
+    },
+    "caspo-control": {
+        "name": "Caspo-control",
+        "description": "Python wrapper to the control method of caspo",
+        "release_url": "https://github.com/algorecell/caspo-control/releases/tag/v{}"
+    },
     "clingo": {
         "description": "Answer-Set Programming solver",
         "release_url": "https://github.com/potassco/clingo/releases/tag/v{}"

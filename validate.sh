@@ -58,6 +58,7 @@ test_nb+=("tutorials/Reproducibility - model checking.ipynb")
 test_nb+=("tutorials/bioLQM/bioLQM_tutorial.ipynb")
 test_nb+=("tutorials/bioLQM/Layout for regulatory graph.ipynb")
 test_nb+=('tutorials/CABEAN/CABEAN_Myeloid_reprogramming.ipynb')
+test_nb+=("tutorials/Caspo/Caspo-control_Bladder.ipynb")
 if $do_cellcollective; then
     test_nb+=("tutorials/CellCollective/CellCollective - Knowledge Base.ipynb")
 fi

@@ -84,6 +84,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y \
         potassco::asprin=3.1.1=py_0 \
         boolsim=1.2=0 \
         bns=1.3=0 \
+        bioasp::caspo=4.0.0=py_0 \
         potassco::clingo=5.4.0=py37lua53hf484d3e_0 \
         its=20180905=0 \
         nusmv=2.6.0=0 \
@@ -104,7 +105,6 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         algorecell_types=0.90=py_0 \
         cabean-python=0.90=py_0 \
-        bioasp::caspo=4.0.0=py_0 \
         caspo-control=0.90=py_0 \
         conda-forge::boolean.py=3.7=py_0 \
         casq=0.7.4=py_1 \

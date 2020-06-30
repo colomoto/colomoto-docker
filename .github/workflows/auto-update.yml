@@ -41,5 +41,5 @@ jobs:
             colomoto-docker -V next
             ```
 
-            By default, the image will be released at the end of the month.
+            By default, the image will be released on the first of next month.
             If you need a persistent tag before (e.g., for a finalized publication), please manifest yourself in a comment below or at https://gitter.im/colomoto/colomoto-docker and we will tag it right away.

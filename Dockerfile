@@ -39,7 +39,7 @@ RUN TINI_VERSION="0.19.0" && \
 #
 # package versions in this section are not pinned unless necessary
 #
-RUN CONDA_VERSION="py37_4.8.2" && \
+RUN CONDA_VERSION="py38_4.8.3" && \
     echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O ~/miniconda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
@@ -85,7 +85,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y \
         boolsim=1.2=0 \
         bns=1.3=0 \
         bioasp::caspo=4.0.0=py_0 \
-        potassco::clingo=5.4.0=py37lua53hf484d3e_0 \
+        clingo=5.4.0=py38he1b5a44_2 \
         its=20180905=0 \
         nusmv=2.6.0=0 \
         nusmv-arctl=2.2.2=0 \
@@ -128,7 +128,7 @@ COPY --chown=$NB_USER:$NB_USER usecases/*.ipynb /notebook/usecases/
 
 USER $NB_USER
 
-RUN mkdir -p /notebook/.local/lib/python3.7/site-packages && \
+RUN mkdir -p /notebook/.local/lib/python3.8/site-packages && \
     mkdir /notebook/persistent &&\
     touch /notebook/persistent/.keep
 

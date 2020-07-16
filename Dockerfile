@@ -64,6 +64,7 @@ RUN conda install --no-update-deps -y \
         pandas \
         pydot \
         'pygraphviz>=1.5' \
+        'r-base<3.6' \
         rpy2 \
         seaborn \
         scikit-learn \

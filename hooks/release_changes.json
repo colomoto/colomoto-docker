@@ -1,4 +1,14 @@
 {
+    "boolsim": {
+        "name": "boolSim",
+        "description": "Computation of attractors and reachable sets in synchronous and asynchronous Boolean Networks",
+        "release_url": " attractors in synchronous and asynchronous Boolean Networks"
+    },
+    "boolsim-python": {
+        "name":"boolSim-python",
+        "description": "Python interface to boolSim",
+        "release_url": "https://github.com/colomoto/boolSim-python/releases/tag/v{}"
+    },
     "cabean": {
         "name": "CABEAN",
         "description": "A Software Tool for the Control of Asynchronous Boolean Networks",
@@ -7,7 +17,7 @@
     "cabean-python": {
         "name": "CABEAN-python",
         "description": "Python interface to CABEAN",
-        "release_url": "https://github.com/algorecell/cabean-python"
+        "release_url": "https://github.com/algorecell/cabean-python/releases/tag/v{}"
     },
     "caspo": {
         "name": "Caspo",

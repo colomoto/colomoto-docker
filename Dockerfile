@@ -63,7 +63,7 @@ RUN conda install --no-update-deps -y \
         nomkl \
         notebook \
         pandas \
-        pydot \
+        'pydot>=1.4' \
         'pygraphviz>=1.5' \
         'r-base<3.6' \
         rpy2 \

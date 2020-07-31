@@ -15,7 +15,7 @@ jobs:
       - name: Docker image build
         run: sh hooks/build
       - name: Docker image validation
-        run: docker run --rm $IMAGE env validate.sh
+        run: docker run --rm $IMAGE env validate.sh --skip-cellcollective
       - name: Login to docker hub
         uses: actions-hub/docker/login@master
         env:

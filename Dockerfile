@@ -84,11 +84,15 @@ RUN conda install --no-update-deps -y \
 RUN AUTO_UPDATE=1 conda install --no-update-deps  -y \
         potassco::asprin=3.1.1=py_0 \
         boolsim=1.2=0 \
+        bnettoprime=1.0=h6bb024c_0 \
         bns=1.3=0 \
         bioasp::caspo=4.0.0=py_0 \
         clingo=5.4.0=py38he1b5a44_2 \
+        eqntott=1.0=h14c3975_0 \
+        espresso-logic-minimizer=9999=h14c3975_0 \
         its=20180905=0 \
         nusmv=2.6.0=0 \
+        nusmv-a=1.2=h6bb024c_0 \
         nusmv-arctl=2.2.2=0 \
         pint=2019.05.24=1 \
         r-boolnet=2.1.5 \
@@ -100,6 +104,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         cabean=1.0.0=0 \
         ginsim=3.0.0b=12 \
         maboss=2.3.4=h6bb024c_0 \
+        pyboolnet=2.2.8=0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 # Tier 3: tools with frequent updates (>4/year) or lightweight with thin dependencies

@@ -78,6 +78,11 @@
         "description": " Abduction-based control of fixed points of Boolean networks",
         "release_url": "https://github.com/algorecell/pyActoNet/releases/tag/v{}"
     },
+    "pyboolnet": {
+        "name": "PyBoolNet",
+        "description": "Generation, modification and analysis of Boolean networks",
+        "release_url": "https://github.com/hklarner/PyBoolNet/releases/tag/v{}"
+    },
     "pymaboss": {
         "name": "PyMaBoSS",
         "description": "Python interface to MaBoSS",

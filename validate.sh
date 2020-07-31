@@ -47,9 +47,10 @@ if $strict; then
     set -e
 fi
 
+set -x
 validate_nb() {
     _nb="$1"
-    jupyter nbconvert --execute "${_nb}" --stdout "${NB_OPTS}" >/dev/null
+    jupyter nbconvert --execute "${_nb}" --stdout "${NB_OPTS[@]}" >/dev/null
 }
 
 test_nb=()

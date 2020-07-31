@@ -45,8 +45,8 @@ RUN CONDA_VERSION="py38_4.8.3" && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
     rm ~/miniconda.sh && \
     conda config --set auto_update_conda False && \
-    conda config --add channels conda-forge && \
     conda config --add channels colomoto && \
+    conda config --add channels conda-forge && \
     conda install --no-update-deps -y \
         -c colomoto/label/fake \
         openjdk \
@@ -55,16 +55,16 @@ RUN CONDA_VERSION="py38_4.8.3" && \
 
 # notebook dependencies
 RUN conda install --no-update-deps -y \
+        graphviz \
         libgfortran \
         imagemagick \
         ipywidgets \
-        'matplotlib>=1.3.1' \
+        matplotlib \
         networkx \
         nomkl \
         notebook \
         pandas \
-        'pydot>=1.4' \
-        'pygraphviz>=1.5' \
+        pydot \
         'r-base<3.6' \
         rpy2 \
         seaborn \
@@ -116,12 +116,12 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         caspo-control=1.0=py_0 \
         conda-forge::boolean.py=3.7=py_0 \
         casq=0.7.4=py_1 \
-        colomoto_jupyter=0.7.0=py_0 \
+        colomoto_jupyter=0.7.1=py_0 \
         ginsim-python=0.4.2=py_0 \
         mpbn=1.2=py_0 \
         pyactonet=1.0=py_0 \
         pymaboss=0.7.16=py_0 \
-        pypint=1.6.0=py_0 \
+        pypint=1.6.1=py_0 \
         stablemotifs-python=1.0=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 

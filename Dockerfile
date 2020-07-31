@@ -56,6 +56,7 @@ RUN CONDA_VERSION="py38_4.8.3" && \
 # notebook dependencies
 RUN conda install --no-update-deps -y \
         libgfortran \
+        imagemagick \
         ipywidgets \
         'matplotlib>=1.3.1' \
         networkx \
@@ -90,7 +91,6 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y \
         clingo=5.4.0=py38he1b5a44_2 \
         eqntott=1.0=0 \
         espresso-logic-minimizer=9999=h14c3975_0 \
-        imagemagick=7.0.10_24=pl526h201ca68_0 \
         its=20180905=0 \
         nusmv=2.6.0=0 \
         nusmv-a=1.2=h6bb024c_0 \

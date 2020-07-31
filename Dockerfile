@@ -88,8 +88,9 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y \
         bns=1.3=0 \
         bioasp::caspo=4.0.0=py_0 \
         clingo=5.4.0=py38he1b5a44_2 \
-        eqntott=1.0=h14c3975_0 \
+        eqntott=1.0=0 \
         espresso-logic-minimizer=9999=h14c3975_0 \
+        imagemagick=7.0.10_24=pl526h201ca68_0 \
         its=20180905=0 \
         nusmv=2.6.0=0 \
         nusmv-a=1.2=h6bb024c_0 \

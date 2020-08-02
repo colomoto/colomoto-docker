@@ -75,6 +75,8 @@ then, open your browser and go to http://localhost:8888 for the Jupyter notebook
   Python module [`actonet`](https://github.com/algorecell/pyActoNet)
 * [bioLQM](http://colomoto.org/biolqm/) -- Logical Qualitative Modelling toolkit<br/>
   Python module [`biolqm`](https://github.com/GINsim/GINsim-python)
+* [boolSim](https://www.vital-it.ch/research/software/boolSim) -- Attractors and reachable sets in synchronous and asynchronous Boolean networks<br>
+  Python module [`boolsim`](https://github.com/colomoto/boolSim-python)
 * [CABEAN](https://satoss.uni.lu/software/CABEAN/) -- A Software Tool for the Control of Asynchronous Boolean Networks<br/>
   Python module [`cabean`](https://github.com/algorecell/cabean-python)
 * [Caspo](https://bioasp.github.io/caspo/) -- Reasoning on the response of logical signaling networks with Answer Set Programming<br/>
@@ -93,6 +95,8 @@ then, open your browser and go to http://localhost:8888 for the Jupyter notebook
   Python module [`nusmv`](https://github.com/colomoto/colomoto-jupyter)
 * [Pint](https://loicpauleve.name/pint) -- Static analyzer for dynamics of Automata Networks<br/>
   Python module [`pypint`](https://github.com/pauleve/pint)
+* [PyBoolNet](https://github.com/hklarner/PyBoolNet) -- Generation, modification and analysis of Boolean networks<br>
+  Python module [`PyBoolNet`](https://github.com/hklarner/PyBoolNet)
 * [R-BoolNet](https://cran.r-project.org/package=BoolNet) -- Analysis and reconstruction of Boolean networks dynamics<br/>
   Generic RPY2 python interface
 * [StableMotifs](https://github.com/jgtz/StableMotifs) -- Target-control of Boolean networks<br/>

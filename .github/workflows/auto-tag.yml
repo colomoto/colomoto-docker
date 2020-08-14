@@ -49,6 +49,19 @@ jobs:
         uses: actions-hub/docker@master
         with:
           args: push ${IMAGE}
+      - name: Login to GitHub Packages
+        if: env.HAS_CHANGES == 1
+        uses: actions-hub/docker/login@master
+        env:
+          DOCKER_USERNAME: ${{ github.actor }}
+          DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+      - run: docker tag $IMAGE docker.pkg.github.com/$IMAGE
+        if: env.HAS_CHANGES == 1
+      - name: Push package
+        if: env.HAS_CHANGES == 1
+        uses: actions-hub/docker@master
+        with:
+          args: push docker.pkg.github.com/${IMAGE}
       - name: Git tag
         if: env.HAS_CHANGES == 1
         run: |

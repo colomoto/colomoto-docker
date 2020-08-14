@@ -55,13 +55,15 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ github.actor }}
           DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-      - run: docker tag $IMAGE docker.pkg.github.com/$IMAGE
+      - run: |
+          echo ::set-env name=GH_IMAGE::docker.pkg.github.com/colomoto/colomoto-docker/colomoto-docker:${NEXT_TAG}
+          docker tag $IMAGE $GH_IMAGE
         if: env.HAS_CHANGES == 1
       - name: Push package
         if: env.HAS_CHANGES == 1
         uses: actions-hub/docker@master
         with:
-          args: push docker.pkg.github.com/${IMAGE}
+          args: push $GH_IMAGE
       - name: Git tag
         if: env.HAS_CHANGES == 1
         run: |

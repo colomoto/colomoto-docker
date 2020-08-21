@@ -2,7 +2,7 @@
     "boolsim": {
         "name": "boolSim",
         "description": "Computation of attractors and reachable sets in synchronous and asynchronous Boolean Networks",
-        "release_url": " attractors in synchronous and asynchronous Boolean Networks"
+        "release_url": "https://www.vital-it.ch/research/software/boolSim"
     },
     "boolsim-python": {
         "name":"boolSim-python",

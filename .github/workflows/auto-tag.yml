@@ -55,6 +55,7 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ github.actor }}
           DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+          DOCKER_REGISTRY_URL: docker.pkg.github.com
       - run: |
           echo ::set-env name=GH_IMAGE::docker.pkg.github.com/colomoto/colomoto-docker/colomoto-docker:${NEXT_TAG}
           docker tag $IMAGE $GH_IMAGE

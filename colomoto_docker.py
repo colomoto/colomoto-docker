@@ -248,7 +248,7 @@ def main():
             if line:
                 os.write(sys.stdout.fileno(), line)
                 line = line.decode()
-                if not launched and "The Jupyter Notebook is running at:" in line:
+                if not launched and " is running at:" in line:
                     launched = True
                     try:
                         webbrowser.open("http://{}:{}".format(container_ip, port))

@@ -53,11 +53,11 @@ jobs:
         if: env.HAS_CHANGES == 1
         uses: actions-hub/docker/login@master
         env:
-          DOCKER_USERNAME: ${{ github.actor }}
-          DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-          DOCKER_REGISTRY_URL: docker.pkg.github.com
+          DOCKER_USERNAME: ${{ secrets.PAT_PACKAGES_USER }}
+          DOCKER_PASSWORD: ${{ secrets.PAT_PACKAGES }}
+          DOCKER_REGISTRY_URL: ghcr.io
       - run: |
-          echo ::set-env name=GH_IMAGE::docker.pkg.github.com/colomoto/colomoto-docker/colomoto-docker:${NEXT_TAG}
+          echo ::set-env name=GH_IMAGE::ghcr.io/colomoto/colomoto-docker/colomoto-docker:${NEXT_TAG}
           docker tag $IMAGE $GH_IMAGE
         if: env.HAS_CHANGES == 1
       - name: Push package

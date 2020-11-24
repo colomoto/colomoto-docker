@@ -1,4 +1,9 @@
 {
+    "booleannet": {
+        "name": "BooleanNet",
+        "description": "Simulation of Boolean Regulatory networks",
+        "release_url": "https://github.com/ialbert/booleannet/releases/tag/v{}"
+    },
     "boolsim": {
         "name": "boolSim",
         "description": "Computation of attractors and reachable sets in synchronous and asynchronous Boolean Networks",

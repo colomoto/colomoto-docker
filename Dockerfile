@@ -85,6 +85,7 @@ RUN conda install --no-update-deps -y \
 RUN AUTO_UPDATE=1 conda install --no-update-deps  -y \
         potassco::asprin=3.1.1=py_0 \
         boolsim=1.2=0 \
+        booleannet=1.2.8=0 \
         bnettoprime=1.0=h6bb024c_0 \
         bns=1.3=0 \
         bioasp::caspo=4.0.0=py_0 \

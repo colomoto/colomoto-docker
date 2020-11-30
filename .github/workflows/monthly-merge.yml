@@ -8,10 +8,10 @@ jobs:
   pr-automerge:
     runs-on: ubuntu-latest
     steps:
-    - uses: davideviolante/pr-automerge-action@v1.1.0
-      env:
-        GITHUB_TOKEN: ${{ secrets.PAT }}
+    - uses: squalrus/merge-bot@v0.1.0
       with:
-        merge-method: 'rebase'
-        min-approvals: 1
-        base-ref: 'master'
+        GITHUB_TOKEN: ${{ secrets.PAT }}
+        labels: ready-for-monthly-merge
+        checks_enabled: true
+        method: rebase
+        delete_source_branch: true

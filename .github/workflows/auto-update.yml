@@ -31,7 +31,6 @@ jobs:
         title: Next image
         labels: pkg-update, auto
         assignees: pauleve
-        reviewers: pauleve
         branch: auto/next
         base: master
         body: |

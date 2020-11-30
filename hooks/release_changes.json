@@ -1,4 +1,9 @@
 {
+    "bns": {
+        "name": "BNS",
+        "description": "Identification of synchronous attractors using SAT",
+        "release_url": "https://people.kth.se/~dubrova/BNS/user_manual.html"
+    },
     "booleannet": {
         "name": "BooleanNet",
         "description": "Simulation of Boolean Regulatory networks",

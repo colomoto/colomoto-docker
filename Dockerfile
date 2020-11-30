@@ -107,7 +107,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         ginsim=3.0.0b=12 \
         maboss=2.3.4=h6bb024c_0 \
         pyboolnet=2.2.8=0 \
-        bns-python=0.1.1=py_0 \
+        bns-python=0.2=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 # Tier 3: tools with frequent updates (>4/year) or lightweight with thin dependencies

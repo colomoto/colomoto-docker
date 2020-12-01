@@ -8,7 +8,7 @@ jobs:
   pr-automerge:
     runs-on: ubuntu-latest
     steps:
-    - uses: squalrus/merge-bot@v0.1.0
+    - uses: squalrus/merge-bot@v0.4.2
       with:
         GITHUB_TOKEN: ${{ secrets.PAT }}
         labels: ready-for-monthly-merge

@@ -2,6 +2,7 @@ name: auto-update
 
 on:
   repository_dispatch:
+    types: update
   push:
     branches:
       - for-next

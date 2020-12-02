@@ -20,6 +20,12 @@ pat_tag = re.compile(r"\d{4}-\d{2}-\d{2}")
 persistent_volume = "colomoto-{}".format(getuser())
 persistent_dir = "persistent"
 
+official_image = "colomoto/colomoto-docker"
+official_alt = [
+    "ghcr.io/colomoto/colomoto-docker:{tag}",
+    "docker.pkg.github.com/colomoto/colomoto-docker/colomoto-docker:{tag}",
+]
+
 def error(msg):
     print(msg, file=sys.stderr)
     sys.exit(1)
@@ -86,7 +92,7 @@ def main():
         'same' for most recently fetched image)""")
     parser.add_argument("--port", default=0, type=int,
         help="Local port")
-    parser.add_argument("--image", default="colomoto/colomoto-docker",
+    parser.add_argument("--image", default=official_image,
         help="Docker image")
     parser.add_argument("--no-browser", default=False, action="store_true",
         help="Do not start the browser")
@@ -154,7 +160,20 @@ def main():
     if not args.no_update \
         and (image_tag.startswith("next") \
             or not subprocess.check_output(docker_argv + ["images", "-q", image])):
-        subprocess.check_call(docker_argv + ["pull", image])
+        if args.image == official_image:
+            pull = subprocess.run(docker_argv + ["pull", image])
+            if pull.returncode != 0:
+                info(f"The image {image} does not exists on hub.docker.com, falling back to mirrors..")
+                for ref in official_alt:
+                    altimage = ref.format(tag=image_tag)
+                    pull = subprocess.run(docker_argv + ["pull", altimage])
+                    if pull.returncode == 0:
+                        info(f".. using {altimage}")
+                        subprocess.check_call(docker_argv + ["tag", altimage, image])
+                        break
+                raise Exception("Docker image not found, maybe wrong version?")
+        else:
+            subprocess.check_call(docker_argv + ["pull", image])
 
     if args.cleanup:
         output = subprocess.check_output(docker_argv + ["images", "-f",

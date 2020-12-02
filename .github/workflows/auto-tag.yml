@@ -54,21 +54,3 @@ jobs:
         run: |
           git tag $NEXT_TAG
           git push --tags
-      - name: Login to GitHub Packages
-        if: env.HAS_CHANGES == 1
-        uses: actions-hub/docker/login@master
-        env:
-          DOCKER_USERNAME: ${{ secrets.PAT_PACKAGES_USER }}
-          DOCKER_PASSWORD: ${{ secrets.PAT_PACKAGES }}
-          DOCKER_REGISTRY_URL: ghcr.io
-      - run: |
-          export GH_IMAGE=ghcr.io/colomoto/colomoto-docker/colomoto-docker:${NEXT_TAG}
-          echo "GH_IMAGE=${GH_IMAGE}" >> $GITHUB_ENV
-          docker tag $IMAGE $GH_IMAGE
-        if: env.HAS_CHANGES == 1
-      - name: Push package
-        if: env.HAS_CHANGES == 1
-        uses: actions-hub/docker@master
-        with:
-          args: push $GH_IMAGE
-

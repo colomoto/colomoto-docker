@@ -1,0 +1,39 @@
+name: Mirror docker images
+
+on:
+  repository_dispatch:
+    types:
+      - 'mirror-ghcr/*-*-*'
+      - 'mirrors/*-*-*'
+  push:
+    tags:
+      - '*-*-*'
+
+jobs:
+  mirror-ghcr:
+    name: Release on GitHub package
+    runs-on: ubuntu-latest
+    steps:
+      - run:
+          echo TAG=${GITHUB_REF##*/} >> $GITHUB_ENV
+        if: github.event_name == 'push'
+      - run:
+          echo TAG=${GITHUB_REF##*/} >> $GITHUB_ENV
+        if: github.event_name == 'repository_dispatch'
+        env:
+            GITHUB_REF: ${{ github.event.type }}
+      - run: |
+          echo IMAGE=colomoto/colomoto-docker:${TAG} >> $GITHUB_ENV
+          echo GH_IMAGE=ghcr.io/colomoto/colomoto-docker:${TAG} >> $GITHUB_ENV
+      - run: docker pull ${IMAGE}
+      - run: docker tag $IMAGE $GH_IMAGE
+      - name: Login to GitHub Packages
+        uses: actions-hub/docker/login@master
+        env:
+          DOCKER_USERNAME: ${{ secrets.PAT_PACKAGES_USER }}
+          DOCKER_PASSWORD: ${{ secrets.PAT_PACKAGES }}
+          DOCKER_REGISTRY_URL: ghcr.io
+      - name: Push package
+        uses: actions-hub/docker@master
+        with:
+          args: push $GH_IMAGE

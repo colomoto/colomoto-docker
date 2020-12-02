@@ -37,7 +37,7 @@ jobs:
         run: sh hooks/build
       - name: Docker image validation
         if: env.HAS_CHANGES == 1
-        run: docker run --rm $IMAGE env validate.sh
+        run: docker run --rm $IMAGE env validate.sh --skip-cellcollective
       - name: Login to docker hub
         if: env.HAS_CHANGES == 1
         uses: actions-hub/docker/login@master

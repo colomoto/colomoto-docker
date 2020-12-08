@@ -118,7 +118,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         caspo-control=1.0=py_0 \
         conda-forge::boolean.py=3.7=py_0 \
         casq=0.7.8=py_1 \
-        colomoto_jupyter=0.7.3=py_0 \
+        colomoto_jupyter=0.7.90=py_0 \
         ginsim-python=0.4.3=py_0 \
         mpbn=1.3=py_0 \
         pyactonet=1.0=py_0 \

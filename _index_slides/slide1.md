@@ -75,6 +75,10 @@ then, open your browser and go to http://localhost:8888 for the Jupyter notebook
   Python module [`actonet`](https://github.com/algorecell/pyActoNet)
 * [bioLQM](http://colomoto.org/biolqm/) -- Logical Qualitative Modelling toolkit<br/>
   Python module [`biolqm`](https://github.com/GINsim/GINsim-python)
+* [BNS](https://people.kth.se/~dubrova/BNS/user_manual.html) -- Identification of synchronous attractors<br>
+  Python module [`bns`](https://github.com/colomoto/bns-python)
+* [BooleanNet](https://github.com/ialbert/booleannet) -- Simulation of Boolean regulatory networks<br>
+  Python module [`boolean2`](https://github.com/ialbert/booleannet)
 * [boolSim](https://www.vital-it.ch/research/software/boolSim) -- Attractors and reachable sets in synchronous and asynchronous Boolean networks<br>
   Python module [`boolsim`](https://github.com/colomoto/boolSim-python)
 * [CABEAN](https://satoss.uni.lu/software/CABEAN/) -- A Software Tool for the Control of Asynchronous Boolean Networks<br/>

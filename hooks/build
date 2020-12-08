@@ -1,5 +1,6 @@
 #!/bin/bash
 set -x
+IMAGE="${IMAGE:-colomoto/colomoto-docker:local}"
 LATEST_TAG=$(curl -si https://github.com/colomoto/colomoto-docker/releases/latest|\
         grep '^location:'|cut -d/ -f8-|sed 's:\s::')
 IMAGE_CACHE=colomoto/colomoto-docker:$LATEST_TAG

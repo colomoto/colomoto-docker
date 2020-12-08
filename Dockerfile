@@ -134,7 +134,6 @@ COPY bin/* /usr/bin/
 # Notebooks
 ##
 COPY --chown=$NB_USER:$NB_USER tutorials /notebook/tutorials
-COPY --chown=$NB_USER:$NB_USER usecases/*.* /notebook/usecases/
 
 RUN chown $NB_USER:$NB_USER /notebook
 

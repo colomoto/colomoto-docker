@@ -5,7 +5,7 @@ ENV PATH /opt/conda/bin:$PATH
 
 ARG NB_USER=user
 ARG NB_UID=1000
-RUN useradd -u $NB_UID -m -d /notebook -s /bin/bash $NB_USER
+RUN useradd -u $NB_UID -m -d /home/user -s /bin/bash $NB_USER
 
 EXPOSE 8888
 WORKDIR /notebook
@@ -138,7 +138,7 @@ COPY --chown=$NB_USER:$NB_USER usecases/*.ipynb /notebook/usecases/
 
 USER $NB_USER
 
-RUN mkdir -p /notebook/.local/lib/python3.8/site-packages && \
+RUN mkdir -p /home/$NB_USER/.local/lib/python3.8/site-packages && \
     mkdir /notebook/persistent &&\
     touch /notebook/persistent/.keep
 

@@ -65,7 +65,7 @@ RUN conda install --no-update-deps -y \
         notebook \
         pandas \
         pydot \
-        'r-base<3.6' \
+        r-base \
         rpy2 \
         seaborn \
         scikit-learn \

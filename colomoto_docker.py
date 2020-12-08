@@ -170,6 +170,7 @@ def main():
                     if pull.returncode == 0:
                         info(f".. using {altimage}")
                         subprocess.check_call(docker_argv + ["tag", altimage, image])
+                        subprocess.check_call(docker_argv + ["rmi", altimage])
                         break
                 raise Exception("Docker image not found, maybe wrong version?")
         else:

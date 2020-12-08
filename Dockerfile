@@ -139,7 +139,7 @@ COPY --chown=$NB_USER:$NB_USER usecases/*.* /notebook/usecases/
 USER $NB_USER
 
 RUN mkdir -p /home/$NB_USER/.local/lib/python3.8/site-packages && \
-    mkdir /notebook/persistent &&\
+    mkdir -p /notebook/persistent &&\
     touch /notebook/persistent/.keep
 
 ARG IMAGE_NAME

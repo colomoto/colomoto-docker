@@ -1,0 +1,2961 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" level="3" qual:required="true" version="1" xmlns:qual="http://www.sbml.org/sbml/level3/version1/qual/version1">
+  <model id="M2329" metaid="d40c542b-2d32-424f-92dc-d363ea9cae7d" name="Apoptosis Network">
+    <notes>
+      <body xmlns="http://www.w3.org/1999/xhtml">To understand the design principles of the molecular interaction network associated with the irreversibility of cell apoptosis and the stability of cell surviving, we constructed a Boolean network integrating both the intrinsic and extrinsic pro-apoptotic pathways with pro-survival signal transduction pathways. We performed statistical analyses of the dependences of cell fate on initial states and on input signals. The analyses reproduced the well-known pro- and anti-apoptotic effects of key external signals and network components. We found that the external GF signal by itself did not change the apoptotic ratio from randomly chosen initial states when there is no external TNF signal, but can significantly offset apoptosis induced by the TNF signal. While a complete model produces the expected irreversibility of the apoptosis process, alternative models missing one or more of four selected inter-component connections indicate that the feedback loops directly involving the caspase 3 are essential for maintaining irreversibility of apoptosis. The feedback loops involving P53 showed compensating effects when those involving caspase 3 have been removed. The GF signal significantly increases the stability of the surviving states of the network. The apoptosis network seems to use different modules by design to control the irreversibility of the apoptosis process and the stability of the surviving states. Such a design may accommodate the needed plasticity for the network to adapt to different cellular environments: depending on the strength of external pro-surviving signals, apoptosis can be induced either easily or difficultly by pro-apoptotic signal of varying strengths, but proceed with invariable irreversibility.</body>
+    </notes>
+    <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#d40c542b-2d32-424f-92dc-d363ea9cae7d">
+	<dc:creator>
+	<rdf:Bag>
+	<rdf:li rdf:parseType="Resource">
+	<vCard:N rdf:parseType="Resource">
+	<vCard:Family>Helikar</vCard:Family>
+	<vCard:Given>Tomas</vCard:Given>
+	</vCard:N>
+	<vCard:EMAIL>thelika@unmc.edu</vCard:EMAIL>
+	<vCard:ORG rdf:parseType="Resource">
+	<vCard:Orgname>University of Nebraska - Lincoln</vCard:Orgname>
+	</vCard:ORG>
+	</rdf:li>
+	</rdf:Bag>
+	</dc:creator>
+	<dcterms:created rdf:parseType="Resource">
+	<dcterms:W3CDTF>2014-02-01T14:41:22Z</dcterms:W3CDTF>
+	</dcterms:created>
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2017-10-13T16:16:10Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+      <qual:listOfQualitativeSpecies xmlns:qual="http://www.sbml.org/sbml/level3/version1/qual/version1">
+      <qual:qualitativeSpecies metaid="_31737839-5a9b-4978-99e3-c8f915bccf25" qual:compartment="extracellular" qual:constant="true" qual:id="S_1" qual:name="TNF">
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/">
+	<rdf:Description rdf:about="#_31737839-5a9b-4978-99e3-c8f915bccf25">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2015-11-15T19:54:34Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="fcd87783-a2b0-444e-a303-71ae9c6cfa03" qual:compartment="extracellular" qual:constant="true" qual:id="S_13" qual:name="GF">
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/">
+	<rdf:Description rdf:about="#fcd87783-a2b0-444e-a303-71ae9c6cfa03">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2015-11-15T19:54:34Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="_148960a8-367d-4314-87b5-559fff24260b" qual:compartment="cytosol" qual:constant="false" qual:id="S_2" qual:initialLevel="0" qual:maxLevel="1" qual:name="IKK">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Inhibitor of kappa light polypeptide gene enhancer in B-cells, kinase beta [&lt;/span>&lt;em style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Homo sapiens&lt;/em>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">(human)]&lt;/span>&lt;/font>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/O14920" style="text-decoration: none; background-color: rgb(255, 255, 255);">O14920&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Gene Name:&amp;nbsp;&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/3551" ref="ordinalpos=6&amp;amp;ncbi_uid=3551&amp;amp;link_uid=3551" style="line-height: 19.999780654907227px; white-space: nowrap; background-color: rgb(255, 255, 255);">IKBKB&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">&lt;font face="Georgia" size="2">NCBI Gene ID: 3551&lt;/font>&lt;/span>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_148960a8-367d-4314-87b5-559fff24260b">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2015-11-15T19:54:34Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="_27a2f569-1fbd-4288-a604-4bf84e700b89" qual:compartment="cytosol" qual:constant="false" qual:id="S_3" qual:initialLevel="0" qual:maxLevel="1" qual:name="PIP3">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;div>&lt;span style="border: 0px; outline: 0px; line-height: 17px; vertical-align: baseline; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255);">&lt;span style="line-height: 17px;">&lt;font face="Georgia" size="2">Phosphatidylinositol Triphosphate&lt;/font>&lt;/span>&lt;/span>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="border: 0px; outline: 0px; line-height: 17px; vertical-align: baseline; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255);">&lt;span style="line-height: 17px;">PubChem ID:&lt;/span>&lt;/span>&lt;span style="line-height: 19px; background-color: rgb(255, 255, 255);">&amp;nbsp;&lt;/span>&lt;a name="cid2entrez" href="http://www.ncbi.nlm.nih.gov/sites/entrez?cmd=search&amp;amp;db=pccompound&amp;amp;term=53480352[uid]" style="border: 0px; outline: 0px; line-height: 19px; vertical-align: baseline; margin: 0px; padding: 0px; text-decoration: none; background-color: rgb(255, 255, 255);">53480352&lt;br/>&lt;/a>&lt;span style="border: 0px; outline: 0px; line-height: 17px; vertical-align: baseline; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255);">Molecular Formula:&lt;/span>&lt;span style="line-height: 17px; background-color: rgb(255, 255, 255);">&amp;nbsp;C&lt;/span>&lt;sub style="border: 0px; outline: 0px; line-height: 0; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255);">47&lt;/sub>&lt;span style="line-height: 17px; background-color: rgb(255, 255, 255);">H&lt;/span>&lt;sub style="border: 0px; outline: 0px; line-height: 0; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255);">86&lt;/sub>&lt;span style="line-height: 17px; background-color: rgb(255, 255, 255);">O&lt;/span>&lt;sub style="border: 0px; outline: 0px; line-height: 0; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255);">22&lt;/sub>&lt;span style="line-height: 17px; background-color: rgb(255, 255, 255);">P&lt;/span>&lt;sub style="border: 0px; outline: 0px; line-height: 0; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255);">4&lt;/sub>&lt;span style="line-height: 17px; background-color: rgb(255, 255, 255);">&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span>&lt;span style="border: 0px; outline: 0px; line-height: 17px; vertical-align: baseline; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255);">Molecular Weight:&lt;/span>&lt;span style="line-height: 17px; background-color: rgb(255, 255, 255);">&amp;nbsp;1127.067588&amp;nbsp;&lt;/span>&lt;/font>&lt;/div>&lt;div style="font-weight: normal; font-size: 10pt; font-family: Arial, Verdana;">&lt;span style="color: rgb(85, 85, 85); font-family: Arial, Verdana, sans-serif; font-size: 13px; line-height: 17px; background-color: rgb(255, 255, 255);">&lt;br/>&lt;/span>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_27a2f569-1fbd-4288-a604-4bf84e700b89">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2015-11-15T19:54:34Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:15784165"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:16274701"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:16545436"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="d06611b0-5fb1-4543-b8d6-02184de7fb8a" qual:compartment="cytosol" qual:constant="false" qual:id="S_4" qual:initialLevel="0" qual:maxLevel="1" qual:name="TRAF2">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia">&lt;span style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">TNF receptor-associated factor 2 [&lt;/span>&lt;em style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">&lt;span class="highlight">Homo&lt;/span>&amp;nbsp;sapiens&lt;/em>&lt;span style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">(human)]&lt;/span>&lt;/font>&lt;div>&lt;font face="Georgia">&lt;span style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/Q12933" style="font-size: small; text-decoration: none; background-color: rgb(255, 255, 255);">Q12933&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia">&lt;span style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Gene Name:&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/7186" ref="ordinalpos=1&amp;amp;ncbi_uid=7186&amp;amp;link_uid=7186" style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; white-space: nowrap; background-color: rgb(255, 255, 255);">&lt;span class="highlight">TRAF2&lt;/span>&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia">&lt;span style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">NCBI Gene ID:&amp;nbsp;&lt;/span>&lt;span style="background-color: rgb(255, 255, 255); font-size: 12.222222328186035px; line-height: 17.999801635742188px;">7186&lt;/span>&lt;/font>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#d06611b0-5fb1-4543-b8d6-02184de7fb8a">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2017-10-13T14:29:29Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:10629108"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="_0c1c1fb4-3ba1-4398-9f73-6e00e4ed4a4b" qual:compartment="cytosol" qual:constant="false" qual:id="S_5" qual:initialLevel="0" qual:maxLevel="1" qual:name="Apaf1">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Apoptotic peptidase activating factor 1 [&lt;/span>&lt;em style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Homo sapiens&lt;/em>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">(human)]&lt;/span>&lt;/font>&lt;/div>&lt;font face="Georgia" size="2">Uniprot ID:&amp;nbsp;&lt;a href="http://www.uniprot.org/uniprot/O14727" style="text-decoration: none; background-color: rgb(255, 255, 255);">O14727&lt;/a>&lt;/font>&lt;div>&lt;font face="Georgia" size="2">Gene Name:&amp;nbsp;&lt;a href="http://www.ncbi.nlm.nih.gov/gene/317" ref="ordinalpos=1&amp;amp;ncbi_uid=317&amp;amp;link_uid=317" style="line-height: 19.999780654907227px; white-space: nowrap; background-color: rgb(255, 255, 255);">&lt;span class="highlight">APAF1&lt;/span>&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">NCBI Gene ID:&amp;nbsp;&lt;span style="background-color: rgb(255, 255, 255); line-height: 17.999801635742188px;">317&lt;/span&gt;&lt;/font>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_0c1c1fb4-3ba1-4398-9f73-6e00e4ed4a4b">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2015-11-15T19:54:34Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:15865941"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:12972501"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:15908180"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="bb2b5de7-02e3-4597-a93e-d9bf33d457dd" qual:compartment="cytosol" qual:constant="false" qual:id="S_6" qual:initialLevel="0" qual:maxLevel="1" qual:name="Mdm2">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">&lt;span class="highlight" style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">MDM2&lt;/span>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">&amp;nbsp;oncogene, E3 ubiquitin protein ligase [&lt;/span>&lt;em style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Homo sapiens&lt;/em>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">&amp;nbsp;(human)]&lt;/span>&lt;/font>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/Q00987" style="text-decoration: none; background-color: rgb(255, 255, 255);">Q00987&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Gene Name:&amp;nbsp;&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/4193" ref="ordinalpos=1&amp;amp;ncbi_uid=4193&amp;amp;link_uid=4193" style="line-height: 19.999780654907227px; white-space: nowrap; background-color: rgb(255, 255, 255);">&lt;span class="highlight">MDM2&lt;/span>&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">&lt;font face="Georgia" size="2">NCBI Gene ID: 4193&lt;/font>&lt;/span>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#bb2b5de7-02e3-4597-a93e-d9bf33d457dd">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2015-11-15T19:54:34Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="c19b9737-e5a3-4ceb-9e56-fd86c0243b70" qual:compartment="cytosol" qual:constant="false" qual:id="S_7" qual:initialLevel="0" qual:maxLevel="1" qual:name="A20">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;span style="line-height: 16px; background-color: rgb(255, 255, 255);">&lt;font face="Georgia">AN1-type zinc finger protein 5&lt;/font>&lt;/span>&lt;div>&lt;font face="Georgia">&lt;span style="line-height: 16px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;span style="background-color: rgb(255, 255, 255);">O76080&lt;/span>&lt;/font>&lt;/div>&lt;div>&lt;span style="background-color: rgb(255, 255, 255);">&lt;font face="Georgia">&lt;br/>&lt;/font>&lt;/span>&lt;/div>&lt;div>&lt;font face="Georgia">&lt;span style="background-color: rgb(255, 255, 255);">alternative names:&lt;/span>&lt;span style="background-color: rgb(255, 255, 255); line-height: 16px;">Zinc finger A20 domain-containing protein 2&lt;/span>&lt;/font>&lt;/div>&lt;div style="font-size: 10pt; font-family: Arial, Verdana;">&lt;br/>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#c19b9737-e5a3-4ceb-9e56-fd86c0243b70">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2017-10-13T15:42:38Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:9516122"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:9299557"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="bcbf1bc8-606d-42f1-bc12-23682254a7cd" qual:compartment="cytosol" qual:constant="false" qual:id="S_8" qual:initialLevel="0" qual:maxLevel="1" qual:name="Cas3">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">&lt;span class="highlight" style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Caspase&lt;/span>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">&amp;nbsp;&lt;/span>&lt;span class="highlight" style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">3&lt;/span>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">, apoptosis-related cysteine peptidase [&lt;/span>&lt;em style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Homo sapiens&lt;/em>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">(human)]&lt;/span>&lt;/font>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/P42574" style="text-decoration: none; background-color: rgb(255, 255, 255);">P42574&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Gene Name:&amp;nbsp;&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/836" ref="ordinalpos=2&amp;amp;ncbi_uid=836&amp;amp;link_uid=836" style="line-height: 19.999780654907227px; white-space: nowrap; background-color: rgb(255, 255, 255);">CASP3&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">NCBI Gene ID:&amp;nbsp;&lt;/span>&lt;span style="background-color: rgb(255, 255, 255); line-height: 17.999801635742188px;">836&lt;/span>&lt;/font>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#bcbf1bc8-606d-42f1-bc12-23682254a7cd">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2017-10-13T15:42:38Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:12110144"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:5601572"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="_196bb98d-2c42-46da-bcf3-925a00826567" qual:compartment="cytosol" qual:constant="false" qual:id="S_9" qual:initialLevel="0" qual:maxLevel="1" qual:name="Apoptosis">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>programmed cell death</p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_196bb98d-2c42-46da-bcf3-925a00826567">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2017-10-13T15:24:03Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="dc1b92aa-1505-4d23-9050-07f7eb94da2f" qual:compartment="cytosol" qual:constant="false" qual:id="S_10" qual:initialLevel="0" qual:maxLevel="1" qual:name="NFkB">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font size="2" face="Georgia">Referring&amp;nbsp;to p65(RelA):p50\r\nheterodimers in this context [1].&amp;nbsp;&lt;/font>&lt;div style="font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;">&lt;font face="Georgia" size="2">&lt;span class="highlight" style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">Nuclear&lt;/span>&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">&amp;nbsp;&lt;/span>&lt;span class="highlight" style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">factor&lt;/span>&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">&amp;nbsp;of kappa light polypeptide gene enhancer in B-cells 1 [&lt;/span>&lt;em style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">Homo sapiens&lt;/em>&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">&amp;nbsp;(human)]&lt;/span>&lt;/font>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/P19838" style="text-decoration: none; background-color: rgb(255, 255, 255);">P19838&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">Gene Name:&amp;nbsp;&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/4790" ref="ordinalpos=6&amp;amp;ncbi_uid=4790&amp;amp;link_uid=4790" style="line-height: 18.88888931274414px; white-space: nowrap; background-color: rgb(255, 255, 255);">NFKB1&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">Gene ID:&lt;/span>&lt;span style="background-color: rgb(255, 255, 255); line-height: 17.77777862548828px;">4790&lt;/span>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">v-rel avian reticuloendotheliosis viral oncogene homolog A [&lt;/span>&lt;em style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">Homo sapiens&lt;/em>&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">&amp;nbsp;(human)]&lt;/span>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/Q04206" style="text-decoration: none; background-color: rgb(255, 255, 255);">Q04206&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">Gene Name:&amp;nbsp;&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/5970" ref="ordinalpos=1&amp;amp;ncbi_uid=5970&amp;amp;link_uid=5970" style="line-height: 18.88888931274414px; white-space: nowrap; background-color: rgb(255, 255, 255);">RELA&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">Gene ID:&lt;/span>&lt;span style="background-color: rgb(255, 255, 255); line-height: 17.77777862548828px;">5970&lt;/span>&lt;/font>&lt;/div>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#dc1b92aa-1505-4d23-9050-07f7eb94da2f">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2017-10-13T15:51:06Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:9516122"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:9299557"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="ab7f614b-12c9-4406-ae29-e8a8ab822806" qual:compartment="cytosol" qual:constant="false" qual:id="S_11" qual:initialLevel="0" qual:maxLevel="1" qual:name="Cas9">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">&lt;span class="highlight" style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Caspase&lt;/span>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">&amp;nbsp;&lt;/span>&lt;span class="highlight" style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">9&lt;/span>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">, apoptosis-related cysteine peptidase [&lt;/span>&lt;em style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Homo sapiens&lt;/em>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">(human)]&lt;/span>&lt;/font>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/P55211" style="text-decoration: none; background-color: rgb(255, 255, 255);">P55211&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Gene Name:&amp;nbsp;&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/842" ref="ordinalpos=1&amp;amp;ncbi_uid=842&amp;amp;link_uid=842" style="line-height: 19.999780654907227px; white-space: nowrap; background-color: rgb(255, 255, 255);">CASP9&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">&lt;font face="Georgia" size="2">NCBI Gene ID: 842&lt;/font>&lt;/span>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#ab7f614b-12c9-4406-ae29-e8a8ab822806">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2015-11-15T19:54:34Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:12110144"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:15601572"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="_473b9016-fa77-4446-b5ab-c297d542a820" qual:compartment="cytosol" qual:constant="false" qual:id="S_12" qual:initialLevel="0" qual:maxLevel="1" qual:name="TRADD">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia">&lt;span style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">TNFRSF1A-associated via death domain [&lt;/span>&lt;em style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Homo sapiens&lt;/em>&lt;span style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">&amp;nbsp;(human)]&lt;/span>&lt;br/>&lt;/font>&lt;div>&lt;font face="Georgia">&lt;font size="2">UniProt Accession ID:&amp;nbsp;&lt;/font>&lt;a href="http://www.uniprot.org/uniprot/Q15628" style="font-size: small; text-decoration: none; background-color: rgb(255, 255, 255);">Q15628&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia">Gene Name:&amp;nbsp;&lt;a href="http://www.ncbi.nlm.nih.gov/gene/8717" ref="ordinalpos=1&amp;amp;ncbi_uid=8717&amp;amp;link_uid=8717" style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; white-space: nowrap; background-color: rgb(255, 255, 255);">&lt;span class="highlight">TRADD&lt;/span>&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia">NCBI Gene ID:&amp;nbsp;&lt;span style="background-color: rgb(255, 255, 255); font-size: 12.222222328186035px; line-height: 17.999801635742188px;">8717&lt;/span>&lt;/font>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_473b9016-fa77-4446-b5ab-c297d542a820">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2017-10-13T15:42:38Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:10629108"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="_219660bd-04a2-4c41-94a4-e2117ba9c51f" qual:compartment="cytosol" qual:constant="false" qual:id="S_14" qual:initialLevel="0" qual:maxLevel="1" qual:name="TNFR1">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia">&lt;span style="line-height: 19.999780654907227px; font-size: 13.333333969116211px; background-color: rgb(255, 255, 255);">Tumor necrosis factor receptor superfamily, member 1A [&lt;/span>&lt;em style="line-height: 19.999780654907227px; font-size: 13.333333969116211px; background-color: rgb(255, 255, 255);">Homo sapiens&lt;/em>&lt;span style="line-height: 19.999780654907227px; font-size: 13.333333969116211px; background-color: rgb(255, 255, 255);">&amp;nbsp;(human)]&lt;/span>&lt;/font>&lt;div style="line-height: normal;">&lt;font face="Georgia">&lt;span style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/P19438" style="font-size: small; text-decoration: none; background-color: rgb(255, 255, 255);">P19438&lt;/a>&lt;/font>&lt;/div>&lt;div style="line-height: normal;">&lt;font face="Georgia">&lt;span style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Gene Name:&amp;nbsp;&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/7132" ref="ordinalpos=2&amp;amp;ncbi_uid=7132&amp;amp;link_uid=7132" style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; white-space: nowrap; background-color: rgb(255, 255, 255);">TNFRSF1A&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">NCBI Gene ID:&amp;nbsp;&lt;/span>&lt;span style="background-color: rgb(255, 255, 255); font-size: 12.222222328186035px; line-height: 17.999801635742188px;">7132&lt;/span>&lt;/font>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_219660bd-04a2-4c41-94a4-e2117ba9c51f">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2017-10-13T15:42:38Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:10629108"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="_9c124d37-0627-4876-845b-5aea6da45575" qual:compartment="cytosol" qual:constant="false" qual:id="S_15" qual:initialLevel="0" qual:maxLevel="1" qual:name="BclX">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">BCL2-like 1 [&lt;/span>&lt;em style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Homo sapiens&lt;/em>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">&amp;nbsp;(human)]&lt;/span>&lt;/font>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/Q07817" style="text-decoration: none; background-color: rgb(255, 255, 255);">Q07817&lt;/a>&lt;span style="background-color: rgb(255, 255, 255); line-height: 19.999780654907227px;">&amp;nbsp;&lt;/span>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Gene Name:&amp;nbsp;&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/598" ref="ordinalpos=2&amp;amp;ncbi_uid=598&amp;amp;link_uid=598" style="line-height: 19.999780654907227px; white-space: nowrap; background-color: rgb(255, 255, 255);">BCL2L1&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Gene ID:&amp;nbsp;&lt;/span>&lt;span style="background-color: rgb(255, 255, 255); line-height: 17.999801635742188px;">598&lt;/span>&lt;/font>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_9c124d37-0627-4876-845b-5aea6da45575">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2017-10-13T15:51:06Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:16751281"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:9990849"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="_7ba1aafb-d1e3-43eb-8345-d5ce3df3cbaf" qual:compartment="cytosol" qual:constant="false" qual:id="S_16" qual:initialLevel="0" qual:maxLevel="1" qual:name="Cas6">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">&lt;span class="highlight" style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Caspase&lt;/span>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">&amp;nbsp;&lt;/span>&lt;span class="highlight" style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">6&lt;/span>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">, apoptosis-related cysteine peptidase [&lt;/span>&lt;em style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Homo sapiens&lt;/em>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">(human)]&lt;/span>&lt;/font>&lt;div style="line-height: normal;">&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/P55212" style="text-decoration: none; background-color: rgb(255, 255, 255);">P55212&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Gene Name:&amp;nbsp;&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/839" ref="ordinalpos=2&amp;amp;ncbi_uid=839&amp;amp;link_uid=839" style="line-height: 19.999780654907227px; white-space: nowrap; background-color: rgb(255, 255, 255);">CASP6&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">NCABI Gene ID:&amp;nbsp;&lt;/span>&lt;span style="background-color: rgb(255, 255, 255); line-height: 17.999801635742188px;">839&lt;/span>&lt;/font>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_7ba1aafb-d1e3-43eb-8345-d5ce3df3cbaf">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2017-10-13T15:42:38Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="_75743c78-9342-44fd-b0c5-60920d34fadb" qual:compartment="cytosol" qual:constant="false" qual:id="S_17" qual:initialLevel="0" qual:maxLevel="1" qual:name="Cas7">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">&lt;span class="highlight" style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Caspase&lt;/span>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">&amp;nbsp;&lt;/span>&lt;span class="highlight" style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">7&lt;/span>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">, apoptosis-related cysteine peptidase [&lt;/span>&lt;em style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Homo sapiens&lt;/em>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">(human)]&lt;/span>&lt;/font>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/P55210" style="text-decoration: none; background-color: rgb(255, 255, 255);">P55210&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Gene Name:&amp;nbsp;&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/840" ref="ordinalpos=1&amp;amp;ncbi_uid=840&amp;amp;link_uid=840" style="line-height: 19.999780654907227px; white-space: nowrap; background-color: rgb(255, 255, 255);">CASP7&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">NCBI Gene ID:&amp;nbsp;&lt;/span>&lt;span style="background-color: rgb(255, 255, 255); line-height: 17.999801635742188px;">840&lt;/span>&lt;/font>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_75743c78-9342-44fd-b0c5-60920d34fadb">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2015-11-15T19:54:34Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:12110144"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:15601572"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="b48c4797-8836-41fa-aee8-13d199b74f4a" qual:compartment="cytosol" qual:constant="false" qual:id="S_18" qual:initialLevel="0" qual:maxLevel="1" qual:name="TNFR2">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia">&lt;span style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Tumor necrosis factor receptor superfamily, member 1B [&lt;/span>&lt;em style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Homo sapiens&lt;/em>&lt;span style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">&amp;nbsp;(human)]&lt;/span>&lt;/font>&lt;div>&lt;font face="Georgia">&lt;span style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/P20333" style="font-size: small; text-decoration: none; background-color: rgb(255, 255, 255);">P20333&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia">&lt;span style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Gene Name:&amp;nbsp;&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/7133" ref="ordinalpos=3&amp;amp;ncbi_uid=7133&amp;amp;link_uid=7133" style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; white-space: nowrap; background-color: rgb(255, 255, 255);">TNFRSF1B&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia">&lt;span style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">NCBI Gene ID:&amp;nbsp;&lt;/span>&lt;span style="background-color: rgb(255, 255, 255); font-size: 12.222222328186035px; line-height: 17.999801635742188px;">7133&lt;/span>&lt;/font>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#b48c4797-8836-41fa-aee8-13d199b74f4a">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2017-10-13T14:29:29Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:10629108"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="_313b6fc2-fd14-4fb7-8c8b-c53e9622443f" qual:compartment="cytosol" qual:constant="false" qual:id="S_19" qual:initialLevel="0" qual:maxLevel="1" qual:name="MEKK1">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">&lt;font face="Georgia" size="2">Mitogen-activated protein kinase kinase kinase 1, E3 ubiquitin protein ligase&lt;/font>&lt;/span>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/Q13233" style="text-decoration: none; background-color: rgb(255, 255, 255);">Q13233&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Gene Name:&amp;nbsp;&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/4214" ref="ordinalpos=4&amp;amp;ncbi_uid=4214&amp;amp;link_uid=4214" style="line-height: 19.999780654907227px; white-space: nowrap; background-color: rgb(255, 255, 255);">MAP3K1&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Gene ID:&amp;nbsp;&lt;/span>&lt;span style="background-color: rgb(255, 255, 255); line-height: 17.999801635742188px;">4214&lt;/span>&lt;/font>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_313b6fc2-fd14-4fb7-8c8b-c53e9622443f">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2017-10-13T16:16:10Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="_4e67190f-5fed-40d1-a626-7ea257ffd7ed" qual:compartment="cytosol" qual:constant="false" qual:id="S_20" qual:initialLevel="0" qual:maxLevel="1" qual:name="cFLIP">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">CASP8 and FADD-like apoptosis regulator [&lt;/span>&lt;em style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Homo sapiens&lt;/em>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">(human)]&lt;/span>&lt;/font>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/O15519" style="text-decoration: none; background-color: rgb(255, 255, 255);">O15519&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Gene Name:&amp;nbsp;&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/8837" ref="ordinalpos=2&amp;amp;ncbi_uid=8837&amp;amp;link_uid=8837" style="line-height: 19.999780654907227px; white-space: nowrap; background-color: rgb(255, 255, 255);">CFLAR&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">NCBI Gene ID:&amp;nbsp;&lt;/span>&lt;span style="background-color: rgb(255, 255, 255); line-height: 17.999801635742188px;">8837&lt;/span>&lt;/font>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_4e67190f-5fed-40d1-a626-7ea257ffd7ed">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2015-11-15T19:54:34Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="_6f1d177c-fac6-4e33-8976-69a82f221c41" qual:compartment="cytosol" qual:constant="false" qual:id="S_21" qual:initialLevel="0" qual:maxLevel="1" qual:name="AKT">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;br/></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_6f1d177c-fac6-4e33-8976-69a82f221c41">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2015-11-15T19:54:34Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:15784165"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="f03497b7-ba5e-4773-95b7-21c99443d147" qual:compartment="cytosol" qual:constant="false" qual:id="S_22" qual:initialLevel="0" qual:maxLevel="1" qual:name="PI3K">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;div>&lt;font face="Georgia" size="2">&lt;span class="highlight" style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">Phosphatidylinositol&lt;/span>&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">-4,5-bisphosphate 3-kinase, catalytic subunit alpha [&lt;/span>&lt;em style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">Homo sapiens&lt;/em>&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">(human)]&lt;/span>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/P42336" style="text-decoration: none; background-color: rgb(255, 255, 255);">P42336&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">Gene Name:&amp;nbsp;&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/5290" ref="ordinalpos=1&amp;amp;ncbi_uid=5290&amp;amp;link_uid=5290" style="background-color: rgb(255, 255, 255); line-height: 18.88888931274414px; white-space: nowrap;">PIK3CA&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">Gene ID:&amp;nbsp;&lt;/span>&lt;span style="background-color: rgb(255, 255, 255); line-height: 17.77777862548828px;">5290&lt;/span>&lt;/font>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#f03497b7-ba5e-4773-95b7-21c99443d147">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2015-11-15T19:54:34Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:15784165"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="f3c4388a-e397-45f9-93f4-ae2d2c5f1cb4" qual:compartment="cytosol" qual:constant="false" qual:id="S_23" qual:initialLevel="0" qual:maxLevel="1" qual:name="PTEN">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">&lt;span class="highlight" style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">Phosphatase&lt;/span>&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">&amp;nbsp;and&amp;nbsp;&lt;/span>&lt;span class="highlight" style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">tensin&amp;nbsp;&lt;/span>&lt;span style="background-color: rgb(255, 255, 255); line-height: 18.88888931274414px;">&lt;/span>&lt;span class="highlight" style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">homolog&lt;/span>&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">&amp;nbsp;[&lt;/span>&lt;em style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">Homo sapiens&lt;/em>&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">(human)]&lt;/span>&lt;/font>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/P60484" style="text-decoration: none; background-color: rgb(255, 255, 255);">P60484&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">Gene Name:&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/5728" ref="ordinalpos=1&amp;amp;ncbi_uid=5728&amp;amp;link_uid=5728" style="line-height: 18.88888931274414px; white-space: nowrap; background-color: rgb(255, 255, 255);">PTEN&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">Gene ID:&amp;nbsp;&lt;/span>&lt;span style="background-color: rgb(255, 255, 255); line-height: 17.77777862548828px;">&amp;nbsp;&lt;/span>&lt;span style="background-color: rgb(255, 255, 255); line-height: 17.77777862548828px;">5728&lt;/span>&lt;/font>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#f3c4388a-e397-45f9-93f4-ae2d2c5f1cb4">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2015-11-15T19:54:34Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:16274701"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:16545436"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="_5bc3a488-7c03-41a3-8b3c-e797e82224f4" qual:compartment="cytosol" qual:constant="false" qual:id="S_24" qual:initialLevel="0" qual:maxLevel="1" qual:name="JNK">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">Mitogen-activated protein kinase 8 [&lt;/span>&lt;em style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">Homo sapiens&lt;/em>&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">&amp;nbsp;(human)]&lt;/span>&lt;/font>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/P45983" style="text-decoration: none; background-color: rgb(255, 255, 255);">P45983&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">Gene Name:&amp;nbsp;&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/5599" ref="ordinalpos=5&amp;amp;ncbi_uid=5599&amp;amp;link_uid=5599" style="line-height: 18.88888931274414px; white-space: nowrap; background-color: rgb(255, 255, 255);">MAPK8&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">Gene ID:&amp;nbsp;&lt;/span>&lt;span style="background-color: rgb(255, 255, 255); line-height: 17.77777862548828px;">5599&lt;/span>&lt;/font>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_5bc3a488-7c03-41a3-8b3c-e797e82224f4">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2015-11-15T19:54:34Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:9529147"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:10958661"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="_78af8a84-b5b6-47b3-b5d1-7007be7bcd69" qual:compartment="cytosol" qual:constant="false" qual:id="S_25" qual:initialLevel="0" qual:maxLevel="1" qual:name="Mito">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">Represents the release of apoptotic signals from the mitochondria [1].&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_78af8a84-b5b6-47b3-b5d1-7007be7bcd69">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2017-10-13T15:42:38Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:15865941"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:12972501"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:15908180"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="f696f2b3-7a45-4995-b3bc-23681524f113" qual:compartment="cytosol" qual:constant="false" qual:id="S_26" qual:initialLevel="0" qual:maxLevel="1" qual:name="JNKK">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Mitogen-activated protein kinase kinase 4 [&lt;/span>&lt;em style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Homo sapiens&lt;/em>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">&amp;nbsp;(human)]&lt;/span>&lt;/font>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/P45985" style="text-decoration: none; background-color: rgb(255, 255, 255);">P45985&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Gene Name:&amp;nbsp;&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/6416" ref="ordinalpos=2&amp;amp;ncbi_uid=6416&amp;amp;link_uid=6416" style="line-height: 19.999780654907227px; white-space: nowrap; background-color: rgb(255, 255, 255);">MAP2K4&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">&lt;font face="Georgia" size="2">NCBI Gene ID: 6416&lt;/font>&lt;/span>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#f696f2b3-7a45-4995-b3bc-23681524f113">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2015-11-15T19:54:34Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:9529147"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:10958661"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="a8d789a5-9cbb-4661-b523-a8d94e5776b6" qual:compartment="cytosol" qual:constant="false" qual:id="S_27" qual:initialLevel="0" qual:maxLevel="1" qual:name="p53">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Tumor protein&amp;nbsp;&lt;/span>&lt;span class="highlight" style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">p53&lt;/span>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">[&lt;/span>&lt;em style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Homo sapiens&lt;/em>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">(human)]&lt;/span>&lt;/font>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/P04637" style="text-decoration: none; background-color: rgb(255, 255, 255);">P04637&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Gene Name:&amp;nbsp;&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/7157" ref="ordinalpos=2&amp;amp;ncbi_uid=7157&amp;amp;link_uid=7157" style="line-height: 19.999780654907227px; white-space: nowrap; background-color: rgb(255, 255, 255);">TP53&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">NCBI Gene ID:&amp;nbsp;&lt;/span>&lt;span style="background-color: rgb(255, 255, 255); line-height: 17.999801635742188px;">7157&lt;/span>&lt;/font>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#a8d789a5-9cbb-4661-b523-a8d94e5776b6">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2017-10-13T15:42:38Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:15865941"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:9529147"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:12972501"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:15908180"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:10958661"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="_41de9095-9ede-464d-898e-fb92400d82c3" qual:compartment="cytosol" qual:constant="false" qual:id="S_28" qual:initialLevel="0" qual:maxLevel="1" qual:name="TRAF">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia">&lt;span style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">TNF receptor-associated factor 1 [&lt;/span>&lt;em style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">&lt;span class="highlight">Homo&lt;/span>&amp;nbsp;sapiens&lt;/em>&lt;span style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">(human)]&lt;/span>&lt;/font>&lt;div>&lt;font face="Georgia">&lt;span style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">UniProt ID:&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/Q13077" style="font-size: small; text-decoration: none; background-color: rgb(255, 255, 255);">Q13077&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia">&lt;span style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Gene Name:&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/7185" ref="ordinalpos=1&amp;amp;ncbi_uid=7185&amp;amp;link_uid=7185" style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; white-space: nowrap; background-color: rgb(255, 255, 255);">&lt;span class="highlight">TRAF1&lt;/span>&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia">&lt;span style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">NCBI Gene ID:&amp;nbsp;&lt;/span>&lt;span style="background-color: rgb(255, 255, 255); font-size: 12.222222328186035px; line-height: 17.999801635742188px;">7185&lt;/span>&lt;/font>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_41de9095-9ede-464d-898e-fb92400d82c3">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2017-07-19T10:59:00Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:10629108"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="a647b231-5b70-4a3c-80d7-50eab9b92bb1" qual:compartment="cytosol" qual:constant="false" qual:id="S_29" qual:initialLevel="0" qual:maxLevel="1" qual:name="BAD">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">BCL2-associated agonist of cell death [&lt;/span>&lt;em style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">Homo sapiens&lt;/em>&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">&amp;nbsp;(human)]&lt;/span>&lt;/font>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/Q92934" style="text-decoration: none; background-color: rgb(255, 255, 255);">Q92934&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">Gene Name:&amp;nbsp;&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/572" ref="ordinalpos=1&amp;amp;ncbi_uid=572&amp;amp;link_uid=572" style="line-height: 18.88888931274414px; white-space: nowrap; background-color: rgb(255, 255, 255);">&lt;span class="highlight">BAD&lt;/span>&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;span style="line-height: 18.88888931274414px; background-color: rgb(255, 255, 255);">&lt;font face="Georgia" size="2">Gene ID: 572&lt;/font>&lt;/span>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#a647b231-5b70-4a3c-80d7-50eab9b92bb1">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2015-11-15T19:54:34Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:10365962"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="_4050d50b-9a3b-4f0f-9813-1eaf8d201028" qual:compartment="cytosol" qual:constant="false" qual:id="S_30" qual:initialLevel="0" qual:maxLevel="1" qual:name="RIP">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia">&lt;span style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Receptor (TNFRSF)-interacting serine-threonine kinase 1 [&lt;/span>&lt;em style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">&lt;span class="highlight">Homo&lt;/span>&amp;nbsp;sapiens&lt;/em>&lt;span style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">(human)]&lt;/span>&lt;/font>&lt;div>&lt;font face="Georgia">&lt;span style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/Q13546" style="font-size: small; text-decoration: none; background-color: rgb(255, 255, 255);">Q13546&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia">&lt;span style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Gene Name:&amp;nbsp;&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/8737" ref="ordinalpos=1&amp;amp;ncbi_uid=8737&amp;amp;link_uid=8737" style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; white-space: nowrap; background-color: rgb(255, 255, 255);">RIPK1&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia">&lt;span style="font-size: 13.333333969116211px; line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">NCBI Gene ID:&amp;nbsp;&lt;/span>&lt;span style="background-color: rgb(255, 255, 255); font-size: 12.222222328186035px; line-height: 17.999801635742188px;">8737&lt;/span>&lt;/font>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_4050d50b-9a3b-4f0f-9813-1eaf8d201028">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2017-10-13T16:16:10Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:9529147"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:10958661"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="ae69804f-1a46-40dd-8f6f-e46c908aaa2a" qual:compartment="cytosol" qual:constant="false" qual:id="S_31" qual:initialLevel="0" qual:maxLevel="1" qual:name="BID">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">BH3 interacting domain death agonist [&lt;/span>&lt;em style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Homo sapiens&lt;/em>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">&amp;nbsp;(human)]&lt;/span>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">UniProt Accession ID:&amp;nbsp;&lt;a href="http://www.uniprot.org/uniprot/P55957" style="text-decoration: none; background-color: rgb(255, 255, 255);">P55957&lt;br/>&lt;/a>&lt;font>Gene Name:&amp;nbsp;&lt;/font>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/637" ref="ordinalpos=1&amp;amp;ncbi_uid=637&amp;amp;link_uid=637" style="color: rgb(100, 42, 143); line-height: 19.999780654907227px; white-space: nowrap; background-color: rgb(255, 255, 255);">&lt;span class="highlight">BID&lt;/span>&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">Gene ID: 637&lt;/font>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#ae69804f-1a46-40dd-8f6f-e46c908aaa2a">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2017-10-13T15:42:38Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:15865941"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:12110144"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="eda359f9-b7a1-4405-a683-fdcdb6a712ef" qual:compartment="cytosol" qual:constant="false" qual:id="S_32" qual:initialLevel="0" qual:maxLevel="1" qual:name="Cas8">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">&lt;span class="highlight" style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Caspase&lt;/span>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">&amp;nbsp;8, apoptosis-related cysteine peptidase [&lt;/span>&lt;em style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Homo sapiens&lt;/em>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">(human)]&lt;/span>&lt;/font>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/Q14790" style="text-decoration: none; background-color: rgb(255, 255, 255);">Q14790&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Gene Name:&amp;nbsp;&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/841" ref="ordinalpos=2&amp;amp;ncbi_uid=841&amp;amp;link_uid=841" style="line-height: 19.999780654907227px; white-space: nowrap; background-color: rgb(255, 255, 255);">CASP8&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">&lt;font face="Georgia" size="2">NCBI Gene ID: 841&lt;/font>&lt;/span>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#eda359f9-b7a1-4405-a683-fdcdb6a712ef">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2017-10-13T15:42:38Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:12110144"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:11464214"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:10958661"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:9529147"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:15861135"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:15601572"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:8943045"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:15485624"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="b6836db8-d4c4-40d0-847c-144068721ec5" qual:compartment="cytosol" qual:constant="false" qual:id="S_33" qual:initialLevel="0" qual:maxLevel="1" qual:name="FADD">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Fas (TNFRSF6)-associated via death domain [&lt;/span>&lt;em style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Homo sapiens&lt;/em>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">(human)]&lt;/span>&lt;/font>&lt;/div>&lt;font face="Georgia" size="2">Uniprot ID:&amp;nbsp;Q13158&lt;/font>&lt;div>&lt;font face="Georgia" size="2">Gene Name:&amp;nbsp;&lt;a href="http://www.ncbi.nlm.nih.gov/gene/8772" ref="ordinalpos=1&amp;amp;ncbi_uid=8772&amp;amp;link_uid=8772" style="line-height: 19.999780654907227px; white-space: nowrap; background-color: rgb(255, 255, 255);">&lt;span class="highlight">FADD&lt;/span>&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">NCBI Gene ID:&amp;nbsp;&lt;span style="background-color: rgb(255, 255, 255); line-height: 17.999801635742188px;">8772&lt;/span>&lt;/font>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#b6836db8-d4c4-40d0-847c-144068721ec5">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2017-10-13T15:42:38Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:10629108"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="_39181f50-aa0f-45d6-aa12-4c453c1707f0" qual:compartment="cytosol" qual:constant="false" qual:id="S_34" qual:initialLevel="0" qual:maxLevel="1" qual:name="APC">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2" style="font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;">This node represents the&amp;nbsp;apoptosome complex [1]. Information about the apoptosome at (&lt;/font>&lt;font face="Georgia" size="2">&lt;a href="http://www.ncbi.nlm.nih.gov/mesh/?term=apoptosome">http://www.ncbi.nlm.nih.gov/mesh/?term=apoptosome&lt;/a>).&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_39181f50-aa0f-45d6-aa12-4c453c1707f0">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2015-11-15T19:54:34Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="_77cc1d1a-1b48-4f85-a631-57140e51fc58" qual:compartment="cytosol" qual:constant="false" qual:id="S_35" qual:initialLevel="0" qual:maxLevel="1" qual:name="NIK">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2" style="background-color: rgb(255, 255, 255);">&lt;span style="line-height: 18.88888931274414px;">Mitogen-activated protein kinase kinase kinase 14 [&lt;/span>&lt;em style="line-height: 18.88888931274414px;">Homo sapiens&lt;/em>&lt;span style="line-height: 18.88888931274414px;">(human)]&lt;/span>&lt;/font>&lt;div>&lt;font face="Georgia" size="2" style="background-color: rgb(255, 255, 255);">&lt;span style="line-height: 18.88888931274414px;">UniProt ID:&amp;nbsp;&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/Q99558" style="text-decoration: none;">Q99558&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2" style="background-color: rgb(255, 255, 255);">&lt;span style="line-height: 18.88888931274414px;">Gene Name:&amp;nbsp;&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/9020" ref="ordinalpos=3&amp;amp;ncbi_uid=9020&amp;amp;link_uid=9020" style="line-height: 18.88888931274414px; white-space: nowrap;">MAP3K14&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2" style="background-color: rgb(255, 255, 255);">&lt;span style="line-height: 18.88888931274414px;">Gene ID:&lt;/span>&lt;span style="line-height: 17.77777862548828px;">9020&lt;/span>&lt;/font>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_77cc1d1a-1b48-4f85-a631-57140e51fc58">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2015-11-15T19:54:34Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="db563b74-7a27-4fbb-9a93-cae9dff1c480" qual:compartment="cytosol" qual:constant="false" qual:id="S_36" qual:initialLevel="0" qual:maxLevel="1" qual:name="IAP">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font size="2" style="font-style: normal;" face="Georgia">baculoviral IAP repeat-containing 2 (BIRC2)&lt;/font>&lt;div style="font-style: normal;">&lt;font face="Georgia">&lt;font size="2">UniProt Accession ID: Q13490&lt;/font>&lt;font size="2">&lt;br/>&lt;/font>&lt;/font>&lt;div>&lt;font size="2" face="Georgia">&lt;br/>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">baculoviral IAP repeat-containing 3 (BIRC3)&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">UniProt Accession ID: Q13489&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;br/>&lt;/font&gt;&lt;/div>&lt;div>&lt;font face="Georgia" size="2">baculoviral IAP repeat-containing 4 (BIRC4)&lt;/font>&lt;/div>&lt;/div>&lt;div style="font-style: normal;">&lt;font face="Georgia" size="2">UniProt Accession ID: P98170&lt;/font>&lt;/div>&lt;div style="font-style: normal;">&lt;font face="Georgia" size="2">&lt;br/>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">In the &lt;em>Apoptosis Network&lt;/em>, IAP represents inhibitors of apoptosis [1].&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;br/>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">In Survival Signaling 2008 and 2011, IAP represents inhibitors of apoptosis.&lt;/font>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#db563b74-7a27-4fbb-9a93-cae9dff1c480">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2017-10-13T15:51:06Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:16751281"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:9990849"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="ecb2c76e-a7fd-4b06-a8cb-f0e59692068f" qual:compartment="cytosol" qual:constant="false" qual:id="S_37" qual:initialLevel="0" qual:maxLevel="1" qual:name="IkB">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;div>&lt;font face="Georgia" size="2">Represents the inhibitor of nuclear factor kappa-B.&amp;nbsp;&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 16px; background-color: rgb(255, 255, 255);">Inhibitor of nuclear factor kappa-B kinase subunit beta&amp;nbsp;&lt;/span>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 16px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;span style="background-color: rgb(255, 255, 255);">O14920&lt;/span>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="background-color: rgb(255, 255, 255);">Gene Name:&amp;nbsp;&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/4793" ref="ordinalpos=7&amp;amp;ncbi_uid=4793&amp;amp;link_uid=4793" style="line-height: 19.999780654907227px; white-space: nowrap; background-color: rgb(255, 255, 255);">NFKBIB&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">NCBI Gene ID:&amp;nbsp;&lt;span style="background-color: rgb(255, 255, 255); line-height: 17.999801635742188px;">4793&lt;/span>&lt;/font>&lt;/div>&lt;div>&lt;span style="background-color: rgb(255, 255, 255); line-height: 17.999801635742188px;">&lt;font face="Georgia" size="2">&lt;br/>&lt;/font>&lt;/span>&lt;/div>&lt;div style="font-size: 10pt; font-family: Arial, Verdana;">&lt;span style="font-size: 16px; background-color: rgb(255, 255, 255);">&lt;font face="Georgia">&lt;br/>&lt;/font>&lt;/span>&lt;/div>&lt;div style="font-size: 10pt; font-family: Arial, Verdana; font-weight: normal;">&lt;strong style="font-family: sans-serif; font-size: 16px; background-color: rgb(255, 255, 255);">&lt;br/>&lt;/strong>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#ecb2c76e-a7fd-4b06-a8cb-f0e59692068f">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2017-10-13T15:51:06Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:9516122"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:9529147"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:15861135"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:9299557"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:8943045"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:10958661"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:15485624"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="cee67116-dd34-4962-a571-a8812fde4570" qual:compartment="cytosol" qual:constant="false" qual:id="S_38" qual:initialLevel="0" qual:maxLevel="1" qual:name="DNADamageEvent">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">Represents damage to DNA [1].&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#cee67116-dd34-4962-a571-a8812fde4570">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2017-10-13T15:24:03Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="f87c41f7-eebd-4b7f-9eb0-019d568019fb" qual:compartment="cytosol" qual:constant="false" qual:id="S_39" qual:initialLevel="0" qual:maxLevel="1" qual:name="PIP2">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">Phosphatidylinositol-4,5-biphosphate&lt;/font>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="border: 0px; outline: 0px; line-height: 17.445960998535156px; vertical-align: baseline; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255);">Molecular Formula:&lt;/span>&lt;span style="line-height: 17.445960998535156px; background-color: rgb(255, 255, 255);">&amp;nbsp;C&lt;/span>&lt;sub style="border: 0px; outline: 0px; line-height: 0; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255);">9&lt;/sub>&lt;span style="line-height: 17.445960998535156px; background-color: rgb(255, 255, 255);">H&lt;/span>&lt;sub style="border: 0px; outline: 0px; line-height: 0; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255);">21&lt;/sub>&lt;span style="line-height: 17.445960998535156px; background-color: rgb(255, 255, 255);">O&lt;/span>&lt;sub style="border: 0px; outline: 0px; line-height: 0; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255);">17&lt;/sub>&lt;span style="line-height: 17.445960998535156px; background-color: rgb(255, 255, 255);">P&lt;/span>&lt;sub style="border: 0px; outline: 0px; line-height: 0; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255);">3&lt;/sub>&lt;span style="line-height: 17.445960998535156px; background-color: rgb(255, 255, 255);">&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span>&lt;span style="border: 0px; outline: 0px; line-height: 17.445960998535156px; vertical-align: baseline; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255);">Molecular Weight:&lt;/span>&lt;span style="line-height: 17.445960998535156px; background-color: rgb(255, 255, 255);">&amp;nbsp;494.174126&lt;/span>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 17.445960998535156px; background-color: rgb(255, 255, 255);">PubChem ID:&amp;nbsp;&lt;/span>&lt;span style="background-color: rgb(255, 255, 255); line-height: 19.384401321411133px;">&lt;a href="http://pubchem.ncbi.nlm.nih.gov/summary/summary.cgi?cid=125105">125105&lt;/a>&lt;/span>&lt;/font>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#f87c41f7-eebd-4b7f-9eb0-019d568019fb">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2015-11-15T19:54:34Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:15784165"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="_1c0a9205-e52a-4d4d-a887-b39db682c4e8" qual:compartment="cytosol" qual:constant="false" qual:id="S_40" qual:initialLevel="0" qual:maxLevel="1" qual:name="Cas12">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">&lt;span class="highlight" style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Caspase&lt;/span>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">&amp;nbsp;&lt;/span>&lt;span class="highlight" style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">12&lt;/span>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">(gene/pseudogene) [&lt;/span>&lt;em style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Homo sapiens&lt;/em>&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">(human)]&lt;/span>&lt;/font>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">UniProt ID:&amp;nbsp;&lt;/span>&lt;a href="http://www.uniprot.org/uniprot/Q6UXS9" style="text-decoration: none; background-color: rgb(255, 255, 255);">Q6UXS9&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">Gene Name:&amp;nbsp;&lt;/span>&lt;a href="http://www.ncbi.nlm.nih.gov/gene/100506742" ref="ordinalpos=5&amp;amp;ncbi_uid=100506742&amp;amp;link_uid=100506742" style="line-height: 19.999780654907227px; white-space: nowrap; background-color: rgb(255, 255, 255);">CASP12&lt;/a>&lt;/font>&lt;/div>&lt;div>&lt;font face="Georgia" size="2">&lt;span style="line-height: 19.999780654907227px; background-color: rgb(255, 255, 255);">NCBI Gene ID:&amp;nbsp;&lt;/span>&lt;span style="background-color: rgb(255, 255, 255); line-height: 17.999801635742188px;">100506742&lt;/span>&lt;/font>&lt;/div></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_1c0a9205-e52a-4d4d-a887-b39db682c4e8">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2015-11-15T19:54:34Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+      <qual:qualitativeSpecies metaid="bacda10b-8f34-48f0-907b-4e95541ac16d" qual:compartment="cytosol" qual:constant="false" qual:id="S_41" qual:initialLevel="0" qual:maxLevel="1" qual:name="GFR">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">Represents "growth family receptors" in the Apoptosis Network [1].&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#bacda10b-8f34-48f0-907b-4e95541ac16d">
+	<dcterms:modified rdf:parseType="Resource">
+	<dcterms:W3CDTF>2015-11-15T19:54:34Z</dcterms:W3CDTF>
+	</dcterms:modified>
+	<bqbiol:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="urn:miriam:pubmed:19422837"/>
+	</rdf:Bag>
+	</bqbiol:isDescribedBy>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </qual:qualitativeSpecies>
+    </qual:listOfQualitativeSpecies>
+    <qual:listOfTransitions xmlns:qual="http://www.sbml.org/sbml/level3/version1/qual/version1">
+      <qual:transition qual:id="tr_S_2">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">AKT and NIK each activate IKK, while A20 inhibits IKK and is dominant over both activators [1].&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_2_in_S_21" qual:qualitativeSpecies="S_21" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;span style="font-family: Georgia; font-size: small;">AKT activates IKK [1].&amp;nbsp;&lt;/span></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_2_in_S_7" qual:qualitativeSpecies="S_7" qual:sign="negative" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">A20 inhibits IKK [1].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_2_in_S_35" qual:qualitativeSpecies="S_35" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;span style="font-family: Georgia; font-size: small;">NIK activates IKK [1].&amp;nbsp;&lt;/span></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_2" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <or/>
+                <apply>
+                  <and/>
+                  <apply>
+                    <eq/>
+                    <ci> S_35 </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                  <apply>
+                    <not/>
+                    <apply>
+                      <eq/>
+                      <ci> S_7 </ci>
+                      <cn type="integer"> 1 </cn>
+                    </apply>
+                  </apply>
+                </apply>
+                <apply>
+                  <and/>
+                  <apply>
+                    <eq/>
+                    <ci> S_21 </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                  <apply>
+                    <not/>
+                    <apply>
+                      <eq/>
+                      <ci> S_7 </ci>
+                      <cn type="integer"> 1 </cn>
+                    </apply>
+                  </apply>
+                </apply>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_3">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia">PI3K and pip2 are both required to activate pip3. PTEN inhibits pip3 and is dominant over all activators [1].&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_3_in_S_39" qual:qualitativeSpecies="S_39" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;span style="font-family: Georgia; font-size: small;">PI3K produces pip3 from pip2 [1,2].&amp;nbsp;&lt;/span></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_3_in_S_22" qual:qualitativeSpecies="S_22" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">PI3K produces pip3 from pip2 [1,2].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_3_in_S_23" qual:qualitativeSpecies="S_23" qual:sign="negative" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia">PTEN dephosphorylates pip3 and thereby degrades it [1,3,4].&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_3" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <and/>
+                <apply>
+                  <and/>
+                  <apply>
+                    <eq/>
+                    <ci> S_22 </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                  <apply>
+                    <eq/>
+                    <ci> S_39 </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                </apply>
+                <apply>
+                  <not/>
+                  <apply>
+                    <eq/>
+                    <ci> S_23 </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                </apply>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_4">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia">TNFR2 activates TRAF2 [1].&amp;nbsp;&lt;/font></p><p>RIP activates TRAF2.</p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_4_in_S_18" qual:qualitativeSpecies="S_18" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia">TNFR2 activates TRAF2 [1,2].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_4_in_S_30" qual:qualitativeSpecies="S_30" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>Both RIP and TRAF2 are required for IKK activation.</p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_4" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <or/>
+                <apply>
+                  <eq/>
+                  <ci> S_30 </ci>
+                  <cn type="integer"> 1 </cn>
+                </apply>
+                <apply>
+                  <eq/>
+                  <ci> S_18 </ci>
+                  <cn type="integer"> 1 </cn>
+                </apply>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_5">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">p53 activates Apaf1 [1].&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_5_in_S_27" qual:qualitativeSpecies="S_27" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">The central regulator p53&amp;nbsp;generates pro-apoptotic output via Apaf1 [1,2,3,4].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_5" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <eq/>
+                <ci> S_27 </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_6">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">AKt and p53 each activate Mdm2 [1].&lt;/font></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_6_in_S_27" qual:qualitativeSpecies="S_27" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;span style="font-family: Georgia; font-size: small;">p53 activates Mdm2 [1].&amp;nbsp;&lt;/span></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_6_in_S_21" qual:qualitativeSpecies="S_21" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">AKT activates Mdm2 [1].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_6" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <or/>
+                <apply>
+                  <eq/>
+                  <ci> S_27 </ci>
+                  <cn type="integer"> 1 </cn>
+                </apply>
+                <apply>
+                  <eq/>
+                  <ci> S_21 </ci>
+                  <cn type="integer"> 1 </cn>
+                </apply>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_7">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">NFkB inhibits A20 [1].&lt;/font></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_7_in_S_10" qual:qualitativeSpecies="S_10" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>NFkB exerts negative feedback regulation on its own inducing pathway via activating A20 and IkB [1,2,3].</p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_7" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <eq/>
+                <ci> S_10 </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_8">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">APC, Cas6, and Cas8 can each activate Cas3. IAP is a negative regulator of Cas3 and is dominant over all positive regulators [1].&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_8_in_S_16" qual:qualitativeSpecies="S_16" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>\r\n	\r\n	\r\n		&lt;div class="page" title="Page 3">\r\n			&lt;div class="layoutArea">\r\n				&lt;div class="column">\r\n					&lt;p>&lt;font face="Georgia" size="2">Caspase 6 is performs a positive feedback on Caspase 3 [1,2,3].&amp;nbsp;&lt;/font>&lt;/p>\r\n				&lt;/div>\r\n			&lt;/div>\r\n		&lt;/div></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_8_in_S_32" qual:qualitativeSpecies="S_32" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;span style="background-color: rgb(255, 255, 255);">&lt;font face="Georgia" size="2">Caspase 8 is can activate caspase 3 [1,2,3].&amp;nbsp;&lt;/font>&lt;/span></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_8_in_S_34" qual:qualitativeSpecies="S_34" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>\r\n	\r\n	\r\n		&lt;div class="page" title="Page 3">\r\n			&lt;div class="layoutArea">\r\n				&lt;div class="column">\r\n					&lt;p>&lt;font face="Georgia" size="2" style="background-color: rgb(255, 255, 255);">The activation of caspase 3 involves APC [1,2,3]. &amp;nbsp;&lt;/font>&lt;/p>\r\n				&lt;/div>\r\n			&lt;/div>\r\n		&lt;/div></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_8_in_S_36" qual:qualitativeSpecies="S_36" qual:sign="negative" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>\r\n	\r\n	\r\n		&lt;div class="page" title="Page 3">\r\n			&lt;div class="layoutArea">\r\n				&lt;div class="column">\r\n					&lt;p>&lt;font face="Georgia" size="2">IAP is a negative regulator of Cas3 [1,2,3].&amp;nbsp;&lt;/font>&lt;/p>\r\n				&lt;/div>\r\n			&lt;/div>\r\n		&lt;/div></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_8" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <or/>
+                <apply>
+                  <or/>
+                  <apply>
+                    <and/>
+                    <apply>
+                      <eq/>
+                      <ci> S_34 </ci>
+                      <cn type="integer"> 1 </cn>
+                    </apply>
+                    <apply>
+                      <not/>
+                      <apply>
+                        <eq/>
+                        <ci> S_36 </ci>
+                        <cn type="integer"> 1 </cn>
+                      </apply>
+                    </apply>
+                  </apply>
+                  <apply>
+                    <and/>
+                    <apply>
+                      <eq/>
+                      <ci> S_32 </ci>
+                      <cn type="integer"> 1 </cn>
+                    </apply>
+                    <apply>
+                      <not/>
+                      <apply>
+                        <eq/>
+                        <ci> S_36 </ci>
+                        <cn type="integer"> 1 </cn>
+                      </apply>
+                    </apply>
+                  </apply>
+                </apply>
+                <apply>
+                  <and/>
+                  <apply>
+                    <eq/>
+                    <ci> S_16 </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                  <apply>
+                    <not/>
+                    <apply>
+                      <eq/>
+                      <ci> S_36 </ci>
+                      <cn type="integer"> 1 </cn>
+                    </apply>
+                  </apply>
+                </apply>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_9">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>DNADamageEvent activates Apoptosis.</p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_9_in_S_38" qual:qualitativeSpecies="S_38" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>If DNA damage persists, the cell will undergo apoptosis. This is modeled by having DNADamageEvent activate Apoptosis only if DNADamageEvent is ON for 20 continuous steps.</p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_9" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <eq/>
+                <ci> S_38 </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_10">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;span style="font-family: Georgia; font-size: small;">IkB inactivates NFkB [1].&lt;/span></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_10_in_S_37" qual:qualitativeSpecies="S_37" qual:sign="negative" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">IkB inactivates NFkB [1,2,3].&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_10" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <not/>
+                <apply>
+                  <eq/>
+                  <ci> S_37 </ci>
+                  <cn type="integer"> 1 </cn>
+                </apply>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_11">
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_11_in_S_8" qual:qualitativeSpecies="S_8" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">Caspase 3 has a positive feedback effect on caspase 9 [1,2,3].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_11_in_S_36" qual:qualitativeSpecies="S_36" qual:sign="negative" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">IAP inhibits caspase 9 [1,2,3].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_11_in_S_21" qual:qualitativeSpecies="S_21" qual:sign="negative" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">The pro-survival effects of Akt are expressed by Akt's inhibition of cas9 [1].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_11_in_S_40" qual:qualitativeSpecies="S_40" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">Caspase 12 activates caspase 9 [1].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_11" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <or/>
+                <apply>
+                  <and/>
+                  <apply>
+                    <eq/>
+                    <ci> S_40 </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                  <apply>
+                    <not/>
+                    <apply>
+                      <or/>
+                      <apply>
+                        <eq/>
+                        <ci> S_21 </ci>
+                        <cn type="integer"> 1 </cn>
+                      </apply>
+                      <apply>
+                        <eq/>
+                        <ci> S_36 </ci>
+                        <cn type="integer"> 1 </cn>
+                      </apply>
+                    </apply>
+                  </apply>
+                </apply>
+                <apply>
+                  <and/>
+                  <apply>
+                    <eq/>
+                    <ci> S_8 </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                  <apply>
+                    <not/>
+                    <apply>
+                      <or/>
+                      <apply>
+                        <eq/>
+                        <ci> S_21 </ci>
+                        <cn type="integer"> 1 </cn>
+                      </apply>
+                      <apply>
+                        <eq/>
+                        <ci> S_36 </ci>
+                        <cn type="integer"> 1 </cn>
+                      </apply>
+                    </apply>
+                  </apply>
+                </apply>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_12">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;span style="font-family: Georgia;">TNFR1 activates TRADD [1].&amp;nbsp;&lt;/span></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_12_in_S_14" qual:qualitativeSpecies="S_14" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia">TNFR1 activates TRADD [1,2].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_12" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <eq/>
+                <ci> S_14 </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_14">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia">TNFR1 is activated by TNF [1].&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_14_in_S_1" qual:qualitativeSpecies="S_1" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia">TNFR1 is activated by TNF [1,2].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_14" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <eq/>
+                <ci> S_1 </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_15">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">NFkB activates BclX, while both BAD and p53 are inhibitor s of BclX and are dominant over NfkB [1].&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_15_in_S_29" qual:qualitativeSpecies="S_29" qual:sign="negative" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">BAD creates pro-apoptotic effects by inhibiting BclX [1].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_15_in_S_27" qual:qualitativeSpecies="S_27" qual:sign="negative" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">p53 inhibits BclX [1].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_15_in_S_10" qual:qualitativeSpecies="S_10" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">NFkB activates BclX [1,2,3].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_15" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <and/>
+                <apply>
+                  <eq/>
+                  <ci> S_10 </ci>
+                  <cn type="integer"> 1 </cn>
+                </apply>
+                <apply>
+                  <not/>
+                  <apply>
+                    <or/>
+                    <apply>
+                      <eq/>
+                      <ci> S_29 </ci>
+                      <cn type="integer"> 1 </cn>
+                    </apply>
+                    <apply>
+                      <eq/>
+                      <ci> S_27 </ci>
+                      <cn type="integer"> 1 </cn>
+                    </apply>
+                  </apply>
+                </apply>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_16">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">Cas3 is positive regulator of Cas6 and IAP is a negative regulator of Cas6 and is dominant over Cas3 [1].&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_16_in_S_8" qual:qualitativeSpecies="S_8" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">Cas3 is a positive regulator of Cas6 [1].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_16_in_S_36" qual:qualitativeSpecies="S_36" qual:sign="negative" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">IAP is a negative regulator of Cas6 [1].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_16" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <and/>
+                <apply>
+                  <eq/>
+                  <ci> S_8 </ci>
+                  <cn type="integer"> 1 </cn>
+                </apply>
+                <apply>
+                  <not/>
+                  <apply>
+                    <eq/>
+                    <ci> S_36 </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                </apply>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_17">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">Caspase 7 is activated by APC or caspase 8. IAP is a negative regulator of caspase 7 and is dominant over both activators [1].&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_17_in_S_32" qual:qualitativeSpecies="S_32" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;span style="font-family: Georgia; font-size: small;">Caspase 7 is activated by caspase 8 [1, 2, 3].&amp;nbsp;&lt;/span></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_17_in_S_34" qual:qualitativeSpecies="S_34" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">Caspase 7 is activated by APC [1, 2, 3].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_17_in_S_36" qual:qualitativeSpecies="S_36" qual:sign="negative" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">IAP is an inhibitor of caspase 7 [1,2,3].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_17" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <or/>
+                <apply>
+                  <and/>
+                  <apply>
+                    <eq/>
+                    <ci> S_34 </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                  <apply>
+                    <not/>
+                    <apply>
+                      <eq/>
+                      <ci> S_36 </ci>
+                      <cn type="integer"> 1 </cn>
+                    </apply>
+                  </apply>
+                </apply>
+                <apply>
+                  <and/>
+                  <apply>
+                    <eq/>
+                    <ci> S_32 </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                  <apply>
+                    <not/>
+                    <apply>
+                      <eq/>
+                      <ci> S_36 </ci>
+                      <cn type="integer"> 1 </cn>
+                    </apply>
+                  </apply>
+                </apply>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_18">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;span style="font-family: Georgia;">TNF activates TNFR2 [1].&amp;nbsp;&lt;/span></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_18_in_S_1" qual:qualitativeSpecies="S_1" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia">TNF activates TNFR2 [1,2].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_18" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <eq/>
+                <ci> S_1 </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_19">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">RIP activates Mekk1 [1].&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_19_in_S_30" qual:qualitativeSpecies="S_30" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>RIP phosphorylates MEKK1 at Ser-957 and Ser-994.</p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_19" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <eq/>
+                <ci> S_30 </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_20">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">TRAF activates cFLIP [1].&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_20_in_S_28" qual:qualitativeSpecies="S_28" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">TRAF activates cFLIP [1].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_20" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <eq/>
+                <ci> S_28 </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_21">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">PIP3 activates Akt [1, 2].&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_21_in_S_3" qual:qualitativeSpecies="S_3" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>\r\n		\r\n	\r\n	\r\n		&lt;div class="page" title="Page 2">\r\n			&lt;div class="layoutArea">\r\n				&lt;div class="column">\r\n					&lt;p>&lt;font face="Georgia" size="2">PIP3 activates Akt [1,2].&amp;nbsp;&lt;/font>&lt;/p>\r\n				&lt;/div>\r\n			&lt;/div>\r\n		&lt;/div></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_21" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <eq/>
+                <ci> S_3 </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_22">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;span style="font-family: Georgia; font-size: small;">GFR activates PI3K [1].&amp;nbsp;&lt;/span></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_22_in_S_41" qual:qualitativeSpecies="S_41" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font size="2" face="Georgia">GFR activates PI3K [1,2].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_22" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <eq/>
+                <ci> S_41 </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_23">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;span style="font-family: Georgia;">p53 activates PTEN [1].&amp;nbsp;&lt;/span></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_23_in_S_27" qual:qualitativeSpecies="S_27" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia">p53 activates PTEN [1,2,3].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_23" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <eq/>
+                <ci> S_27 </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_24">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">JNKK activates JNK [1].&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_24_in_S_26" qual:qualitativeSpecies="S_26" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">JNKK activates JNK [1,2,3].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_24" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <eq/>
+                <ci> S_26 </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_25">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">BID activates Mito, while BclX deactivates Mito and is dominant over BID [1].&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_25_in_S_31" qual:qualitativeSpecies="S_31" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">BID generates a pro-apoptotic signal [1,2,3,4].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_25_in_S_15" qual:qualitativeSpecies="S_15" qual:sign="negative" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">BclX prevents the release of apoptotic signals from the mitochondria [1].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_25" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <and/>
+                <apply>
+                  <eq/>
+                  <ci> S_31 </ci>
+                  <cn type="integer"> 1 </cn>
+                </apply>
+                <apply>
+                  <not/>
+                  <apply>
+                    <eq/>
+                    <ci> S_15 </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                </apply>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_26">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia">MEKK1 activates JNKK, while AKT inhibits JNKK and is dominant over MEKK1 [1].&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_26_in_S_19" qual:qualitativeSpecies="S_19" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">MEKK1 activates JNKK [1,2,3].&lt;/font></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_26_in_S_21" qual:qualitativeSpecies="S_21" qual:sign="negative" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia">AKt inhibits JNKK [1].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_26" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <and/>
+                <apply>
+                  <eq/>
+                  <ci> S_19 </ci>
+                  <cn type="integer"> 1 </cn>
+                </apply>
+                <apply>
+                  <not/>
+                  <apply>
+                    <eq/>
+                    <ci> S_21 </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                </apply>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_27">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia">DNADamageEvent and JNK each activate p53. Mdm2 inhibits p53 and is dominant over both activators [1].&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_27_in_S_38" qual:qualitativeSpecies="S_38" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia">DNADamageEvent activates p53 [1,4,5,6].&lt;/font></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_27_in_S_6" qual:qualitativeSpecies="S_6" qual:sign="negative" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia">Mdm2 inhibits p53 [1,4,5,6].&lt;/font></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_27_in_S_24" qual:qualitativeSpecies="S_24" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia">JNK activates p53 through the mitogen-activated protein kinase cascade [1,2,3].&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_27" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <or/>
+                <apply>
+                  <and/>
+                  <apply>
+                    <eq/>
+                    <ci> S_38 </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                  <apply>
+                    <not/>
+                    <apply>
+                      <eq/>
+                      <ci> S_6 </ci>
+                      <cn type="integer"> 1 </cn>
+                    </apply>
+                  </apply>
+                </apply>
+                <apply>
+                  <and/>
+                  <apply>
+                    <eq/>
+                    <ci> S_24 </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                  <apply>
+                    <not/>
+                    <apply>
+                      <eq/>
+                      <ci> S_6 </ci>
+                      <cn type="integer"> 1 </cn>
+                    </apply>
+                  </apply>
+                </apply>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_28">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;span style="font-family: Georgia;">TRADD activates TRAF [1].&amp;nbsp;&lt;/span></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_28_in_S_12" qual:qualitativeSpecies="S_12" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia">TRADD activates TRAF [1,2].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_28" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <eq/>
+                <ci> S_12 </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_29">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>\r\n	\r\n	\r\n		&lt;div class="page" title="Page 3">\r\n			&lt;div class="layoutArea">\r\n				&lt;div class="column">\r\n					&lt;p>&lt;font face="Georgia" size="2">BAD is activated by p53 and inactivated by AKT [1].&amp;nbsp;&lt;/font>&lt;/p>\r\n				&lt;/div>\r\n			&lt;/div>\r\n		&lt;/div></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_29_in_S_27" qual:qualitativeSpecies="S_27" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">BAD is activated by pro-apoptotic signals from p53 [1,2].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_29_in_S_21" qual:qualitativeSpecies="S_21" qual:sign="negative" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">BAD is suppressed by pro-survival signals from Akt &amp;nbsp;[1,2].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_29" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <and/>
+                <apply>
+                  <eq/>
+                  <ci> S_27 </ci>
+                  <cn type="integer"> 1 </cn>
+                </apply>
+                <apply>
+                  <not/>
+                  <apply>
+                    <eq/>
+                    <ci> S_21 </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                </apply>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_30">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;span style="font-family: Georgia;">TRADD activates RIP [1].&lt;/span></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_30_in_S_12" qual:qualitativeSpecies="S_12" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia">TRADD activates RIP [1,2,3].&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_30" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <eq/>
+                <ci> S_12 </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_31">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">Cas8 and JNK are activators of BID but both require the presence of p53 to activate BID. BclX is an inhibitor of BID and is dominant over all activators [1].&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_31_in_S_32" qual:qualitativeSpecies="S_32" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">Cas8 activates BID [1,2,3].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_31_in_S_27" qual:qualitativeSpecies="S_27" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;span style="font-family: Georgia; font-size: small;">p53 activates BID [1,2,3].&amp;nbsp;&lt;/span></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_31_in_S_24" qual:qualitativeSpecies="S_24" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;span style="font-family: Georgia; font-size: small;">JNK activates BID [1,2,3].&amp;nbsp;&lt;/span></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_31_in_S_15" qual:qualitativeSpecies="S_15" qual:sign="negative" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">BclX inhibits BID [1,2,3].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_31" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <or/>
+                <apply>
+                  <and/>
+                  <apply>
+                    <and/>
+                    <apply>
+                      <eq/>
+                      <ci> S_24 </ci>
+                      <cn type="integer"> 1 </cn>
+                    </apply>
+                    <apply>
+                      <eq/>
+                      <ci> S_27 </ci>
+                      <cn type="integer"> 1 </cn>
+                    </apply>
+                  </apply>
+                  <apply>
+                    <not/>
+                    <apply>
+                      <eq/>
+                      <ci> S_15 </ci>
+                      <cn type="integer"> 1 </cn>
+                    </apply>
+                  </apply>
+                </apply>
+                <apply>
+                  <and/>
+                  <apply>
+                    <and/>
+                    <apply>
+                      <eq/>
+                      <ci> S_32 </ci>
+                      <cn type="integer"> 1 </cn>
+                    </apply>
+                    <apply>
+                      <eq/>
+                      <ci> S_27 </ci>
+                      <cn type="integer"> 1 </cn>
+                    </apply>
+                  </apply>
+                  <apply>
+                    <not/>
+                    <apply>
+                      <eq/>
+                      <ci> S_15 </ci>
+                      <cn type="integer"> 1 </cn>
+                    </apply>
+                  </apply>
+                </apply>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_32">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">Cas6 and FADD can each independently activate cas8. cFlip is an inhibitor of cas8 and is dominant over both activators [1].&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_32_in_S_16" qual:qualitativeSpecies="S_16" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">Caspase 6 has a positive feedback effect upon caspase 8 [1,8,9].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_32_in_S_33" qual:qualitativeSpecies="S_33" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">Activation of FADD causes the activation of caspase 8 [1,2].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_32_in_S_20" qual:qualitativeSpecies="S_20" qual:sign="negative" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">cFLIP is an inhibitory protein of caspase 8 [1,3,4,5,6,7].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_32" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <or/>
+                <apply>
+                  <and/>
+                  <apply>
+                    <eq/>
+                    <ci> S_16 </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                  <apply>
+                    <not/>
+                    <apply>
+                      <eq/>
+                      <ci> S_20 </ci>
+                      <cn type="integer"> 1 </cn>
+                    </apply>
+                  </apply>
+                </apply>
+                <apply>
+                  <and/>
+                  <apply>
+                    <eq/>
+                    <ci> S_33 </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                  <apply>
+                    <not/>
+                    <apply>
+                      <eq/>
+                      <ci> S_20 </ci>
+                      <cn type="integer"> 1 </cn>
+                    </apply>
+                  </apply>
+                </apply>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_33">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">TRADD activates FADD [1].&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_33_in_S_12" qual:qualitativeSpecies="S_12" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">TRADD activates FADD [1,2].&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_33" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <eq/>
+                <ci> S_12 </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_34">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>\r\n	\r\n	\r\n		&lt;div class="page" title="Page 3">\r\n			&lt;div class="layoutArea">\r\n				&lt;div class="column">\r\n					&lt;p>&lt;font face="Georgia" size="2">Apaf1, Casp9 and Mito are all required to activate APC. IAP inhibits APC [1].&amp;nbsp;&lt;/font>&lt;/p>\r\n				&lt;/div>\r\n			&lt;/div>\r\n		&lt;/div></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_34_in_S_25" qual:qualitativeSpecies="S_25" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">The mitochondrion releases other factors that overcome the inhibition of IAP and are collectively called Mito. These suppress the inhibition of IAP and thus activate APC [1].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_34_in_S_36" qual:qualitativeSpecies="S_36" qual:sign="negative" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">Inhibitors of apoptosis inhibit APC [1].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_34_in_S_11" qual:qualitativeSpecies="S_11" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">APC requires Cas9 to be activated [1].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_34_in_S_5" qual:qualitativeSpecies="S_5" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">APC requires Apaf1 to be activated [1].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_34" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <and/>
+                <apply>
+                  <and/>
+                  <apply>
+                    <eq/>
+                    <ci> S_11 </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                  <apply>
+                    <and/>
+                    <apply>
+                      <eq/>
+                      <ci> S_25 </ci>
+                      <cn type="integer"> 1 </cn>
+                    </apply>
+                    <apply>
+                      <eq/>
+                      <ci> S_5 </ci>
+                      <cn type="integer"> 1 </cn>
+                    </apply>
+                  </apply>
+                </apply>
+                <apply>
+                  <not/>
+                  <apply>
+                    <eq/>
+                    <ci> S_36 </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                </apply>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_35">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;span style="font-family: Georgia; font-size: small;">TRAF2 activates NIK [1].&amp;nbsp;&lt;/span></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_35_in_S_4" qual:qualitativeSpecies="S_4" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">TRAF2 activates NIK [1].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_35" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <eq/>
+                <ci> S_4 </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_36">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;span style="font-family: Georgia; font-size: small;">NFkB activates IAP. Mito can inhibit IAP and Cas3 and Cas6 jointly inhibit IAP. All inhibitors are dominant over activators[1].&amp;nbsp;&lt;/span></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_36_in_S_8" qual:qualitativeSpecies="S_8" qual:sign="negative" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">Cas3 and Cas6 jointly inhibit IAP [1].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_36_in_S_16" qual:qualitativeSpecies="S_16" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;span style="font-family: Georgia; font-size: small;">Cas3 and Cas6 jointly inhibit IAP [1].&amp;nbsp;&lt;/span></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_36_in_S_25" qual:qualitativeSpecies="S_25" qual:sign="negative" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">The mitochondria component is a direct inhibitor of IAP [1].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_36_in_S_10" qual:qualitativeSpecies="S_10" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">NFkB activates IAP [1,2,3].&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_36" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <and/>
+                <apply>
+                  <eq/>
+                  <ci> S_10 </ci>
+                  <cn type="integer"> 1 </cn>
+                </apply>
+                <apply>
+                  <not/>
+                  <apply>
+                    <or/>
+                    <apply>
+                      <eq/>
+                      <ci> S_25 </ci>
+                      <cn type="integer"> 1 </cn>
+                    </apply>
+                    <apply>
+                      <and/>
+                      <apply>
+                        <eq/>
+                        <ci> S_8 </ci>
+                        <cn type="integer"> 1 </cn>
+                      </apply>
+                      <apply>
+                        <eq/>
+                        <ci> S_16 </ci>
+                        <cn type="integer"> 1 </cn>
+                      </apply>
+                    </apply>
+                  </apply>
+                </apply>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_37">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">NFkB activates ikb and IKK deactivates ikb and is dominant over the effect of NFkB [1].&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_37_in_S_2" qual:qualitativeSpecies="S_2" qual:sign="negative" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">The activated IkB kinase complex (IKK) removes the inhibitor of NFkB (IKB) [1,4,5,6,7].&lt;/font></p></body>
+            </notes>
+          </qual:input>
+          <qual:input qual:id="tr_S_37_in_S_10" qual:qualitativeSpecies="S_10" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">NfkB exerts negative feedback regulation on its own production by activating ikb [1,2,3].&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_37" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <and/>
+                <apply>
+                  <eq/>
+                  <ci> S_10 </ci>
+                  <cn type="integer"> 1 </cn>
+                </apply>
+                <apply>
+                  <not/>
+                  <apply>
+                    <eq/>
+                    <ci> S_2 </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                </apply>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_38">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">Cas3 activates DNADamage [1].&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_38_in_S_8" qual:qualitativeSpecies="S_8" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">DNA Damage Event is activated by Cas3 after two time units have occurred. According to Mai and Liu, "This node is\r\nalways set to the OFF state unless the caspase 3 node has been in\r\nthe ON state in previous two successive steps: only when both\r\nS&lt;sub>Cas3&lt;/sub>(t=1) = ON and S&lt;sub>Cas3&lt;/sub>(t) = ON, S&lt;sub>DNA Damage Event&lt;/sub>(t+1) = ON,\r\notherwise S&lt;sub>DNA Damage Event&lt;/sub>(t+1) = OFF [1]."</p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_38" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <eq/>
+                <ci> S_8 </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_39">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;span style="font-family: Georgia; font-size: small;">GFR activates PIP2 [1].&amp;nbsp;&lt;/span></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_39_in_S_41" qual:qualitativeSpecies="S_41" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">GFR activates PIP2 [1,2].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_39" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <eq/>
+                <ci> S_41 </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_40">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;span style="font-family: Georgia; font-size: small;">Cas7 activates Cas12 [1].&amp;nbsp;&lt;/span></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_40_in_S_17" qual:qualitativeSpecies="S_17" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">Cas7 activates Cas12 [1].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_40" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <eq/>
+                <ci> S_17 </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_S_41">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">
+            <p>&lt;font face="Georgia" size="2">GF activates GFR [1].&amp;nbsp;&lt;/font></p></body>
+        </notes>
+        <qual:listOfInputs>
+          <qual:input qual:id="tr_S_41_in_S_13" qual:qualitativeSpecies="S_13" qual:sign="positive" qual:thresholdLevel="1" qual:transitionEffect="none">
+            <notes>
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                <p>&lt;font face="Georgia" size="2">Growth factors activate growth factor receptors [1].&amp;nbsp;&lt;/font></p></body>
+            </notes>
+          </qual:input>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="S_41" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <eq/>
+                <ci> S_13 </ci>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+    </qual:listOfTransitions>
+    <listOfCompartments>
+      <compartment constant="true" id="extracellular" name="extracellular"/>
+      <compartment constant="true" id="cytosol" name="cytosol"/>
+    </listOfCompartments>
+  </model>
+</sbml>

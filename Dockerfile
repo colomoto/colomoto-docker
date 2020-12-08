@@ -136,10 +136,12 @@ COPY bin/* /usr/bin/
 COPY --chown=$NB_USER:$NB_USER tutorials /notebook/tutorials
 COPY --chown=$NB_USER:$NB_USER usecases/*.* /notebook/usecases/
 
+RUN chown $NB_USER:$NB_USER /notebook
+
 USER $NB_USER
 
 RUN mkdir -p /home/$NB_USER/.local/lib/python3.8/site-packages && \
-    mkdir -p /notebook/persistent &&\
+    mkdir /notebook/persistent &&\
     touch /notebook/persistent/.keep
 
 ARG IMAGE_NAME

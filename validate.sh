@@ -1,11 +1,9 @@
 #!/bin/bash
 
-do_cellcollective=true
 strict=true
 
 lopts="help"
 lopts="${lopts},allow-errors"
-lopts="${lopts},skip-cellcollective"
 
 usage() {
         echo "
@@ -13,7 +11,6 @@ Usage: $0 [opts]
 
 Options:
     --allow-errors              allow errors during execution
-    --skip-cellcollective       skip CellCollective tests
 "
 }
 
@@ -31,10 +28,6 @@ while [ -n "${1:-}" ]; do
         --help)
             usage
             exit 1 ;;
-        --skip-cellcollective)
-            echo "WARNING: Skipping cellcollective tests"
-            NB_OPTS+=("--TagRemovePreprocessor.remove_cell_tags={'cellcollective'}")
-            do_cellcollective=false ;;
         --allow-errors)
             echo "WARNING: Strict mode disabled"
             strict=false
@@ -65,9 +58,7 @@ test_nb+=("tutorials/boolSim/boolSim - attractors.ipynb")
 test_nb+=("tutorials/boolSim/boolSim - reachable.ipynb")
 test_nb+=('tutorials/CABEAN/CABEAN_Myeloid_reprogramming.ipynb')
 test_nb+=("tutorials/Caspo/Caspo-control_Bladder.ipynb")
-if $do_cellcollective; then
-    test_nb+=("tutorials/CellCollective/CellCollective - Knowledge Base.ipynb")
-fi
+test_nb+=("tutorials/CellCollective/CellCollective - Knowledge Base.ipynb")
 test_nb+=("tutorials/GINsim/GINsim - visualization")
 test_nb+=("tutorials/MaBoSS/Toy Example.ipynb")
 test_nb+=("tutorials/MaBoSS/MaBoSS - Quick tutorial.ipynb")

@@ -30,7 +30,6 @@ jobs:
         author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
         commit-message: "update tools"
         title: Next image
-        labels: pkg-update, auto
         assignees: pauleve
         branch: auto/next
         base: master

@@ -6,7 +6,7 @@ on:
       - auto/next
 
 jobs:
-  validate:
+  validate-next:
     env:
       IMAGE: colomoto/colomoto-docker:next
     runs-on: ubuntu-latest

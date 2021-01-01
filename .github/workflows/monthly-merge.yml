@@ -5,13 +5,12 @@ on:
     - cron: "00 19,21 01 * *"
 
 jobs:
-  pr-automerge:
+  monthly-merge:
     runs-on: ubuntu-latest
     steps:
-    - uses: squalrus/merge-bot@v0.4.3
-      with:
-        GITHUB_TOKEN: ${{ secrets.PAT }}
-        labels: ready-for-monthly-merge
-        checks_enabled: true
-        method: rebase
-        delete_source_branch: true
+    - uses: "pascalgn/automerge-action@v0.13.0"
+      env:
+        GITHUB_TOKEN: "${{ secrets.PAT }}"
+        MERGE_LABELS: "ready-for-monthly-merge"
+        MERGE_METHOD: "rebase"
+        MERGE_DELETE_BRANCH: "true"

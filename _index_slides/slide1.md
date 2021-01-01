@@ -98,7 +98,7 @@ then, open your browser and go to http://localhost:8888 for the Jupyter notebook
 * [NuSMV](http://nusmv.fbk.eu) -- Symbolic model-checker<br/>
   Python module [`nusmv`](https://github.com/colomoto/colomoto-jupyter)
 * [Pint](https://loicpauleve.name/pint) -- Static analyzer for dynamics of Automata Networks<br/>
-  Python module [`pypint`](https://github.com/pauleve/pint)
+  Python module [`pypint`](https://github.com/pauleve/pypint)
 * [PyBoolNet](https://github.com/hklarner/PyBoolNet) -- Generation, modification and analysis of Boolean networks<br>
   Python module [`PyBoolNet`](https://github.com/hklarner/PyBoolNet)
 * [R-BoolNet](https://cran.r-project.org/package=BoolNet) -- Analysis and reconstruction of Boolean networks dynamics<br/>

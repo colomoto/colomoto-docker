@@ -116,14 +116,14 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         boolsim-python=0.5=py_0 \
         cabean-python=1.0=py_0 \
         caspo-control=1.0=py_0 \
-        boolean.py=3.7=py_0 \
+        boolean.py=3.9+git_1=py_0 \
         casq=0.7.8=py_1 \
         colomoto_jupyter=0.7.90=py_0 \
         ginsim-python=0.4.3=py_0 \
         mpbn=1.3=py_0 \
         pyactonet=1.0=py_0 \
         pymaboss=0.7.18=py_0 \
-        pypint=1.6.1=py_0 \
+        pypint=1.6.2=py_0 \
         stablemotifs-python=1.0=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 

@@ -92,7 +92,7 @@ access to the following softwares:
 | MaBoSS | http://maboss.curie.fr | Markovian Boolean Stochastic Simulator | Python module [`maboss`](https://github.com/colomoto/pyMaBoSS) |
 | mpbn | https://github.com/pauleve/mpbn | Most Permissive Boolean Networks | Python module [`mpbn`](https://github.com/pauleve/mpbn) |
 | NuSMV | http://nusmv.fbk.eu | Symbolic model-checker | Python module [`nusmv`](https://github.com/colomoto/colomoto-jupyter)
-| Pint | https://loicpauleve.name/pint | Static analyzer for dynamics of Automata Networks | Python module [`pypint`](https://github.com/pauleve/pint)  |
+| Pint | https://loicpauleve.name/pint | Static analyzer for dynamics of Automata Networks | Python module [`pypint`](https://github.com/pauleve/pypint)  |
 | PyBoolNet | https://github.com/hklarner/PyBoolNet | Generation, modification and analysis of Boolean networks | Python module [`PyBoolNet`](https://github.com/hklarner/PyBoolNet)  |
 | R-BoolNet | https://cran.r-project.org/package=BoolNet | Analysis and reconstruction of Boolean networks dynamics | RPY2 python interface |
 | StableMotifs | https://github.com/jgtz/StableMotifs | Target-control of Boolean networks | Python module [`stablemotifs`](https://github.com/algorecell/StableMotifs-python) |

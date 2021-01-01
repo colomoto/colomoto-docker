@@ -101,7 +101,7 @@
     "pypint": {
         "name": "PyPint",
         "description": "Python interface to Pint",
-        "release_url": "https://github.com/pauleve/pint/releases/tag/pypint-v{}"
+        "release_url": "https://github.com/pauleve/pypint/releases/tag/v{}"
     },
     "r-boolnet": {
         "name": "R-BoolNet",

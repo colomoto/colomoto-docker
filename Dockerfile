@@ -1,1 +1,1 @@
-FROM colomoto/colomoto-docker:2019-11-25
+FROM colomoto/colomoto-docker:2019-11-30

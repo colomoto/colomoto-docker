@@ -21,7 +21,7 @@ jobs:
         run: |
           set -ex
           git fetch --depth=1 origin +refs/tags/*:refs/tags/*
-          echo LATEST_TAG=$(git tag|tail -n1) >> $GITHUB_ENV
+          echo LATEST_TAG=$(git tag|grep -v mybinder|sort|tail -n1) >> $GITHUB_ENV
           echo NEXT_TAG=$(git log -1 --format=%cs) >> $GITHUB_ENV
         shell: bash
       - name: Check for changes

@@ -60,6 +60,7 @@ RUN conda install --no-update-deps -y \
         libgfortran \
         imagemagick \
         ipywidgets \
+        'jedi<0.18' \
         matplotlib \
         networkx \
         nomkl \

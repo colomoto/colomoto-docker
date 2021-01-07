@@ -51,6 +51,7 @@ RUN CONDA_VERSION="py39_4.9.2" && \
         -c colomoto/label/fake \
         openjdk \
         pyqt && \
+    find /opt/conda -name '*.a' -delete &&\
     conda clean -y --all && rm -rf /opt/conda/pkgs
 
 # notebook dependencies
@@ -70,6 +71,7 @@ RUN conda install --no-update-deps -y \
         seaborn \
         scikit-learn \
         && \
+    find /opt/conda -name '*.a' -delete &&\
     conda clean -y --all && rm -rf /opt/conda/pkgs
 
 

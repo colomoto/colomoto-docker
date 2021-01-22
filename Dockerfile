@@ -64,7 +64,7 @@ RUN conda install --no-update-deps -y \
         networkx \
         nomkl \
         notebook \
-        pandas \
+        'pandas>=1.2' \
         pydot \
         r-base \
         rpy2 \

@@ -128,7 +128,7 @@ def main():
 
     docker_argv = check_docker()
 
-    if args.version == "latest":
+    if args.version == "latest" and not args.no_update:
         import json
         try:
             from urllib.request import urlopen

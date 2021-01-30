@@ -55,7 +55,7 @@ RUN CONDA_VERSION="py39_4.9.2" && \
     conda clean -y --all && rm -rf /opt/conda/pkgs
 
 # notebook dependencies
-RUN conda install --no-update-deps -y \
+RUN conda install -y \
         graphviz \
         libgfortran \
         imagemagick \

@@ -94,7 +94,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y \
         clingo=5.4.1=py39he80948d_0 \
         eqntott=1.0=1 \
         espresso-logic-minimizer=9999=h14c3975_0 \
-        its=20180905=0 \
+        its=20210125=0 \
         nusmv=2.6.0=0 \
         nusmv-a=1.2=h6bb024c_0 \
         nusmv-arctl=2.2.2=0 \
@@ -120,11 +120,11 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         caspo-control=1.0=py_0 \
         boolean.py=3.9+git_1=py_0 \
         casq=0.7.8=py_1 \
-        colomoto_jupyter=0.7.90=py_0 \
+        colomoto_jupyter=0.8.1=py_0 \
         ginsim-python=0.4.3=py_0 \
-        mpbn=1.3=py_0 \
+        mpbn=1.4=py_0 \
         pyactonet=1.0=py_0 \
-        pymaboss=0.7.18=py_0 \
+        pymaboss=0.7.19=py_0 \
         pypint=1.6.2=py_0 \
         stablemotifs-python=1.0=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs

@@ -19,6 +19,8 @@ def get_latest_version(pkg, channels, cfg):
     bad_builds = re.compile("({})".format("|".join(\
             cfg["blacklist-builds"]))) if "blacklist-builds" in cfg \
                 else None
+    if "force-version" in cfg and pkg in cfg["force-version"]:
+        return cfg["force-version"][pkg]
     for channel in channels:
         parts = channel.split("/")
         channel = parts[0]

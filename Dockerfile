@@ -107,7 +107,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y \
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         cabean=1.0.0=0 \
         ginsim=3.0.0b=12 \
-        maboss=2.3.4=h6bb024c_0 \
+        maboss=2.4.0=h2bc3f7f_1 \
         pyboolnet=2.2.8=0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
@@ -124,7 +124,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         ginsim-python=0.4.3=py_0 \
         mpbn=1.6=py_0 \
         pyactonet=1.0=py_0 \
-        pymaboss=0.7.19=py_0 \
+        pymaboss=0.8.1=py_0 \
         pypint=1.6.2=py_0 \
         stablemotifs-python=1.0=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs

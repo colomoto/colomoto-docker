@@ -3,5 +3,8 @@
 "channels": ["colomoto", "conda-forge"],
 "blacklist-dependencies": [],
 "skip-package-build": ["r-boolnet"],
-"blacklist-builds": ["^(py..)?mro"]
+"blacklist-builds": ["^(py..)?mro"],
+"force-version": {
+    "asprin": "3.1.1=py_0"
+}
 }

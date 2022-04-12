@@ -1,4 +1,9 @@
 {
+    "aeon": {
+        "name": "AEON.py",
+        "description": "Symbolic analysis (attractors, reachability) of (partially specified) Boolean networks",
+        "release_url": "https://github.com/sybila/biodivine-aeon-py/releases/"
+    },
     "bns": {
         "name": "BNS",
         "description": "Identification of synchronous attractors using SAT",

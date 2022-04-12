@@ -80,6 +80,7 @@ access to the following softwares:
 | Software tool | Homepage | Description | Jupyter interface |
 | --- | --- | --- | --- |
 | ActoNet | https://github.com/algorecell/pyActoNet | Abduction-based control of fixed points of Boolean networks  | Python module [`actonet`](https://github.com/algorecell/pyActoNet) |
+| AEON.py | https://github.com/sybila/biodivine-aeon-py | Symbolic analysis (attractors, reachability) of (partially specified) Boolean networks | Python module [`biodivine_aeon`](https://github.com/sybila/biodivine-aeon-py) |
 | BNS | https://people.kth.se/~dubrova/BNS/user_manual.html | Identification of synchronous attractors | Python module [`bns`](https://github.com/colomoto/bns-python) |
 | bioLQM | http://colomoto.org/biolqm/ | Logical Qualitative Modelling toolkit | Python module [`biolqm`](https://github.com/GINsim/GINsim-python) |
 | BooleanNet | https://github.com/ialbert/booleannet | Simulation of Boolean regulatory networks | Python module [`boolean2`](https://github.com/ialbert/booleannet) |

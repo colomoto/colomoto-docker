@@ -1,0 +1,258 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" layout:required="false" level="3" qual:required="true" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" version="1" xmlns:qual="http://www.sbml.org/sbml/level3/version1/qual/version1">
+  <model id="model_id">
+    <layout:listOfLayouts xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <layout:layout layout:id="__layout__">
+        <layout:dimensions layout:height="249" layout:width="551"/>
+        <layout:listOfAdditionalGraphicalObjects>
+          <layout:generalGlyph layout:id="_ly_CtrA" layout:reference="CtrA">
+            <layout:boundingBox>
+              <layout:position layout:x="419" layout:y="94"/>
+              <layout:dimensions layout:height="25" layout:width="45"/>
+            </layout:boundingBox>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="_ly_GcrA" layout:reference="GcrA">
+            <layout:boundingBox>
+              <layout:position layout:x="325" layout:y="135"/>
+              <layout:dimensions layout:height="25" layout:width="45"/>
+            </layout:boundingBox>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="_ly_DnaA" layout:reference="DnaA">
+            <layout:boundingBox>
+              <layout:position layout:x="374" layout:y="224"/>
+              <layout:dimensions layout:height="25" layout:width="45"/>
+            </layout:boundingBox>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="_ly_CcrM" layout:reference="CcrM">
+            <layout:boundingBox>
+              <layout:position layout:x="462" layout:y="222"/>
+              <layout:dimensions layout:height="25" layout:width="45"/>
+            </layout:boundingBox>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="_ly_SciP" layout:reference="SciP">
+            <layout:boundingBox>
+              <layout:position layout:x="506" layout:y="133"/>
+              <layout:dimensions layout:height="25" layout:width="45"/>
+            </layout:boundingBox>
+          </layout:generalGlyph>
+        </layout:listOfAdditionalGraphicalObjects>
+      </layout:layout>
+    </layout:listOfLayouts>
+    <qual:listOfQualitativeSpecies xmlns:qual="http://www.sbml.org/sbml/level3/version1/qual/version1">
+      <!-- This specie does not have maxLevel set intentionally to test if warning is printed -->
+      <qual:qualitativeSpecies qual:compartment="comp1" qual:constant="false" qual:name="CtrA" qual:id="CtrA"/>
+      <qual:qualitativeSpecies qual:maxLevel="1" qual:compartment="comp1" qual:constant="false" qual:name="GcrA" qual:id="GcrA"/>
+      <qual:qualitativeSpecies qual:maxLevel="1" qual:compartment="comp1" qual:constant="false" qual:name="DnaA" qual:id="DnaA"/>
+      <qual:qualitativeSpecies qual:maxLevel="1" qual:compartment="comp1" qual:constant="false" qual:name="CcrM" qual:id="CcrM"/>
+      <qual:qualitativeSpecies qual:maxLevel="1" qual:compartment="comp1" qual:constant="false" qual:name="SciP" qual:id="SciP"/>
+    </qual:listOfQualitativeSpecies>
+    <qual:listOfTransitions xmlns:qual="http://www.sbml.org/sbml/level3/version1/qual/version1">
+      <qual:transition qual:id="tr_CtrA">
+        <qual:listOfInputs>
+          <qual:input qual:qualitativeSpecies="CtrA" qual:transitionEffect="none" qual:sign="positive" qual:id="tr_CtrA_in_0"/>
+          <qual:input qual:qualitativeSpecies="GcrA" qual:transitionEffect="none" qual:sign="positive" qual:id="tr_CtrA_in_1"/>
+          <qual:input qual:qualitativeSpecies="CcrM" qual:transitionEffect="none" qual:sign="negative" qual:id="tr_CtrA_in_3"/>
+          <qual:input qual:qualitativeSpecies="SciP" qual:transitionEffect="none" qual:sign="negative" qual:id="tr_CtrA_in_4"/>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="CtrA" qual:transitionEffect="assignmentLevel" qual:id="tr_CtrA_out"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <or/>
+                <false/>
+                <apply>
+                  <and/>
+                  <apply>
+                    <eq/>
+                    <ci> CtrA </ci>
+                    <cn type="integer"> 0 </cn>
+                  </apply>
+                  <apply>
+                    <eq/>
+                    <ci> GcrA </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                  <apply>
+                    <eq/>
+                    <ci> CcrM </ci>
+                    <cn type="integer"> 0 </cn>
+                  </apply>
+                  <apply>
+                    <eq/>
+                    <ci> SciP </ci>
+                    <cn type="integer"> 0 </cn>
+                  </apply>
+                  <true/>
+                </apply>
+                <apply>
+                  <and/>
+                  <apply>
+                    <eq/>
+                    <ci> CtrA </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                  <apply>
+                    <eq/>
+                    <ci> CcrM </ci>
+                    <cn type="integer"> 0 </cn>
+                  </apply>
+                  <apply>
+                    <eq/>
+                    <ci> SciP </ci>
+                    <cn type="integer"> 0 </cn>
+                  </apply>
+                </apply>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_GcrA">
+        <qual:listOfInputs>
+          <qual:input qual:qualitativeSpecies="CtrA" qual:transitionEffect="none" qual:sign="negative" qual:id="tr_GcrA_in_0"/>
+          <qual:input qual:qualitativeSpecies="DnaA" qual:transitionEffect="none" qual:sign="positive" qual:id="tr_GcrA_in_2"/>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="GcrA" qual:transitionEffect="assignmentLevel" qual:id="tr_GcrA_out"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <and/>
+                <apply>
+                  <eq/>
+                  <ci> CtrA </ci>
+                  <cn type="integer"> 0 </cn>
+                </apply>
+                <apply>
+                  <eq/>
+                  <ci> DnaA </ci>
+                  <cn type="integer"> 1 </cn>
+                </apply>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_DnaA">
+        <qual:listOfInputs>
+          <qual:input qual:qualitativeSpecies="CtrA" qual:transitionEffect="none" qual:sign="positive" qual:id="tr_DnaA_in_0"/>
+          <qual:input qual:qualitativeSpecies="GcrA" qual:transitionEffect="none" qual:sign="negative" qual:id="tr_DnaA_in_1"/>
+          <qual:input qual:qualitativeSpecies="DnaA" qual:transitionEffect="none" qual:sign="negative" qual:id="tr_DnaA_in_2"/>
+          <qual:input qual:qualitativeSpecies="CcrM" qual:transitionEffect="none" qual:sign="positive" qual:id="tr_DnaA_in_3"/>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="DnaA" qual:transitionEffect="assignmentLevel" qual:id="tr_DnaA_out"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <and/>
+                <apply>
+                  <eq/>
+                  <ci> CtrA </ci>
+                  <cn type="integer"> 1 </cn>
+                </apply>
+                <apply>
+                  <eq/>
+                  <ci> GcrA </ci>
+                  <cn type="integer"> 0 </cn>
+                </apply>
+                <apply>
+                  <eq/>
+                  <ci> DnaA </ci>
+                  <cn type="integer"> 0 </cn>
+                </apply>
+                <apply>
+                  <eq/>
+                  <ci> CcrM </ci>
+                  <cn type="integer"> 1 </cn>
+                </apply>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_CcrM">
+        <qual:listOfInputs>
+          <qual:input qual:qualitativeSpecies="CtrA" qual:transitionEffect="none" qual:sign="positive" qual:id="tr_CcrM_in_0"/>
+          <qual:input qual:qualitativeSpecies="CcrM" qual:transitionEffect="none" qual:sign="negative" qual:id="tr_CcrM_in_3"/>
+          <qual:input qual:qualitativeSpecies="SciP" qual:transitionEffect="none" qual:sign="negative" qual:id="tr_CcrM_in_4"/>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="CcrM" qual:transitionEffect="assignmentLevel" qual:id="tr_CcrM_out"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <and/>
+                <apply>
+                  <eq/>
+                  <ci> CtrA </ci>
+                  <cn type="integer"> 1 </cn>
+                </apply>
+                <apply>
+                  <eq/>
+                  <ci> CcrM </ci>
+                  <cn type="integer"> 0 </cn>
+                </apply>
+                <apply>
+                  <eq/>
+                  <ci> SciP </ci>
+                  <cn type="integer"> 0 </cn>
+                </apply>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+      <qual:transition qual:id="tr_SciP">
+        <qual:listOfInputs>
+          <qual:input qual:qualitativeSpecies="CtrA" qual:transitionEffect="none" qual:sign="positive" qual:id="tr_SciP_in_0"/>
+          <qual:input qual:qualitativeSpecies="DnaA" qual:transitionEffect="none" qual:sign="negative" qual:id="tr_SciP_in_2"/>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:qualitativeSpecies="SciP" qual:transitionEffect="assignmentLevel" qual:id="tr_SciP_out"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="0">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="1">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <and/>
+                <apply>
+                  <eq/>
+                  <ci> CtrA </ci>
+                  <cn type="integer"> 1 </cn>
+                </apply>
+                <apply>
+                  <eq/>
+                  <ci> DnaA </ci>
+                  <cn type="integer"> 0 </cn>
+                </apply>
+              </apply>
+            </math>
+                    </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+    </qual:listOfTransitions>
+    <listOfCompartments>
+      <compartment constant="true" id="comp1"/>
+    </listOfCompartments>
+  </model>
+</sbml>

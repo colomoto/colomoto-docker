@@ -56,8 +56,7 @@ RUN CONDA_VERSION="py39_4.9.2" && \
 
 # notebook dependencies
 RUN conda install -y \
-        graphviz \
-        python-graphviz \
+        graphviz \        
         libgfortran \
         imagemagick \
         ipywidgets \
@@ -106,6 +105,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y \
 
 # Tier 2: tools with regular updates (2-4/year)
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
+        python-graphviz \
         daemontus::biodivine_aeon=0.1.1 \
         cabean=1.0.0=0 \
         ginsim=3.0.0b=12 \

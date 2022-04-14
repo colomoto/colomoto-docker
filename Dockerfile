@@ -16,7 +16,6 @@ CMD ["colomoto-nb", "--NotebookApp.token="]
 ## distribution packages
 ##
 RUN apt-get update --fix-missing && \
-    mkdir /usr/share/man/man1 && touch /usr/share/man/man1/rmid.1.gz.dpkg-tmp && \
     apt-get install -y --no-install-recommends \
         bzip2 \
         ca-certificates \

@@ -78,7 +78,6 @@ test_nb+=("tutorials/PyBoolNet/PyBoolNet_tutorial.ipynb")
 test_nb+=("tutorials/pystablemotifs/Basic Usage Tutorial.ipynb")
 test_nb+=("tutorials/pystablemotifs/Control Tutorial.ipynb")
 test_nb+=("tutorials/R-BoolNet/Random BN generation, loading with biolqm or minibn.ipynb")
-test_nb+=("tutorials/StableMotifs/StableMotifs_Myeloid.ipynb")
 test_nb+=("tutorials/CaSQ/CaSQ_from_CellDesigner_to_GINsim.ipynb")
 
 if [ -n "${DOCKER_IMAGE}" ]; then

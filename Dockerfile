@@ -55,24 +55,29 @@ RUN CONDA_VERSION="py39_4.11.0" && \
 
 # notebook dependencies
 RUN conda install -y \
-        graphviz \        
-        libgfortran \
+        graphviz \
         imagemagick \
         ipywidgets \
         matplotlib \
         networkx \
         nomkl \
         notebook \
-        'pandas>=1.2' \
+        pandas \
         pydot \
-        r-base \
-        rpy2 \
+        python-graphviz \
         seaborn \
         scikit-learn \
         && \
     find /opt/conda -name '*.a' -delete &&\
     conda clean -y --all && rm -rf /opt/conda/pkgs
 
+# R
+RUN conda install -y \
+        'r-base>=4.1' \
+        rpy2 \
+        && \
+    find /opt/conda -name '*.a' -delete &&\
+    conda clean -y --all && rm -rf /opt/conda/pkgs
 
 # IMPORTANT: DO NOT UPDATE PACKAGE VERSIONS MANUALLY
 
@@ -103,7 +108,6 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y \
 
 # Tier 2: tools with regular updates (2-4/year)
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
-        python-graphviz=0.13.2=py_0 \
         daemontus::biodivine_aeon=0.1.1=py39h9bf148f_0 \
         cabean=1.0.0=0 \
         ginsim=3.0.0b=12 \

@@ -100,7 +100,6 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y \
         nusmv-arctl=2.2.2=0 \
         pint=2019.05.24=1 \
         r-boolnet=2.1.5 \
-        stablemotifs=1=1 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 # Tier 2: tools with regular updates (2-4/year)
@@ -128,7 +127,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         pyactonet=1.0=py_0 \
         pymaboss=0.8.1=py_0 \
         pypint=1.6.2=py_0 \
-        stablemotifs-python=1.0=py_0 \
+        pystablemotifs=3.0.3=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 COPY validate.sh /usr/local/bin/

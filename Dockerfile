@@ -1,4 +1,4 @@
-FROM debian:buster-20200414-slim
+FROM debian:stable-20220328-slim
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /opt/conda/bin:$PATH

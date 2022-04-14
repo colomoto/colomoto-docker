@@ -114,14 +114,9 @@
         "release_url": "https://cran.r-project.org/web/packages/BoolNet/index.html"
     },
     "stablemotifs": {
-        "name": "StableMotifs",
-        "description": "Target-control of Boolean networks",
-        "release_url": "https://github.com/jgtz/StableMotifs"
-    },
-    "stablemotifs-python": {
-        "name": "StableMotifs-python",
-        "description": "Python interface to StableMotifs",
-        "release_url": "https://github.com/algorecell/StableMotifs-python/releases/tag/v{}"
+        "name": "pystablemotifs",
+        "description": " A PyBoolNet implementation of stable motif algorithms, including oscillation checking. ",
+        "release_url": "https://github.com/jcrozum/pystablemotifs/"
     },
     "casq": {
         "name": "CaSQ",

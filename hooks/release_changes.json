@@ -1,5 +1,5 @@
 {
-    "aeon": {
+    "biodivine_aeon": {
         "name": "AEON.py",
         "description": "Symbolic analysis (attractors, reachability) of (partially specified) Boolean networks",
         "release_url": "https://github.com/sybila/biodivine-aeon-py/releases/"
@@ -113,7 +113,7 @@
         "description": "Analysis and reconstruction of Boolean networks dynamics",
         "release_url": "https://cran.r-project.org/web/packages/BoolNet/index.html"
     },
-    "stablemotifs": {
+    "pystablemotifs": {
         "name": "pystablemotifs",
         "description": " A PyBoolNet implementation of stable motif algorithms, including oscillation checking. ",
         "release_url": "https://github.com/jcrozum/pystablemotifs/"

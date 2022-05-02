@@ -73,6 +73,8 @@ then, open your browser and go to http://localhost:8888 for the Jupyter notebook
 
 * [ActoNet](https://github.com/algorecell/pyActoNet) -- Abduction-based control of fixed points of Boolean networks<br/>
   Python module [`actonet`](https://github.com/algorecell/pyActoNet)
+* [AEON.py](https://github.com/sybila/biodivine-aeon-py) -- Symbolic analysis (attractors, reachability) of (partially specified) Boolean networks<br>
+  Python module [`biodivine_aeon`](https://github.com/sybila/biodivine-aeon-py)
 * [bioLQM](http://colomoto.org/biolqm/) -- Logical Qualitative Modelling toolkit<br/>
   Python module [`biolqm`](https://github.com/GINsim/GINsim-python)
 * [BNS](https://people.kth.se/~dubrova/BNS/user_manual.html) -- Identification of synchronous attractors<br>
@@ -103,5 +105,5 @@ then, open your browser and go to http://localhost:8888 for the Jupyter notebook
   Python module [`PyBoolNet`](https://github.com/hklarner/PyBoolNet)
 * [R-BoolNet](https://cran.r-project.org/package=BoolNet) -- Analysis and reconstruction of Boolean networks dynamics<br/>
   Generic RPY2 python interface
-* [StableMotifs](https://github.com/jgtz/StableMotifs) -- Target-control of Boolean networks<br/>
-  Python module [`stablemotifs`](https://github.com/algorecell/StableMotifs-python)
+* [pyStableMotifs](https://github.com/jcrozum/pystablemotifs) -- Target-control of Boolean networks<br/>
+  Python module [`pystablemotifs`](https://github.com/jcrozum/pystablemotifs)

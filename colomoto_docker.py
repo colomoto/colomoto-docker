@@ -23,7 +23,6 @@ persistent_dir = "persistent"
 official_image = "colomoto/colomoto-docker"
 official_alt = [
     "ghcr.io/colomoto/colomoto-docker:{tag}",
-    "docker.pkg.github.com/colomoto/colomoto-docker/colomoto-docker:{tag}",
 ]
 
 def error(msg):

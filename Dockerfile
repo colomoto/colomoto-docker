@@ -111,7 +111,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         daemontus::biodivine_aeon=0.1.1=py39h9bf148f_0 \
         cabean=1.0.0=0 \
         ginsim=3.0.0b=12 \
-        maboss=2.4.1=h2bc3f7f_1 \
+        maboss=2.5.0=h2bc3f7f_1 \
         pyboolnet=3.0.9=0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 

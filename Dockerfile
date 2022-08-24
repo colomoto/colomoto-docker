@@ -97,6 +97,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y \
         bioasp::caspo=4.0.1=py_0 \
         potassco::clingo=5.5.2=py39h3fd9d12_0 \
         eqntott=1.0=1 \
+        erode-python \
         espresso-logic-minimizer=9999=h14c3975_0 \
         its=20210125=0 \
         nusmv=2.6.0=0 \

@@ -53,6 +53,11 @@
         "description": "CoLoMoTo Python module",
         "release_url": "https://github.com/colomoto/colomoto-jupyter/releases/tag/v{}"
     },
+    "erode-python": {
+        "name": "ERODE-Python",
+        "description": "Backward Boolean Equivalence Reduction of Boolean networks",
+        "release_url": "https://github.com/colomoto/ERODE-CoLoMoTo/releases/tag/v{}"
+    },
     "ginsim": {
         "name": "GINsim",
         "description": "Boolean and multi-valued network modelling",

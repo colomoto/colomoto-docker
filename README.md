@@ -89,6 +89,7 @@ access to the following softwares:
 | Caspo | https://bioasp.github.io/caspo/ | Reasoning on the response of logical signaling networks with Answer Set Programming | Python module [`caspo_control`](https://github.com/algorecell/caspo-control) |
 | CaSQ | https://github.com/soli/casq | Convert static interaction maps into executable models | Python module [`casq`](https://github.com/soli/casq) |
 | CellCollective | https://cellcollective.org | Model repository and knowledge base | Python module [`cellcollective`](https://github.com/colomoto/colomoto-jupyter) |
+| ERODE | https://github.com/colomoto/ERODE-CoLoMoTo | Backward Boolean Equivalence of Boolean networks | Python module [`erode`](https://github.com/colomoto/ERODE-CoLoMoTo) |
 | GINsim | http://ginsim.org | Boolean and multi-valued network modelling | Python module [`ginsim`](https://github.com/GINsim/GINsim-python) |
 | MaBoSS | http://maboss.curie.fr | Markovian Boolean Stochastic Simulator | Python module [`maboss`](https://github.com/colomoto/pyMaBoSS) |
 | mpbn | https://github.com/pauleve/mpbn | Most Permissive Boolean Networks | Python module [`mpbn`](https://github.com/pauleve/mpbn) |

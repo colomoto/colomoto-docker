@@ -1,0 +1,9 @@
+# model in BoolNet format
+# the header targets, factors is mandatory to be importable in the R package BoolNet
+
+targets, factors
+Coup_fti, !Fgf8&!Sp8
+Emx2,     !Fgf8&!Pax6&!Sp8&Coup_fti
+Fgf8,     Fgf8&!Emx2&Sp8
+Pax6,     !Emx2&Sp8&!Coup_fti
+Sp8,      Fgf8&!Emx2

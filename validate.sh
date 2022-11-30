@@ -70,6 +70,7 @@ test_nb+=("tutorials/MaBoSS/Predict mutations with Pint, refine with MaBoSS.ipyn
 test_nb+=("tutorials/mpbn/Bladder_Remy2015.ipynb")
 test_nb+=("tutorials/mpbn/Quick_example.ipynb")
 test_nb+=("tutorials/mpbn/TumourInvasion_Cohen2015.ipynb")
+test_nb+=("tutorials/mpbn/Simulation.ipynb")
 test_nb+=("tutorials/minibn/Computing dynamics with minibn.ipynb")
 test_nb+=("tutorials/minibn/Model creation and edition with minibn.ipynb")
 test_nb+=("tutorials/minibn/Simulations with minibn.ipynb")

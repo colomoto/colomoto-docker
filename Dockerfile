@@ -95,7 +95,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y \
         bnettoprime=1.0=h6bb024c_0 \
         bns=1.3=0 \
         bioasp::caspo=4.0.1=py_1 \
-        potassco::clingo=5.6.1=py39h3fd9d12_0 \
+        potassco::clingo=5.6.2=py39h3fd9d12_0 \
         eqntott=1.0=1 \
         erode-python=0.7=py39_0 \
         espresso-logic-minimizer=9999=h14c3975_0 \
@@ -112,7 +112,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         daemontus::biodivine_aeon=0.1.1=py39h9bf148f_0 \
         cabean=1.0.0=0 \
         ginsim=3.0.0b=12 \
-        maboss=2.5.0=h2bc3f7f_1 \
+        maboss=2.5.1=h2bc3f7f_1 \
         pyboolnet=3.0.9=0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
@@ -127,9 +127,9 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         casq=1.0.3=py_0 \
         colomoto_jupyter=0.8.4=py_0 \
         ginsim-python=0.4.3=py_0 \
-        mpbn=1.7=py_0 \
+        mpbn=2.0=py_0 \
         pyactonet=1.0=py_0 \
-        pymaboss=0.8.2=py_0 \
+        pymaboss=0.8.3=py_0 \
         pypint=1.6.2=py_0 \
         pystablemotifs=3.0.3=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs

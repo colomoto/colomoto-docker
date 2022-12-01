@@ -15,6 +15,8 @@ Options:
 }
 
 NB_OPTS=("--ExecutePreprocessor.timeout=300")
+NB_OPTS+=("--TagRemovePreprocessor.enabled=true" "--TagRemovePreprocessor.remove_cell_tags=skip_test")
+
 
 argv="$(getopt --longoptions $lopts -- "${0}" "${@}")"
 if [ $? -ne 0 ]; then

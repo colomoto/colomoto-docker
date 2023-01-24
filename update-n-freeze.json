@@ -5,6 +5,7 @@
 "skip-package-build": ["r-boolnet"],
 "blacklist-builds": ["^(py..)?mro"],
 "force-version": {
-    "asprin": "3.1.1=py_0"
+    "asprin": "3.1.1=py_0",
+    "biodivine_aeon" : "0.1.1=py39h9bf148f_0"
 }
 }

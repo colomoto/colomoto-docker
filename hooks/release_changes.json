@@ -9,6 +9,11 @@
         "description": "Identification of synchronous attractors using SAT",
         "release_url": "https://people.kth.se/~dubrova/BNS/user_manual.html"
     },
+    "bonesis": {
+        "name": "BoNesis",
+        "description": "Synthesis of Most Permissive Boolean Networks from network architecture and dynamical properties",
+        "release_url": "https://github.com/bnediction/bonesis/releases/tag/v{}"
+    },
     "booleannet": {
         "name": "BooleanNet",
         "description": "Simulation of Boolean Regulatory networks",

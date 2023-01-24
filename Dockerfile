@@ -38,7 +38,7 @@ RUN TINI_VERSION="0.19.0" && \
 #
 # package versions in this section are not pinned unless necessary
 #
-RUN CONDA_VERSION="py39_23.1.0-1" && \
+RUN CONDA_VERSION="py310_22.11.1-1" && \
     echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O ~/miniconda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \

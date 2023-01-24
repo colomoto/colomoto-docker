@@ -1,4 +1,4 @@
-FROM debian:sid-20230208-slim
+FROM debian:sid-20230522-slim
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /home/user/.local/bin:/opt/conda/bin:$PATH
@@ -38,11 +38,13 @@ RUN TINI_VERSION="0.19.0" && \
 #
 # package versions in this section are not pinned unless necessary
 #
-RUN CONDA_VERSION="py39_23.1.0-1" && \
+RUN CONDA_VERSION="py310_23.3.1-0" && \
     echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O ~/miniconda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
     rm ~/miniconda.sh && \
+    conda install conda-libmamba-solver && \
+    conda config --set solver libmamba && \
     conda config --set auto_update_conda False && \
     conda config --add channels colomoto && \
     conda config --add channels conda-forge && \
@@ -81,8 +83,8 @@ RUN conda install -y \
 
 # tool dependencies being quite heavy
 #     nordic: cmappy, cython, pydantic, qnorm
-RUN conda install --no-update-deps -y \
-        bioconda::cmappy \
+RUN conda install --no-update-deps -y -c bioconda \
+        cmappy \
         cython \
         pydantic \
         qnorm \
@@ -106,9 +108,9 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y \
         bnettoprime=1.0=h6bb024c_0 \
         bns=1.3=0 \
         bioasp::caspo=4.0.1=py_1 \
-        potassco::clingo=5.6.2=py39h3fd9d12_0 \
+        potassco::clingo=5.6.2=py310h3fd9d12_0 \
         eqntott=1.0=1 \
-        erode-python=0.7=py39_0 \
+        erode-python=0.7.2=py_0 \
         espresso-logic-minimizer=9999=h14c3975_0 \
         its=20210125=0 \
         nusmv=2.6.0=0 \
@@ -120,7 +122,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y \
 
 # Tier 2: tools with regular updates (2-4/year)
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
-        daemontus::biodivine_aeon=0.2.0=py39h9bf148f_0 \
+        daemontus::biodivine_aeon=0.2.0=py310h9bf148f_0 \
         cabean=1.0.0=0 \
         ginsim=3.0.0b=12 \
         maboss=2.5.2=hb666907_2 \
@@ -159,7 +161,7 @@ RUN chown $NB_USER:$NB_USER /notebook
 
 USER $NB_USER
 
-RUN mkdir -p /home/$NB_USER/.local/lib/python3.9/site-packages && \
+RUN mkdir -p /home/$NB_USER/.local/lib/python3.10/site-packages && \
     mkdir /notebook/persistent &&\
     touch /notebook/persistent/.keep
 

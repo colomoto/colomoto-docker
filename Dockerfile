@@ -112,15 +112,15 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         daemontus::biodivine_aeon=0.1.1=py39h9bf148f_0 \
         cabean=1.0.0=0 \
         ginsim=3.0.0b=12 \
-        maboss=2.5.1=h2bc3f7f_1 \
-        pyboolnet=3.0.9=0 \
+        maboss=2.5.2=h2bc3f7f_1 \
+        pyboolnet=3.0.10=0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 # Tier 3: tools with frequent updates (>4/year) or lightweight with thin dependencies
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         algorecell_types=1.0=py_0 \
         bns-python=0.2=py_0 \
-        bonesis \
+        bonesis=0.4.92=py_0 \
         boolean.py=4.0=py_0 \
         boolsim-python=0.5=py_0 \
         cabean-python=1.0=py_0 \
@@ -130,7 +130,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         ginsim-python=0.4.3=py_0 \
         mpbn=2.0=py_0 \
         pyactonet=1.0=py_0 \
-        pymaboss=0.8.3=py_0 \
+        pymaboss=0.8.4=py_0 \
         pypint=1.6.2=py_0 \
         pystablemotifs=3.0.3=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs

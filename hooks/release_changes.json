@@ -88,6 +88,11 @@
         "description": "Brief implementation of Most Permissive Boolean Networks",
         "release_url": "https://github.com/pauleve/mpbn/releases/tag/v{}"
     },
+    "nordic": {
+        "name": "NORDic",
+        "description": "Network Oriented Repurposing of Drugs",
+        "release_url": "https://github.com/clreda/NORDic/releases/tag/v{}"
+    },
     "nusmv": {
         "name": "NuSMV",
         "description": "Symbolic model-checker",

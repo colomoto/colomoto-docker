@@ -129,6 +129,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         colomoto_jupyter=0.8.4=py_0 \
         ginsim-python=0.4.3=py_0 \
         mpbn=2.0=py_0 \
+        creda::nordic \
         pyactonet=1.0=py_0 \
         pymaboss=0.8.4=py_0 \
         pypint=1.6.2=py_0 \

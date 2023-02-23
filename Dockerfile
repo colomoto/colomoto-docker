@@ -79,6 +79,17 @@ RUN conda install -y \
     find /opt/conda -name '*.a' -delete &&\
     conda clean -y --all && rm -rf /opt/conda/pkgs
 
+# tool dependencies being quite heavy
+#     nordic: cmappy, cython, pydantic, qnorm
+RUN conda install --no-update-deps -y \
+        bioconda::cmappy \
+        cython \
+        pydantic \
+        qnorm \
+        && \
+    find /opt/conda -name '*.a' -delete &&\
+    conda clean -y --all && rm -rf /opt/conda/pkgs
+
 # IMPORTANT: DO NOT UPDATE PACKAGE VERSIONS MANUALLY
 
 # HOW TO INCLUDE A TOOL:

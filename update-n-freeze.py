@@ -65,7 +65,7 @@ def get_latest_version(pkg, channels, cfg):
                 print(builds)
                 def build_index(b):
                     b = b.split("_")
-                    b[-1] = int(b[-1])
+                    b.insert(0, int(b.pop()))
                     return b
                 for v in reversed(data["versions"]):
                     if pkg in cfg.get("skip-package-build"):

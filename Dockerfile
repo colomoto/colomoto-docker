@@ -115,7 +115,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y \
         nusmv-a=1.2=h6bb024c_0 \
         nusmv-arctl=2.2.2=0 \
         pint=2019.05.24=1 \
-        r-boolnet=2.1.7 \
+        r-boolnet=2.1.8 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 # Tier 2: tools with regular updates (2-4/year)
@@ -140,7 +140,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         colomoto_jupyter=0.8.4=py_0 \
         ginsim-python=0.4.3=py_0 \
         mpbn=2.0=py_0 \
-        creda::nordic \
+        creda::nordic=2.3.0=py_0 \
         pyactonet=1.0=py_0 \
         pymaboss=0.8.4=py_0 \
         pypint=1.6.2=py_0 \

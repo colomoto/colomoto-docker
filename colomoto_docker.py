@@ -140,12 +140,15 @@ def main():
             ssl._create_default_https_context = ssl._create_unverified_context
 
         info("# querying for latest tag of {}...".format(args.image))
-        url_api = "https://registry.hub.docker.com/v1/repositories/{}/tags".format(args.image)
+        url_api = "https://registry.hub.docker.com/v2/repositories/{}/tags".format(args.image)
+        namespace, repository = args.image.split("/")
+        url_api = f"https://hub.docker.com/v2/namespaces/{namespace}/repositories/{repository}/tags"
         tags = []
         q = urlopen(url_api)
         data = q.read().decode("utf-8")
         r = json.loads(data)
         q.close()
+        r = r["results"]
         tags = [t["name"] for t in r if pat_tag.match(t["name"])]
         if not tags:
             info("# ... none found! use 'latest'")

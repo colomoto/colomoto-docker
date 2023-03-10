@@ -94,7 +94,7 @@ access to the following softwares:
 | GINsim | http://ginsim.org | Boolean and multi-valued network modelling | Python module [`ginsim`](https://github.com/GINsim/GINsim-python) |
 | MaBoSS | http://maboss.curie.fr | Markovian Boolean Stochastic Simulator | Python module [`maboss`](https://github.com/colomoto/pyMaBoSS) |
 | mpbn | https://github.com/pauleve/mpbn | Most Permissive Boolean Networks | Python module [`mpbn`](https://github.com/pauleve/mpbn) |
-| NORDic | https://github.com/clreda/NORDic | Network Oriented Repurposing of Drugs | Python modul [`NORDic`](https://github.com/clreda/NORDic) |
+| NORDic | https://github.com/clreda/NORDic | Network Oriented Repurposing of Drugs | Python module [`NORDic`](https://github.com/clreda/NORDic) |
 | NuSMV | http://nusmv.fbk.eu | Symbolic model-checker | Python module [`nusmv`](https://github.com/colomoto/colomoto-jupyter)
 | Pint | https://loicpauleve.name/pint | Static analyzer for dynamics of Automata Networks | Python module [`pypint`](https://github.com/pauleve/pypint)  |
 | PyBoolNet | https://github.com/hklarner/PyBoolNet | Generation, modification and analysis of Boolean networks | Python module [`PyBoolNet`](https://github.com/hklarner/PyBoolNet)  |

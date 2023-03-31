@@ -131,7 +131,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         algorecell_types=1.0=py_0 \
         bns-python=0.2=py_0 \
-        bonesis=0.4.93=py_0 \
+        bonesis=0.5.0=py_0 \
         boolean.py=4.0=py_0 \
         boolsim-python=0.5=py_0 \
         cabean-python=1.0=py_0 \
@@ -140,7 +140,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         colomoto_jupyter=0.8.4=py_0 \
         ginsim-python=0.4.3=py_0 \
         mpbn=2.0=py_0 \
-        creda::nordic=2.3.0=py_0 \
+        creda::nordic=2.4.1=py_0 \
         pyactonet=1.0=py_0 \
         pymaboss=0.8.4=py_0 \
         pypint=1.6.2=py_0 \

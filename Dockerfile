@@ -38,7 +38,7 @@ RUN TINI_VERSION="0.19.0" && \
 #
 # package versions in this section are not pinned unless necessary
 #
-RUN CONDA_VERSION="py310_23.9.0-0" && \
+RUN CONDA_VERSION="py311_23.9.0-0" && \
     echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O ~/miniconda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
@@ -61,7 +61,6 @@ RUN CONDA_VERSION="py310_23.9.0-0" && \
     find /opt/conda -name '*.a' -delete &&\
     conda clean -y --all && rm -rf /opt/conda/pkgs
 
-# notebook dependencies
 RUN conda install -y \
         pyqt=5.9.9999 \
         graphviz \
@@ -115,7 +114,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
         bnettoprime=1.0=h6bb024c_0 \
         bns=1.3=0 \
         caspo=4.0.1=py_1 \
-        clingo=5.6.2=py310h3fd9d12_0 \
+        clingo=5.6.2=py311hb755f60_1 \
         eqntott=1.0=1 \
         erode-python=0.7.2=py_0 \
         espresso-logic-minimizer=9999=h14c3975_0 \
@@ -124,14 +123,14 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
         nusmv-a=1.2=h6bb024c_0 \
         nusmv-arctl=2.2.2=0 \
         pint=2019.05.24=1 \
-        r-boolnet=2.1.8 \
+        r-boolnet=2.1.9 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 # Tier 2: tools with regular updates (2-4/year)
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         -c daemontus -c pauleve \
         libsbml-plus-packages=5.20.0=hbee6a8b_0 \
-        biodivine_aeon=0.2.0=py310h9bf148f_0 \
+        biodivine_aeon=0.3.0=py311h9bf148f_0 \
         cabean=1.0.0=0 \
         ginsim=3.0.0b=12 \
         maboss=2.5.3=h2bc3f7f_1 \
@@ -171,7 +170,7 @@ RUN chown $NB_USER:$NB_USER /notebook
 
 USER $NB_USER
 
-RUN mkdir -p /home/$NB_USER/.local/lib/python3.10/site-packages && \
+RUN mkdir -p /home/$NB_USER/.local/lib/python3.11/site-packages && \
     mkdir /notebook/persistent &&\
     touch /notebook/persistent/.keep
 

@@ -1,7 +1,7 @@
 FROM debian:sid-20230208-slim
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
-ENV PATH /opt/conda/bin:$PATH
+ENV PATH /home/user/.local/bin:/opt/conda/bin:$PATH
 
 ARG NB_USER=user
 ARG NB_UID=1000

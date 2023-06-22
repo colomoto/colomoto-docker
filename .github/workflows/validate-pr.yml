@@ -14,9 +14,6 @@ jobs:
       - name: Docker image build
         if: github.base_ref == 'for-next'
         run: sh hooks/build
-      - name: Docker image validation
-        if: github.base_ref == 'for-next'
-        run: docker run --rm $IMAGE env validate.sh
       - name: Login to docker hub
         if: github.base_ref == 'for-next'
         uses: actions-hub/docker/login@master
@@ -28,4 +25,6 @@ jobs:
         uses: actions-hub/docker@master
         with:
           args: push ${IMAGE}
-
+      - name: Docker image validation
+        if: github.base_ref == 'for-next'
+        run: docker run --rm $IMAGE env validate.sh

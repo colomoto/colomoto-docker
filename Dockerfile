@@ -142,11 +142,11 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         colomoto_jupyter=0.8.7=py_0 \
         ginsim-python=0.4.3=py_0 \
         mpbn=3.2=py_0 \
-        creda::nordic=2.4.2=py_0 \
+        creda::nordic=2.4.3=py_0 \
         pyactonet=1.0=py_0 \
         pymaboss=0.8.5=py_0 \
         pypint=1.6.3=py_0 \
-        pystablemotifs=3.0.3=py_0 \
+        pystablemotifs=3.0.4dev1=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 COPY validate.sh /usr/local/bin/

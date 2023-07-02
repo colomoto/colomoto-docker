@@ -86,7 +86,7 @@ RUN conda install -y \
 RUN conda install --no-update-deps -y -c bioconda \
         cmappy \
         cython \
-        pydantic \
+        omnipath \
         qnorm \
         && \
     find /opt/conda -name '*.a' -delete &&\

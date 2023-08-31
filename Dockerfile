@@ -96,19 +96,19 @@ RUN conda install --no-update-deps -y -c bioconda \
 
 # HOW TO INCLUDE A TOOL:
 # - specify its name only
-# - prefer prefixing its channel (channel::package) if it is not conda-forge or colomoto
 # - choose the appropriate install tier depending on its expected frequency update
 # - insert it in alphabetic order of package name
 
 # Tier 1: tools with rare updates (0-1/year) and thin dependencies
-RUN AUTO_UPDATE=1 conda install --no-update-deps  -y \
-        potassco::asprin=3.1.1=py_0 \
+RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
+        -c potassco -c bioasp \
+        asprin=3.1.1=py_0 \
         boolsim=1.2=0 \
         booleannet=1.2.8=py_0 \
         bnettoprime=1.0=h6bb024c_0 \
         bns=1.3=0 \
-        bioasp::caspo=4.0.1=py_1 \
-        potassco::clingo=5.6.2=py310h3fd9d12_0 \
+        caspo=4.0.1=py_1 \
+        clingo=5.6.2=py310h3fd9d12_0 \
         eqntott=1.0=1 \
         erode-python=0.7.2=py_0 \
         espresso-logic-minimizer=9999=h14c3975_0 \
@@ -122,7 +122,8 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y \
 
 # Tier 2: tools with regular updates (2-4/year)
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
-        daemontus::biodivine_aeon=0.2.0=py310h9bf148f_0 \
+        -c daemontus \
+        biodivine_aeon=0.2.0=py310h9bf148f_0 \
         cabean=1.0.0=0 \
         ginsim=3.0.0b=12 \
         maboss=2.5.2=hb666907_2 \
@@ -131,9 +132,10 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
 
 # Tier 3: tools with frequent updates (>4/year) or lightweight with thin dependencies
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
+        -c creda \
         algorecell_types=1.0=py_0 \
         bns-python=0.2=py_0 \
-        bonesis=0.5.6=py_0 \
+        bonesis=0.5.7=py_0 \
         boolean.py=4.0=py_0 \
         boolsim-python=0.5=py_0 \
         cabean-python=1.0=py_0 \
@@ -141,8 +143,8 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         casq=1.0.3=py_0 \
         colomoto_jupyter=0.8.7=py_0 \
         ginsim-python=0.4.3=py_0 \
-        mpbn=3.2=py_0 \
-        creda::nordic=2.4.3=py_0 \
+        mpbn=3.3=py_0 \
+        nordic=2.4.3=py_0 \
         pyactonet=1.0=py_0 \
         pymaboss=0.8.5=py_0 \
         pypint=1.6.3=py_0 \

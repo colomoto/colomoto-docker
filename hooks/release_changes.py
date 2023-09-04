@@ -9,11 +9,10 @@ w = re.compile(r"[^\\\s]+")
 
 def get_pkgs(lines, cfg):
     pkgs = []
-    ignore_next = False
+    g = {"ignore_next": False}
     def handle_arg(m):
-        global ignore_next
         arg = m.group(0)
-        if arg[0] == "-" or ignore_next or arg in ["nomkl"]:
+        if arg[0] == "-" or g["ignore_next"] or arg in ["nomkl"]:
             pass
         else:
             if "=" not in arg:
@@ -23,10 +22,7 @@ def get_pkgs(lines, cfg):
             pkg = arg.split("=")[:2]
             pkgs.append(tuple(pkg))
             ret = arg
-        if arg in ["-c"]:
-            ignore_next = True
-        else:
-            ignore_next = False
+        g["ignore_next"] = arg in ["-c"]
     def handle_install(lines):
         w.sub(handle_arg, lines.group(1))
     def handle_run(m):

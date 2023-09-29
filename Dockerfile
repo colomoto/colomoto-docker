@@ -46,8 +46,10 @@ RUN CONDA_VERSION="py310_23.3.1-0" && \
     conda install conda-libmamba-solver && \
     conda config --set solver libmamba && \
     conda config --set auto_update_conda False && \
-    conda config --add channels colomoto && \
+    conda config --append channels colomoto && \
     conda config --add channels conda-forge && \
+    conda config --add channels potassco && \
+    conda config --add channels colomoto/label/fake && \
     conda install --no-update-deps -y \
         -c colomoto/label/fake \
         openjdk \
@@ -57,6 +59,7 @@ RUN CONDA_VERSION="py310_23.3.1-0" && \
 
 # notebook dependencies
 RUN conda install -y \
+        pyqt=5.9.9999 \
         graphviz \
         imagemagick \
         ipywidgets \
@@ -122,7 +125,8 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
 
 # Tier 2: tools with regular updates (2-4/year)
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
-        -c daemontus \
+        -c daemontus -c pauleve \
+        libsbml-plus-packages=5.20.0=hbee6a8b_0 \
         biodivine_aeon=0.2.0=py310h9bf148f_0 \
         cabean=1.0.0=0 \
         ginsim=3.0.0b=12 \

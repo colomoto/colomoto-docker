@@ -43,17 +43,21 @@ RUN CONDA_VERSION="py310_23.3.1-0" && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O ~/miniconda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
     rm ~/miniconda.sh && \
-    conda install conda-libmamba-solver && \
-    conda config --set solver libmamba && \
     conda config --set auto_update_conda False && \
     conda config --append channels colomoto && \
     conda config --add channels conda-forge && \
     conda config --add channels potassco && \
     conda config --add channels colomoto/label/fake && \
+    conda config --set solver libmamba && \
+    conda update -y  \
+        conda-libmamba-solver \
+        libmamba \
+        libmambapy \
+        libarchive && \
+    conda update --all -y && \
     conda install --no-update-deps -y \
-        -c colomoto/label/fake \
         openjdk \
-        pyqt && \
+        pyqt=5.9.9999 && \
     find /opt/conda -name '*.a' -delete &&\
     conda clean -y --all && rm -rf /opt/conda/pkgs
 

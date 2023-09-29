@@ -19,6 +19,7 @@ RUN apt-get update --fix-missing && \
     apt-get install -y --no-install-recommends \
         bzip2 \
         ca-certificates \
+        libarchive13 \
         wget \
         openjdk-11-jre-headless \
         && \
@@ -43,13 +44,14 @@ RUN CONDA_VERSION="py310_23.3.1-0" && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O ~/miniconda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
     rm ~/miniconda.sh && \
-    conda install conda-libmamba-solver && \
-    conda config --set solver libmamba && \
     conda config --set auto_update_conda False && \
+    conda install -y conda-libmamba-solver libarchive && \
     conda config --append channels colomoto && \
     conda config --add channels conda-forge && \
     conda config --add channels potassco && \
     conda config --add channels colomoto/label/fake && \
+    conda update --all -y && \
+    conda config --set solver libmamba && \
     conda install --no-update-deps -y \
         -c colomoto/label/fake \
         openjdk \

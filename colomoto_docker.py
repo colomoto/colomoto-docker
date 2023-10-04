@@ -14,7 +14,7 @@ import subprocess
 import sys
 import webbrowser
 
-__version__ = "8.0"
+__version__ = "8.1"
 
 on_linux = platform.system() == "Linux"
 
@@ -282,17 +282,19 @@ def main():
         http://{}:{}
 
     """.format(container_ip, port))
-            nb_tries = 60
-            while nb_tries:
-                time.sleep(1)
+            started = False
+            nb_tries = 120
+            while not started and nb_tries:
+                time.sleep(2)
                 with subprocess.Popen(["sudo", "docker", "logs", "-f", name],
                                        stdout=subprocess.PIPE) as p:
                     while line := p.stdout.readline():
-                        nb_tries = 0
+                        started = True
                         if "is running at" in line.decode(errors="ignore"):
                             start_browser()
                             break
-                    ret = p.wait()
+                    p.wait()
+                    nb_tries -= 1
             sys.exit(0)
     os.execvp(argv[0], argv)
 

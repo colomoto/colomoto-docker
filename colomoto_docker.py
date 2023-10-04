@@ -14,7 +14,7 @@ import subprocess
 import sys
 import webbrowser
 
-__version__ = "8.1"
+__version__ = "8.2"
 
 on_linux = platform.system() == "Linux"
 
@@ -274,8 +274,9 @@ def main():
             import time
             def start_browser():
                 try:
-                    webbrowser.open("http://{}:{}".format(container_ip, port))
+                    return webbrowser.open("http://{}:{}".format(container_ip, port))
                 except:
+                    time.sleep(2)
                     info("""
     Please open your web-browser to the following address:
 
@@ -285,16 +286,21 @@ def main():
             started = False
             nb_tries = 120
             while not started and nb_tries:
+                nb_tries -= 1
                 time.sleep(2)
-                with subprocess.Popen(["sudo", "docker", "logs", "-f", name],
+                info("colomoto-docker: attaching to logs")
+                with subprocess.Popen(docker_argv + ["logs", "-f", name],
                                        stdout=subprocess.PIPE) as p:
                     while line := p.stdout.readline():
-                        started = True
                         if "is running at" in line.decode(errors="ignore"):
-                            start_browser()
+                            started = True
+                            info("colomoto-docker: launching browser")
+                            ret = start_browser()
+                            info(f"colomoto-docker: launching browser returned {ret}")
+                            p.terminate()
                             break
-                    p.wait()
-                    nb_tries -= 1
+                    ret = p.wait()
+                    info(f"colomoto-docker: docker logs ended with retcode {ret}")
             sys.exit(0)
     os.execvp(argv[0], argv)
 

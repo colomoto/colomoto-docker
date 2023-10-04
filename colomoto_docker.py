@@ -7,6 +7,7 @@ import os
 from contextlib import closing
 from getpass import getuser
 import platform
+import random
 import re
 import socket
 import subprocess
@@ -108,7 +109,7 @@ def main():
     group.add_argument("--name", help="Name of the container")
     group.add_argument("-v", "--volume", action="append",
         help="Bind mount a volume")
-    docker_run_opts = ["env", "name", "volume"]
+    docker_run_opts = ["env", "volume"]
 
     parser.add_argument("command", nargs=REMAINDER, help="Command to run instead of colomoto-nb")
     args = parser.parse_args()
@@ -198,7 +199,7 @@ def main():
             info("# {}".format(" ".join(argv)))
             subprocess.call(argv)
 
-    argv = docker_argv + ["run", "-it", "--rm"]
+    argv = docker_argv + ["run", "-it",  "--rm"]
     if args.no_selinux:
         argv += ["--security-opt", "label:disable"]
 
@@ -233,6 +234,9 @@ def main():
         if env in os.environ:
             argv += ["-e", env]
 
+    name = args.name or f"colomoto{random.randint(0,100)}"
+    argv += ["--name", name]
+
     def easy_volume(val):
         orig, dest = val.split(":")
         if dest[0] != "/":
@@ -261,31 +265,32 @@ def main():
     info("# %s" % " ".join(argv))
 
     if not args.shell and not args.command and not args.no_browser:
+        if os.fork() == 0:
+            import threading
+            import time
+            def start_browser():
+                try:
+                    webbrowser.open("http://{}:{}".format(container_ip, port))
+                except:
+                    info("""
+    Please open your web-browser to the following address:
 
-        p = subprocess.Popen(argv, stdout=subprocess.PIPE)
+        http://{}:{}
 
-        launched = False
-        while True:
-            line = os.read(p.stdout.fileno(), 1024)
-            if line:
-                os.write(sys.stdout.fileno(), line)
-                line = line.decode()
-                if not launched and " is running at:" in line:
-                    launched = True
-                    try:
-                        webbrowser.open("http://{}:{}".format(container_ip, port))
-                    except:
-                        info("""
-Please open your web-browser to the following address:
-
-    http://{}:{}
-
-""".format(container_ip, port))
-            elif p.poll() is not None:
-                break
-
-    else:
-        os.execvp(argv[0], argv)
+    """.format(container_ip, port))
+            nb_tries = 60
+            while nb_tries:
+                time.sleep(1)
+                with subprocess.Popen(["sudo", "docker", "logs", "-f", name],
+                                       stdout=subprocess.PIPE) as p:
+                    while line := p.stdout.readline():
+                        nb_tries = 0
+                        if "is running at" in line.decode(errors="ignore"):
+                            start_browser()
+                            break
+                    ret = p.wait()
+            sys.exit(0)
+    os.execvp(argv[0], argv)
 
 if __name__ == "__main__":
     main()

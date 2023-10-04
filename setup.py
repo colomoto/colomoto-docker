@@ -2,8 +2,13 @@
 
 from setuptools import setup
 
+with open("colomoto_docker.py") as fp:
+    for line in fp:
+        if line.startswith("__version__"):
+            version = line.split("=")[-1].strip().strip('"')
+
 setup(name="colomoto-docker",
-    version = "7.9",
+    version = version,
     author = "Loïc Paulevé",
     author_email = "loic.pauleve@ens-cachan.org",
     url = "https://github.com/colomoto/colomoto-docker",

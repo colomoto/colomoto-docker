@@ -14,6 +14,8 @@ import subprocess
 import sys
 import webbrowser
 
+__version__ = "8.0"
+
 on_linux = platform.system() == "Linux"
 
 pat_tag = re.compile(r"\d{4}-\d{2}-\d{2}")
@@ -113,6 +115,8 @@ def main():
 
     parser.add_argument("command", nargs=REMAINDER, help="Command to run instead of colomoto-nb")
     args = parser.parse_args()
+
+    info(f"colomoto-docker {__version__}")
 
     image_tag = args.version
 

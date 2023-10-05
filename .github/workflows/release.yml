@@ -21,7 +21,16 @@ jobs:
             docker pull ${IMAGE}
             docker run --rm ${IMAGE} apt list --installed > debian-installed-${TAG}.txt
             docker run --rm ${IMAGE} conda list --explicit --md5 > conda-environment-${TAG}-explicit.yml
-            docker run --rm ${IMAGE} conda env export -c conda-forge -c colomoto --from-history > conda-environment-${TAG}.yml
+            docker run --rm ${IMAGE} conda env export \
+                  -c potassco\
+                  -c conda-forge\
+                  -c colomoto\
+                  -c colomoto/label/fake\
+                  -c pauleve\
+                  -c daemontus\
+                  -c creda\
+                  -c bioconda\
+                  --from-history > conda-environment-${TAG}.yml
             python hooks/release_changes.py > CHANGELOG.txt
       - name: Release
         uses: softprops/action-gh-release@v1

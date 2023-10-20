@@ -143,7 +143,6 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         algorecell_types=1.0=py_0 \
         bns-python=0.2=py_0 \
         bonesis=0.5.7=py_0 \
-        boolean.py=4.0=py_0 \
         boolsim-python=0.5=py_0 \
         cabean-python=1.0=py_0 \
         caspo-control=1.0=py_0 \

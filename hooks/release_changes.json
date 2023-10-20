@@ -137,5 +137,10 @@
         "name": "CaSQ",
         "description": "Convert static interaction maps into executable models",
         "release_url": "https://github.com/soli/casq"
+    },
+    "scboolseq": {
+        "name": "scBoolSeq",
+        "description": "scRNA-Seq data binarisation and synthetic generation from Boolean dynamics",
+        "release_url": "https://github.com/bnediction/scBoolSeq/releases/tag/v{}"
     }
 }

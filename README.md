@@ -100,6 +100,7 @@ access to the following softwares:
 | PyBoolNet | https://github.com/hklarner/PyBoolNet | Generation, modification and analysis of Boolean networks | Python module [`PyBoolNet`](https://github.com/hklarner/PyBoolNet)  |
 | pyStableMotifs | https://github.com/jcrozum/pystablemotifs | Target-control of Boolean networks | Python module [`pystablemotifs`](https://github.com/jcrozum/pystablemotifs) |
 | R-BoolNet | https://cran.r-project.org/package=BoolNet | Analysis and reconstruction of Boolean networks dynamics | RPY2 python interface |
+| scBoolSeq | https://github.com/bnediction/scBoolSeq | scRNA-Seq data binarisation and synthetic generation from Boolean dynamics | Python module [`scboolseq`](https://github.com/bnediction/scBoolSeq) |
 
 
 

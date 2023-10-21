@@ -155,7 +155,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         pymaboss=0.8.5=py_0 \
         pypint=1.6.3=py_0 \
         pystablemotifs=3.0.4dev1=py_0 \
-        scboolseq=2.0=py_0 \
+        scboolseq=2.0.1=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 COPY validate.sh /usr/local/bin/

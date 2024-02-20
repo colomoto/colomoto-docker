@@ -111,7 +111,9 @@ def main():
     group.add_argument("--name", help="Name of the container")
     group.add_argument("-v", "--volume", action="append",
         help="Bind mount a volume")
-    docker_run_opts = ["env", "volume"]
+    group.add_argument("--network", type=str,
+        help="Network access")
+    docker_run_opts = ["env", "volume", "network"]
 
     parser.add_argument("command", nargs=REMAINDER, help="Command to run instead of colomoto-nb")
     args = parser.parse_args()

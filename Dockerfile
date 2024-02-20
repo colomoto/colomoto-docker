@@ -71,6 +71,7 @@ RUN conda install -y \
         nomkl \
         notebook \
         pandas \
+        pyarrow \
         pydot \
         python-graphviz \
         seaborn \

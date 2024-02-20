@@ -97,6 +97,8 @@ then, open your browser and go to http://localhost:8888 for the Jupyter notebook
   Python module [`maboss`](https://github.com/colomoto/pyMaBoSS)
 * [mpbn](https://github.com/pauleve/mpbn) -- Most Permissive Boolean Networks<br/>
   Python module [`mpbn`](https://github.com/pauleve/mpbn)
+* [NORDic](https://github.com/clreda/NORDic) -- Network Oriented Repurposing of Drugs<br>
+  Python module [`NORDic`](https://github.com/clreda/NORDic)
 * [NuSMV](http://nusmv.fbk.eu) -- Symbolic model-checker<br/>
   Python module [`nusmv`](https://github.com/colomoto/colomoto-jupyter)
 * [Pint](https://loicpauleve.name/pint) -- Static analyzer for dynamics of Automata Networks<br/>
@@ -105,5 +107,7 @@ then, open your browser and go to http://localhost:8888 for the Jupyter notebook
   Python module [`PyBoolNet`](https://github.com/hklarner/PyBoolNet)
 * [R-BoolNet](https://cran.r-project.org/package=BoolNet) -- Analysis and reconstruction of Boolean networks dynamics<br/>
   Generic RPY2 python interface
+* [scBoolSeq](https://github.com/bnediction/scBoolSeq) -- scRNA-Seq data binarisation and synthetic generation from Boolean dynamics<br>
+  Python module [`scboolseq`](https://github.com/bnediction/scBoolSeq)
 * [pyStableMotifs](https://github.com/jcrozum/pystablemotifs) -- Target-control of Boolean networks<br/>
   Python module [`pystablemotifs`](https://github.com/jcrozum/pystablemotifs)

@@ -115,7 +115,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
         bnettoprime=1.0=h6bb024c_0 \
         bns=1.3=0 \
         caspo=4.0.1=py_1 \
-        clingo=5.6.2=py311hb755f60_1 \
+        clingo=5.7.1=py311h3fd9d12_0 \
         eqntott=1.0=1 \
         erode-python=0.7.2=py_0 \
         espresso-logic-minimizer=9999=h14c3975_0 \
@@ -131,7 +131,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         -c daemontus -c pauleve \
         libsbml-plus-packages=5.20.0=hbee6a8b_0 \
-        biodivine_aeon=0.0.9a2=py311h9bf148f_0 \
+        biodivine_aeon=0.0.9a3=py311h9bf148f_0 \
         cabean=1.0.0=0 \
         ginsim=3.0.0b=12 \
         maboss=2.5.4=h2bc3f7f_1 \

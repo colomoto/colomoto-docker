@@ -136,7 +136,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         biodivine_aeon=0.0.9a3=py311h9bf148f_0 \
         cabean=1.0.0=0 \
         ginsim=3.0.0b=12 \
-        maboss=2.5.4=h2bc3f7f_1 \
+        maboss=2.5.5=h2bc3f7f_1 \
         pyboolnet=3.0.10.post1=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
@@ -155,7 +155,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         mpbn=3.3=py_0 \
         nordic=2.4.4=py_0 \
         pyactonet=1.0=py_0 \
-        pymaboss=0.8.6=py_0 \
+        pymaboss=0.8.7=py_0 \
         pypint=1.6.3=py_0 \
         pystablemotifs=3.0.6=py_0 \
         scboolseq=2.0.1=py_0 \

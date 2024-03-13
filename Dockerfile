@@ -20,6 +20,7 @@ RUN apt-get update --fix-missing && \
         bzip2 \
         ca-certificates \
         wget \
+        libharfbuzz0b\
         openjdk-11-jre-headless \
         && \
     apt clean -y && \

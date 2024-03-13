@@ -19,7 +19,8 @@ RUN apt-get update --fix-missing && \
     apt-get install -y --no-install-recommends \
         bzip2 \
         ca-certificates \
-        wget \
+        wget\
+        fontconfig\
         libharfbuzz0b\
         openjdk-11-jre-headless \
         && \

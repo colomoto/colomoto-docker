@@ -177,6 +177,7 @@ RUN mkdir -p /home/$NB_USER/.local/lib/python3.11/site-packages && \
     mkdir /notebook/persistent &&\
     touch /notebook/persistent/.keep
 
+ENV COLOMOTO_SKIP_JUPYTER_JS=1
 ARG IMAGE_NAME
 ARG IMAGE_BUILD_DATE
 ARG BUILD_DATETIME

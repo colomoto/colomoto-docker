@@ -14,7 +14,7 @@ import subprocess
 import sys
 import webbrowser
 
-__version__ = "8.2"
+__version__ = "8.3"
 
 on_linux = platform.system() == "Linux"
 

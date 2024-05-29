@@ -14,7 +14,7 @@ import subprocess
 import sys
 import webbrowser
 
-__version__ = "8.3"
+__version__ = "9.0"
 
 on_linux = platform.system() == "Linux"
 
@@ -87,8 +87,6 @@ def main():
         help="Disable SElinux for this container")
     parser.add_argument("-w", "--workdir", default="/notebook", type=str,
         help="Workdir within the docker image")
-    parser.add_argument("--shell", default=False, action="store_true",
-        help="Start interactive shell instead of notebook service")
     parser.add_argument("-V", "--version", type=str, default="same",
         help="""Version of docker image ('latest' to fetch the latest tag;
         'same' for most recently fetched image)""")
@@ -105,6 +103,13 @@ def main():
     parser.add_argument("--cleanup", default=False, action="store_true",
         help="Cleanup old images")
 
+    group = parser.add_argument_group("choice of interface")
+    x = group.add_mutually_exclusive_group()
+    x.add_argument('--lab', action='store_true', help="Use jupyter lab interface")
+    x.add_argument('--notebook', action='store_false', help="Use jupyter notebook interface")
+    x.add_argument("--shell", default=False, action="store_true",
+        help="Start interactive shell instead of notebook service")
+
     group = parser.add_argument_group("docker run options")
     group.add_argument("-e", "--env", action="append",
         help="Set environment variables")
@@ -117,7 +122,7 @@ def main():
         help="Resource limit")
     docker_run_opts = ["env", "volume", "network", "ulimit"]
 
-    parser.add_argument("command", nargs=REMAINDER, help="Command to run instead of colomoto-nb")
+    parser.add_argument("command", nargs=REMAINDER, help="Command to run in place of web interface")
     args = parser.parse_args()
 
     info(f"colomoto-docker {__version__}")
@@ -265,8 +270,16 @@ def main():
                 argv += ["--%s" % opt, val]
 
     argv += [image]
+
+    _args_jupyter = ["--no-browser", "--port", "8888",
+                        "--ip", "0.0.0.0", "--NotebookApp.token="]
+
     if args.shell:
         argv += ["bash"]
+    elif args.lab:
+        argv += ["jupyter-lab"] + _args_jupyter
+    elif args.notebook:
+        argv += ["jupyter-notebook"] + _args_jupyter
     elif args.command:
         argv += args.command
 

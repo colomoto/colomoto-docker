@@ -113,7 +113,9 @@ def main():
         help="Bind mount a volume")
     group.add_argument("--network", type=str,
         help="Network access")
-    docker_run_opts = ["env", "volume", "network"]
+    group.add_argument("--ulimit", type=str,
+        help="Resource limit")
+    docker_run_opts = ["env", "volume", "network", "ulimit"]
 
     parser.add_argument("command", nargs=REMAINDER, help="Command to run instead of colomoto-nb")
     args = parser.parse_args()

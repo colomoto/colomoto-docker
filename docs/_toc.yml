@@ -9,6 +9,7 @@ parts:
       - file: docs/usage
       - file: CONTRIBUTING
       - file: docs/versions
+      - file: docs/contact
   - caption: Software tools
     chapters:
       - file: tools/index

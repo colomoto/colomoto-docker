@@ -14,3 +14,4 @@ __pycache__
 .java
 .jupyter
 tutorials/PyBoolNet/*.pdf
+_build

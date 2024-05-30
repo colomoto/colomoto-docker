@@ -1,0 +1,45 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: CoLoMoTo Docker distribution
+author: CoLoMoTo
+logo: docs/logo.png
+
+only_build_toc_files: true
+exclude_patterns : [
+  '.github',
+  'docs/_build',
+  'usecases'
+]
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: 'off'
+
+# Add a bibtex file so that we can create citations
+#bibtex_bibfiles:
+#  - references.bib
+
+repository:
+  url: https://github.com/colomoto/colomoto-docker
+  #path_to_book: docs  # Optional path to your book, relative to the repository root
+  branch: master
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  use_issues_button: true
+  use_repository_button: true
+  use_edit_page_button: true
+
+sphinx:
+  html_context:
+    default_mode: light
+  html_theme_options:
+    logo:
+      image_light: docs/logo.png
+      image_dark: docs/logo-dark.png
+  html_static_path:
+    - "docs/logo.png"
+    - "docs/logo-dark.png"

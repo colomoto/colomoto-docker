@@ -10,19 +10,14 @@ The CoLoMoTo Interactive Notebook relies on *Docker* and *Jupyter* technologies 
 
 ## Quick usage guide
 
-You need [Docker](https://docs.docker.com/get-docker/).
+You need [Docker](https://docs.docker.com/get-docker/) and [Python](http://python.org).
 We support GNU/Linux, macOS, and Windows.
 
-### Using the colomoto-docker script
+Install the helper script in a terminal:
 
-You need [Python](http://python.org).
+    pip install -U colomoto-docker    # or python3 -m pip install ..
 
-The script can be installed and upgraded by executing the following command
-(you may have to use `pip3` instead of `pip` depending on your configuration):
-
-    pip install -U colomoto-docker
-
-The CoLoMoTo notebook can then be started by executing in a terminal (if using Docker Toolbox, in a Docker Terminal):
+The CoLoMoTo notebook can be started by executing in a terminal (if using Docker Toolbox, in a Docker Terminal):
 
     colomoto-docker
 

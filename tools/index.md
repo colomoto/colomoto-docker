@@ -1,4 +1,4 @@
-# List and features
+# List of embedded tools
 
 The CoLoMoTo Docker image provides access to the following softwares:
 

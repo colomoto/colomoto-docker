@@ -10,6 +10,10 @@ parts:
       - file: CONTRIBUTING
       - file: docs/versions
       - file: docs/contact
+  - caption: Resources
+    chapters:
+      - file: docs/usecases
+      - file: docs/materials
   - caption: Software tools
     chapters:
       - file: tools/index

@@ -4,6 +4,7 @@
 [![PyPI version](https://badge.fury.io/py/colomoto-docker.svg)](https://badge.fury.io/py/colomoto-docker)
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/colomoto/colomoto-docker/mybinder/latest)
 [![Gitter](https://badges.gitter.im/colomoto/colomoto-docker.svg)](https://matrix.to/#/#colomoto_community:gitter.im)
+[![DOI:10.3389/fphys.2018.00680](http://img.shields.io/badge/DOI-10.3389/fphys.2018.00680-blue.svg)](https://doi.org/10.3389/fphys.2018.00680)
 
 
 The CoLoMoTo Interactive Notebook relies on *Docker* and *Jupyter* technologies to provide a **unified environment** to edit, execute, share, and reproduce analyses of **qualitative models of biological networks**.

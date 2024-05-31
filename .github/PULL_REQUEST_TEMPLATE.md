@@ -17,4 +17,5 @@ colomoto-docker -V pr<PULL REQUEST ID>
 - [X] There is at least one tutorial notebook in `tutorials/<tool>` folder **[REQUIRED]**
 - [X] Tutorial notebooks are referenced in `validate.sh` **[REQUIRED]**
 - [X] Tool is referenced in the `hooks/release_changes.json` **[REQUIRED]**
-- [ ] Tool is referenced in the README.md file
+- [ ] Tool is referenced in the `tools/index.md` file
+- [ ] Tool has `tools/{package-name}.md` file (from `tools/TEMPLATE.md`)

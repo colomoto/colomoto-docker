@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: CoLoMoTo Docker distribution
-author: CoLoMoTo
+author: Consortium for Logical Models and Tools (CoLoMoTo)
 
 only_build_toc_files: true
 exclude_patterns : [

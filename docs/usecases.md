@@ -9,6 +9,7 @@ Feel free to suggest links to Jupyter notebooks made with the CoLoMoTo Docker di
   ![colomoto-docker:2019-05-24](https://img.shields.io/badge/colomoto--docker-2019--05--24-brightgreen)
 
 - [Immune fate and Treg to Th17 reprogramming](https://nbviewer.org/github/colomoto/colomoto-docker/blob/2024-04-01/usecases/Usecase%20-%20Balance%20of%20Th17%20vs%20Treg%20cell%20populations.ipynb)
+\
   [![DOI:10.3389/fbioe.2014.00086](http://img.shields.io/badge/DOI-10.3389/fbioe.2014.00086-blue.svg)](https://doi.org/10.3389/fbioe.2014.00086)
 
 - [Executable paper showing combination of GINsim, bioLQM, MaBoSS, and Pint](https://nbviewer.jupyter.org/gist/pauleve/a86717b0ae8750440dd589f778db428f/Usecase%20-%20Mutations%20enabling%20tumour%20invasion.ipynb)\

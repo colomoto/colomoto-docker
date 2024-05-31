@@ -8,7 +8,7 @@ The CoLoMoTo Docker image provides access to the following softwares:
 | AEON\.py | https://github.com/sybila/biodivine-aeon-py | Symbolic analysis (attractors, reachability) of (partially specified) Boolean networks | Python module [`biodivine_aeon`](https://github.com/sybila/biodivine-aeon-py) |
 | BNS | https://people.kth.se/~dubrova/BNS/user_manual.html | Identification of synchronous attractors | Python module [`bns`](https://github.com/colomoto/bns-python) |
 | bioLQM | http://colomoto.org/biolqm/ | Logical Qualitative Modelling toolkit | Python module [`biolqm`](https://github.com/GINsim/GINsim-python) |
-| BoNesis | https://github.com/bnediction/bonesis | Synthesis of Boolean Networks from architecture and dynamical properties | Python module [`bonesis`](https://github.com/bnediction/bonesis) |
+| BoNesis | https://bnediction.github.io/bonesis | Synthesis of Boolean Networks from architecture and dynamical properties | Python module [`bonesis`](https://github.com/bnediction/bonesis) |
 | BooleanNet | https://github.com/ialbert/booleannet | Simulation of Boolean regulatory networks | Python module [`boolean2`](https://github.com/ialbert/booleannet) |
 | boolSim | https://www.vital-it.ch/research/software/boolSim | Attractors and reachable sets in synchronous and asynchronous Boolean networks | Python module [`boolsim`](https://github.com/colomoto/boolSim-python) |
 | CABEAN | https://satoss.uni.lu/software/CABEAN/ | A Software Tool for the Control of Asynchronous Boolean Networks | Python module [`cabean`](https://github.com/algorecell/cabean-python) |

@@ -8,6 +8,7 @@ Note that the computing resources are limited and the storage is not persistent.
 
 ## With Python Helper Script
 
+To ease interaction with Docker, we provide a Python helper script [colomoto-docker](https://github.com/colomoto/colomoto-docker-py).
 You need [Docker](https://docs.docker.com/get-docker/) and [Python](http://python.org).
 We support GNU/Linux, macOS, and Windows.
 

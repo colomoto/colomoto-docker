@@ -17,11 +17,15 @@ We support GNU/Linux, macOS, and Windows.
 
 The container can be stopped by pressing <kbd>Ctrl</kbd>+<kbd>C</kbd> keys.
 
+### Selecting image version
+
 By default, the script will fetch the most recent [colomoto/colomoto-docker tag](https://github.com/colomoto/colomoto-docker/releases). A specific tag can be specified using the `-V` option; or use `-V same` to use the most recently fetched image. For example:
 
     colomoto-docker                 # uses the most recently fetched image
     colomoto-docker -V latest       # fetches the latest published image
     colomoto-docker -V 2018-05-29   # fetches a specific image
+
+### Writing notebooks
 
 **Warning**: by default, the files within the Docker container are isolated from the running host computer, therefore *files are deleted after stopping the container*, except the files within the `persistent` directory.
 
@@ -38,11 +42,29 @@ do the following:
 in the Jupyter browser, you will see a `local-notebooks` directory which is
 bound to your `notebooks` directory.
 
+### Selecting interface
+
+    colomoto-docker --lab          # laucnh Jupyter Lab interface (default)
+    colomoto-docker --notebook     # launch Jupyter Notebook interface
+    colomoto-docker --shell        # launch shell
+    colomoto-docker command line   # execute command line in place of launching the interface
+
+### Running old images
+
+On some systems, older images may require changing default security options.
+
+    colomoto-docker --ulimit nofile=8096 -V 2018-05-29
+
+
+### Other options
+
 See
 
     colomoto-docker --help
 
 for other options.
+
+### Issues
 
 Having issues? have a look at our [Troubleshooting](https://github.com/colomoto/colomoto-docker/blob/master/TROUBLESHOOTING.md) page, or [open an issue](https://github.com/colomoto/colomoto-docker/issues).
 

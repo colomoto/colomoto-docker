@@ -2,7 +2,8 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: CoLoMoTo Docker distribution
-author: Consortium for Logical Models and Tools (CoLoMoTo)
+author: Consortium for Logical Models and Tools (CoLoMoTo) - <a href="http://colomoto.org">colomoto.org</a>
+copyright: "2024"
 
 only_build_toc_files: true
 exclude_patterns : [
@@ -19,7 +20,6 @@ execute:
 # Add a bibtex file so that we can create citations
 #bibtex_bibfiles:
 #  - references.bib
-
 
 sphinx:
   config:
@@ -38,6 +38,8 @@ sphinx:
       logo:
         image_light: docs/logo.png
         image_dark: docs/logo-dark.png
+      analytics:
+        google_analytics_id: "G-5MF7X5EKXN"
     html_static_path:
       - "docs/logo.png"
       - "docs/logo-dark.png"

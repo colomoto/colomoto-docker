@@ -15,3 +15,6 @@ Feel free to suggest links to Jupyter notebooks made with the CoLoMoTo Docker di
 - [Executable paper showing combination of GINsim, bioLQM, MaBoSS, and Pint](https://nbviewer.jupyter.org/gist/pauleve/a86717b0ae8750440dd589f778db428f/Usecase%20-%20Mutations%20enabling%20tumour%20invasion.ipynb)\
   [![DOI:10.3389/fphys.2018.00787](https://img.shields.io/badge/DOI-10.3389/fphys.2018.00787-blue.svg)](https://doi.org/10.3389/fphys.2018.00787)
   ![colomoto-docker:2018-05-29](https://img.shields.io/badge/colomoto--docker-2018--05--29-brightgreen)
+
+- [A reproducibility study using colomoto-docker](https://nbviewer.org/github/bblodfon/colomoto-gupta/blob/master/gupta_john_zobolas.ipynb). This Jupyter notebook reproduces the results from Gupta et al. (2018) using the different tools provided by the `colomoto-docker` and performs dynamical simulation and analysis of an extended version of the published model. 
+  ![colomoto-docker:2018-08-17](https://img.shields.io/badge/colomoto--docker-2018--08--17-brightgreen) [![DOI:10.3389/fbioe.2014.00086](https://img.shields.io/badge/DOI-10.1371/journal.pone.0200768-blue.svg)](https://doi.org/10.1371/journal.pone.0200768)

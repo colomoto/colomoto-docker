@@ -21,6 +21,8 @@ def get_latest_version(pkg, channels, cfg):
                 else None
     if "force-version" in cfg and pkg in cfg["force-version"]:
         return cfg["force-version"][pkg]
+    builds = {}
+    versions = []
     for channel in channels:
         parts = channel.split("/")
         channel = parts[0]
@@ -32,10 +34,10 @@ def get_latest_version(pkg, channels, cfg):
                     .format(channel, pkg)) as fd:
                 if fd.getcode() == 404:
                     continue
-                data = json.load(fd)
+                _d = json.load(fd)
+                versions += _d["versions"]
                 # index by version, then build with os and label filter
-                builds = {}
-                for f in data["files"]:
+                for f in _d["files"]:
                     if label not in f["labels"]:
                         continue
                     if f["attrs"]["platform"] is not None:
@@ -47,6 +49,7 @@ def get_latest_version(pkg, channels, cfg):
                     b = f["attrs"]["build"]
                     if b.startswith("py") \
                         and not b.startswith("py_") \
+                        and not b.startswith("pyh") \
                         and not b.startswith(cfg["pybuild"]):
                         continue
                     if bad_builds and bad_builds.match(b):
@@ -62,22 +65,22 @@ def get_latest_version(pkg, channels, cfg):
                     if v not in builds:
                         builds[v] = set()
                     builds[v].add(b)
-                print(builds)
-                def build_index(b):
-                    b = b.split("_")
-                    b.insert(0, int(b.pop()))
-                    return b
-                for v in reversed(data["versions"]):
-                    if pkg in cfg.get("skip-package-build"):
-                        print(f"### found {v} (build skipped)")
-                        return v
-                    if v not in builds:
-                        continue
-                    b = list(sorted(builds[v], key=build_index))[-1]
-                    print("### found {}, {}".format(v, b))
-                    return "{}={}".format(v, b)
         except HTTPError:
             continue
+    print(builds)
+    def build_index(b):
+        b = b.split("_")
+        b.insert(0, int(b.pop()))
+        return b
+    for v in reversed(versions):
+        if pkg in cfg.get("skip-package-build"):
+            print(f"### found {v} (build skipped)")
+            return v
+        if v not in builds:
+            continue
+        b = list(sorted(builds[v], key=build_index))[-1]
+        print("### found {}, {}".format(v, b))
+        return "{}={}".format(v, b)
     raise ValueError
 
 def update_and_freeze(lines, cfg):
@@ -97,9 +100,8 @@ def update_and_freeze(lines, cfg):
                 force_channel, pkg = pkg.split("::")
                 channels = [force_channel]
             if pkg in cfg["override"]:
-                v = cfg["override"][pkg]
-            else:
-                v = get_latest_version(pkg, channels, cfg)
+                channels = cfg["override"][pkg].get("channels", channels)
+            v = get_latest_version(pkg, channels, cfg)
             if force_channel:
                 pkg = "{}::{}".format(force_channel, pkg)
             ret = "%s=%s" % (pkg, v)

@@ -131,8 +131,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
 
 # Tier 2: tools with regular updates (2-4/year)
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
-        -c daemontus -c pauleve \
-        libsbml-plus-packages=5.20.0=hbee6a8b_0 \
+        -c daemontus \
         biodivine_aeon=0.0.9a3=py311h9bf148f_0 \
         cabean=1.0.0=0 \
         ginsim=3.0.0b=12 \

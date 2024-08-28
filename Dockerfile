@@ -135,7 +135,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         biodivine_aeon=0.0.9a3=py311h9bf148f_0 \
         cabean=1.0.0=0 \
         ginsim=3.0.0b=12 \
-        maboss=2.5.6=he9e06a5_1 \
+        maboss=2.5.7=he9e06a5_1 \
         pyboolnet=3.0.10.post1=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
@@ -144,17 +144,17 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         -c creda \
         algorecell_types=1.0=py_0 \
         bns-python=0.2=py_0 \
-        bonesis=0.6.5=py_0 \
+        bonesis=0.6.6=py_0 \
         boolsim-python=0.5=py_0 \
         cabean-python=1.0=py_0 \
         caspo-control=1.0=py_0 \
-        casq=1.0.3=py_0 \
+        casq=1.3.3=pyhd8ed1ab_0 \
         colomoto_jupyter=0.8.8=py_0 \
         ginsim-python=0.4.3=py_0 \
-        mpbn=3.5=py_0 \
+        mpbn=3.8=py_0 \
         nordic=2.5.0=py_0 \
         pyactonet=1.0=py_0 \
-        pymaboss=0.8.7=py_0 \
+        pymaboss=0.8.8=py_0 \
         pypint=1.6.3=py_0 \
         pystablemotifs=3.0.6=py_0 \
         scboolseq=2.1.0=py_0 \

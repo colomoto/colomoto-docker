@@ -8,6 +8,7 @@ on:
       - for-next
   schedule:
     - cron: "0 18 * * *"
+  workflow_dispatch:
 
 jobs:
   update-tools:

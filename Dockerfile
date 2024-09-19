@@ -132,7 +132,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
 # Tier 2: tools with regular updates (2-4/year)
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         -c daemontus \
-        biodivine_aeon=0.0.9a3=py311h9bf148f_0 \
+        biodivine_aeon=1.0.1=py311h8a0c2ca_0 \
         cabean=1.0.0=0 \
         ginsim=3.0.0b=12 \
         maboss=2.5.7=he9e06a5_1 \

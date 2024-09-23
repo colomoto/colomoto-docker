@@ -92,11 +92,13 @@ RUN conda install -y \
 
 # tool dependencies being quite heavy
 #     nordic: cmappy, cython, pydantic, qnorm
+#     boon: z3-solver
 RUN conda install --no-update-deps -y -c bioconda \
         cmappy \
         cython \
         omnipath \
         qnorm \
+        z3-solver \
         && \
     find /opt/conda -name '*.a' -delete &&\
     conda clean -y --all && rm -rf /opt/conda/pkgs
@@ -145,6 +147,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         algorecell_types=1.0=py_0 \
         bns-python=0.2=py_0 \
         bonesis=0.6.6=py_0 \
+        boon=1.25=py_0 \
         boolsim-python=0.5=py_0 \
         cabean-python=1.0=py_0 \
         caspo-control=1.0=py_0 \
@@ -159,6 +162,10 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         pystablemotifs=3.0.6=py_0 \
         scboolseq=2.1.0=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
+
+## Additional tweaks
+ADD --chmod=644 https://github.com/ipython/xkcd-font/raw/master/xkcd/build/xkcd.otf /usr/local/share/fonts/
+ADD --chmod=644 https://github.com/ipython/xkcd-font/raw/master/xkcd-script/font/xkcd-script.ttf /usr/local/share/fonts/
 
 COPY validate.sh /usr/local/bin/
 COPY bin/* /usr/bin/

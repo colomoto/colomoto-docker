@@ -15,6 +15,10 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+      - name: Tools metadata
+        run: |
+          pip install -r hooks/requirements.py
+          python hooks/tools_metadata.py
       - name: Docker image build
         run: sh hooks/build
       - name: Login to docker hub

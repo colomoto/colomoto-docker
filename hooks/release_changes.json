@@ -29,6 +29,11 @@
         "description": "Python interface to boolSim",
         "release_url": "https://github.com/colomoto/boolSim-python/releases/tag/v{}"
     },
+    "boon": {
+        "name": "BooN",
+        "description": "Boolean Network Analysis: dynamics, stable states, control",
+        "release_url": "https://github.com/Franck-Delaplace/BooN/releases/tag/{}"
+    },
     "cabean": {
         "name": "CABEAN",
         "description": "A Software Tool for the Control of Asynchronous Boolean Networks",

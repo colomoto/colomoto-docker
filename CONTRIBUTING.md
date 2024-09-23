@@ -61,6 +61,7 @@ There are 3 `RUN` sections related to conda package installation, which depend o
 * [ ] Add the demo notebook in the `tutorials` folder, in a subfolder named after your tool.
 * [ ] Include the notebook path in the `validate.sh` file.
 * [ ] Build locally the Docker image and validate it (see [Recipes](#Recipes))
+* [ ] Copy `tools/TEMPLATE.md` to `tools/your_tool.md` and complete the file
 * [ ] Create a pull request with the `tool request` label
 
 

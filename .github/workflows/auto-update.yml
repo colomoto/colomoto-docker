@@ -3,9 +3,9 @@ name: auto-update
 on:
   repository_dispatch:
     types: update
-  # push:
-  #   branches:
-  #     - for-next
+  push:
+    branches:
+      - for-next
   schedule:
     - cron: "0 7 * * *"
   workflow_dispatch:

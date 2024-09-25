@@ -93,11 +93,12 @@ RUN conda install -y \
 # tool dependencies being quite heavy
 #     nordic: cmappy, cython, pydantic, qnorm
 #     boon: z3-solver
-RUN conda install --no-update-deps -y -c bioconda \
+RUN conda install --no-update-deps -y -c conda-forge -c bioconda \
         cmappy \
         cython \
         omnipath \
         qnorm \
+        pyeda \
         z3-solver \
         && \
     find /opt/conda -name '*.a' -delete &&\
@@ -116,29 +117,25 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
         asprin=3.1.1=py_0 \
         boolsim=1.2=0 \
         booleannet=1.2.8=py_0 \
-        bnettoprime=1.0=h6bb024c_0 \
         bns=1.3=0 \
+        cabean=1.0.0=0 \
         caspo=4.0.1=py_1 \
         clingo=5.7.1=py311h3fd9d12_0 \
-        eqntott=1.0=1 \
         erode-python=0.7.2=py_0 \
-        espresso-logic-minimizer=9999=h14c3975_0 \
+        ginsim=3.0.0b=12 \
         its=20210125=0 \
         nusmv=2.6.0=0 \
         nusmv-a=1.2=h6bb024c_0 \
-        nusmv-arctl=2.2.2=0 \
         pint=2019.05.24=1 \
         r-boolnet=2.1.9 \
-    && conda clean -y --all && rm -rf /opt/conda/pkgs
+    && conda clean -y --all && rm -rf /opt/conda/pkgs && exit 1
 
 # Tier 2: tools with regular updates (2-4/year)
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         -c daemontus \
         biodivine_aeon=1.0.1=py311h9bf148f_0 \
-        cabean=1.0.0=0 \
-        ginsim=3.0.0b=12 \
         maboss=2.5.7=he9e06a5_1 \
-        pyboolnet=3.0.10.post1=py_0 \
+        pyboolnet=3.0.14=py311_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 # Tier 3: tools with frequent updates (>4/year) or lightweight with thin dependencies

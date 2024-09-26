@@ -128,7 +128,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
         nusmv-a=1.2=h6bb024c_0 \
         pint=2019.05.24=1 \
         r-boolnet=2.1.9 \
-    && conda clean -y --all && rm -rf /opt/conda/pkgs && exit 1
+    && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 # Tier 2: tools with regular updates (2-4/year)
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \

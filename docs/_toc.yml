@@ -38,6 +38,9 @@ parts:
       - file: tools/boolsim
         sections:
            - glob: tutorials/boolSim/*
+      - file: tools/boon
+        sections:
+           - glob: tutorials/BooN/*
       - file: tools/cabean
         sections:
            - glob: tutorials/CABEAN/*

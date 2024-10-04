@@ -7,7 +7,7 @@ interface: Python module [`biodivine_aeon`](https://biodivine.fi.muni.cz/docs/ae
 package_contact: Samuel Pastva (@daemontus)
 ---
 
-# AEON.py
+# AEON\.py
 
 :::admonition
 Webpage: https://github.com/sybila/biodivine-aeon-py

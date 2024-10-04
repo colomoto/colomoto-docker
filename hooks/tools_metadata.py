@@ -38,6 +38,9 @@ for toolmd in glob.glob(f"{tooldir}/*.md"):
             raise KeyError(f"{toolid} is missing metadata {r}")
     REG[toolid] = meta
 
+def sorted_tools():
+    return sorted(REG.items(), key=lambda i: i[1]["name"].lower())
+
 
 ##
 ## Generate release_changes.json
@@ -71,5 +74,25 @@ The CoLoMoTo Docker image provides access to the following softwares:
 | Software tool | Homepage | Description | Jupyter interface |
 | --- | --- | --- | --- |""", file=fp)
     keys = ["name", "homepage", "summary", "interface"]
-    for toolid, meta in sorted(REG.items(), key=lambda i: i[1]["name"].lower()):
+    for toolid, meta in sorted_tools():
         print("|", " | ".join(meta[k] for k in keys), "|", file=fp)
+
+##
+## Generate docs/_toc.yml
+##
+
+chapters = [{"file": "tools/index"}]
+for toolid, meta in sorted_tools():
+    chapters.append({
+        "file": f"tools/{toolid}",
+        "sections": [{"glob": f"tutorials/{toolid}/*"}]
+    })
+
+with open("docs/_toc.yml") as fp:
+    toc = yaml.safe_load(fp.read())
+
+i = [i for i, p in enumerate(toc["parts"]) if p["caption"] == "Software tools"][0]
+toc["parts"][i]["chapters"] = chapters
+
+with open("docs/_toc.yml", "w") as fp:
+    fp.write(yaml.safe_dump(toc))

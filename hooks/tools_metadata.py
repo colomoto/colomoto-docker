@@ -45,7 +45,7 @@ for toolmd in glob.glob(f"{tooldir}/*.md"):
 RC = {}
 for toolid, meta in REG.items():
     RC[toolid] = {
-        "name": meta["name"],
+        "name": meta["name"].replace("\\.", "."),
         "description": meta["summary"],
         "release_url": meta["release_url"]}
     if "pyface_package" in meta:

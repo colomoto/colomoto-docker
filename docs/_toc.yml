@@ -1,91 +1,88 @@
-# Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
-
 format: jb-book
-root: README
 parts:
-  - caption: Usage
-    chapters:
-      - file: docs/usage
-      - file: CONTRIBUTING
-      - file: docs/versions
-      - file: docs/contact
-  - caption: Resources
-    chapters:
-      - file: docs/usecases
-      - file: docs/materials
-  - caption: Software tools
-    chapters:
-      - file: tools/index
-      - file: tools/pyactonet
-        sections:
-           - glob: tutorials/ActoNet/*
-      - file: tools/biodivine_aeon
-        sections:
-           - glob: tutorials/aeon/*
-      - file: tools/biolqm
-        sections:
-           - glob: tutorials/bioLQM/*
-      - file: tools/bns
-        sections:
-           - glob: tutorials/bns/*
-      - file: tools/bonesis
-        sections:
-           - glob: tutorials/BoNesis/*
-      - file: tools/booleannet
-        sections:
-           - glob: tutorials/BooleanNet/*
-      - file: tools/boolsim
-        sections:
-           - glob: tutorials/boolSim/*
-      - file: tools/boon
-        sections:
-           - glob: tutorials/BooN/*
-      - file: tools/cabean
-        sections:
-           - glob: tutorials/CABEAN/*
-      - file: tools/caspo
-        sections:
-           - glob: tutorials/Caspo/*
-      - file: tools/casq
-        sections:
-           - glob: tutorials/CaSQ/*
-      - file: tools/cellcollective
-        sections:
-           - glob: tutorials/CellCollective/*
-      - file: tools/erode-python
-        sections:
-           - glob: tutorials/ERODE/*
-      - file: tools/ginsim
-        sections:
-           - glob: tutorials/GINsim/*
-      - file: tools/maboss
-        sections:
-           - glob: tutorials/MaBoSS/*
-      - file: tools/minibn
-        sections:
-           - glob: tutorials/minibn/*
-      - file: tools/mpbn
-        sections:
-           - glob: tutorials/mpbn/*
-      - file: tools/nordic
-        sections:
-           - glob: tutorials/NORDic/*
-      - file: tools/nusmv
-        sections:
-           - glob: tutorials/NuSMV/*
-      - file: tools/pint
-        sections:
-           - glob: tutorials/Pint/*
-      - file: tools/pyboolnet
-        sections:
-           - glob: tutorials/PyBoolNet/*
-      - file: tools/pystablemotifs
-        sections:
-           - glob: tutorials/pystablemotifs/*
-      - file: tools/r-boolnet
-        sections:
-           - glob: tutorials/R-BoolNet/*
-      - file: tools/scboolseq
-        sections:
-           - glob: tutorials/scBoolSeq/*
+- caption: Usage
+  chapters:
+  - file: docs/usage
+  - file: CONTRIBUTING
+  - file: docs/versions
+  - file: docs/contact
+- caption: Resources
+  chapters:
+  - file: docs/usecases
+  - file: docs/materials
+- caption: Software tools
+  chapters:
+  - file: tools/index
+  - file: tools/ActoNet
+    sections:
+    - glob: tutorials/[aA][cC][tT][oO][nN][eE][tT]/*
+  - file: tools/aeon
+    sections:
+    - glob: tutorials/[aA][eE][oO][nN]/*
+  - file: tools/biolqm
+    sections:
+    - glob: tutorials/[bB][iI][oO][lL][qQ][mM]/*
+  - file: tools/bns
+    sections:
+    - glob: tutorials/[bB][nN][sS]/*
+  - file: tools/bonesis
+    sections:
+    - glob: tutorials/[bB][oO][nN][eE][sS][iI][sS]/*
+  - file: tools/booleannet
+    sections:
+    - glob: tutorials/[bB][oO][oO][lL][eE][aA][nN][nN][eE][tT]/*
+  - file: tools/boolsim
+    sections:
+    - glob: tutorials/[bB][oO][oO][lL][sS][iI][mM]/*
+  - file: tools/boon
+    sections:
+    - glob: tutorials/[bB][oO][oO][nN]/*
+  - file: tools/cabean
+    sections:
+    - glob: tutorials/[cC][aA][bB][eE][aA][nN]/*
+  - file: tools/caspo
+    sections:
+    - glob: tutorials/[cC][aA][sS][pP][oO]/*
+  - file: tools/casq
+    sections:
+    - glob: tutorials/[cC][aA][sS][qQ]/*
+  - file: tools/cellcollective
+    sections:
+    - glob: tutorials/[cC][eE][lL][lL][cC][oO][lL][lL][eE][cC][tT][iI][vV][eE]/*
+  - file: tools/erode
+    sections:
+    - glob: tutorials/[eE][rR][oO][dD][eE]/*
+  - file: tools/ginsim
+    sections:
+    - glob: tutorials/[gG][iI][nN][sS][iI][mM]/*
+  - file: tools/maboss
+    sections:
+    - glob: tutorials/[mM][aA][bB][oO][sS][sS]/*
+  - file: tools/minibn
+    sections:
+    - glob: tutorials/[mM][iI][nN][iI][bB][nN]/*
+  - file: tools/mpbn
+    sections:
+    - glob: tutorials/[mM][pP][bB][nN]/*
+  - file: tools/nordic
+    sections:
+    - glob: tutorials/[nN][oO][rR][dD][iI][cC]/*
+  - file: tools/nusmv
+    sections:
+    - glob: tutorials/[nN][uU][sS][mM][vV]/*
+  - file: tools/pint
+    sections:
+    - glob: tutorials/[pP][iI][nN][tT]/*
+  - file: tools/pyboolnet
+    sections:
+    - glob: tutorials/[pP][yY][bB][oO][oO][lL][nN][eE][tT]/*
+  - file: tools/pystablemotifs
+    sections:
+    - glob: tutorials/[pP][yY][sS][tT][aA][bB][lL][eE][mM][oO][tT][iI][fF][sS]/*
+  - file: tools/r-boolnet
+    sections:
+    - glob: tutorials/[rR]-[bB][oO][oO][lL][nN][eE][tT]/*
+  - file: tools/scboolseq
+    sections:
+    - glob: tutorials/[sS][cC][bB][oO][oO][lL][sS][eE][qQ]/*
+root: README

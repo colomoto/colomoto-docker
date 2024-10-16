@@ -1,31 +1,41 @@
 {
-    "biodivine_aeon": {
+    "ActoNet": {
+        "name": "ActoNet",
+        "description": "Abduction-based control of fixed points of Boolean networks",
+        "release_url": "https://github.com/algorecell/pyActoNet/releases/tag/v{}"
+    },
+    "aeon": {
         "name": "AEON.py",
         "description": "Symbolic analysis (attractors, reachability) of (partially specified) Boolean networks",
-        "release_url": "https://github.com/sybila/biodivine-aeon-py/releases/"
+        "release_url": "https://github.com/sybila/biodivine-aeon-py/releases/tag/v{}"
+    },
+    "biolqm": {
+        "name": "bioLQM",
+        "description": "Logical Qualitative Modelling toolkit",
+        "release_url": "https://colomoto.github.io/biolqm/"
     },
     "bns": {
         "name": "BNS",
-        "description": "Identification of synchronous attractors using SAT",
+        "description": "Identification of synchronous attractors",
         "release_url": "https://people.kth.se/~dubrova/BNS/user_manual.html"
     },
     "bonesis": {
         "name": "BoNesis",
-        "description": "Synthesis of Most Permissive Boolean Networks from network architecture and dynamical properties",
+        "description": "Synthesis of Boolean Networks from architecture and dynamical properties",
         "release_url": "https://github.com/bnediction/bonesis/releases/tag/v{}"
     },
     "booleannet": {
         "name": "BooleanNet",
-        "description": "Simulation of Boolean Regulatory networks",
+        "description": "Simulation of Boolean regulatory networks",
         "release_url": "https://github.com/ialbert/booleannet/releases/tag/v{}"
     },
     "boolsim": {
         "name": "boolSim",
-        "description": "Computation of attractors and reachable sets in synchronous and asynchronous Boolean Networks",
+        "description": "Attractors and reachable sets in synchronous and asynchronous Boolean networks",
         "release_url": "https://www.vital-it.ch/research/software/boolSim"
     },
     "boolsim-python": {
-        "name":"boolSim-python",
+        "name": "boolSim-python",
         "description": "Python interface to boolSim",
         "release_url": "https://github.com/colomoto/boolSim-python/releases/tag/v{}"
     },
@@ -51,21 +61,22 @@
     },
     "caspo-control": {
         "name": "Caspo-control",
-        "description": "Python wrapper to the control method of caspo",
+        "description": "Python interface to Caspo",
         "release_url": "https://github.com/algorecell/caspo-control/releases/tag/v{}"
     },
-    "clingo": {
-        "description": "Answer-Set Programming solver",
-        "release_url": "https://github.com/potassco/clingo/releases/tag/v{}"
+    "casq": {
+        "name": "CaSQ",
+        "description": "Convert static interaction maps into executable models",
+        "release_url": "https://github.com/soli/casq"
     },
-    "colomoto_jupyter": {
-        "homepage": "https://github.com/colomoto/colomoto-jupyter",
-        "description": "CoLoMoTo Python module",
+    "cellcollective": {
+        "name": "CellCollective",
+        "description": "Model repository and knowledge base",
         "release_url": "https://github.com/colomoto/colomoto-jupyter/releases/tag/v{}"
     },
-    "erode-python": {
-        "name": "ERODE-Python",
-        "description": "Backward Boolean Equivalence Reduction of Boolean networks",
+    "erode": {
+        "name": "ERODE",
+        "description": "Backward Boolean Equivalence of Boolean networks",
         "release_url": "https://github.com/colomoto/ERODE-CoLoMoTo/releases/tag/v{}"
     },
     "ginsim": {
@@ -75,22 +86,22 @@
     },
     "ginsim-python": {
         "name": "GINsim-Python",
-        "description": "Python interface to GINsim and bioLQM",
+        "description": "Python interface to GINsim",
         "release_url": "https://github.com/GINsim/GINsim-python/releases/tag/v{}"
-    },
-    "its": {
-        "name": "ITSTools",
-        "description": "Symbolic model-checker",
-        "release_url": "https://lip6.github.io/ITSTools-web/"
     },
     "maboss": {
         "name": "MaBoSS",
         "description": "Markovian Boolean Stochastic Simulator",
         "release_url": "https://github.com/maboss-bkmc/MaBoSS-env-2.0/releases/tag/v{}"
     },
+    "minibn": {
+        "name": "minibn",
+        "description": "Simple Boolean network manipulation API",
+        "release_url": "https://github.com/colomoto/colomoto-jupyter/releases/tag/v{}"
+    },
     "mpbn": {
         "name": "mpbn",
-        "description": "Brief implementation of Most Permissive Boolean Networks",
+        "description": "Analysis and simulation of Most Permissive Boolean Networks",
         "release_url": "https://github.com/pauleve/mpbn/releases/tag/v{}"
     },
     "nordic": {
@@ -108,11 +119,6 @@
         "description": "Static analyzer for dynamics of Automata Networks",
         "release_url": "https://github.com/pauleve/pint/releases/"
     },
-    "pyactonet": {
-        "name": "ActoNet",
-        "description": " Abduction-based control of fixed points of Boolean networks",
-        "release_url": "https://github.com/algorecell/pyActoNet/releases/tag/v{}"
-    },
     "pyboolnet": {
         "name": "PyBoolNet",
         "description": "Generation, modification and analysis of Boolean networks",
@@ -128,20 +134,15 @@
         "description": "Python interface to Pint",
         "release_url": "https://github.com/pauleve/pypint/releases/tag/v{}"
     },
+    "pystablemotifs": {
+        "name": "pyStableMotifs",
+        "description": "Target-control of Boolean networks",
+        "release_url": "https://github.com/jcrozum/pystablemotifs/"
+    },
     "r-boolnet": {
         "name": "R-BoolNet",
         "description": "Analysis and reconstruction of Boolean networks dynamics",
         "release_url": "https://cran.r-project.org/web/packages/BoolNet/index.html"
-    },
-    "pystablemotifs": {
-        "name": "pystablemotifs",
-        "description": " A PyBoolNet implementation of stable motif algorithms, including oscillation checking. ",
-        "release_url": "https://github.com/jcrozum/pystablemotifs/"
-    },
-    "casq": {
-        "name": "CaSQ",
-        "description": "Convert static interaction maps into executable models",
-        "release_url": "https://github.com/soli/casq"
     },
     "scboolseq": {
         "name": "scBoolSeq",

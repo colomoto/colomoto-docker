@@ -1,2 +1,2 @@
-markdown_it
+markdown-it-py
 PyYAML

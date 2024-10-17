@@ -17,7 +17,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Tools metadata
         run: |
-          pip install -r hooks/requirements.py
+          pip install -r hooks/requirements.txt
           python hooks/tools_metadata.py
       - name: Docker image build
         run: sh hooks/build

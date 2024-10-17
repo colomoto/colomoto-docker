@@ -27,7 +27,7 @@ jobs:
       run: python update-n-freeze.py
     - name: Tools metadata
       run: |
-        pip install -r hooks/requirements.py
+        pip install -r hooks/requirements.txt
         python hooks/tools_metadata.py
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v3.5.0

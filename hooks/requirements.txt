@@ -1,2 +1,2 @@
-markdown-it-py
+markdown-it-py[plugins]
 PyYAML

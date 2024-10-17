@@ -1,2 +1,2 @@
-markdown-it-py[plugins]
+markdown-it-py[plugins,linkify]
 PyYAML

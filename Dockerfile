@@ -133,7 +133,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
 # Tier 2: tools with regular updates (2-4/year)
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         -c daemontus \
-        biodivine_aeon=1.1.0=py311h9bf148f_0 \
+        biodivine_aeon=1.2.0=py311h9bf148f_0 \
         maboss=2.6.0=he9e06a5_1 \
         pyboolnet=3.0.14=py311_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
@@ -143,14 +143,14 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         -c creda \
         algorecell_types=1.0=py_0 \
         bns-python=0.2=py_0 \
-        bonesis=0.6.6=py_0 \
+        bonesis=0.6.7=py_0 \
         boon=1.26=py_0 \
         boolsim-python=0.5=py_0 \
         cabean-python=1.0=py_0 \
         caspo-control=1.0=py_0 \
         casq=1.3.3=pyhd8ed1ab_0 \
-        colomoto_jupyter=0.8.8=py_0 \
-        ginsim-python=0.4.3=py_0 \
+        colomoto_jupyter=0.8.9=py_0 \
+        ginsim-python=0.4.5=py_0 \
         mpbn=3.8=py_0 \
         nordic=2.5.0=py_0 \
         pyactonet=1.0=py_0 \

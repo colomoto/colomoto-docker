@@ -1,5 +1,5 @@
 {
-"pybuild": "py311",
+"pybuild": "py312",
 "channels": ["colomoto", "conda-forge"],
 "blacklist-dependencies": [],
 "skip-package-build": ["r-boolnet"],

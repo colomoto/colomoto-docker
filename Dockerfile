@@ -1,4 +1,4 @@
-FROM debian:sid-20240812-slim
+FROM debian:sid-20250224-slim
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /home/user/.local/bin:/opt/conda/bin:$PATH
@@ -40,7 +40,7 @@ RUN TINI_VERSION="0.19.0" && \
 #
 # package versions in this section are not pinned unless necessary
 #
-RUN CONDA_VERSION="py311_24.7.1-0" && \
+RUN CONDA_VERSION="py312_25.1.1-2" && \
     echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O ~/miniconda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
@@ -179,7 +179,7 @@ RUN chown $NB_USER:$NB_USER /notebook
 
 USER $NB_USER
 
-RUN mkdir -p /home/$NB_USER/.local/lib/python3.11/site-packages && \
+RUN mkdir -p /home/$NB_USER/.local/lib/python3.12/site-packages && \
     mkdir /notebook/persistent &&\
     touch /notebook/persistent/.keep
 

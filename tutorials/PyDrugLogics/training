@@ -1,0 +1,9 @@
+# AGS training data
+
+# Flobak et al. 2015, PLoS comput biol, see sup tables S3/S4 (steady state) and S6 (perturbation)
+# Steady state observation across many publications
+Condition
+-
+Response
+CASP3:0	CASP8:0	CASP9:0	FOXO_f:0	RSK_f:1	CCND1:1	MYC:1	RAC_f:1	JNK_f:0	MAPK14:0	AKT_f:1	MMP_f:1	PTEN:0	ERK_f:1	KRAS:1	PIK3CA:1	S6K_f:1	GSK3_f:0	TP53:0	BAX:0	BCL2:1	CTNNB1:1	TCF7_f:1	NFKB_f:1
+Weight:1

@@ -124,6 +124,11 @@
         "description": "Generation, modification and analysis of Boolean networks",
         "release_url": "https://github.com/hklarner/PyBoolNet/releases/tag/v{}"
     },
+    "pydruglogics": {
+        "name": "PyDrugLogics",
+        "description": "Construct, optimize Boolean Models and perform in-silico perturbations of the models",
+        "release_url": "https://github.com/druglogics/pydruglogics/releases/tag/v{}"
+    },
     "pymaboss": {
         "name": "PyMaBoSS",
         "description": "Python interface to MaBoSS",

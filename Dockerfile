@@ -154,6 +154,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         mpbn=3.8=py_0 \
         nordic=2.5.0=py_0 \
         pyactonet=1.0=py_0 \
+        szlaura::pydruglogics=0.1.8=py_0 \
         pymaboss=0.8.9=py_0 \
         pypint=1.6.3=py_0 \
         pystablemotifs=3.0.6=py_0 \

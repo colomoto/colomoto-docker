@@ -97,7 +97,7 @@ if [ -n "${DOCKER_IMAGE}" ]; then
 fi
 for nb in "${test_nb[@]}"; do
     echo "======= Testing $nb"
-    validate_nb "${nb}"
+    time validate_nb "${nb}"
 done
 
 if $strict; then

@@ -1,19 +1,15 @@
 ---
-name: Tool Name
-homepage: https://...
-release_url: https://github.com/YYY/XXX/releases/tag/v{}
-summary: Short summary
-interface: Python module [`xxx`](https://API)    # xxx=Python module to import, API=url for documentation
-package_contact: Name <email>
-pyface_package: pyxxx    # pyface: secondary package for python interface
-pyface_name: PyXXX       # remove pyface_* lines if none.
-pyface_release_url: https://github.com/YYY/pyXXX/releases/tag/v{}
+name: PyDrugLogics
+homepage: https://druglogics.github.io/pydruglogics/
+release_url: https://github.com/druglogics/pydruglogics/releases/tag/v{}
+summary:  Construct, optimize Boolean Models and perform in-silico perturbations of the models
+interface: Python module [`pydruglogics`](https://druglogics.github.io/pydruglogics/api.html)
 ---
 
-# Tool Name
+# PyDrugLogics
 
 :::admonition
-Webpage: https://github.com/druglogics/pydruglogics
+Webpage: https://druglogics.github.io/pydruglogics/
 :::
 
 PyDrugLogics is a Python package designed for constructing, optimizing Boolean Models and performs in-silico perturbations of the models.

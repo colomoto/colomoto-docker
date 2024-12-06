@@ -1,4 +1,4 @@
-FROM debian:sid-20240812-slim
+FROM debian:sid-20241016-slim
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /home/user/.local/bin:/opt/conda/bin:$PATH
@@ -40,7 +40,7 @@ RUN TINI_VERSION="0.19.0" && \
 #
 # package versions in this section are not pinned unless necessary
 #
-RUN CONDA_VERSION="py311_24.7.1-0" && \
+RUN CONDA_VERSION="py312_24.9.2-0" && \
     echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O ~/miniconda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
@@ -120,7 +120,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
         bns=1.3=0 \
         cabean=1.0.0=0 \
         caspo=4.0.1=py_1 \
-        clingo=5.7.1=py311h3fd9d12_0 \
+        clingo=5.7.1=py312h3fd9d12_0 \
         erode-python=0.7.2=py_0 \
         ginsim=3.0.0b=12 \
         its=20210125=0 \
@@ -133,9 +133,9 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
 # Tier 2: tools with regular updates (2-4/year)
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         -c daemontus \
-        biodivine_aeon=1.2.0=py311h9bf148f_0 \
+        biodivine_aeon=1.2.0=py312h9bf148f_0 \
         maboss=2.6.0=he9e06a5_1 \
-        pyboolnet=3.0.14=py311_0 \
+        pyboolnet=3.0.14=py312_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 # Tier 3: tools with frequent updates (>4/year) or lightweight with thin dependencies
@@ -177,7 +177,7 @@ RUN chown $NB_USER:$NB_USER /notebook
 
 USER $NB_USER
 
-RUN mkdir -p /home/$NB_USER/.local/lib/python3.11/site-packages && \
+RUN mkdir -p /home/$NB_USER/.local/lib/python3.12/site-packages && \
     mkdir /notebook/persistent &&\
     touch /notebook/persistent/.keep
 

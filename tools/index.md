@@ -25,6 +25,7 @@ The CoLoMoTo Docker image provides access to the following softwares:
 | NuSMV | http://nusmv.fbk.eu | Symbolic model-checker | Python module [`nusmv`](https://github.com/colomoto/colomoto-jupyter) |
 | Pint | https://loicpauleve.name/pint | Static analyzer for dynamics of Automata Networks | Python module [`pypint`](https://github.com/pauleve/pypint) |
 | PyBoolNet | https://github.com/hklarner/PyBoolNet | Generation, modification and analysis of Boolean networks | Python module [`PyBoolNet`](https://github.com/hklarner/PyBoolNet) |
+| PyDrugLogics | https://druglogics.github.io/pydruglogics/ | Construct, optimize Boolean Models and perform in-silico perturbations of the models | Python module [`pydruglogics`](https://druglogics.github.io/pydruglogics/api.html) |
 | pyStableMotifs | https://github.com/jcrozum/pystablemotifs | Target-control of Boolean networks | Python module [`pystablemotifs`](https://github.com/jcrozum/pystablemotifs) |
 | R-BoolNet | https://cran.r-project.org/package=BoolNet | Analysis and reconstruction of Boolean networks dynamics | RPY2 python interface |
 | scBoolSeq | https://github.com/bnediction/scBoolSeq | scRNA-Seq data binarisation and synthetic generation from Boolean dynamics | Python module [`scboolseq`](https://github.com/bnediction/scBoolSeq) |

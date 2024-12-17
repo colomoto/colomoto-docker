@@ -76,6 +76,9 @@ parts:
   - file: tools/pyboolnet
     sections:
     - glob: tutorials/[pP][yY][bB][oO][oO][lL][nN][eE][tT]/*
+  - file: tools/pydruglogics
+    sections:
+    - glob: tutorials/[pP][yY][dD][rR][uU][gG][lL][oO][gG][iI][cC][sS]/*
   - file: tools/pystablemotifs
     sections:
     - glob: tutorials/[pP][yY][sS][tT][aA][bB][lL][eE][mM][oO][tT][iI][fF][sS]/*

@@ -83,6 +83,7 @@ test_nb+=("tutorials/NORDic/NORDic-demo.ipynb")
 test_nb+=("tutorials/NuSMV/NuSMV with GINsim.ipynb")
 test_nb+=("tutorials/Pint/quick-tutorial.ipynb")
 test_nb+=("tutorials/PyBoolNet/PyBoolNet_tutorial.ipynb")
+test_nb+=("tutorials/PyDrugLogics/pydruglogics_tutorial.ipynb")
 test_nb+=("tutorials/pystablemotifs/Basic Usage Tutorial.ipynb")
 test_nb+=("tutorials/pystablemotifs/Control Tutorial.ipynb")
 test_nb+=("tutorials/R-BoolNet/Random BN generation, loading with biolqm or minibn.ipynb")
@@ -97,7 +98,7 @@ if [ -n "${DOCKER_IMAGE}" ]; then
 fi
 for nb in "${test_nb[@]}"; do
     echo "======= Testing $nb"
-    validate_nb "${nb}"
+    time validate_nb "${nb}"
 done
 
 if $strict; then

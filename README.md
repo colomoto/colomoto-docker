@@ -3,7 +3,6 @@
  <a title="Docker Hub" href="https://hub.docker.com/r/colomoto/colomoto-docker"><img src="https://img.shields.io/docker/pulls/colomoto/colomoto-docker.svg?longCache=true&style=flat-square&logo=docker&logoColor=fff"></a>
 [![PyPI version](https://badge.fury.io/py/colomoto-docker.svg)](https://badge.fury.io/py/colomoto-docker)
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/colomoto/colomoto-docker/mybinder/latest)
-[![Gitter](https://badges.gitter.im/colomoto/colomoto-docker.svg)](https://matrix.to/#/#colomoto_community:gitter.im)
 [![DOI:10.3389/fphys.2018.00680](https://img.shields.io/badge/DOI-10.3389/fphys.2018.00680-blue.svg)](https://doi.org/10.3389/fphys.2018.00680)
 
 

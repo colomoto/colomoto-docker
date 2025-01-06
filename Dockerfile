@@ -90,15 +90,16 @@ RUN conda install -y \
     find /opt/conda -name '*.a' -delete &&\
     conda clean -y --all && rm -rf /opt/conda/pkgs
 
-# tool dependencies being quite heavy
+# useful 3rdparty libs or tool dependencies being quite heavy
 #     nordic: cmappy, cython, pydantic, qnorm
 #     boon: z3-solver
 RUN conda install --no-update-deps -y -c conda-forge -c bioconda \
         cmappy \
         cython \
         omnipath \
-        qnorm \
         pyeda \
+        python-libsbml \
+        qnorm \
         z3-solver \
         && \
     find /opt/conda -name '*.a' -delete &&\

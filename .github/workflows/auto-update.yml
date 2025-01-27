@@ -24,7 +24,9 @@ jobs:
           git merge --ff-only origin/for-next
     - uses: actions/setup-python@v4
     - name: Update tools
-      run: python update-n-freeze.py
+      run: |
+        pip install packaging
+        python update-n-freeze.py
     - name: Tools metadata
       run: |
         pip install -r hooks/requirements.txt

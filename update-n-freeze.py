@@ -72,6 +72,8 @@ def get_latest_version(pkg, channels, cfg):
         b = b.split("_")
         b.insert(0, int(b.pop()))
         return b
+    from packaging import version
+    versions.sort(key=lambda v: version.parse(v))
     for v in reversed(versions):
         if pkg in cfg.get("skip-package-build"):
             print(f"### found {v} (build skipped)")

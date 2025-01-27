@@ -117,6 +117,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
         -c potassco -c bioasp \
         asprin=3.1.1=py_0 \
         boolsim=1.2=0 \
+        boolean.py=4.0+git_1=py_0 \
         booleannet=1.2.8=py_0 \
         bns=1.3=0 \
         cabean=1.0.0=0 \

@@ -119,14 +119,14 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
         boolsim=1.2=0 \
         boolean.py=4.0+git_1=py_0 \
         booleannet=1.2.8=py_0 \
-        bns=1.3=0 \
+        bns=1.3=h2bc3f7f_0 \
         cabean=1.0.0=0 \
         caspo=4.0.1=py_1 \
         clingo=5.7.1=py311h3fd9d12_0 \
         erode-python=0.7.2=py_0 \
-        ginsim=3.0.0b=12 \
+        ginsim=3.0.0b=13 \
         its=20210125=0 \
-        nusmv=2.6.0=0 \
+        nusmv=2.7.0=0 \
         nusmv-a=1.2=h6bb024c_0 \
         pint=2019.05.24=1 \
         r-boolnet=2.1.9 \
@@ -150,17 +150,17 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         boolsim-python=0.5=py_0 \
         cabean-python=1.0=py_0 \
         caspo-control=1.0=py_0 \
-        casq=1.3.3=pyhd8ed1ab_0 \
-        colomoto_jupyter=0.8.11=py_0 \
+        casq=1.3.3=pyhd8ed1ab_1 \
+        colomoto_jupyter=0.8.21=py_0 \
         ginsim-python=0.4.5=py_0 \
-        mpbn=3.8=py_0 \
+        mpbn=4.1=py_0 \
         nordic=2.5.0=py_0 \
         pyactonet=1.0=py_0 \
         szlaura::pydruglogics=0.1.8=py_0 \
         pymaboss=0.8.9=py_0 \
         pypint=1.6.3=py_0 \
         pystablemotifs=3.0.6=py_0 \
-        scboolseq=2.1.0=py_0 \
+        scboolseq=2.2.0=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 ## Additional tweaks

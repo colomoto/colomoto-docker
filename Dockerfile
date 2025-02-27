@@ -136,7 +136,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         -c daemontus \
         biodivine_aeon=1.2.3=py311h9bf148f_0 \
-        maboss=2.6.0=he9e06a5_1 \
+        maboss=2.6.1=he9e06a5_1 \
         pyboolnet=3.0.16=py311_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
@@ -154,10 +154,10 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         colomoto_jupyter=0.8.21=py_0 \
         ginsim-python=0.4.5=py_0 \
         mpbn=4.1=py_0 \
-        nordic=2.5.0=py_0 \
+        nordic=2.6.0=py_0 \
         pyactonet=1.0=py_0 \
         szlaura::pydruglogics=0.1.8=py_0 \
-        pymaboss=0.8.9=py_0 \
+        pymaboss=0.8.10=py_0 \
         pypint=1.6.3=py_0 \
         pystablemotifs=3.0.6=py_0 \
         scboolseq=2.2.0=py_0 \

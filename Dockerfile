@@ -122,7 +122,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
         bns=1.3=h2bc3f7f_0 \
         cabean=1.0.0=0 \
         caspo=4.0.1=py_1 \
-        clingo=5.7.1=py311h3fd9d12_0 \
+        clingo=5.7.1=py312h3fd9d12_0 \
         erode-python=0.7.2=py_0 \
         ginsim=3.0.0b=13 \
         its=20210125=0 \
@@ -135,9 +135,9 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
 # Tier 2: tools with regular updates (2-4/year)
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         -c daemontus \
-        biodivine_aeon=1.2.3=py311h9bf148f_0 \
+        biodivine_aeon=1.2.3=py312h9bf148f_0 \
         maboss=2.6.1=he9e06a5_1 \
-        pyboolnet=3.0.16=py311_0 \
+        pyboolnet=3.0.16=py312_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 # Tier 3: tools with frequent updates (>4/year) or lightweight with thin dependencies

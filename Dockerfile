@@ -67,6 +67,7 @@ RUN conda install -y \
         pyqt=5.9.9999 \
         graphviz \
         imagemagick \
+        'ipylab>=1.1.0' \
         ipywidgets \
         matplotlib \
         networkx \

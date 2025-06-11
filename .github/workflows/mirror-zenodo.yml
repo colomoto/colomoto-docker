@@ -1,0 +1,47 @@
+name: Mirror docker images on Zenodo
+
+on:
+  repository_dispatch:
+    types:
+      - 'mirror-zenodo/*-*-*'
+      - 'mirrors/*-*-*'
+  push:
+    tags:
+      - '*-*-*'
+
+jobs:
+  mirror-zenodo:
+    name: Release on Zenodo
+    runs-on: ubuntu-latest
+    env:
+      DONODO_FLAGS : ${{vars.DONODO_FLAGS}}
+    steps:
+      - name: Checking if Zenodo sandbox is used
+        run: |
+          if [[ "$DONODO_FLAGS" =~ "--sandbox" ]]; then           
+            echo ZENODO_TOKEN=${{secrets.ZENODO_SANDBOX_TOKEN}} >> $GITHUB_ENV;
+            echo ZENODO_SANDBOX=1 >> $GITHUB_ENV;
+          else
+            echo ZENODO_TOKEN=${{secrets.ZENODO_TOKEN}} >> $GITHUB_ENV
+            echo ZENODO_SANDBOX=0 >> $GITHUB_ENV;
+          fi
+        shell: bash
+      - run:
+          echo TAG=${GITHUB_REF##*/} >> $GITHUB_ENV
+        if: github.event_name == 'push'
+      - run:
+          echo TAG=${REF##*/} >> $GITHUB_ENV
+        if: github.event_name == 'repository_dispatch'
+        env:
+            REF: ${{ github.event.action }}
+      - run:
+          echo IMAGE=${{vars.COLOMOTO_DOCKER_IMAGE}}:${TAG} >> $GITHUB_ENV
+      - name: Setup Donodo
+        uses: actions/setup-python@v5
+        with:
+            python-version: '3.12'
+      - run: pip install donodo
+      - name: Pulling Docker image ${{env.IMAGE}}
+        run: docker pull ${IMAGE}
+      - name: donodo ${{vars.DONODO_FLAGS}} push --auto-publish ${{env.IMAGE}}
+        run: donodo $DONODO_FLAGS push --auto-publish ${IMAGE}

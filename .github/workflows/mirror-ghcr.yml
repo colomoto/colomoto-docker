@@ -1,4 +1,4 @@
-name: Mirror docker images
+name: Mirror docker images on GitHub
 
 on:
   repository_dispatch:

@@ -10,7 +10,7 @@ on:
 jobs:
   release:
     env:
-      IMAGE_BASENAME: colomoto/colomoto-docker
+      IMAGE_BASENAME: ${{vars.COLOMOTO_DOCKER_IMAGE}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

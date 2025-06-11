@@ -9,7 +9,7 @@ on:
 jobs:
   validate:
     env:
-      IMAGE: colomoto/colomoto-docker:pr${{ github.event.pull_request.number }}
+      IMAGE: ${{vars.COLOMOTO_DOCKER_IMAGE}}:pr${{ github.event.pull_request.number }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

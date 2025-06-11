@@ -23,8 +23,8 @@ jobs:
         env:
             REF: ${{ github.event.action }}
       - run: |
-          echo IMAGE=colomoto/colomoto-docker:${TAG} >> $GITHUB_ENV
-          echo GH_IMAGE=ghcr.io/colomoto/colomoto-docker:${TAG} >> $GITHUB_ENV
+          echo IMAGE=${{vars.COLOMOTO_DOCKER_IMAGE}}:${TAG} >> $GITHUB_ENV
+          echo GH_IMAGE=ghcr.io/${{vars.COLOMOTO_DOCKER_IMAGE}}:${TAG} >> $GITHUB_ENV
       - run: docker pull ${IMAGE}
       - run: docker tag $IMAGE $GH_IMAGE
       - name: Login to GitHub Packages

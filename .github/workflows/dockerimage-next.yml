@@ -8,8 +8,8 @@ on:
 jobs:
   validate-next:
     env:
-      IMAGE: colomoto/colomoto-docker:for-next
-      IMAGE_NEXT: colomoto/colomoto-docker:next
+      IMAGE: ${{vars.COLOMOTO_DOCKER_IMAGE}}:for-next
+      IMAGE_NEXT: ${{vars.COLOMOTO_DOCKER_IMAGE}}:next
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1

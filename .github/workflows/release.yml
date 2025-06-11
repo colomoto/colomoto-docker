@@ -13,7 +13,7 @@ jobs:
       - run: |
           TAG=${GITHUB_REF##*/}
           echo TAG=${TAG} >> $GITHUB_ENV
-          echo IMAGE=colomoto/colomoto-docker:${TAG} >> $GITHUB_ENV
+          echo IMAGE=${{vars.COLOMOTO_DOCKER_IMAGE}}:${TAG} >> $GITHUB_ENV
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
       - name: release info

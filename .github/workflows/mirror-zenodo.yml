@@ -1,5 +1,14 @@
 name: Mirror docker images on Zenodo
 
+#
+# Upload images on Zenodo using Donodo
+#
+# The environment variable vars.DONODO_FLAGS is used to add common options to Donodo;
+# currently --debug or --sandbox.
+# If --sandbox is specified, then ZENODO_TOKEN is set to secrets.ZENODO_SANDBOX_TOKEN
+# instead of secrets.ZENODO_TOKEN.
+#
+
 on:
   repository_dispatch:
     types:

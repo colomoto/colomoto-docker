@@ -1,4 +1,4 @@
-FROM debian:sid-20250224-slim
+FROM debian:sid-20250811-slim
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /home/user/.local/bin:/opt/conda/bin:$PATH

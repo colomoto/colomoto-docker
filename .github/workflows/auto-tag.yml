@@ -4,8 +4,8 @@ name: Daily tagging
 on:
   repository_dispatch:
     types: release
-  schedule:
-    - cron: "59 23 * * *"
+#  schedule:
+#    - cron: "59 23 * * *"
 
 jobs:
   release:

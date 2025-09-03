@@ -24,6 +24,7 @@ By default, the script will fetch the most recent [colomoto/colomoto-docker tag]
     colomoto-docker                 # uses the most recently fetched image
     colomoto-docker -V latest       # fetches the latest published image
     colomoto-docker -V 2018-05-29   # fetches a specific image
+    colomto-docker --doi 10.5281/zenodo.17035229   # fetches image from Zenodo record
 
 ### Writing notebooks
 

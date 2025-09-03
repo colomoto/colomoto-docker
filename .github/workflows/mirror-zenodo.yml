@@ -20,14 +20,14 @@ on:
 
 jobs:
   mirror-zenodo:
-    name: Release on Zenodo
+    name: Mirror on Zenodo
     runs-on: ubuntu-latest
     env:
       DONODO_FLAGS : ${{vars.DONODO_FLAGS}}
     steps:
       - name: Checking if Zenodo sandbox is used
         run: |
-          if [[ "$DONODO_FLAGS" =~ "--sandbox" ]]; then           
+          if [[ "$DONODO_FLAGS" =~ "--sandbox" ]]; then
             echo ZENODO_TOKEN=${{secrets.ZENODO_SANDBOX_TOKEN}} >> $GITHUB_ENV;
             echo ZENODO_SANDBOX=1 >> $GITHUB_ENV;
           else
@@ -52,5 +52,5 @@ jobs:
       - run: pip install donodo
       - name: Pulling Docker image ${{env.IMAGE}}
         run: docker pull ${IMAGE}
-      - name: donodo ${{vars.DONODO_FLAGS}} push --auto-publish ${{env.IMAGE}}
-        run: donodo $DONODO_FLAGS push --auto-publish ${IMAGE}
+      - name: donodo push
+        run: donodo $DONODO_FLAGS push --auto-publish ${{ vars.DONODO_PUSH_FLAGS }} ${IMAGE}

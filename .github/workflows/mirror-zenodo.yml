@@ -53,4 +53,4 @@ jobs:
       - name: Pulling Docker image ${{env.IMAGE}}
         run: docker pull ${IMAGE}
       - name: donodo push
-        run: donodo $DONODO_FLAGS push --auto-publish ${{ vars.DONODO_PUSH_FLAGS }} ${IMAGE}
+        run: donodo $DONODO_FLAGS push --auto-publish --conceptrecid ${{ vars.ZENODO_CONCEPTRECID }} ${{ vars.DONODO_PUSH_FLAGS }} ${IMAGE}

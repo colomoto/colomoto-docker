@@ -4,6 +4,13 @@
 Feel free to suggest links to Jupyter notebooks made with the CoLoMoTo Docker distribution
 (supplementary information of papers, tutorials, etc.).
 ```
+
+```{seealso}
+
+See also our [Zenodo Community](https://zenodo.org/communities/colomoto/records?q=&l=list&p=1&s=10&sort=newest) - and please submit your colomoto-related zenodo record there!
+
+```
+
 - [Reproducible Boolean model analyses and simulations with the CoLoMoTo software suite: a tutorial](https://zenodo.org/records/15602427). The tutorial specifically focuses on the analysis of a previously published model of the regulatory network controlling mammalian cell proliferation by Sizek et al, 2019.\
   ![colomoto-docker:2025-03-01](https://img.shields.io/badge/colomoto--docker-2025--03--01-brightgreen)
   [![DOI:10.1098/rsfs.2025.0002](https://img.shields.io/badge/DOI-10.1098/rsfs.2025.0002-blue.svg)](https://doi.org/10.1098/rsfs.2025.0002)

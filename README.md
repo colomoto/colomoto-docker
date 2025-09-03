@@ -27,6 +27,7 @@ A specific tag can be specified using the `-V` option. For example:
 
     colomoto-docker -V latest       # fetches the latest published image
     colomoto-docker -V 2024-04-01   # fetches a specific image
+    colomto-docker --doi 10.5281/zenodo.17035229   # fetches image from Zenodo record
 
 **Warning**: by default, the files within the Docker container are isolated from the running host computer, therefore *files are deleted after stopping the container*, except the files within the `persistent` directory.
 
@@ -35,6 +36,8 @@ To have access to the files of your current directory you can use the `--bind` o
     colomoto-docker --bind .
 
 See [usage guide](docs/usage.md) for further options and alternative methods.
+
+Docker images are persistently archived on Zenodo at https://doi.org/10.5281/zenodo.17035228.
 
 ## Contribute
 

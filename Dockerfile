@@ -95,7 +95,7 @@ RUN conda install -y \
 # useful 3rdparty libs or tool dependencies being quite heavy
 #     nordic: cmappy, cython, pydantic, qnorm
 #     boon: z3-solver
-RUN conda install --no-update-deps -y -c conda-forge -c bioconda \
+RUN conda install --no-update-deps -y -c conda-forge -c bioconda -c gurobi\
         cmappy \
         cython \
         omnipath \
@@ -103,6 +103,7 @@ RUN conda install --no-update-deps -y -c conda-forge -c bioconda \
         python-libsbml \
         qnorm \
         z3-solver \
+        gurobi \
         && \
     find /opt/conda -name '*.a' -delete &&\
     conda clean -y --all && rm -rf /opt/conda/pkgs
@@ -136,10 +137,11 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
 
 # Tier 2: tools with regular updates (2-4/year)
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
-        -c daemontus \
+        -c daemontus -c msolab \
         biodivine_aeon=1.2.3=py312h9bf148f_0 \
         maboss=2.6.5=h656b026_1 \
         pyboolnet=3.0.16=py312_0 \
+        optboolnet=1.0.0=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 # Tier 3: tools with frequent updates (>4/year) or lightweight with thin dependencies

@@ -49,6 +49,7 @@ validate_nb() {
 }
 
 test_nb=()
+test_nb+=("tutorials/optboolnet/breast_cancer_Biane_Delaplace(2019).ipynb")
 test_nb+=("tutorials/Reproducibility - fixpoints.ipynb")
 test_nb+=("tutorials/Reproducibility - model checking.ipynb")
 test_nb+=("tutorials/ActoNet/ActoNet_Bladder.ipynb")
@@ -90,7 +91,7 @@ test_nb+=("tutorials/R-BoolNet/Random BN generation, loading with biolqm or mini
 test_nb+=("tutorials/CaSQ/CaSQ_from_CellDesigner_to_GINsim.ipynb")
 test_nb+=("tutorials/scBoolSeq/scBoolSeq - scRNA-Seq binarization.ipynb")
 test_nb+=("tutorials/scBoolSeq/scBoolSeq - synthetic scRNA-Seq generation from Boolean dynamics.ipynb")
-test_nb+=("tutorials/optboolnet/breast_cancer_Biane_Delaplace(2019).ipynb")
+
 
 if [ -n "${DOCKER_IMAGE}" ]; then
     echo

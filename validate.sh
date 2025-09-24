@@ -49,7 +49,7 @@ validate_nb() {
 }
 
 test_nb=()
-test_nb+=("tutorials/optboolnet/breast_cancer_Biane_Delaplace(2019).ipynb")
+test_nb+=("tutorials/optboolnet/bladder_example.ipynb")
 test_nb+=("tutorials/Reproducibility - fixpoints.ipynb")
 test_nb+=("tutorials/Reproducibility - model checking.ipynb")
 test_nb+=("tutorials/ActoNet/ActoNet_Bladder.ipynb")

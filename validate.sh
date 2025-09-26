@@ -49,7 +49,6 @@ validate_nb() {
 }
 
 test_nb=()
-test_nb+=("tutorials/optboolnet/bladder_example.ipynb")
 test_nb+=("tutorials/Reproducibility - fixpoints.ipynb")
 test_nb+=("tutorials/Reproducibility - model checking.ipynb")
 test_nb+=("tutorials/ActoNet/ActoNet_Bladder.ipynb")
@@ -82,6 +81,7 @@ test_nb+=("tutorials/minibn/Model creation and edition with minibn.ipynb")
 test_nb+=("tutorials/minibn/Simulations with minibn.ipynb")
 test_nb+=("tutorials/NORDic/NORDic-demo.ipynb")
 test_nb+=("tutorials/NuSMV/NuSMV with GINsim.ipynb")
+test_nb+=("tutorials/optboolnet/bladder_example.ipynb")
 test_nb+=("tutorials/Pint/quick-tutorial.ipynb")
 test_nb+=("tutorials/PyBoolNet/PyBoolNet_tutorial.ipynb")
 test_nb+=("tutorials/PyDrugLogics/pydruglogics_tutorial.ipynb")

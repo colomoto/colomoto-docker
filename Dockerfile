@@ -169,8 +169,8 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
 ADD --chmod=644 https://github.com/ipython/xkcd-font/raw/master/xkcd/build/xkcd.otf /usr/local/share/fonts/
 ADD --chmod=644 https://github.com/ipython/xkcd-font/raw/master/xkcd-script/font/xkcd-script.ttf /usr/local/share/fonts/
 
-COPY validate.sh /usr/local/bin/
-COPY bin/* /usr/bin/
+COPY --chmod=755 validate.sh /usr/local/bin/
+COPY --chmod=755 bin/* /usr/bin/
 
 ##
 # Notebooks

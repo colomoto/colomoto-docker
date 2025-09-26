@@ -81,6 +81,7 @@ test_nb+=("tutorials/minibn/Model creation and edition with minibn.ipynb")
 test_nb+=("tutorials/minibn/Simulations with minibn.ipynb")
 test_nb+=("tutorials/NORDic/NORDic-demo.ipynb")
 test_nb+=("tutorials/NuSMV/NuSMV with GINsim.ipynb")
+test_nb+=("tutorials/optboolnet/bladder_example.ipynb")
 test_nb+=("tutorials/Pint/quick-tutorial.ipynb")
 test_nb+=("tutorials/PyBoolNet/PyBoolNet_tutorial.ipynb")
 test_nb+=("tutorials/PyDrugLogics/pydruglogics_tutorial.ipynb")
@@ -90,6 +91,7 @@ test_nb+=("tutorials/R-BoolNet/Random BN generation, loading with biolqm or mini
 test_nb+=("tutorials/CaSQ/CaSQ_from_CellDesigner_to_GINsim.ipynb")
 test_nb+=("tutorials/scBoolSeq/scBoolSeq - scRNA-Seq binarization.ipynb")
 test_nb+=("tutorials/scBoolSeq/scBoolSeq - synthetic scRNA-Seq generation from Boolean dynamics.ipynb")
+
 
 if [ -n "${DOCKER_IMAGE}" ]; then
     echo

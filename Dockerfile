@@ -74,6 +74,7 @@ RUN conda install -y \
         networkx \
         nomkl \
         notebook \
+        'numpy>=2.2'\
         pandas \
         pyarrow \
         pydot \
@@ -95,7 +96,8 @@ RUN conda install -y \
 # useful 3rdparty libs or tool dependencies being quite heavy
 #     nordic: cmappy, cython, pydantic, qnorm
 #     boon: z3-solver
-RUN conda install --no-update-deps -y -c conda-forge -c bioconda -c gurobi\
+#     optboolnet: gurobi
+RUN conda install --no-update-deps -y -c conda-forge -c bioconda\
         cmappy \
         cython \
         omnipath \
@@ -103,7 +105,7 @@ RUN conda install --no-update-deps -y -c conda-forge -c bioconda -c gurobi\
         python-libsbml \
         qnorm \
         z3-solver \
-        gurobi \
+        gurobi::gurobi \
         && \
     find /opt/conda -name '*.a' -delete &&\
     conda clean -y --all && rm -rf /opt/conda/pkgs
@@ -137,16 +139,14 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
 
 # Tier 2: tools with regular updates (2-4/year)
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
-        -c daemontus -c msolab \
-        biodivine_aeon=1.2.3=py312h9bf148f_0 \
+        daemontus::biodivine_aeon=1.2.3=py312h9bf148f_0 \
         maboss=2.6.5=h656b026_1 \
         pyboolnet=3.0.16=py312_0 \
-        optboolnet=1.0.0=py_0 \
+        msolab::optboolnet=1.0.0=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 # Tier 3: tools with frequent updates (>4/year) or lightweight with thin dependencies
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
-        -c creda \
         algorecell_types=1.0=py_0 \
         bns-python=0.2=py_0 \
         bonesis=0.6.8.1=py_0 \
@@ -158,7 +158,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         colomoto_jupyter=0.9.0=py_0 \
         ginsim-python=0.4.6=py_0 \
         mpbn=4.1=py_0 \
-        nordic=2.6.0=py_0 \
+        creda::nordic=2.7.0 \
         pyactonet=1.0=py_0 \
         szlaura::pydruglogics=0.1.9=py_0 \
         pymaboss=0.8.11=py_0 \

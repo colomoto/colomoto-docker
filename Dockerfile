@@ -100,7 +100,7 @@ RUN conda install -y \
 RUN conda install --no-update-deps -y -c conda-forge -c bioconda\
         cmappy \
         cython \
-        omnipath \
+        colomoto::omnipath \
         pyeda \
         python-libsbml \
         qnorm \
@@ -158,7 +158,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         colomoto_jupyter=0.9.0=py_0 \
         ginsim-python=0.4.6=py_0 \
         mpbn=4.1=py_0 \
-        bioconda::nordic=2.7.0 \
+        colomoto::nordic=2.7.1 \
         pyactonet=1.0=py_0 \
         szlaura::pydruglogics=0.1.9=py_0 \
         pymaboss=0.8.11=py_0 \

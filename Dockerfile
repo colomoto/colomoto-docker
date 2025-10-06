@@ -142,7 +142,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         daemontus::biodivine_aeon=1.2.3=py312h9bf148f_0 \
         maboss=2.6.5=h656b026_1 \
         pyboolnet=3.0.16=py312_0 \
-        msolab::optboolnet=1.0.0=py_0 \
+        msolab::optboolnet=1.0.1=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 # Tier 3: tools with frequent updates (>4/year) or lightweight with thin dependencies

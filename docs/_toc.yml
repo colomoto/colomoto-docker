@@ -70,6 +70,9 @@ parts:
   - file: tools/nusmv
     sections:
     - glob: tutorials/[nN][uU][sS][mM][vV]/*
+  - file: tools/optboolnet
+    sections:
+    - glob: tutorials/[oO][pP][tT][bB][oO][oO][lL][nN][eE][tT]/*
   - file: tools/pint
     sections:
     - glob: tutorials/[pP][iI][nN][tT]/*

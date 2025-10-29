@@ -23,6 +23,7 @@ The CoLoMoTo Docker image provides access to the following softwares:
 | mpbn | https://github.com/pauleve/mpbn | Analysis and simulation of Most Permissive Boolean Networks | Python module [`mpbn`](https://mpbn.readthedocs.io) |
 | NORDic | https://github.com/clreda/NORDic | Network Oriented Repurposing of Drugs | Python module [`NORDic`](https://github.com/clreda/NORDic) |
 | NuSMV | http://nusmv.fbk.eu | Symbolic model-checker | Python module [`nusmv`](https://github.com/colomoto/colomoto-jupyter) |
+| optboolnet | https://github.com/MSOLab/optboolnet | An optimization toolbox for Boolean network analysis | Python module [`optboolnet`](https://anaconda.org/msolab/optboolnet) |
 | Pint | https://loicpauleve.name/pint | Static analyzer for dynamics of Automata Networks | Python module [`pypint`](https://github.com/pauleve/pypint) |
 | PyBoolNet | https://github.com/hklarner/PyBoolNet | Generation, modification and analysis of Boolean networks | Python module [`PyBoolNet`](https://github.com/hklarner/PyBoolNet) |
 | PyDrugLogics | https://druglogics.github.io/pydruglogics/ | Construct, optimize Boolean Models and perform in-silico perturbations of the models | Python module [`pydruglogics`](https://druglogics.github.io/pydruglogics/api.html) |

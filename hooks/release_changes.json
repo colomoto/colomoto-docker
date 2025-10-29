@@ -114,6 +114,11 @@
         "description": "Symbolic model-checker",
         "release_url": "http://nusmv.fbk.eu/"
     },
+    "optboolnet": {
+        "name": "optboolnet",
+        "description": "An optimization toolbox for Boolean network analysis",
+        "release_url": "https://github.com/MSOLab/optboolnet/releases/tag/v{}"
+    },
     "pint": {
         "name": "Pint",
         "description": "Static analyzer for dynamics of Automata Networks",

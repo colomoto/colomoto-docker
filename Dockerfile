@@ -88,7 +88,7 @@ RUN conda install -y \
 # R
 RUN conda install -y \
         'r-base>=4.1' \
-        rpy2 \
+        'rpy2<3.6.4' \
         && \
     find /opt/conda -name '*.a' -delete &&\
     conda clean -y --all && rm -rf /opt/conda/pkgs

@@ -1,0 +1,12 @@
+Aldh1L1, Stat3
+Brn2, Mash1&!Olig2
+Hes5, !Mash1&Pax6
+Mash1, Pax6&!Hes5
+Myt1L, Olig2
+Olig2, Hes5&!Scl
+Pax6, Pax6
+Scl, Hes5&!Olig2
+Sox8, Olig2
+Stat3, Hes5&Scl
+Tuj1, (Brn2&Myt1L)|(Brn2&Zic1)
+Zic1, Mash1

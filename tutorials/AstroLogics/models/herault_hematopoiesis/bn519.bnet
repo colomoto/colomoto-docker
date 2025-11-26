@@ -1,0 +1,15 @@
+Bclaf1, Myc
+CDK46CycD, Bclaf1|Myc
+CIPKIP, Junb
+Cebpa, (Gata2&!Ikzf1)|(!Ikzf1&Spi1)
+Egr1, Gata2&Junb
+Fli1, Junb|(Gata1&!Klf1)
+Gata1, Fli1|(Gata1&!Ikzf1&!Spi1)|(Gata2&!Spi1)
+Gata2, (Egr1&!Gata1&!Zfpm1)|(!Gata1&Gata2&!Zfpm1)|(Gata2&!Spi1&!Zfpm1)
+Ikzf1, Gata2
+Junb, Egr1|Myc
+Klf1, !Fli1&Gata1
+Myc, Bclaf1&Cebpa
+Spi1, (Cebpa&!Gata1&!Gata2)|(!Gata1&Spi1)
+Tal1, Gata1&!Spi1
+Zfpm1, Gata1

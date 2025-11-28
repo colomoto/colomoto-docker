@@ -4,6 +4,11 @@
         "description": "Abduction-based control of fixed points of Boolean networks",
         "release_url": "https://github.com/algorecell/pyActoNet/releases/tag/v{}"
     },
+    "AstroLogics": {
+        "name": "AstroLogics",
+        "description": "AstroLogics is a Python package designed for analysing monotonous Boolean model ensemble",
+        "release_url": "https://github.com/sysbio-curie/AstroLogics/releases/tag/v{}"
+    },
     "aeon": {
         "name": "AEON.py",
         "description": "Symbolic analysis (attractors, reachability) of (partially specified) Boolean networks",

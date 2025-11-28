@@ -148,9 +148,9 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
 # Tier 3: tools with frequent updates (>4/year) or lightweight with thin dependencies
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         algorecell_types=1.0=py_0 \
-        astrologics \
+        astrologics=0.3.2=py_0 \
         bns-python=0.2=py_0 \
-        bonesis=0.6.8.1=py_0 \
+        bonesis=0.6.9=py_0 \
         boon=1.28=py_0 \
         boolsim-python=0.5=py_0 \
         cabean-python=1.0=py_0 \
@@ -158,7 +158,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         casq=1.3.3=pyhd8ed1ab_1 \
         colomoto_jupyter=0.9.2=py_0 \
         ginsim-python=0.4.6=py_0 \
-        mpbn=4.2=py_0 \
+        mpbn=4.3=py_0 \
         colomoto::nordic=2.7.1=py_0 \
         pyactonet=1.0=py_0 \
         szlaura::pydruglogics=0.1.10=py_0 \

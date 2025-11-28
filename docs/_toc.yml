@@ -19,6 +19,9 @@ parts:
   - file: tools/aeon
     sections:
     - glob: tutorials/[aA][eE][oO][nN]/*
+  - file: tools/AstroLogics
+    sections:
+    - glob: tutorials/[aA][sS][tT][rR][oO][lL][oO][gG][iI][cC][sS]/*
   - file: tools/biolqm
     sections:
     - glob: tutorials/[bB][iI][oO][lL][qQ][mM]/*

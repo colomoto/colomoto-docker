@@ -1,0 +1,110 @@
+version: 1
+project:
+  title: CoLoMoTo Docker distribution
+  copyright: '2025'
+  exclude:
+    - .github
+    - _build
+    - usecases
+  toc:
+    - file: README
+    - title: Usage
+      children:
+        - file: usage
+        - file: CONTRIBUTING
+        - file: versions
+        - file: contact
+    - title: Resources
+      children:
+        - file: usecases
+        - file: materials
+    - title: Software tools
+      children:
+        - file: tools/index
+        - file: tools/ActoNet
+          children:
+            - pattern: tutorials/[aA][cC][tT][oO][nN][eE][tT]/*.ipynb
+        - file: tools/aeon
+          children:
+            - pattern: tutorials/[aA][eE][oO][nN]/*.ipynb
+        - file: tools/AstroLogics
+          children:
+            - pattern: tutorials/[aA][sS][tT][rR][oO][lL][oO][gG][iI][cC][sS]/*.ipynb
+        - file: tools/biolqm
+          children:
+            - pattern: tutorials/[bB][iI][oO][lL][qQ][mM]/*.ipynb
+        - file: tools/bns
+          children:
+            - pattern: tutorials/[bB][nN][sS]/*.ipynb
+        - file: tools/bonesis
+          children:
+            - pattern: tutorials/[bB][oO][nN][eE][sS][iI][sS]/*.ipynb
+        - file: tools/booleannet
+          children:
+            - pattern: tutorials/[bB][oO][oO][lL][eE][aA][nN][nN][eE][tT]/*.ipynb
+        - file: tools/boolsim
+          children:
+            - pattern: tutorials/[bB][oO][oO][lL][sS][iI][mM]/*.ipynb
+        - file: tools/boon
+          children:
+            - pattern: tutorials/[bB][oO][oO][nN]/*.ipynb
+        - file: tools/cabean
+          children:
+            - pattern: tutorials/[cC][aA][bB][eE][aA][nN]/*.ipynb
+        - file: tools/caspo
+          children:
+            - pattern: tutorials/[cC][aA][sS][pP][oO]/*.ipynb
+        - file: tools/casq
+          children:
+            - pattern: tutorials/[cC][aA][sS][qQ]/*.ipynb
+        - file: tools/cellcollective
+          children:
+            - pattern: >-
+                tutorials/[cC][eE][lL][lL][cC][oO][lL][lL][eE][cC][tT][iI][vV][eE]/*.ipynb
+        - file: tools/erode
+          children:
+            - pattern: tutorials/[eE][rR][oO][dD][eE]/*.ipynb
+        - file: tools/ginsim
+          children:
+            - pattern: tutorials/[gG][iI][nN][sS][iI][mM]/*.ipynb
+        - file: tools/maboss
+          children:
+            - pattern: tutorials/[mM][aA][bB][oO][sS][sS]/*.ipynb
+        - file: tools/minibn
+          children:
+            - pattern: tutorials/[mM][iI][nN][iI][bB][nN]/*.ipynb
+        - file: tools/mpbn
+          children:
+            - pattern: tutorials/[mM][pP][bB][nN]/*.ipynb
+        - file: tools/nordic
+          children:
+            - pattern: tutorials/[nN][oO][rR][dD][iI][cC]/*.ipynb
+        - file: tools/nusmv
+          children:
+            - pattern: tutorials/[nN][uU][sS][mM][vV]/*.ipynb
+        - file: tools/optboolnet
+          children:
+            - pattern: tutorials/[oO][pP][tT][bB][oO][oO][lL][nN][eE][tT]/*.ipynb
+        - file: tools/pint
+          children:
+            - pattern: tutorials/[pP][iI][nN][tT]/*.ipynb
+        - file: tools/pyboolnet
+          children:
+            - pattern: tutorials/[pP][yY][bB][oO][oO][lL][nN][eE][tT]/*.ipynb
+        - file: tools/pydruglogics
+          children:
+            - pattern: tutorials/[pP][yY][dD][rR][uU][gG][lL][oO][gG][iI][cC][sS]/*.ipynb
+        - file: tools/pystablemotifs
+          children:
+            - pattern: >-
+                tutorials/[pP][yY][sS][tT][aA][bB][lL][eE][mM][oO][tT][iI][fF][sS]/*.ipynb
+        - file: tools/r-boolnet
+          children:
+            - pattern: tutorials/[rR]-[bB][oO][oO][lL][nN][eE][tT]/*.ipynb
+        - file: tools/scboolseq
+          children:
+            - pattern: tutorials/[sS][cC][bB][oO][oO][lL][sS][eE][qQ]/*.ipynb
+site:
+  options:
+    folders: true
+  template: book-theme

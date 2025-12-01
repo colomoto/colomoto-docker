@@ -6,7 +6,7 @@ The CoLoMoTo Docker image provides access to the following softwares:
 | --- | --- | --- | --- |
 | ActoNet | https://github.com/algorecell/pyActoNet | Abduction-based control of fixed points of Boolean networks | Python module [`actonet`](https://pyactonet.readthedocs.io/) |
 | AEON\.py | https://github.com/sybila/biodivine-aeon-py | Symbolic analysis (attractors, reachability) of (partially specified) Boolean networks | Python module [`biodivine_aeon`](https://biodivine.fi.muni.cz/docs/aeon-py/latest/) |
-| AstroLogics | https://github.com/sysbio-curie/AstroLogics/ | AstroLogics is a Python package designed for analysing monotonous Boolean model ensemble | Python module `astrologics`(https://astrologics.readthedocs.io/en/latest/) |
+| AstroLogics | https://github.com/sysbio-curie/AstroLogics/ | AstroLogics is a Python package designed for analysing monotonous Boolean model ensemble | Python module [`astrologics`](https://astrologics.readthedocs.io) |
 | bioLQM | https://colomoto.github.io/biolqm/ | Logical Qualitative Modelling toolkit | Python module [`biolqm`](https://github.com/GINsim/GINsim-python) |
 | BNS | https://people.kth.se/~dubrova/BNS/user_manual.html | Identification of synchronous attractors | Python module [`bns`](https://github.com/colomoto/bns-python) | |
 | BoNesis | https://bnediction.github.io/bonesis | Synthesis of Boolean Networks from architecture and dynamical properties | Python module `bonesis` |

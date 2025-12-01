@@ -3,7 +3,7 @@ name: AstroLogics
 homepage: https://github.com/sysbio-curie/AstroLogics/
 release_url: https://github.com/sysbio-curie/AstroLogics/releases/tag/v{}
 summary: AstroLogics is a Python package designed for analysing monotonous Boolean model ensemble
-interface: Python module `astrologics`(https://astrologics.readthedocs.io/en/latest/)
+interface: Python module [`astrologics`](https://astrologics.readthedocs.io)
 package_contact: saran.pankaew@curie.fr
 ---
 

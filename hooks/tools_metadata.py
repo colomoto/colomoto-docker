@@ -47,7 +47,8 @@ def sorted_tools():
 ##
 RC = {}
 for toolid, meta in REG.items():
-    RC[toolid] = {
+    package = meta.get("package_name", toolid)
+    RC[package] = {
         "name": meta["name"].replace("\\.", "."),
         "description": meta["summary"],
         "release_url": meta["release_url"]}

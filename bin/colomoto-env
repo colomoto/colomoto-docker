@@ -16,7 +16,8 @@ set -x
 
 if [ "$UID" != 0 ]; then
     [ "$UID" -ne 1000 ] && usermod -u "$UID" user
-    [ "$GID" -ne 1000 ] && (groupmod -g "$GID" user || usermod -a -G "$GID" user)
+    [ "$GID" -ne 1000 ] && groupmod -g "$GID" user
+    [ "$UID" -ne 1000 ] && chown -R user: /home/user
 fi
 
 gosu user "${@}"

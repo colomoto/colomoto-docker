@@ -4,6 +4,7 @@ homepage: https://github.com/algorecell/pyActoNet
 release_url: https://github.com/algorecell/pyActoNet/releases/tag/v{}
 summary: Abduction-based control of fixed points of Boolean networks
 interface: Python module [`actonet`](https://pyactonet.readthedocs.io/)
+package_name: pyactonet
 package_contact: Célia Biane
                  Loïc Paulevé <loic.pauleve@labri.fr>
 ---

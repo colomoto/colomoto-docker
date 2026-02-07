@@ -1,3 +1,22 @@
 #!/bin/bash
-source activate root
-"${@}"
+set -e
+set -u
+
+: "${UID:=1000}"
+: "${GID:=${UID}}"
+
+echo "UID: $UID"
+echo "GID: $GID"
+
+if [ "$#" = 0 ]
+then set -- "$(command -v bash 2>/dev/null || command -v sh)" -l
+fi
+
+set -x
+
+if [ "$UID" != 0 ]; then
+    [ "$UID" -ne 1000 ] && usermod -u "$UID" user
+    [ "$GID" -ne 1000 ] && (groupmod -g "$GID" user || usermod -a -G "$GID" user)
+fi
+
+gosu user "${@}"

@@ -174,6 +174,8 @@ ADD --chmod=644 https://github.com/ipython/xkcd-font/raw/master/xkcd-script/font
 
 COPY --chmod=755 validate.sh /usr/local/bin/
 COPY --chmod=755 bin/* /usr/bin/
+RUN wget -O- https://github.com/tianon/gosu/releases/download/1.19/gosu-amd64 |\
+    install /dev/stdin /usr/local/bin/gosu
 
 ##
 # Notebooks
@@ -181,8 +183,6 @@ COPY --chmod=755 bin/* /usr/bin/
 COPY --chown=$NB_USER:$NB_USER tutorials /notebook/tutorials
 
 RUN chown $NB_USER:$NB_USER /notebook
-
-USER $NB_USER
 
 RUN mkdir -p /home/$NB_USER/.local/lib/python3.12/site-packages && \
     mkdir /notebook/persistent &&\

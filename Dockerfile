@@ -182,11 +182,11 @@ RUN wget -O- https://github.com/tianon/gosu/releases/download/1.19/gosu-amd64 |\
 ##
 COPY --chown=$NB_USER:$NB_USER tutorials /notebook/tutorials
 
-RUN chown $NB_USER:$NB_USER /notebook
-
 RUN mkdir -p /home/$NB_USER/.local/lib/python3.12/site-packages && \
     mkdir /notebook/persistent &&\
     touch /notebook/persistent/.keep
+
+RUN chown -R $NB_USER:$NB_USER /notebook /home/$NB_USER
 
 ENV COLOMOTO_SKIP_JUPYTER_JS=1
 ARG IMAGE_NAME

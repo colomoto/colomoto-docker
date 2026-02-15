@@ -22,13 +22,11 @@ jobs:
       - name: Docker image build
         run: sh hooks/build
       - name: Login to docker hub
-        uses: actions-hub/docker/login@master
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      - name: Push image
-        uses: actions-hub/docker@master
+        uses: docker/login-action@v3
         with:
-          args: push ${IMAGE}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Push image
+        run: docker push ${IMAGE}
       - name: Docker image validation
         run: docker run --rm $IMAGE env validate.sh

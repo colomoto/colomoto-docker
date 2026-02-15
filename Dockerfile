@@ -41,7 +41,7 @@ RUN TINI_VERSION="0.19.0" && \
 # package versions in this section are not pinned unless necessary
 #
 ENV CONDA_PLUGINS_AUTO_ACCEPT_TOS=yes
-RUN CONDA_VERSION="py312_25.5.1-1" && \
+RUN CONDA_VERSION="py313_25.11.1-1" && \
     echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O ~/miniconda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
@@ -180,7 +180,7 @@ RUN wget -O- https://github.com/tianon/gosu/releases/download/1.19/gosu-amd64 |\
 ##
 COPY --chown=$NB_USER:$NB_USER tutorials /notebook/tutorials
 
-RUN mkdir -p /home/$NB_USER/.local/lib/python3.12/site-packages && \
+RUN mkdir -p /home/$NB_USER/.local/lib/python3.13/site-packages && \
     mkdir /notebook/persistent &&\
     touch /notebook/persistent/.keep
 

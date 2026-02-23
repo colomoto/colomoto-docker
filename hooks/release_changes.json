@@ -1,15 +1,10 @@
 {
-    "ActoNet": {
-        "name": "ActoNet",
-        "description": "Abduction-based control of fixed points of Boolean networks",
-        "release_url": "https://github.com/algorecell/pyActoNet/releases/tag/v{}"
-    },
-    "AstroLogics": {
+    "astrologics": {
         "name": "AstroLogics",
         "description": "AstroLogics is a Python package designed for analysing monotonous Boolean model ensemble",
         "release_url": "https://github.com/sysbio-curie/AstroLogics/releases/tag/v{}"
     },
-    "aeon": {
+    "biodivine_aeon": {
         "name": "AEON.py",
         "description": "Symbolic analysis (attractors, reachability) of (partially specified) Boolean networks",
         "release_url": "https://github.com/sybila/biodivine-aeon-py/releases/tag/v{}"
@@ -128,6 +123,11 @@
         "name": "Pint",
         "description": "Static analyzer for dynamics of Automata Networks",
         "release_url": "https://github.com/pauleve/pint/releases/"
+    },
+    "pyactonet": {
+        "name": "ActoNet",
+        "description": "Abduction-based control of fixed points of Boolean networks",
+        "release_url": "https://github.com/algorecell/pyActoNet/releases/tag/v{}"
     },
     "pyboolnet": {
         "name": "PyBoolNet",

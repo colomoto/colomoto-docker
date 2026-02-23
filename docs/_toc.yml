@@ -19,7 +19,7 @@ parts:
   - file: tools/aeon
     sections:
     - glob: tutorials/[aA][eE][oO][nN]/*
-  - file: tools/AstroLogics
+  - file: tools/astrologics
     sections:
     - glob: tutorials/[aA][sS][tT][rR][oO][lL][oO][gG][iI][cC][sS]/*
   - file: tools/biolqm

@@ -150,7 +150,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         algorecell_types=1.1=py_0 \
         astrologics=0.3.2=py_0 \
         bns-python=0.2=py_0 \
-        bonesis=0.6.9=py_0 \
+        bonesis=0.7.0=py_0 \
         boon=1.28=py_0 \
         boolsim-python=0.5=py_0 \
         cabean-python=1.0=py_0 \
@@ -162,7 +162,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         colomoto::nordic=2.7.1=py_0 \
         pyactonet=1.0=py_0 \
         szlaura::pydruglogics=0.1.10=py_0 \
-        pymaboss=0.8.13=py_0 \
+        pymaboss=0.8.15=py_0 \
         pypint=1.6.4=py_0 \
         pystablemotifs=3.0.6=py_0 \
         scboolseq=2.3.2=py_0 \

@@ -30,7 +30,7 @@ jobs:
                   -c daemontus\
                   -c creda\
                   -c bioconda\
-                  --from-history > conda-environment-${TAG}.yml
+                  > conda-environment-${TAG}.yml
             python hooks/release_changes.py > CHANGELOG.txt
       - name: Release
         uses: softprops/action-gh-release@v1

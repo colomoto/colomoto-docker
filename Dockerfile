@@ -50,12 +50,6 @@ RUN CONDA_VERSION="py313_26.5.3-2" && \
     conda config --append channels colomoto && \
     conda config --add channels conda-forge && \
     conda config --add channels colomoto/label/fake && \
-    conda config --set solver libmamba && \
-    conda update -y  \
-        conda-libmamba-solver \
-        libmamba \
-        libmambapy \
-        libarchive && \
     conda update --all -y && \
     conda install --no-update-deps -y \
         openjdk \

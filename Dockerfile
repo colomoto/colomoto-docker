@@ -22,6 +22,7 @@ RUN apt-get update --fix-missing && \
         wget\
         fontconfig\
         libharfbuzz0b\
+        libgomp1\
         openjdk-11-jre-headless \
         && \
     apt clean -y && \

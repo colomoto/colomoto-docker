@@ -42,7 +42,7 @@ RUN TINI_VERSION="0.19.0" && \
 # package versions in this section are not pinned unless necessary
 #
 ENV CONDA_PLUGINS_AUTO_ACCEPT_TOS=yes
-RUN CONDA_VERSION="py313_26.5.3-2" && \
+RUN CONDA_VERSION="py314_26.5.3-2" && \
     echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O ~/miniconda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
@@ -120,7 +120,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
         bns=1.3=h2bc3f7f_0 \
         cabean=1.0.0=0 \
         bioasp::caspo=4.0.3=py_0 \
-        potassco::clingo=5.8.2=py313h3fd9d12_0 \
+        potassco::clingo=5.8.2=py314h3fd9d12_0 \
         erode-python=0.7.2=py_0 \
         ginsim=3.1.post20260708=0 \
         its=20210125=0 \
@@ -132,9 +132,9 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
 
 # Tier 2: tools with regular updates (2-4/year)
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
-        daemontus::biodivine_aeon=1.4.2=py313h3fd9d12_0 \
+        daemontus::biodivine_aeon=1.4.2=py314h3fd9d12_0 \
         maboss=2.6.6=h82b5633_1 \
-        pyboolnet=3.0.16=py313_1 \
+        pyboolnet=3.0.16=py314_1 \
         msolab::optboolnet=1.0.1=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
@@ -175,7 +175,7 @@ RUN wget -O- https://github.com/tianon/gosu/releases/download/1.19/gosu-amd64 |\
 ##
 COPY --chown=$NB_USER:$NB_USER tutorials /notebook/tutorials
 
-RUN mkdir -p /home/$NB_USER/.local/lib/python3.13/site-packages && \
+RUN mkdir -p /home/$NB_USER/.local/lib/python3.14/site-packages && \
     mkdir /notebook/persistent &&\
     touch /notebook/persistent/.keep
 

@@ -120,7 +120,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
         bns=1.3=h2bc3f7f_0 \
         cabean=1.0.0=0 \
         bioasp::caspo=4.0.3=py_0 \
-        potassco::clingo=5.8.2=py312h3fd9d12_0 \
+        potassco::clingo=5.8.2=py313h3fd9d12_0 \
         erode-python=0.7.2=py_0 \
         ginsim=3.0.0b=13 \
         its=20210125=0 \
@@ -132,9 +132,9 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
 
 # Tier 2: tools with regular updates (2-4/year)
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
-        daemontus::biodivine_aeon=1.4.2=py312h3fd9d12_0 \
+        daemontus::biodivine_aeon=1.4.2=py313h3fd9d12_0 \
         maboss=2.6.6=h82b5633_1 \
-        pyboolnet=3.0.16=py312_1 \
+        pyboolnet=3.0.16=py313_1 \
         msolab::optboolnet=1.0.1=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 

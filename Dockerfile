@@ -127,7 +127,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
         bns=1.3=h2bc3f7f_0 \
         cabean=1.0.0=0 \
         caspo=4.0.3=py_0 \
-        clingo=5.8.0=py312h3fd9d12_0 \
+        clingo=5.8.2=py312h3fd9d12_0 \
         erode-python=0.7.2=py_0 \
         ginsim=3.0.0b=13 \
         its=20210125=0 \
@@ -139,7 +139,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
 
 # Tier 2: tools with regular updates (2-4/year)
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
-        daemontus::biodivine_aeon=1.3.5=py312h3fd9d12_0 \
+        daemontus::biodivine_aeon=1.4.2=py312h3fd9d12_0 \
         maboss=2.6.6=h82b5633_1 \
         pyboolnet=3.0.16=py312_1 \
         msolab::optboolnet=1.0.1=py_0 \
@@ -150,19 +150,19 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         algorecell_types=1.1=py_0 \
         astrologics=0.3.2=py_0 \
         bns-python=0.2=py_0 \
-        bonesis=0.7.0=py_0 \
+        bonesis=0.7.1=py_0 \
         boon=1.28=py_0 \
         boolsim-python=0.5=py_0 \
         cabean-python=1.0=py_0 \
         caspo-control=1.0=py_0 \
         casq=1.4.4=pyhd8ed1ab_0 \
         colomoto_jupyter=0.9.3=py_0 \
-        ginsim-python=0.4.8=py_0 \
+        ginsim-python=0.4.10=py_0 \
         mpbn=4.4=py_0 \
         colomoto::nordic=2.7.1=py_0 \
         pyactonet=1.0=py_0 \
         szlaura::pydruglogics=0.1.10=py_0 \
-        pymaboss=0.8.15=py_0 \
+        pymaboss=0.8.16=py_0 \
         pypint=1.6.4=py_0 \
         pystablemotifs=3.0.6=py_0 \
         scboolseq=2.3.2=py_0 \

@@ -74,7 +74,7 @@ RUN conda install -y \
         pydot \
         python-graphviz \
         seaborn \
-        'scikit-learn<1.9' \
+        scikit-learn \
         && \
     find /opt/conda -name '*.a' -delete &&\
     conda clean -y --all && rm -rf /opt/conda/pkgs

@@ -1,4 +1,4 @@
-FROM debian:sid-20250811-slim
+FROM debian:sid-20260824-slim
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /home/user/.local/bin:/opt/conda/bin:$PATH
@@ -22,6 +22,7 @@ RUN apt-get update --fix-missing && \
         wget\
         fontconfig\
         libharfbuzz0b\
+        libgomp1\
         openjdk-11-jre-headless \
         && \
     apt clean -y && \
@@ -41,7 +42,7 @@ RUN TINI_VERSION="0.19.0" && \
 # package versions in this section are not pinned unless necessary
 #
 ENV CONDA_PLUGINS_AUTO_ACCEPT_TOS=yes
-RUN CONDA_VERSION="py312_25.5.1-1" && \
+RUN CONDA_VERSION="py313_26.5.3-2" && \
     echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O ~/miniconda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
@@ -49,14 +50,7 @@ RUN CONDA_VERSION="py312_25.5.1-1" && \
     conda config --set auto_update_conda False && \
     conda config --append channels colomoto && \
     conda config --add channels conda-forge && \
-    conda config --add channels potassco && \
     conda config --add channels colomoto/label/fake && \
-    conda config --set solver libmamba && \
-    conda update -y  \
-        conda-libmamba-solver \
-        libmamba \
-        libmambapy \
-        libarchive && \
     conda update --all -y && \
     conda install --no-update-deps -y \
         openjdk \
@@ -80,7 +74,7 @@ RUN conda install -y \
         pydot \
         python-graphviz \
         seaborn \
-        'scikit-learn<1.9' \
+        scikit-learn \
         && \
     find /opt/conda -name '*.a' -delete &&\
     conda clean -y --all && rm -rf /opt/conda/pkgs
@@ -88,7 +82,7 @@ RUN conda install -y \
 # R
 RUN conda install -y \
         'r-base>=4.1' \
-        'rpy2<3.6.4' \
+        rpy2 \
         && \
     find /opt/conda -name '*.a' -delete &&\
     conda clean -y --all && rm -rf /opt/conda/pkgs
@@ -119,17 +113,16 @@ RUN conda install --no-update-deps -y -c conda-forge -c bioconda\
 
 # Tier 1: tools with rare updates (0-1/year) and thin dependencies
 RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
-        -c potassco -c bioasp \
-        asprin=3.1.1=py_0 \
+        potassco::asprin=3.1.1=py_0 \
         boolsim=1.2=0 \
         boolean.py=5.0=pyhd8ed1ab_0 \
         booleannet=1.2.8=py_0 \
         bns=1.3=h2bc3f7f_0 \
         cabean=1.0.0=0 \
-        caspo=4.0.3=py_0 \
-        clingo=5.8.0=py312h3fd9d12_0 \
+        bioasp::caspo=4.0.3=py_0 \
+        potassco::clingo=5.8.2=py313h3fd9d12_0 \
         erode-python=0.7.2=py_0 \
-        ginsim=3.0.0b=13 \
+        ginsim=3.1.post20260708=0 \
         its=20210125=0 \
         nusmv=2.7.0=0 \
         nusmv-a=1.2=h6bb024c_0 \
@@ -139,33 +132,33 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
 
 # Tier 2: tools with regular updates (2-4/year)
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
-        daemontus::biodivine_aeon=1.3.5=py312h3fd9d12_0 \
+        daemontus::biodivine_aeon=1.4.2=py313h3fd9d12_0 \
         maboss=2.6.6=h82b5633_1 \
-        pyboolnet=3.0.16=py312_1 \
+        pyboolnet=3.0.16=py313_1 \
         msolab::optboolnet=1.0.1=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 # Tier 3: tools with frequent updates (>4/year) or lightweight with thin dependencies
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         algorecell_types=1.1=py_0 \
-        astrologics=0.3.2=py_0 \
+        astrologics=0.3.3=py_0 \
         bns-python=0.2=py_0 \
-        bonesis=0.7.0=py_0 \
+        bonesis=0.7.1=py_0 \
         boon=1.28=py_0 \
         boolsim-python=0.5=py_0 \
         cabean-python=1.0=py_0 \
         caspo-control=1.0=py_0 \
         casq=1.4.4=pyhd8ed1ab_0 \
         colomoto_jupyter=0.9.3=py_0 \
-        ginsim-python=0.4.8=py_0 \
+        ginsim-python=0.4.10=py_0 \
         mpbn=4.4=py_0 \
         colomoto::nordic=2.7.1=py_0 \
         pyactonet=1.0=py_0 \
         szlaura::pydruglogics=0.1.10=py_0 \
-        pymaboss=0.8.15=py_0 \
+        pymaboss=0.8.16=py_0 \
         pypint=1.6.4=py_0 \
         pystablemotifs=3.0.6=py_0 \
-        scboolseq=2.3.2=py_0 \
+        scboolseq=2.3.4=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 ## Additional tweaks
@@ -182,7 +175,7 @@ RUN wget -O- https://github.com/tianon/gosu/releases/download/1.19/gosu-amd64 |\
 ##
 COPY --chown=$NB_USER:$NB_USER tutorials /notebook/tutorials
 
-RUN mkdir -p /home/$NB_USER/.local/lib/python3.12/site-packages && \
+RUN mkdir -p /home/$NB_USER/.local/lib/python3.13/site-packages && \
     mkdir /notebook/persistent &&\
     touch /notebook/persistent/.keep
 

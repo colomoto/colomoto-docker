@@ -122,7 +122,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
         bioasp::caspo=4.0.3=py_0 \
         potassco::clingo=5.8.2=py313h3fd9d12_0 \
         erode-python=0.7.2=py_0 \
-        ginsim=3.0.0b=13 \
+        ginsim=3.1.post20260708=0 \
         its=20210125=0 \
         nusmv=2.7.0=0 \
         nusmv-a=1.2=h6bb024c_0 \
@@ -141,7 +141,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
 # Tier 3: tools with frequent updates (>4/year) or lightweight with thin dependencies
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         algorecell_types=1.1=py_0 \
-        astrologics=0.3.2=py_0 \
+        astrologics=0.3.3=py_0 \
         bns-python=0.2=py_0 \
         bonesis=0.7.1=py_0 \
         boon=1.28=py_0 \
@@ -158,7 +158,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         pymaboss=0.8.16=py_0 \
         pypint=1.6.4=py_0 \
         pystablemotifs=3.0.6=py_0 \
-        scboolseq=2.3.2=py_0 \
+        scboolseq=2.3.4=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
 
 ## Additional tweaks

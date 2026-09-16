@@ -141,7 +141,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
 # Tier 3: tools with frequent updates (>4/year) or lightweight with thin dependencies
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         algorecell_types=1.1=py_0 \
-        astrologics=0.3.3=py_0 \
+        astrologics=1.0.0=py_0 \
         bns-python=0.2=py_0 \
         bonesis=0.7.1=py_0 \
         boon=1.28=py_0 \

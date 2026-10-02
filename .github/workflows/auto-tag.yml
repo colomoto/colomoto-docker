@@ -5,7 +5,7 @@ on:
   repository_dispatch:
     types: release
   schedule:
-    - cron: "00 23 * * *"
+    - cron: "00 12 * * *"
 
 jobs:
   release:

@@ -2,7 +2,7 @@ name: monthly merge
 
 on:
   schedule:
-    - cron: "00 19,21 01 * *"
+    - cron: "00 01,08 01 * *"
 
 jobs:
   monthly-merge:

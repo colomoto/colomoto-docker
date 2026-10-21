@@ -1,4 +1,4 @@
-FROM debian:sid-20260824-slim
+FROM debian:sid-20261020-slim
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /home/user/.local/bin:/opt/conda/bin:$PATH
@@ -23,7 +23,7 @@ RUN apt-get update --fix-missing && \
         fontconfig\
         libharfbuzz0b\
         libgomp1\
-        openjdk-11-jre-headless \
+        openjdk-25-jre-headless \
         && \
     apt clean -y && \
     rm -rf /var/lib/apt/lists/*
@@ -42,7 +42,7 @@ RUN TINI_VERSION="0.19.0" && \
 # package versions in this section are not pinned unless necessary
 #
 ENV CONDA_PLUGINS_AUTO_ACCEPT_TOS=yes
-RUN CONDA_VERSION="py314_26.5.3-2" && \
+RUN CONDA_VERSION="py314_26.9.3-0" && \
     echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O ~/miniconda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \

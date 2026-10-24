@@ -1,4 +1,4 @@
-FROM debian:sid-20260824-slim
+FROM debian:sid-20261020-slim
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /home/user/.local/bin:/opt/conda/bin:$PATH
@@ -23,7 +23,7 @@ RUN apt-get update --fix-missing && \
         fontconfig\
         libharfbuzz0b\
         libgomp1\
-        openjdk-11-jre-headless \
+        openjdk-25-jre-headless \
         && \
     apt clean -y && \
     rm -rf /var/lib/apt/lists/*
@@ -42,7 +42,7 @@ RUN TINI_VERSION="0.19.0" && \
 # package versions in this section are not pinned unless necessary
 #
 ENV CONDA_PLUGINS_AUTO_ACCEPT_TOS=yes
-RUN CONDA_VERSION="py314_26.5.3-2" && \
+RUN CONDA_VERSION="py314_26.9.3-0" && \
     echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O ~/miniconda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
@@ -120,9 +120,9 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
         bns=1.3=h2bc3f7f_0 \
         cabean=1.0.0=0 \
         bioasp::caspo=4.0.3=py_0 \
-        potassco::clingo=5.8.2=py314h3fd9d12_0 \
+        potassco::clingo=5.8.1=py314h3fd9d12_0 \
         erode-python=0.7.2=py_0 \
-        ginsim=3.1.post20260708=0 \
+        ginsim=3.1.post20261018=0 \
         its=20210125=0 \
         nusmv=2.7.0=0 \
         nusmv-a=1.2=h6bb024c_0 \
@@ -133,7 +133,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps  -y  \
 # Tier 2: tools with regular updates (2-4/year)
 RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         daemontus::biodivine_aeon=1.4.2=py314h3fd9d12_0 \
-        maboss=2.6.6=h82b5633_1 \
+        maboss=2.6.8=h82b5633_1 \
         pyboolnet=3.0.16=py314_1 \
         msolab::optboolnet=1.0.1=py_0 \
     && conda clean -y --all && rm -rf /opt/conda/pkgs
@@ -144,7 +144,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         astrologics=1.0.0=py_0 \
         bns-python=0.2=py_0 \
         bonesis=0.7.1=py_0 \
-        boon=1.28=py_0 \
+        boon=2.1=py_0 \
         boolsim-python=0.5=py_0 \
         cabean-python=1.0=py_0 \
         caspo-control=1.0=py_0 \
@@ -155,7 +155,7 @@ RUN AUTO_UPDATE=1 conda install --no-update-deps -y \
         colomoto::nordic=2.7.1=py_0 \
         pyactonet=1.0=py_0 \
         szlaura::pydruglogics=0.1.10=py_0 \
-        pymaboss=0.8.16=py_0 \
+        pymaboss=0.8.17=py_0 \
         pypint=1.6.4=py_0 \
         pystablemotifs=3.0.6=py_0 \
         scboolseq=2.3.4=py_0 \

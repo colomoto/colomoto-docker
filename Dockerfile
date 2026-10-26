@@ -23,6 +23,7 @@ RUN apt-get update --fix-missing && \
         fontconfig\
         libharfbuzz0b\
         libgomp1\
+        libxml2-16\
         openjdk-25-jre-headless \
         && \
     apt clean -y && \

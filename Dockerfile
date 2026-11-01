@@ -24,7 +24,7 @@ RUN apt-get update --fix-missing && \
         libharfbuzz0b\
         libgomp1\
         libxml2-16\
-        openjdk-25-jre-headless \
+        openjdk-11-jre-headless \
         && \
     apt clean -y && \
     rm -rf /var/lib/apt/lists/*
